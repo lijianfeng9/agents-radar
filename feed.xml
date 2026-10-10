@@ -6,7 +6,104 @@
     <description>AI 开源生态每日简报 · Daily AI ecosystem digest</description>
     <language>zh-CN</language>
     <atom:link href="https://lijianfeng9.github.io/agents-radar/feed.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Sat, 10 Oct 2026 05:57:37 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 10 Oct 2026 07:36:26 +0000</lastBuildDate>
+    <item>
+      <title>AI 每日要闻 2026-10-10</title>
+      <link>https://lijianfeng9.github.io/agents-radar/#2026-10-10/ai-news</link>
+      <guid isPermaLink="true">https://lijianfeng9.github.io/agents-radar/#2026-10-10/ai-news</guid>
+      <pubDate>Sat, 10 Oct 2026 00:00:00 +0000</pubDate>
+      <description>AI 每日要闻 2026-10-10 数据来源: 量子位 · 雷峰网 · 钛媒体 · 爱范儿 · 开源中国 · 少数派 · 小众软件 | 生成时间: 2026-10-10 07:35 UTC | 要闻 15 条 / 抓取 60 条 今日速览 阶跃 Step 5 Preview 登顶 OpenRouter，将于 10 月 15 日开源。 微软发决策模型 Decision-1，Jev 估值达 75 亿美元。 Claude Haiku 5.5 走低价，大模型价格战再起。 REA 把逆向工程接入 Agent，Manus 融资超 5 亿美元。 Nano Banana 2.1 实战与 AI 短剧成创作者新热点。 🔥 大模型动向 阶跃 Step 5 Preview 登顶 OpenRouter，10月15日开源 — 新旗舰基座模型登 Trending 榜第一，即将开源，开发者可关注。 微软发布决策模型 Microsoft-Decision-1 — 基于 Qwen 后训练，只输出选项概率，可被软件直接消费。 不输出文本的 Jev 估值飙到 75 亿美元 — 上线几周获 8.7 亿美元融资，三分之一财富...</description>
+      <content:encoded><![CDATA[<h1>AI 每日要闻 2026-10-10</h1>
+<blockquote>
+<p>数据来源: 量子位 · 雷峰网 · 钛媒体 · 爱范儿 · 开源中国 · 少数派 · 小众软件 | 生成时间: 2026-10-10 07:35 UTC | 要闻 15 条 / 抓取 60 条</p>
+</blockquote>
+<h2>今日速览</h2>
+<ul>
+<li>阶跃 Step 5 Preview 登顶 OpenRouter，将于 10 月 15 日开源。</li>
+<li>微软发决策模型 Decision-1，Jev 估值达 75 亿美元。</li>
+<li>Claude Haiku 5.5 走低价，大模型价格战再起。</li>
+<li>REA 把逆向工程接入 Agent，Manus 融资超 5 亿美元。</li>
+<li>Nano Banana 2.1 实战与 AI 短剧成创作者新热点。</li>
+</ul>
+<h2>🔥 大模型动向</h2>
+<ul>
+<li><a href="https://www.leiphone.com/category/industrynews/7iRgmb0q4JgVbmU8.html">阶跃 Step 5 Preview 登顶 OpenRouter，10月15日开源</a> — 新旗舰基座模型登 Trending 榜第一，即将开源，开发者可关注。</li>
+<li><a href="https://www.oschina.net/news/502942/microsoft-decision-1-model-foundry">微软发布决策模型 Microsoft-Decision-1</a> — 基于 Qwen 后训练，只输出选项概率，可被软件直接消费。</li>
+<li><a href="https://www.oschina.net/news/502935/the-maker-of-non-text-ai-model-jev-valued-at-7-5b">不输出文本的 Jev 估值飙到 75 亿美元</a> — 上线几周获 8.7 亿美元融资，三分之一财富 500 强已使用。</li>
+<li><a href="https://www.tmtpost.com/8163462.html">Claude Haiku 5.5 低价搅动大模型价格战</a> — Anthropic 推轻量低价模型，大模型竞争转向日常任务与成本。</li>
+<li><a href="https://www.qbitai.com/2026/10/502364.html">字节找到 DeepSeek 时强时弱的原因</a> — 研究指向 Token 站位影响答题稳定性，或助推理优化。</li>
+<li><a href="https://www.ifanr.com/1683401">陶哲轩转发抵制 OpenAI 声明</a> — 数学界质疑 OpenAI 刷成果，抵制合作呼吁回归人类理解。</li>
+<li><a href="https://www.leiphone.com/category/yanxishe/BfzpShx7bKSPT4Ul.html">田柯宇新实验室估值 2 亿美元做世界模型</a> — 争议创始人获五源、IDG 投资，瞄准世界模型赛道。</li>
+<li><a href="https://www.leiphone.com/category/private/A0uKolgD2esWoUfT.html">WorldArena 2.0 开考世界模型</a> — 评测世界模型能否预测动作、支持策略并落地机器人。</li>
+</ul>
+<h2>🤖 智能体 &amp; 开源项目</h2>
+<ul>
+<li><a href="https://www.oschina.net/news/502941">REA 让 Coding Agent 具备逆向工程能力</a> — 以 MCP server 接入 Claude Code 等，直接问 App 功能实现。</li>
+<li><a href="https://www.qbitai.com/2026/10/502422.html">联想 TianxiCode 登 SWE-bench-Live 第一</a> — 代码智能体框架以 71% 解决率登顶全球。</li>
+<li><a href="https://www.qbitai.com/2026/10/502411.html">因果智能让机器人 0.2 秒急停</a> — 机器人可秒级重规划，应对人手突然介入等真实场景。</li>
+</ul>
+<h2>🎬 创作者 · AIGC 玩法</h2>
+<ul>
+<li><a href="https://www.oschina.net/news/502940">Nano Banana 2.1 九种实战用法</a> — Flash 价格实现 Pro 级多图一致与局部编辑，附提示词。</li>
+</ul>
+<h2>💼 办公提效</h2>
+<ul>
+<li><a href="https://www.oschina.net/news/502926">ApiGo v6.1 支持 AI 办公平台 MCP 接入</a> — 可连接千问办公、豆包等，用 SQL 快速发布数据接口。</li>
+<li><a href="https://www.qbitai.com/2026/10/502426.html">TRAE 把 Code 和 Work 合并</a> — AI 编程与办公工作流统一，降低开发与办公切换成本。</li>
+<li><a href="https://www.oschina.net/news/502923">Zentrola 1.1 补上 AI Coding 成本治理</a> — 统一管理模型访问、凭据、用量与 Token 配额。</li>
+</ul>
+<h2>📈 GitHub 趋势</h2>
+<table>
+<thead>
+<tr>
+<th align="left">项目</th>
+<th align="right">Stars</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><a href="https://github.com/morluto/rea">morluto/rea</a></td>
+<td align="right">54,997（今日 +14,927）</td>
+<td align="left">用 Agent 逆向工程任意软件，今日新增 stars 领先。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/storytold/artcraft">storytold/artcraft</a></td>
+<td align="right">12,311（今日 +3,752）</td>
+<td align="left">面向艺术家与电影人的创作引擎，AIGC 工作流可关注。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/cathrynlavery/diagram-design">cathrynlavery/diagram-design</a></td>
+<td align="right">48,244（今日 +1,739）</td>
+<td align="left">为 AI 编码工具提供 44 种图表设计，输出干净 HTML/SVG。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/mattpocock/skills">mattpocock/skills</a></td>
+<td align="right">283,261（今日 +1,687）</td>
+<td align="left">可直接给 Agent 用的工程师技能集，提升编码任务表现。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/anthropics/knowledge-work-plugins">anthropics/knowledge-work-plugins</a></td>
+<td align="right">28,449（今日 +709）</td>
+<td align="left">面向知识工作者的 Claude Cowork 官方插件集合。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/addyosmani/agent-skills">addyosmani/agent-skills</a></td>
+<td align="right">104,200（今日 +436）</td>
+<td align="left">生产级工程技能包，适配 Claude Code、Codex 等智能体。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/alibaba/open-code-review">alibaba/open-code-review</a></td>
+<td align="right">45,553（今日 +326）</td>
+<td align="left">确定性管线加 LLM Agent，提供行级代码审查与安全规则。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/BerriAI/litellm">BerriAI/litellm</a></td>
+<td align="right">60,806（今日 +95）</td>
+<td align="left">统一接入 100+ LLM API，带成本追踪与限流。</td>
+</tr>
+</tbody></table>
+]]></content:encoded>
+    </item>
     <item>
       <title>热门智能体动态日报 2026-10-10</title>
       <link>https://lijianfeng9.github.io/agents-radar/#2026-10-10/ai-hot-agents</link>
@@ -12017,105 +12114,6 @@ Referenced issue: <a href="https://github.com/RVC-Boss/GPT-SoVITS/issues/2788">h
 <hr>
 <hr>
 <p><em>本日报由 <a href="https://github.com/duanyytop/agents-radar">agents-radar</a> 自动生成。</em></p>
-]]></content:encoded>
-    </item>
-    <item>
-      <title>Official AI Content Report 2026-10-08</title>
-      <link>https://lijianfeng9.github.io/agents-radar/#2026-10-08/ai-web-en</link>
-      <guid isPermaLink="true">https://lijianfeng9.github.io/agents-radar/#2026-10-08/ai-web-en</guid>
-      <pubDate>Thu, 08 Oct 2026 00:00:00 +0000</pubDate>
-      <description>Official AI Content Report 2026-10-08 Today&amp;#39;s update | New content: 6 articles | Generated: 2026-10-08 02:14 UTC Sources: Anthropic: anthropic.com — 3 new articles (sitemap total: 456) OpenAI: openai.com — 3 new articles (sitemap total: 1061) AI Official Content Tracking ReportDate: 2026-10-08Source: Anthropic (claude.com / anthropic.com) &amp;amp; OpenAI (openai.com) 1. Today&amp;#39;s Highlights Anthropic has made a significant leap in AI-driven scientific discovery by announcing that Claude disco...</description>
-      <content:encoded><![CDATA[<h1>Official AI Content Report 2026-10-08</h1>
-<blockquote>
-<p>Today&#39;s update | New content: 6 articles | Generated: 2026-10-08 02:14 UTC</p>
-</blockquote>
-<p>Sources:</p>
-<ul>
-<li>Anthropic: <a href="https://www.anthropic.com">anthropic.com</a> — 3 new articles (sitemap total: 456)</li>
-<li>OpenAI: <a href="https://openai.com">openai.com</a> — 3 new articles (sitemap total: 1061)</li>
-</ul>
-<hr>
-<p><strong>AI Official Content Tracking Report</strong><br><em>Date: 2026-10-08</em><br><em>Source: Anthropic (claude.com / anthropic.com) &amp; OpenAI (openai.com)</em>  </p>
-<hr>
-<h3><strong>1. Today&#39;s Highlights</strong></h3>
-<p>Anthropic has made a significant leap in AI-driven scientific discovery by announcing that <strong>Claude discovered a novel enzyme system with CRISPR-like properties</strong>, marking the first public demonstration of an AI agent identifying biologically transformative molecular machinery from raw genomic data. This breakthrough is underpinned by the launch of a new life sciences research group at Anthropic, signaling a strategic pivot toward <strong>AI-first biology and synthetic biology innovation</strong>. Concurrently, Anthropic expanded its <strong>Cyber Verification Program (CVP)</strong> to three tiers, granting advanced security professionals access to high-capability models like Claude Opus 5.5—demonstrating a nuanced approach to dual-use risk management. The company also launched a major public research initiative titled <em>“What do you want from AI?”</em>, aiming to democratize input on AI’s societal trajectory through interviews with over 81,000 participants. These moves collectively position Anthropic as a leader not just in AI capabilities, but in <strong>scientific co-innovation and ethical governance</strong>.</p>
-<hr>
-<h3><strong>2. Anthropic / Claude Content Highlights</strong></h3>
-<h4><strong><a href="https://www.anthropic.com/news/claude-discovers-novel-enzyme-system">Claude discovers a novel enzyme system</a></strong></h4>
-<p><em>Category: News | Published: 2026-10-07 | Original Link: <a href="https://www.anthropic.com/news/claude-discovers-novel-enzyme-system">https://www.anthropic.com/news/claude-discovers-novel-enzyme-system</a></em><br>This announcement marks a pivotal milestone in AI-driven fundamental science: <strong>Claude identified a previously uncharacterized enzyme system exhibiting structural and functional parallels to CRISPR</strong>, including repetitive DNA sequences and targeted nucleic acid cleavage capabilities. The discovery was made using large-scale genomic datasets without detailed prior hypotheses—highlighting the model’s ability to detect subtle patterns across biological diversity. Crucially, this work was conducted within a newly formed <strong>life sciences research group at Anthropic</strong>, indicating institutional commitment to AI-augmented biology. The implications are profound: such systems could enable next-generation gene editing tools, diagnostics, or even programmable therapeutics—potentially accelerating drug development timelines by orders of magnitude.</p>
-<blockquote>
-<p><strong>Strategic Signal</strong>: This is the first publicly documented case of an LLM discovering a novel biological mechanism with real-world therapeutic potential. It signals Anthropic’s intent to transition from AI safety and alignment to <strong>AI as a primary engine of scientific discovery</strong>, particularly in biotech—a domain where OpenAI has so far focused more on applications than foundational discovery.</p>
-</blockquote>
-<hr>
-<h4><strong><a href="https://www.anthropic.com/research/your-thoughts-on-ai">What do you want from AI?</a></strong></h4>
-<p><em>Category: Research | Published: 2026-10-07 | Original Link: <a href="https://www.anthropic.com/research/your-thoughts-on-ai">https://www.anthropic.com/research/your-thoughts-on-ai</a></em><br>Anthropic is launching a large-scale, participatory research study using <strong>Anthropic Interviewer</strong> to gather firsthand experiences and aspirations regarding AI from global users. The goal is to collect diverse perspectives on how AI should shape society—particularly in domains like healthcare, education, and governance—and to make anonymized responses publicly accessible post-interview. This builds directly on a December 2025 study involving 81,000 respondents that informed the creation of the <strong>Anthropic Institute</strong> and influenced international policy dialogues at the World Economic Forum. The current iteration aims to deepen legitimacy and inclusivity in AI governance by placing user voices at the center of future development.</p>
-<blockquote>
-<p><strong>Strategic Signal</strong>: By making interview data open-access and inviting public participation, Anthropic is constructing a <strong>democratic feedback loop for AI evolution</strong>, positioning itself as a normative actor in global AI ethics. This goes beyond compliance—it’s about shaping the narrative around who gets to define “responsible AI.”</p>
-</blockquote>
-<hr>
-<h4><strong><a href="https://www.anthropic.com/news/cyber-verification-program">Expanding the Cyber Verification Program</a></strong></h4>
-<p><em>Category: News | Published: 2026-10-07 | Original Link: <a href="https://www.anthropic.com/news/cyber-verification-program">https://www.anthropic.com/news/cyber-verification-program</a></em><br>Anthropic has upgraded its <strong>Cyber Verification Program (CVP)</strong> into a three-tiered access framework, allowing vetted cybersecurity professionals to use advanced models—including <strong>Claude Opus 5.5, Sonnet 5.5, Mythos 5.1, and future releases</strong>—with reduced blocking safeguards. This reflects a deliberate balancing act between mitigating misuse risks and enabling elite defenders to combat sophisticated threats. The program now includes formal application workflows and tiered access based on organizational trustworthiness and mission criticality. Notably, it extends beyond the previous &quot;Project Glasswing&quot; exclusivity, broadening reach while maintaining strict vetting protocols.</p>
-<blockquote>
-<p><strong>Strategic Signal</strong>: This move demonstrates <strong>Anthropic’s maturity in dual-use risk management</strong>. Rather than blanket restrictions, they’re implementing <strong>risk-based access control</strong>—a model likely to be emulated by other labs. It also suggests growing confidence in their adversarial testing and red-teaming processes, which are essential for maintaining credibility in high-stakes environments like national infrastructure defense.</p>
-</blockquote>
-<hr>
-<h3><strong>3. OpenAI Content Highlights</strong></h3>
-<h4><strong><a href="https://openai.com/index/teens-learn-and-plan/">Teens Learn And Plan</a></strong></h4>
-<p><em>Category: Index | Published: 2026-10-08 | URL: <a href="https://openai.com/index/teens-learn-and-plan/">https://openai.com/index/teens-learn-and-plan/</a></em><br>⚠️ <strong>Data Limitation</strong>: No article text available. Title derived from URL slug. Cannot assess content, purpose, or significance. Only confirmed publication date and category.</p>
-<blockquote>
-<p><strong>Observation</strong>: The existence of a dedicated index page targeting teens suggests a renewed focus on <strong>early-stage AI literacy and educational integration</strong>, possibly tied to GPT-6 rollout. However, without content, no substantive analysis can be performed.</p>
-</blockquote>
-<hr>
-<h4><strong><a href="https://openai.com/index/gpt-6-for-everyone/">Gpt 6 For Everyone</a></strong></h4>
-<p><em>Category: Index | Published: 2026-10-07 | URL: <a href="https://openai.com/index/gpt-6-for-everyone/">https://openai.com/index/gpt-6-for-everyone/</a></em><br>⚠️ <strong>Data Limitation</strong>: No article text available. Title derived from URL slug. Cannot assess whether this refers to a new model release, pricing update, accessibility expansion, or promotional campaign. Multiple identical URLs suggest possible indexing redundancy or A/B testing.</p>
-<blockquote>
-<p><strong>Observation</strong>: The repetition of the same title across two URLs raises questions about content structure or deployment strategy. Given the timing—just one day after Anthropic’s major life sciences announcement—the term “GPT-6” may signal a <strong>major product milestone</strong>, but confirmation is pending. The phrase “For Everyone” implies mass-market access, potentially signaling a shift toward broader consumer adoption or API democratization.</p>
-</blockquote>
-<hr>
-<h3><strong>4. Strategic Signal Analysis</strong></h3>
-<h4><strong>Anthropic’s Technical Priorities</strong></h4>
-<p>Anthropic is clearly advancing along <strong>three parallel tracks</strong>:  </p>
-<ol>
-<li><strong>Scientific Discovery</strong>: The enzyme discovery confirms a strategic bet on <strong>AI as a hypothesis generator in fundamental biology</strong>, moving beyond language modeling into autonomous lab experimentation. This aligns with their investment in internal research teams and real-world validation.  </li>
-<li><strong>Governance &amp; Inclusivity</strong>: The “What do you want from AI?” study reinforces a <strong>stakeholder-centric governance model</strong>, leveraging public input to shape long-term R&amp;D and policy. This positions Anthropic as a thought leader in democratic AI development.  </li>
-<li><strong>Dual-Use Enablement</strong>: The expanded CVP reflects a mature understanding of <strong>security-as-a-service</strong>—not just restricting harmful uses, but empowering trusted defenders with cutting-edge tools. This builds trust among enterprise and government clients.</li>
-</ol>
-<h4><strong>OpenAI’s Competitive Dynamics</strong></h4>
-<p>OpenAI remains reactive in tone: while Anthropic announces groundbreaking discoveries and governance initiatives, OpenAI publishes only <strong>index-level metadata</strong> with no substantiated content. This suggests either:  </p>
-<ul>
-<li>A <strong>product launch delay</strong> (e.g., GPT-6 rollout postponed), or  </li>
-<li>A <strong>content marketing phase</strong> where messaging is being tested before full disclosure.<br>The absence of technical or research details contrasts sharply with Anthropic’s depth and transparency. OpenAI appears to be <strong>following rather than leading</strong> in terms of strategic narratives—especially in areas like AI-driven science and public engagement.</li>
-</ul>
-<h4><strong>Impact on Developers &amp; Enterprise Users</strong></h4>
-<ul>
-<li><strong>Developers</strong>: Anthropic’s CVP expansion offers a clear pathway for <strong>high-fidelity AI-assisted security testing</strong>, enabling better threat modeling and secure code generation—critical for fintech, healthcare, and defense sectors.  </li>
-<li><strong>Enterprise Users</strong>: Anthropic’s life sciences initiative opens doors for partnerships in drug discovery, synthetic biology, and bio-manufacturing. Meanwhile, OpenAI’s lack of concrete updates may delay enterprise adoption unless GPT-6 delivers transformative improvements.  </li>
-<li><strong>Trust Signals</strong>: Anthropic’s emphasis on transparency (public interviews, open research) enhances credibility, especially amid increasing scrutiny over AI safety and accountability.</li>
-</ul>
-<hr>
-<h3><strong>5. Notable Details</strong></h3>
-<ul>
-<li><p><strong>New Terminology &amp; Concepts</strong>:  </p>
-<ul>
-<li>“<strong>Novel enzyme system with CRISPR-like repeats</strong>” — First-time public framing of an AI-discovered biological mechanism with functional similarity to CRISPR. This could become a benchmark term in future biotech literature.  </li>
-<li>“<strong>Anthropic Interviewer</strong>” — A branded tool for qualitative AI research; suggests internal tooling maturity and a shift toward <strong>structured human-AI dialogue collection</strong>.</li>
-</ul>
-</li>
-<li><p><strong>Dense Release Pattern</strong>:<br>Three high-impact announcements from Anthropic on the same day (Oct 7–8) indicate a <strong>coordinated strategic push</strong>, possibly timed ahead of an upcoming event, investor update, or regulatory discussion. This density is rare and signals urgency in establishing leadership in AI for science and governance.</p>
-</li>
-<li><p><strong>Policy &amp; Compliance Signals</strong>:  </p>
-<ul>
-<li>The <strong>Cyber Verification Program’s tiered access model</strong> introduces a structured, auditable pathway for high-risk AI use—setting a potential precedent for industry-wide standards.  </li>
-<li>Public availability of interview data (“decide to make your interview public”) reflects a <strong>commitment to transparency and reproducibility</strong>, rare among AI labs.</li>
-</ul>
-</li>
-<li><p><strong>Timing Significance</strong>:<br>Released just days after the U.S. Senate AI Oversight Hearing (Oct 5, 2026), these announcements serve as <strong>direct responses to political pressure</strong>, demonstrating proactive stewardship. Anthropic is positioning itself as a responsible innovator—while OpenAI remains silent on key issues.</p>
-</li>
-</ul>
-<hr>
-<p><strong>Conclusion</strong>:<br>Anthropic is actively redefining the role of AI—not just as a tool, but as a <strong>co-researcher, co-governor, and co-defender</strong>. Their latest releases reveal a mature, multi-layered strategy combining frontier science, inclusive governance, and controlled empowerment. OpenAI, by contrast, shows signs of lagging in narrative leadership and transparency, despite ongoing speculation about GPT-6. The gap in strategic communication and innovation visibility may impact investor confidence, developer loyalty, and policy influence in the coming quarter.</p>
-<hr>
-<p><em>This digest is auto-generated by <a href="https://github.com/duanyytop/agents-radar">agents-radar</a>.</em></p>
 ]]></content:encoded>
     </item>
   </channel>

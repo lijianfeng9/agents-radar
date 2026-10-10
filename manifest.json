@@ -1,9 +1,10 @@
 {
-  "generated": "2026-10-10T05:57:37.087Z",
+  "generated": "2026-10-10T07:36:26.786Z",
   "dates": [
     {
       "date": "2026-10-10",
       "reports": [
+        "ai-news",
         "ai-hot-agents",
         "ai-hot-agents-en",
         "ai-creator",

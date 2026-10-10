@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>📡 agents-radar</title>
+  <title>AI 每日要闻</title>
   <link rel="alternate" type="application/rss+xml" title="agents-radar RSS" href="./feed.xml">
   <!-- Served from this repo, not a CDN: jsdelivr/fonts.googleapis.com are often
        unreachable from mainland China, which left the page stuck on "正在加载…". -->
@@ -23,6 +23,8 @@
       --accent-bg:  rgba(232,160,61,0.10);
       --code-bg:    #0D1017;
       --link:       #79B8FF;
+      --paper:      #12151F;
+      --canvas:     #0B0D14;
     }
     [data-theme="light"] {
       --bg:         #FAFBFC;
@@ -37,6 +39,8 @@
       --accent-bg:  rgba(181,114,0,0.08);
       --code-bg:    #F0F2F5;
       --link:       #0451A5;
+      --paper:      #FFFFFF;
+      --canvas:     #EEF1F5;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -219,6 +223,53 @@
     .md summary:hover { color: var(--text); }
     .md details > *:not(summary) { padding: 12px 14px; }
 
+    /* ── News view: the daily digest reads like a news article ──
+       body.news-view is toggled when the ai-news report loads. The article
+       sits as a white paper card on a light canvas — the dark "developer
+       terminal" chrome made readers think they had landed in a code repo. */
+    body.news-view #cwrap { background: var(--canvas); }
+    body.news-view #content { max-width: 780px; padding: 32px 24px 72px; }
+    body.news-view .md {
+      background: var(--paper);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 40px 48px 48px;
+      box-shadow: 0 1px 2px rgba(16, 24, 40, 0.05), 0 10px 30px rgba(16, 24, 40, 0.06);
+    }
+    body.news-view .md h1 {
+      font-size: 25px; font-weight: 700; text-align: center;
+      margin-bottom: 10px; letter-spacing: 0; line-height: 1.4;
+    }
+    body.news-view .md > blockquote {
+      border: none; padding: 0; margin: 0 0 28px;
+      text-align: center; font-style: normal;
+      font-size: 12.5px; line-height: 1.7; color: var(--muted);
+    }
+    body.news-view .md h2 {
+      font-size: 18px; font-weight: 700; border-bottom: none;
+      border-left: 4px solid var(--accent); padding: 1px 0 1px 12px;
+      margin: 34px 0 14px; line-height: 1.5;
+    }
+    body.news-view .md ul { list-style: none; padding-left: 2px; }
+    body.news-view .md li {
+      padding: 9px 0; border-top: 1px solid var(--border); color: var(--muted);
+    }
+    body.news-view .md li:first-child { border-top: none; }
+    body.news-view .md li::before {
+      content: "•"; color: var(--accent); font-weight: 700; margin-right: 8px;
+    }
+    body.news-view .md li a { color: var(--text); font-weight: 600; }
+    body.news-view .md li a:hover { color: var(--link); }
+    body.news-view .md table { font-family: inherit; font-size: 13.5px; }
+    body.news-view .md th {
+      background: none; border: none; border-bottom: 2px solid var(--border);
+      text-transform: none; letter-spacing: 0; font-size: 12px;
+      color: var(--muted); padding: 6px 10px;
+    }
+    body.news-view .md td { border: none; border-bottom: 1px solid var(--border); padding: 10px; }
+    body.news-view .md tr:nth-child(even) td { background: none; }
+    body.news-view .md td a { font-weight: 600; color: var(--text); }
+
     /* ── Mobile ── */
     #mob-toggle { display: none; }
     @media (max-width: 680px) {
@@ -249,6 +300,12 @@
       .side-label { margin-top: 8px; }
       #content { padding: 20px 16px 48px; }
       .md { font-size: 15px; }
+      body.news-view #content { padding: 14px 10px 48px; }
+      body.news-view .md { padding: 24px 16px 32px; border-radius: 10px; }
+      body.news-view .md h1 { font-size: 21px; }
+      body.news-view .md h2 { font-size: 16.5px; margin: 26px 0 12px; }
+      body.news-view .md table { font-size: 12.5px; }
+      body.news-view .md td, body.news-view .md th { padding: 7px 6px; }
     }
   </style>
 </head>
@@ -257,7 +314,7 @@
   <div id="hdr">
     <div class="brand">
       <span class="brand-icon">📡</span>
-      <span>agents-<em>radar</em></span>
+      <span>AI <em>每日要闻</em></span>
     </div>
     <div class="hdr-right">
       <div class="signal"></div>
@@ -274,9 +331,9 @@
   <div id="body">
     <div id="sidebar">
       <div id="mob-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')">
-        ☰ &nbsp;选择报告
+        ☰ &nbsp;往期日报
       </div>
-      <div class="side-label">REPORTS</div>
+      <div class="side-label">往期日报</div>
       <div class="search-wrap">
         <input id="searchInput" type="search" placeholder="搜索全文，如 Claude">
         <div id="searchStatus"></div>
@@ -346,7 +403,10 @@ const LABELS = {
 // ── Theme ──
 const htmlEl = document.documentElement;
 const themeBtn = document.getElementById('themeBtn');
-let theme = localStorage.getItem('ar-theme') || 'dark';
+// Light is the default so the digest reads like a news page; the key was
+// bumped because the old 'ar-theme' holds 'dark' (the previous default) in
+// every returning visitor's localStorage and would keep them on the dark UI.
+let theme = localStorage.getItem('ar-theme-v2') || 'light';
 
 const themeIcon = themeBtn.querySelector('.hdr-icon');
 const themeLabel = themeBtn.querySelector('.hdr-label');
@@ -356,7 +416,7 @@ function applyTheme(t) {
   htmlEl.dataset.theme = t;
   themeIcon.textContent = t === 'dark' ? '◐' : '●';
   themeLabel.textContent = t === 'dark' ? 'LIGHT' : 'DARK';
-  localStorage.setItem('ar-theme', t);
+  localStorage.setItem('ar-theme-v2', t);
 }
 applyTheme(theme);
 themeBtn.onclick = () => applyTheme(theme === 'dark' ? 'light' : 'dark');
@@ -468,6 +528,10 @@ async function loadReport(date, report, push = true) {
   if (key === currentKey) return;
   currentKey = key;
 
+  // The daily digest gets the news-article skin; archived report types keep
+  // the original terminal styling.
+  document.body.classList.toggle('news-view', report === 'ai-news');
+
   // Retry of the same report (e.g. after a failed load) already has this
   // hash in session history — pushing again would need a second back-press.
   if (push && location.hash !== `#${key}`) history.pushState(null, '', `#${key}`);
@@ -530,9 +594,9 @@ async function loadReport(date, report, push = true) {
     if (currentKey !== key) return;
     const safe = renderMarkdown(raw);
     setContent(`<div class="md fade">${safe}</div>`);
-    // The in-app browser title bar (e.g. WeCom) shows this string — naming the
-    // report keeps the page from being mistaken for the agents-radar repo page.
-    document.title = `${LABELS[report] ?? report} ${date} · agents-radar`;
+    // The in-app browser title bar (e.g. WeCom) shows this string — it names
+    // the report itself so the page reads as a news article, not a repo page.
+    document.title = `${LABELS[report] ?? report} ${date}`;
   } catch (e) {
     // The user has already switched to another report — don't overwrite its
     // content with this stale request's error.

@@ -31,6 +31,7 @@ LLM_PROVIDER=deepseek DIGEST_REPO= npx tsx src/index.ts
 - `callLlm`'s concurrency limiter (`LLM_CONCURRENCY = 5`) prevents 429s; do not bypass it by calling SDK clients directly. Retry ladders: 429 → 3 retries at 5/10/20 s; connection failure → 6 retries at 5/10/20/40/60/60 s.
 - Report scaffolding (title, section headings, meta line) lives in `NEWS_REPORT` (`src/i18n.ts`); do not inline those strings.
 - Discontinued report ids (`ai-hot-agents`, `ai-creator`, `ai-office`, `ai-aigc`, `ai-web`, `ai-trending`, `ai-ph`, and the older ones) stay in `REPORT_LABELS` / `REPORT_FILES` / `index.html` `LABELS` only so archived digests stay reachable — do not restore their generation code.
+- The Web UI gives `ai-news` a news-article skin (`body.news-view`: paper card on a light canvas) and defaults to the light theme — the localStorage key is `ar-theme-v2`; do not revive the old `ar-theme` key, whose stored `dark` value would drag returning readers back into the dev-console look.
 - Prompt tone targets a non-developer audience (content/product/operations). Keep summaries to one line, no developer jargon, 不要编造数据里没有的内容.
 
 ## Workflow facts

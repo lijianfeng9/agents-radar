@@ -1,66 +1,12 @@
 {
   "zh": {
-    "ai-hot-agents": [
-      "过去24小时无智能体项目发布版本。",
-      "Career Ops 将 1.36.0 发布提案加入队列。",
-      "Career Ops 显示 62 个问题、133 个活跃 PR。",
-      "桌面控制从演示走向产品。"
-    ],
-    "ai-creator": [
-      "Toonflow 发布 v2.0.5，支持 Windows 和 Apple Silicon。",
-      "MoneyPrinterTurbo 提议订阅登录。",
-      "创作者工具专注修复、验证和错误。",
-      "MoneyPrinterTurbo 记录 4 个 PR，无新版本。"
-    ],
-    "ai-office": [
-      "GenOffice v0.11.505 新增可填写 PDF 表单。",
-      "n8n 2.42.6 和 2.43.3 屏蔽弃用节点。",
-      "n8n 开发实时子工作流可见性。",
-      "SiYuan 摘要中关闭 23 个问题、6 个 PR。"
-    ],
-    "ai-aigc": [
-      "ComfyUI 关注 MiniMax H3、LTX 2.3、Kandinsky 6.0。",
-      "InvokeAI 推进大型内部对齐工作。",
-      "GPT-SoVITS 关闭 4 个月发音修复。",
-      "带音频的视频模型重塑 AIGC 流程。"
-    ],
-    "ai-trending": [
-      "morluto/rea 今日新增 +14,927 星标。",
-      "GitHub 上编码智能体技能包激增。",
-      "阿里巴巴和 Anthropic 发布企业 AI 仓库。",
-      "Creator/AIGC 仓库主导趋势榜。"
+    "ai-news": [
+      "阶跃 Step 5 Preview 登顶 OpenRouter，将于 10 月 15 日开源。",
+      "微软发决策模型 Decision-1，Jev 估值达 75 亿美元。",
+      "Claude Haiku 5.5 走低价，大模型价格战再起。",
+      "REA 把逆向工程接入 Agent，Manus 融资超 5 亿美元。",
+      "Nano Banana 2.1 实战与 AI 短剧成创作者新热点。"
     ]
   },
-  "en": {
-    "ai-hot-agents": [
-      "No agent project shipped a release in last 24h.",
-      "Career Ops queues 1.36.0 release proposal.",
-      "Career Ops shows 62 issues, 133 active PRs.",
-      "Desktop control moves from demos to products."
-    ],
-    "ai-creator": [
-      "Toonflow ships v2.0.5 for Windows and Apple Silicon.",
-      "MoneyPrinterTurbo proposes subscription sign-in.",
-      "Creator tools focus on fixes, validation, errors.",
-      "MoneyPrinterTurbo logs 4 PRs, no new release."
-    ],
-    "ai-office": [
-      "GenOffice v0.11.505 adds fillable PDF forms.",
-      "n8n 2.42.6 and 2.43.3 block deprecated nodes.",
-      "n8n works on live sub-workflow visibility.",
-      "SiYuan closes 23 issues, 6 PRs in digest."
-    ],
-    "ai-aigc": [
-      "ComfyUI eyes MiniMax H3, LTX 2.3, Kandinsky 6.0.",
-      "InvokeAI runs large internal parity push.",
-      "GPT-SoVITS closes 4-month pronunciation fix.",
-      "Video models with audio reshape AIGC pipelines."
-    ],
-    "ai-trending": [
-      "morluto/rea gains +14,927 stars today.",
-      "Coding-agent skill packs surge on GitHub.",
-      "Alibaba and Anthropic launch enterprise AI repos.",
-      "Creator/AIGC repos dominate trending lists."
-    ]
-  }
+  "en": {}
 }

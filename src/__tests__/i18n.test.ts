@@ -1,16 +1,11 @@
 import { describe, it, expect } from "vitest";
 import {
   MSG,
-  CLI_REPORT,
-  OPENCLAW_REPORT,
+  GROUP_REPORTS,
   WEB_REPORT,
   TRENDING_REPORT,
-  HN_REPORT,
-  INFRA_REPORT,
+  PH_REPORT,
   ISSUE_LABELS,
-  CLI_ISSUE_TITLE,
-  OPENCLAW_ISSUE_TITLE,
-  INFRA_ISSUE_TITLE,
   FOOTER,
   NOTIFY_LABELS,
   REPORT_LABELS,
@@ -24,22 +19,13 @@ describe("bilingual string maps", () => {
   const maps = [
     { name: "MSG.noActivity", obj: MSG.noActivity },
     { name: "MSG.summaryFailed", obj: MSG.summaryFailed },
-    { name: "MSG.skillsFailed", obj: MSG.skillsFailed },
     { name: "MSG.trendingNoData", obj: MSG.trendingNoData },
     { name: "MSG.trendingFailed", obj: MSG.trendingFailed },
-    { name: "CLI_REPORT.title", obj: CLI_REPORT.title },
-    { name: "CLI_REPORT.skillsHeading", obj: CLI_REPORT.skillsHeading },
-    { name: "CLI_REPORT.comparison", obj: CLI_REPORT.comparison },
-    { name: "CLI_REPORT.detail", obj: CLI_REPORT.detail },
-    { name: "OPENCLAW_REPORT.title", obj: OPENCLAW_REPORT.title },
-    { name: "OPENCLAW_REPORT.deepDive", obj: OPENCLAW_REPORT.deepDive },
-    { name: "INFRA_REPORT.title", obj: INFRA_REPORT.title },
-    { name: "INFRA_REPORT.comparison", obj: INFRA_REPORT.comparison },
-    { name: "INFRA_REPORT.detail", obj: INFRA_REPORT.detail },
+    { name: "MSG.comparisonFailed", obj: MSG.comparisonFailed },
     { name: "WEB_REPORT.title", obj: WEB_REPORT.title },
     { name: "WEB_REPORT.firstCrawl", obj: WEB_REPORT.firstCrawl },
     { name: "TRENDING_REPORT.title", obj: TRENDING_REPORT.title },
-    { name: "HN_REPORT.title", obj: HN_REPORT.title },
+    { name: "PH_REPORT.title", obj: PH_REPORT.title },
     { name: "FOOTER.autoGen", obj: FOOTER.autoGen },
   ];
 
@@ -55,27 +41,64 @@ describe("bilingual string maps", () => {
 });
 
 // ---------------------------------------------------------------------------
+// GROUP_REPORTS
+// ---------------------------------------------------------------------------
+
+describe("GROUP_REPORTS", () => {
+  const groupIds = ["ai-hot-agents", "ai-creator", "ai-office", "ai-aigc"];
+
+  it("covers exactly the four daily directions", () => {
+    expect(Object.keys(GROUP_REPORTS).sort()).toEqual([...groupIds].sort());
+  });
+
+  for (const gid of groupIds) {
+    it(`${gid} has complete bilingual fields`, () => {
+      const info = GROUP_REPORTS[gid]!;
+      expect(info).toBeDefined();
+      for (const field of [info.title, info.comparison, info.detail, info.persona, info.focus]) {
+        expect(field.zh).toBeTruthy();
+        expect(field.en).toBeTruthy();
+        expect(field.zh).not.toBe(field.en);
+      }
+      // "AIGC" is legitimately spelled the same in both languages.
+      expect(info.short.zh).toBeTruthy();
+      expect(info.short.en).toBeTruthy();
+      expect(info.issueLabel.zh).toBeTruthy();
+      expect(info.issueLabel.en).toBeTruthy();
+      expect(info.issueLabel.zh).not.toBe(info.issueLabel.en);
+
+      const zhTitle = info.issueTitle("2026-03-12", "zh");
+      const enTitle = info.issueTitle("2026-03-12", "en");
+      expect(zhTitle).toContain("2026-03-12");
+      expect(enTitle).toContain("2026-03-12");
+      expect(zhTitle).not.toBe(enTitle);
+
+      expect(info.meta("12:00", 5, "zh")).toContain("覆盖项目: 5 个");
+      expect(info.meta("12:00", 5, "en")).toContain("Projects covered: 5");
+    });
+  }
+
+  it("issue titles carry direction-specific wording", () => {
+    expect(GROUP_REPORTS["ai-hot-agents"]!.issueTitle("2026-03-12", "zh")).toContain("热门智能体");
+    expect(GROUP_REPORTS["ai-hot-agents"]!.issueTitle("2026-03-12", "en")).toContain("Hot AI Agents");
+    expect(GROUP_REPORTS["ai-creator"]!.issueTitle("2026-03-12", "zh")).toContain("创作者");
+    expect(GROUP_REPORTS["ai-office"]!.issueTitle("2026-03-12", "zh")).toContain("办公");
+    expect(GROUP_REPORTS["ai-aigc"]!.issueTitle("2026-03-12", "zh")).toContain("AIGC");
+  });
+
+  it("focus lines describe the intended audience topics", () => {
+    expect(GROUP_REPORTS["ai-hot-agents"]!.focus.zh).toContain("智能体");
+    expect(GROUP_REPORTS["ai-creator"]!.focus.zh).toContain("博主");
+    expect(GROUP_REPORTS["ai-office"]!.focus.zh).toContain("办公");
+    expect(GROUP_REPORTS["ai-aigc"]!.focus.zh).toContain("图像");
+  });
+});
+
+// ---------------------------------------------------------------------------
 // Dynamic title functions
 // ---------------------------------------------------------------------------
 
-describe("issue title functions", () => {
-  it("CLI_ISSUE_TITLE produces zh and en titles", () => {
-    expect(CLI_ISSUE_TITLE("2026-03-12", "zh")).toContain("AI CLI");
-    expect(CLI_ISSUE_TITLE("2026-03-12", "zh")).toContain("2026-03-12");
-    expect(CLI_ISSUE_TITLE("2026-03-12", "en")).toContain("AI CLI Tools Digest");
-  });
-
-  it("OPENCLAW_ISSUE_TITLE produces zh and en titles", () => {
-    expect(OPENCLAW_ISSUE_TITLE("2026-03-12", "zh")).toContain("OpenClaw");
-    expect(OPENCLAW_ISSUE_TITLE("2026-03-12", "en")).toContain("OpenClaw Ecosystem Digest");
-  });
-
-  it("INFRA_ISSUE_TITLE produces zh and en titles", () => {
-    expect(INFRA_ISSUE_TITLE("2026-03-12", "zh")).toContain("AI 基础设施日报");
-    expect(INFRA_ISSUE_TITLE("2026-03-12", "zh")).toContain("2026-03-12");
-    expect(INFRA_ISSUE_TITLE("2026-03-12", "en")).toContain("AI Infrastructure Digest");
-  });
-
+describe("data-source title functions", () => {
   it("WEB_REPORT.issueTitle includes first crawl flag", () => {
     expect(WEB_REPORT.issueTitle("2026-03-12", true, "zh")).toContain("首次全量");
     expect(WEB_REPORT.issueTitle("2026-03-12", false, "zh")).not.toContain("首次全量");
@@ -87,9 +110,9 @@ describe("issue title functions", () => {
     expect(TRENDING_REPORT.issueTitle("2026-03-12", "en")).toContain("Open Source Trends");
   });
 
-  it("HN_REPORT.issueTitle produces zh and en", () => {
-    expect(HN_REPORT.issueTitle("2026-03-12", "zh")).toContain("Hacker News");
-    expect(HN_REPORT.issueTitle("2026-03-12", "en")).toContain("Hacker News");
+  it("PH_REPORT.issueTitle produces zh and en", () => {
+    expect(PH_REPORT.issueTitle("2026-03-12", "zh")).toContain("Product Hunt");
+    expect(PH_REPORT.issueTitle("2026-03-12", "en")).toContain("Product Hunt");
   });
 });
 
@@ -98,16 +121,6 @@ describe("issue title functions", () => {
 // ---------------------------------------------------------------------------
 
 describe("dynamic content helpers", () => {
-  it("CLI_REPORT.meta produces zh and en metadata", () => {
-    const zh = CLI_REPORT.meta("12:00", 5, "zh");
-    expect(zh).toContain("12:00");
-    expect(zh).toContain("5 个");
-
-    const en = CLI_REPORT.meta("12:00", 5, "en");
-    expect(en).toContain("12:00");
-    expect(en).toContain("Tools covered: 5");
-  });
-
   it("WEB_REPORT.newContent formats count", () => {
     expect(WEB_REPORT.newContent(10, "zh")).toContain("10 篇");
     expect(WEB_REPORT.newContent(10, "en")).toContain("10 articles");
@@ -124,14 +137,11 @@ describe("dynamic content helpers", () => {
 // ---------------------------------------------------------------------------
 
 describe("ISSUE_LABELS", () => {
-  it("maps report types to label names", () => {
-    expect(ISSUE_LABELS.cli.zh).toBe("digest");
-    expect(ISSUE_LABELS.cli.en).toBe("digest-en");
-    expect(ISSUE_LABELS.openclaw.zh).toBe("openclaw");
-    expect(ISSUE_LABELS.infra.zh).toBe("infra");
-    expect(ISSUE_LABELS.infra.en).toBe("infra-en");
+  it("maps the data-source reports to label names", () => {
+    expect(ISSUE_LABELS.web.zh).toBe("web");
+    expect(ISSUE_LABELS.web.en).toBe("web-en");
     expect(ISSUE_LABELS.trending.en).toBe("trending-en");
-    expect(ISSUE_LABELS.hn.en).toBe("hn-en");
+    expect(ISSUE_LABELS.ph.en).toBe("ph-en");
   });
 });
 
@@ -140,9 +150,18 @@ describe("ISSUE_LABELS", () => {
 // ---------------------------------------------------------------------------
 
 describe("REPORT_LABELS", () => {
-  it("covers the infra report in both languages", () => {
-    expect(REPORT_LABELS["ai-infra"]).toBe("AI 基础设施日报");
-    expect(REPORT_LABELS["ai-infra-en"]).toBe("AI Infrastructure Digest");
+  it("covers the four group reports in both languages", () => {
+    expect(REPORT_LABELS["ai-hot-agents"]).toBe("热门智能体动态日报");
+    expect(REPORT_LABELS["ai-hot-agents-en"]).toBe("Hot AI Agents Digest");
+    expect(REPORT_LABELS["ai-creator"]).toBe("创作者 AI 赋能日报");
+    expect(REPORT_LABELS["ai-office-en"]).toBe("AI Office Digest");
+    expect(REPORT_LABELS["ai-aigc"]).toBe("AIGC 生成内容日报");
+  });
+
+  it("keeps labels for archived report types", () => {
+    expect(REPORT_LABELS["ai-cli"]).toBeTruthy();
+    expect(REPORT_LABELS["ai-infra-en"]).toBeTruthy();
+    expect(REPORT_LABELS["ai-weekly"]).toBeTruthy();
   });
 });
 
@@ -151,12 +170,26 @@ describe("REPORT_LABELS", () => {
 // ---------------------------------------------------------------------------
 
 describe("NOTIFY_LABELS", () => {
-  it("covers all report types", () => {
-    const expected = ["ai-cli", "ai-agents", "ai-infra", "ai-web", "ai-trending", "ai-hn"];
+  it("covers all current report types", () => {
+    const expected = [
+      "ai-hot-agents",
+      "ai-creator",
+      "ai-office",
+      "ai-aigc",
+      "ai-web",
+      "ai-trending",
+      "ai-ph",
+    ];
     for (const key of expected) {
       expect(NOTIFY_LABELS[key]).toBeDefined();
       expect(NOTIFY_LABELS[key]!.zh).toBeTruthy();
       expect(NOTIFY_LABELS[key]!.en).toBeTruthy();
+    }
+  });
+
+  it("keeps labels for discontinued report types", () => {
+    for (const key of ["ai-cli", "ai-agents", "ai-infra", "ai-hn", "ai-arxiv", "ai-hf", "ai-community"]) {
+      expect(NOTIFY_LABELS[key]).toBeDefined();
     }
   });
 });

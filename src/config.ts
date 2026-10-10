@@ -21,61 +21,85 @@ interface RawRepoEntry {
 }
 
 interface RawConfig {
-  cli_repos?: RawRepoEntry[];
-  skills_repo?: string;
-  openclaw?: RawRepoEntry;
-  openclaw_peers?: RawRepoEntry[];
-  infra_repos?: RawRepoEntry[];
+  agents_repos?: RawRepoEntry[];
+  creator_repos?: RawRepoEntry[];
+  office_repos?: RawRepoEntry[];
+  aigc_repos?: RawRepoEntry[];
+}
+
+export const GROUP_IDS = ["ai-hot-agents", "ai-creator", "ai-office", "ai-aigc"] as const;
+
+export type GroupId = (typeof GROUP_IDS)[number];
+
+export interface RadarGroup {
+  id: GroupId;
+  repos: RepoConfig[];
 }
 
 export interface RadarConfig {
-  cliRepos: RepoConfig[];
-  skillsRepo: string;
-  openclaw: RepoConfig;
-  openclawPeers: RepoConfig[];
-  infraRepos: RepoConfig[];
+  groups: RadarGroup[];
 }
 
 // ---------------------------------------------------------------------------
-// Defaults (mirrors the original hard-coded values)
+// Defaults (mirrors config.yml)
 // ---------------------------------------------------------------------------
 
-const DEFAULT_CLI_REPOS: RepoConfig[] = [
-  { id: "claude-code", repo: "anthropics/claude-code", name: "Claude Code" },
-  { id: "codex", repo: "openai/codex", name: "OpenAI Codex", discussions: true },
-  { id: "gemini-cli", repo: "google-gemini/gemini-cli", name: "Gemini CLI" },
-  { id: "copilot-cli", repo: "github/copilot-cli", name: "GitHub Copilot CLI" },
-  { id: "opencode", repo: "anomalyco/opencode", name: "OpenCode" },
-  { id: "pi", repo: "earendil-works/pi", name: "Pi", discussions: true },
-  { id: "qwen-code", repo: "QwenLM/qwen-code", name: "Qwen Code" },
+// 热门智能体：agent 框架、个人助理、桌面端 agent 产品。更新频繁，多数分页抓取。
+const DEFAULT_AGENTS_REPOS: RepoConfig[] = [
+  { id: "hermes-agent", repo: "NousResearch/hermes-agent", name: "Hermes Agent", paginated: true },
+  { id: "agent-reach", repo: "Panniantong/Agent-Reach", name: "Agent Reach", paginated: true },
+  { id: "career-ops", repo: "career-ops-hq/career-ops", name: "Career Ops", paginated: true },
+  { id: "cherry-studio", repo: "CherryHQ/cherry-studio", name: "Cherry Studio", paginated: true },
+  { id: "nanobot", repo: "HKUDS/nanobot", name: "Nanobot", paginated: true },
+  { id: "cowagent", repo: "zhayujie/CowAgent", name: "CowAgent" },
 ];
 
-const DEFAULT_SKILLS_REPO = "anthropics/skills";
+// 博主 / 内容创作者赋能：短视频生成、数字人、配音翻译、自动分发。
+const DEFAULT_CREATOR_REPOS: RepoConfig[] = [
+  {
+    id: "moneyprinter-turbo",
+    repo: "harry0703/MoneyPrinterTurbo",
+    name: "MoneyPrinterTurbo",
+    paginated: true,
+  },
+  { id: "openmontage", repo: "calesthio/OpenMontage", name: "OpenMontage", paginated: true },
+  { id: "pyvideotrans", repo: "jianchang512/pyvideotrans", name: "pyVideoTrans", paginated: true },
+  { id: "toonflow", repo: "HBAI-Ltd/Toonflow-app", name: "Toonflow", paginated: true },
+  { id: "opencreator", repo: "krillinai/OpenCreator", name: "OpenCreator" },
+  { id: "livetalking", repo: "lipku/LiveTalking", name: "LiveTalking" },
+];
 
-const DEFAULT_OPENCLAW: RepoConfig = {
-  id: "openclaw",
-  repo: "openclaw/openclaw",
-  name: "OpenClaw",
-  paginated: true,
+// 办公与效率：文档/表格/演示、工作流自动化、知识管理。
+const DEFAULT_OFFICE_REPOS: RepoConfig[] = [
+  { id: "n8n", repo: "n8n-io/n8n", name: "n8n", paginated: true },
+  { id: "ppt-master", repo: "hugohe3/ppt-master", name: "PPT Master", paginated: true },
+  { id: "siyuan", repo: "siyuan-note/siyuan", name: "SiYuan", paginated: true },
+  { id: "teable", repo: "teableio/teable", name: "Teable", paginated: true },
+  { id: "genoffice", repo: "genspark-ai/genoffice", name: "GenOffice" },
+  { id: "presenton", repo: "presenton/presenton", name: "Presenton" },
+];
+
+// AIGC：图像 / 视频 / 音频生成模型与创作工具。
+const DEFAULT_AIGC_REPOS: RepoConfig[] = [
+  { id: "comfyui", repo: "Comfy-Org/ComfyUI", name: "ComfyUI", paginated: true },
+  {
+    id: "open-generative-ai",
+    repo: "Anil-matcha/Open-Generative-AI",
+    name: "Open Generative AI",
+    paginated: true,
+  },
+  { id: "invokeai", repo: "invoke-ai/InvokeAI", name: "InvokeAI", paginated: true },
+  { id: "voicestudio", repo: "debpalash/VoiceStudio", name: "VoiceStudio", paginated: true },
+  { id: "hunyuanvideo", repo: "Tencent-Hunyuan/HunyuanVideo", name: "HunyuanVideo" },
+  { id: "gpt-sovits", repo: "RVC-Boss/GPT-SoVITS", name: "GPT-SoVITS", paginated: true },
+];
+
+const DEFAULT_REPOS: Record<GroupId, RepoConfig[]> = {
+  "ai-hot-agents": DEFAULT_AGENTS_REPOS,
+  "ai-creator": DEFAULT_CREATOR_REPOS,
+  "ai-office": DEFAULT_OFFICE_REPOS,
+  "ai-aigc": DEFAULT_AIGC_REPOS,
 };
-
-const DEFAULT_OPENCLAW_PEERS: RepoConfig[] = [
-  { id: "hermes-agent", repo: "nousresearch/hermes-agent", name: "Hermes Agent" },
-  { id: "ironclaw", repo: "nearai/ironclaw", name: "IronClaw" },
-  { id: "qwenpaw", repo: "agentscope-ai/QwenPaw", name: "QwenPaw" },
-  { id: "zeroclaw", repo: "zeroclaw-labs/zeroclaw", name: "ZeroClaw" },
-];
-
-// Inference engines, gateways and fine-tuning frameworks — the layer the CLI
-// agents run on top of. High daily volume, so most are paginated.
-const DEFAULT_INFRA_REPOS: RepoConfig[] = [
-  { id: "vllm", repo: "vllm-project/vllm", name: "vLLM", paginated: true },
-  { id: "sglang", repo: "sgl-project/sglang", name: "SGLang", paginated: true },
-  { id: "llama-cpp", repo: "ggml-org/llama.cpp", name: "llama.cpp", paginated: true },
-  { id: "ollama", repo: "ollama/ollama", name: "Ollama" },
-  { id: "litellm", repo: "BerriAI/litellm", name: "LiteLLM", paginated: true },
-  { id: "unsloth", repo: "unslothai/unsloth", name: "Unsloth", paginated: true },
-];
 
 // ---------------------------------------------------------------------------
 // Loader
@@ -91,48 +115,31 @@ export function toRepoConfig(e: RawRepoEntry): RepoConfig {
   };
 }
 
+function pickRepos(raw: RawRepoEntry[] | undefined, fallback: RepoConfig[]): RepoConfig[] {
+  return Array.isArray(raw) && raw.length > 0 ? raw.map(toRepoConfig) : fallback;
+}
+
 export function loadConfig(configPath = "config.yml"): RadarConfig {
   const resolved = path.resolve(configPath);
 
   if (!fs.existsSync(resolved)) {
     console.log(`[config] ${configPath} not found — using built-in defaults.`);
-    return {
-      cliRepos: DEFAULT_CLI_REPOS,
-      skillsRepo: DEFAULT_SKILLS_REPO,
-      openclaw: DEFAULT_OPENCLAW,
-      openclawPeers: DEFAULT_OPENCLAW_PEERS,
-      infraRepos: DEFAULT_INFRA_REPOS,
-    };
+    return { groups: GROUP_IDS.map((id) => ({ id, repos: DEFAULT_REPOS[id] })) };
   }
 
   const raw = yaml.load(fs.readFileSync(resolved, "utf-8")) as RawConfig;
 
-  const cliRepos =
-    Array.isArray(raw?.cli_repos) && raw.cli_repos.length > 0
-      ? raw.cli_repos.map(toRepoConfig)
-      : DEFAULT_CLI_REPOS;
-
-  const skillsRepo =
-    typeof raw?.skills_repo === "string" && raw.skills_repo.trim()
-      ? raw.skills_repo.trim()
-      : DEFAULT_SKILLS_REPO;
-
-  const openclaw = raw?.openclaw?.id && raw.openclaw.repo ? toRepoConfig(raw.openclaw) : DEFAULT_OPENCLAW;
-
-  const openclawPeers =
-    Array.isArray(raw?.openclaw_peers) && raw.openclaw_peers.length > 0
-      ? raw.openclaw_peers.map(toRepoConfig)
-      : DEFAULT_OPENCLAW_PEERS;
-
-  const infraRepos =
-    Array.isArray(raw?.infra_repos) && raw.infra_repos.length > 0
-      ? raw.infra_repos.map(toRepoConfig)
-      : DEFAULT_INFRA_REPOS;
+  const groups: RadarGroup[] = [
+    { id: "ai-hot-agents", repos: pickRepos(raw?.agents_repos, DEFAULT_AGENTS_REPOS) },
+    { id: "ai-creator", repos: pickRepos(raw?.creator_repos, DEFAULT_CREATOR_REPOS) },
+    { id: "ai-office", repos: pickRepos(raw?.office_repos, DEFAULT_OFFICE_REPOS) },
+    { id: "ai-aigc", repos: pickRepos(raw?.aigc_repos, DEFAULT_AIGC_REPOS) },
+  ];
 
   console.log(
     `[config] Loaded from ${configPath}: ` +
-      `${cliRepos.length} CLI repos, ${openclawPeers.length} OpenClaw peers, ${infraRepos.length} infra repos`,
+      groups.map((g) => `${g.repos.length} repos for ${g.id}`).join(", "),
   );
 
-  return { cliRepos, skillsRepo, openclaw, openclawPeers, infraRepos };
+  return { groups };
 }

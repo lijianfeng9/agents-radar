@@ -6,31 +6,41 @@ import { REPORT_LABELS } from "./i18n.ts";
 const DIGESTS_DIR = "digests";
 const MANIFEST_PATH = "manifest.json";
 const FEED_PATH = "feed.xml";
-const SITE_URL = "https://duanyytop.github.io/agents-radar";
+// Derived from the repo owner so forks link to their own Pages site; the
+// upstream repo keeps resolving to duanyytop.github.io.
+const SITE_URL = `https://${process.env["GITHUB_REPOSITORY_OWNER"] ?? "duanyytop"}.github.io/agents-radar`;
 const DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
 const REPORT_FILES = [
+  "ai-hot-agents",
+  "ai-hot-agents-en",
+  "ai-creator",
+  "ai-creator-en",
+  "ai-office",
+  "ai-office-en",
+  "ai-aigc",
+  "ai-aigc-en",
+  "ai-web",
+  "ai-web-en",
+  "ai-trending",
+  "ai-trending-en",
+  "ai-ph",
+  "ai-ph-en",
+  // Discontinued report types and rollups are no longer generated — kept so
+  // archived reports stay reachable from the sidebar and RSS feed.
   "ai-cli",
   "ai-cli-en",
   "ai-agents",
   "ai-agents-en",
   "ai-infra",
   "ai-infra-en",
-  "ai-web",
-  "ai-web-en",
-  "ai-trending",
-  "ai-trending-en",
   "ai-hn",
   "ai-hn-en",
-  "ai-ph",
-  "ai-ph-en",
   "ai-arxiv",
   "ai-arxiv-en",
   "ai-hf",
   "ai-hf-en",
   "ai-community",
   "ai-community-en",
-  // Rollups are no longer generated — listed only so archived reports stay
-  // reachable from the sidebar and RSS feed.
   "ai-weekly",
   "ai-weekly-en",
   "ai-monthly",

@@ -37,12 +37,12 @@ export interface TrendingData {
 // ---------------------------------------------------------------------------
 
 const SEARCH_QUERIES = [
-  { q: "topic:llm", label: "llm" },
   { q: "topic:ai-agent", label: "ai-agent" },
-  { q: "topic:rag", label: "rag" },
-  { q: "topic:vector-database", label: "vector-db" },
-  { q: "topic:large-language-model", label: "llm-model" },
-  { q: "topic:machine-learning", label: "ml" },
+  { q: "topic:aigc", label: "aigc" },
+  { q: "topic:llm", label: "llm" },
+  { q: "topic:image-generation", label: "image-generation" },
+  { q: "topic:text-to-video", label: "text-to-video" },
+  { q: "topic:text-to-speech", label: "text-to-speech" },
 ];
 
 // ---------------------------------------------------------------------------

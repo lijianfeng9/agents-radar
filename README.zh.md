@@ -2,21 +2,15 @@
 
 [English](./README.md) | 中文
 
-每天早上 07:00 CST 自动运行的 GitHub Actions 工作流。聚合 10 个 AI 生态数据源，以中英双语每日简报的形式发布为 GitHub Issues 并提交为 Markdown 文件。每周和每月自动生成汇总报告。
+每天早上约 07:00 CST 自动运行的 GitHub Actions 工作流。围绕四个方向 —— 热门智能体、博主/创作者赋能、办公 AI、AIGC —— 聚合 AI 生态信号，以中英双语每日简报的形式发布为 GitHub Issues 并提交为 Markdown 文件。
 
 ### 数据源
 
 | 来源 | 类型 | 数据内容 |
 |------|------|---------|
-| [GitHub Repos](https://github.com) | API | 18 个 AI 工具仓库的 Issues、PR、Releases |
-| [Claude Code Skills](https://github.com/anthropics/skills) | API | 按社区活跃度排序的热门 Skills |
-| [GitHub Trending](https://github.com/trending) | HTML + API | 每日热门仓库 + AI 主题搜索（7 天窗口） |
-| [Hacker News](https://news.ycombinator.com) | [Algolia API](https://hn.algolia.com/api) | 过去 24 小时 Top 30 AI 热帖，6 组并行查询 |
+| [GitHub Repos](https://github.com) | API | 4 组共 24 个追踪仓库的 Issues、PR、Releases（智能体 / 创作者 / 办公 / AIGC） |
+| [GitHub Trending](https://github.com/trending) | HTML + API | 每日热门仓库 + 主题搜索（7 天窗口） |
 | [Product Hunt](https://www.producthunt.com) | GraphQL API | 昨日 AI 产品按投票排序 |
-| [ArXiv](https://arxiv.org) | [ArXiv API](https://export.arxiv.org/api/query) | cs.AI、cs.CL、cs.LG 最新论文（48 小时内） |
-| [Hugging Face](https://huggingface.co) | [Hub API](https://huggingface.co/api/models) | 按周点赞排序的 30 个热门模型 —— **周更**，仅周一 |
-| [Dev.to](https://dev.to) | [Forem API](https://dev.to/api) | 5 个标签下的 AI/LLM 热门文章 |
-| [Lobste.rs](https://lobste.rs) | JSON API | 7 天内 AI/ML 标签内容 |
 | [Anthropic](https://anthropic.com) + [OpenAI](https://openai.com) | Sitemap | 通过 `lastmod` 差异检测新文章 |
 
 ## Web UI
@@ -114,54 +108,61 @@ wrangler deploy
 
 ## 追踪来源
 
-### AI CLI 工具（GitHub）
+报告按四个面向读者的方向组织。每个方向追踪 6 个 GitHub 仓库，生成每仓库简报 + 横向对比 —— 全部以通俗语言写给不写代码的读者（内容、产品、运营）看。
 
-| 工具 | 仓库 |
+### 🤖 热门智能体动态
+
+大家真正在用、在持续更新的智能体项目，从个人助理到垂直场景 Agent。
+
+| 项目 | 仓库 |
 |------|------|
-| Claude Code | [anthropics/claude-code](https://github.com/anthropics/claude-code) |
-| OpenAI Codex | [openai/codex](https://github.com/openai/codex) |
-| Gemini CLI | [google-gemini/gemini-cli](https://github.com/google-gemini/gemini-cli) |
-| GitHub Copilot CLI | [github/copilot-cli](https://github.com/github/copilot-cli) |
-| OpenCode | [anomalyco/opencode](https://github.com/anomalyco/opencode) |
-| Pi | [earendil-works/pi](https://github.com/earendil-works/pi) |
-| Qwen Code | [QwenLM/qwen-code](https://github.com/QwenLM/qwen-code) |
+| Hermes Agent | [NousResearch/hermes-agent](https://github.com/NousResearch/hermes-agent) |
+| Agent Reach | [Panniantong/Agent-Reach](https://github.com/Panniantong/Agent-Reach) |
+| Career Ops | [career-ops-hq/career-ops](https://github.com/career-ops-hq/career-ops) |
+| Cherry Studio | [CherryHQ/cherry-studio](https://github.com/CherryHQ/cherry-studio) |
+| Nanobot | [HKUDS/nanobot](https://github.com/HKUDS/nanobot) |
+| CowAgent | [zhayujie/CowAgent](https://github.com/zhayujie/CowAgent) |
 
-在 `config.yml` 中标记 `discussions: true` 的仓库（Codex、Pi）会额外抓取 GitHub Discussions。
+### 🎬 博主 / 创作者赋能
 
-### Claude Code Skills（GitHub）
+面向博主与新媒体创作者的视频、音频与内容生产工具链。
 
-| 来源 | 仓库 |
+| 项目 | 仓库 |
 |------|------|
-| Claude Code Skills | [anthropics/skills](https://github.com/anthropics/skills) |
+| MoneyPrinterTurbo | [harry0703/MoneyPrinterTurbo](https://github.com/harry0703/MoneyPrinterTurbo) |
+| OpenMontage | [calesthio/OpenMontage](https://github.com/calesthio/OpenMontage) |
+| pyVideoTrans | [jianchang512/pyvideotrans](https://github.com/jianchang512/pyvideotrans) |
+| Toonflow | [HBAI-Ltd/Toonflow-app](https://github.com/HBAI-Ltd/Toonflow-app) |
+| OpenCreator | [krillinai/OpenCreator](https://github.com/krillinai/OpenCreator) |
+| LiveTalking | [lipku/LiveTalking](https://github.com/lipku/LiveTalking) |
 
-PR 和 Issue 不设时间过滤，按社区热度（评论数）排序，报告始终反映当前最活跃的 Skills 讨论，而非仅看最新内容。
+### 💼 办公与效率
 
-### OpenClaw + AI Agent 生态（GitHub）
+提升日常办公效率：工作流自动化、笔记、表格、演示与文档。
 
-OpenClaw 作为重点追踪项目，同时横向对比多个同赛道项目，覆盖个人 AI 助手 / 自主 Agent 方向。
+| 项目 | 仓库 |
+|------|------|
+| n8n | [n8n-io/n8n](https://github.com/n8n-io/n8n) |
+| PPT Master | [hugohe3/ppt-master](https://github.com/hugohe3/ppt-master) |
+| SiYuan | [siyuan-note/siyuan](https://github.com/siyuan-note/siyuan) |
+| Teable | [teableio/teable](https://github.com/teableio/teable) |
+| GenOffice | [genspark-ai/genoffice](https://github.com/genspark-ai/genoffice) |
+| Presenton | [presenton/presenton](https://github.com/presenton/presenton) |
 
-| 项目 | 仓库 | Stars |
-|------|------|-------|
-| OpenClaw | [openclaw/openclaw](https://github.com/openclaw/openclaw) | 387.8k |
-| Hermes Agent | [nousresearch/hermes-agent](https://github.com/nousresearch/hermes-agent) | 237.0k |
-| QwenPaw | [agentscope-ai/QwenPaw](https://github.com/agentscope-ai/QwenPaw) | 34.5k |
-| ZeroClaw | [zeroclaw-labs/zeroclaw](https://github.com/zeroclaw-labs/zeroclaw) | 32.7k |
-| IronClaw | [nearai/ironclaw](https://github.com/nearai/ironclaw) | 12.6k |
+### 🎨 AIGC
 
-### AI 基础设施（GitHub）
+图像、视频、音频生成技术栈 —— 生成式内容背后的工具。
 
-Agent / CLI 工具赖以运行的推理与服务层，独立成报，附横向对比。
+| 项目 | 仓库 |
+|------|------|
+| ComfyUI | [Comfy-Org/ComfyUI](https://github.com/Comfy-Org/ComfyUI) |
+| Open Generative AI | [Anil-matcha/Open-Generative-AI](https://github.com/Anil-matcha/Open-Generative-AI) |
+| InvokeAI | [invoke-ai/InvokeAI](https://github.com/invoke-ai/InvokeAI) |
+| VoiceStudio | [debpalash/VoiceStudio](https://github.com/debpalash/VoiceStudio) |
+| HunyuanVideo | [Tencent-Hunyuan/HunyuanVideo](https://github.com/Tencent-Hunyuan/HunyuanVideo) |
+| GPT-SoVITS | [RVC-Boss/GPT-SoVITS](https://github.com/RVC-Boss/GPT-SoVITS) |
 
-| 项目 | 仓库 | 分层 | Stars |
-|------|------|------|-------|
-| Ollama | [ollama/ollama](https://github.com/ollama/ollama) | 本地运行时 | 177.2k |
-| llama.cpp | [ggml-org/llama.cpp](https://github.com/ggml-org/llama.cpp) | 推理引擎 | 121.9k |
-| vLLM | [vllm-project/vllm](https://github.com/vllm-project/vllm) | 服务引擎 | 87.5k |
-| Unsloth | [unslothai/unsloth](https://github.com/unslothai/unsloth) | 微调框架 | 69.0k |
-| LiteLLM | [BerriAI/litellm](https://github.com/BerriAI/litellm) | LLM 网关 | 55.0k |
-| SGLang | [sgl-project/sglang](https://github.com/sgl-project/sglang) | 服务引擎 | 30.9k |
-
-摘要聚焦新模型 / 硬件支持、性能优化、破坏性变更，以及这些变化对上层应用开发者的实际影响。
+四组列表都写在 `config.yml`（`agents_repos`、`creator_repos`、`office_repos`、`aigc_repos`）中，增删仓库无需改代码。
 
 ### GitHub AI 趋势热榜
 
@@ -170,13 +171,9 @@ Agent / CLI 工具赖以运行的推理与服务层，独立成报，附横向�
 | 来源 | 说明 |
 |------|------|
 | [github.com/trending](https://github.com/trending?since=daily) | 今日热榜，HTML 解析，含今日新增 Stars 数 |
-| GitHub Search API | 7 天内活跃的 AI 相关仓库，覆盖 6 个主题标签：`llm`、`ai-agent`、`rag`、`vector-database`、`large-language-model`、`machine-learning` |
+| GitHub Search API | 7 天内活跃的 AI 相关仓库，覆盖 6 个与四大方向对齐的主题标签：`ai-agent`、`aigc`、`llm`、`image-generation`、`text-to-video`、`text-to-speech` |
 
-LLM 负责过滤非 AI 项目，将结果按维度分类（AI 基础工具 / AI 智能体 / AI 应用 / 大模型 / RAG 知识库），并提炼趋势信号。
-
-### Hacker News
-
-通过 [Algolia HN Search API](https://hn.algolia.com/api) 并行执行 6 个查询（`AI`、`LLM`、`Claude`、`OpenAI`、`Anthropic`、`machine learning`），抓取过去 24 小时内的 AI 相关帖子，去重后按分数排序，取 top 30 传入 LLM 进行社区情绪分析。
+LLM 负责过滤非 AI 项目，将结果按方向分类（🤖 智能体 / 🎬 创作者工具 / 💼 办公与效率 / 🎨 AIGC），并提炼趋势信号。
 
 ### 官网内容（基于 Sitemap）
 
@@ -189,15 +186,12 @@ LLM 负责过滤非 AI 项目，将结果按维度分类（AI 基础工具 / AI 
 
 ## 功能特性
 
-- 抓取所有追踪仓库过去 24 小时内更新的 Issues、PR 和 Releases
-- 追踪热门 Claude Code Skills，按社区参与度而非时间排序
-- 为每个 CLI 仓库生成单独摘要，并输出跨工具横向对比分析
-- 生成 OpenClaw 深度项目报告，并与 4 个同赛道项目进行横向对比
-- 追踪 6 个 AI 基础设施项目（推理引擎、网关、微调框架），独立成报并输出横向对比
+- 追踪四大方向共 24 个 AI 项目 —— 🤖 热门智能体、🎬 创作者工具、💼 办公 AI、🎨 AIGC
+- 每个方向生成每项目简报 + 横向对比分析，以通俗语言写给不写代码的读者
 - 通过 Sitemap 抓取 Anthropic 和 OpenAI 官网内容，增量检测新文章
-- 每日监测 GitHub Trending + 搜索 6 个 AI 主题标签，按维度分类并提炼趋势信号
-- 抓取 Hacker News 过去 24 小时 AI 热门帖子（top 30，按分数排序），生成社区情绪报告
+- 每日监测 GitHub Trending + 搜索 6 个 AI 主题，按方向分类并提炼趋势信号
 - 以 GitHub Issues 形式发布报告，同时提交 Markdown 文件至 `digests/YYYY-MM-DD/`
+- 配置了 Webhook 时，每日简报自动推送到 Telegram / 飞书 / 企业微信群
 - 每份报告只用英文生成一次，再翻译成中文，不再对同一份数据跑两遍完整流水线
 - 每日通过 GitHub Actions 定时运行，支持手动触发
 - 所有追踪仓库均可通过 `config.yml` 配置，无需修改代码
@@ -211,24 +205,17 @@ LLM 负责过滤非 AI 项目，将结果按维度分类（AI 基础工具 / AI 
 编辑仓库根目录的 `config.yml`，可增删或替换追踪的仓库。文件内有详细注释，每次工作流运行时自动读取，无需改代码。若文件不存在则使用内置默认值。
 
 ```yaml
-# 添加新的 CLI 工具
-cli_repos:
-  - id: my-tool
-    repo: owner/my-ai-cli
-    name: My AI Tool
-
-# 添加新的同赛道对比项目
-openclaw_peers:
+# 给「热门智能体」报告增加一个仓库
+agents_repos:
   - id: my-agent
     repo: owner/my-agent
     name: My Agent
-
-# 添加新的 AI 基础设施项目
-infra_repos:
-  - id: my-engine
-    repo: owner/my-engine
-    name: My Engine
     paginated: true   # 每日 issue/PR 更新超过 100 条时开启
+
+# 其余三个板块写法相同：
+# creator_repos → ai-creator（博主/创作者赋能）
+# office_repos  → ai-office（办公与效率）
+# aigc_repos    → ai-aigc（AIGC）
 ```
 
 ### 3. 添加 Secrets
@@ -331,70 +318,38 @@ pnpm start
 
 | 文件 | 内容 | GitHub Issue 标签 |
 |------|------|------------------|
-| `ai-cli.md` | CLI 简报 — 跨工具横向对比 + 各工具详细报告 | `digest` |
-| `ai-agents.md` | OpenClaw 深度报告 + 横向生态对比 + 4 个同赛道项目详情 | `openclaw` |
-| `ai-infra.md` | AI 基础设施日报 — 横向对比 + 各项目详细报告 | `infra` |
+| `ai-hot-agents.md` | 热门智能体动态 — 横向对比 + 各项目详细报告 | `hot-agents` |
+| `ai-creator.md` | 博主/创作者赋能 — 视频、数字人、配音、内容生产 | `creator` |
+| `ai-office.md` | 办公与效率 — 文档、表格、演示、工作流自动化 | `office` |
+| `ai-aigc.md` | AIGC — 图像 / 视频 / 音频生成技术栈 | `aigc` |
 | `ai-web.md` | 官网内容报告（仅在有新内容时生成） | `web` |
-| `ai-trending.md` | GitHub AI 趋势热榜 — 按维度分类 + 趋势信号分析（仅在有数据时生成） | `trending` |
-| `ai-hn.md` | Hacker News AI 社区动态 — 热门帖子分类 + 情绪分析（仅在抓取成功时生成） | `hn` |
+| `ai-trending.md` | GitHub AI 趋势热榜 — 按方向分类 + 趋势信号分析（仅在有数据时生成） | `trending` |
+| `ai-ph.md` | Product Hunt AI 产品简报（仅在设置 `PRODUCTHUNT_TOKEN` 且有数据时生成） | `ph` |
 
 `digests/web-state.json` 用于记录已处理的 URL，随每日简报一并提交。
 
+每份报告都会生成中文（`ai-hot-agents.md`）和英文（`ai-hot-agents-en.md`）两个版本，Web UI 侧边栏为双语报告提供 ZH / EN 切换。
+
 ---
 
-`ai-cli.md` 结构：
-```
-## 横向对比
-  生态全景 / 活跃度对比表 / 共同需求 / 差异定位 / 趋势信号
-
-## 各工具详细报告
-  <details> Claude Code    — [Claude Code Skills 社区热点]
-                             热门 Skills 排行 / 社区需求趋势 / 高潜力待合并 Skills
-                             ---
-                             今日速览 / 热点 Issues / PR 进展 / 趋势
-  <details> OpenAI Codex   — 今日速览 / 热点 Issues / PR 进展 / 趋势
-  <details> Gemini CLI     — ...
-  <details> OpenCode       — ...
-  <details> Pi             — ...
-  <details> Qwen Code      — ...
-```
-
-`ai-agents.md` 结构：
-```
-Issues: N | PRs: N | 覆盖项目: 5 个
-
-## OpenClaw 项目深度报告
-  今日速览 / 版本发布 / 项目进展 / 社区热点 /
-  Bug稳定性 / 功能请求 / 用户反馈 / 待处理积压
-
-## 横向生态对比
-  生态全景 / 活跃度对比表 / OpenClaw定位分析 /
-  共同技术方向 / 差异化定位 / 社区热度与成熟度 / 趋势信号
-
-## 同赛道项目详细报告
-  <details> ZeroClaw     — 今日速览 / 版本发布 / 项目进展 / ...（8节）
-  <details> Hermes Agent — ...
-  <details> IronClaw     — ...
-  <details> QwenPaw      — ...
-```
-
-`ai-infra.md` 结构：
+四份方向报告（`ai-hot-agents.md`、`ai-creator.md`、`ai-office.md`、`ai-aigc.md`）结构一致：
 ```
 覆盖项目: 6 个
 
 ## 横向对比
-  生态全景 / 活跃度对比表 / 模型支持竞速 /
-  性能优化前沿 / 分层定位差异 / 趋势信号
+  整体概览 / 活跃度对比表 / 共同关注的方向 / 差异化定位 / 值得关注的信号
 
 ## 各项目详细报告
-  <details> vLLM       — 今日速览 / 版本发布与破坏性变更 / 新模型与硬件支持 /
-                         性能与优化 / 稳定性与回归 / 对应用开发者的意义
-  <details> SGLang     — ...
-  <details> llama.cpp  — ...
-  <details> Ollama     — ...
-  <details> LiteLLM    — ...
-  <details> Unsloth    — ...
+  <details> Hermes Agent  — 今日速览 / 版本与更新 / 重要进展 /
+                            社区热点 / 值得关注的信号
+  <details> Agent Reach   — ...
+  <details> Career Ops    — ...
+  <details> Cherry Studio — ...
+  <details> Nanobot       — ...
+  <details> CowAgent      — ...
 ```
+
+所有正文都以通俗语言写给不写代码的读者（内容、产品、运营），侧重「能拿它做什么」而非实现细节。
 
 `ai-web.md` 结构：
 ```
@@ -413,33 +368,21 @@ OpenAI 内容精选            (research / release / company / safety / ...)
 数据来源: GitHub Trending + GitHub Search API
 
 今日速览
-各维度热门项目
-  🔧 AI 基础工具      — 框架 / SDK / 推理引擎 / CLI
-  🤖 AI 智能体/工作流 — Agent 框架 / 多智能体 / 自动化
-  📦 AI 应用          — 垂直场景产品 / 解决方案
-  🧠 大模型/训练      — 模型权重 / 训练框架 / 微调工具
-  🔍 RAG/知识库       — 向量数据库 / 检索增强
+各方向热门项目
+  🤖 智能体         — Agent 框架 / 个人助理 / 自动化
+  🎬 创作者工具     — 视频 / 数字人 / 配音 / 内容生产
+  💼 办公与效率     — 文档 / 表格 / 演示 / 工作流自动化
+  🎨 AIGC          — 图像 / 视频 / 音频生成
+  🧩 其他 AI 应用
 趋势信号分析
-社区关注热点
+值得关注的项目
 ```
 
-`ai-hn.md` 结构：
-```
-数据来源: Hacker News（top-30 AI 帖子，过去 24 小时）
-
-今日速览
-热门新闻与讨论
-  🔬 模型与研究   — 新模型发布 / 论文 / 基准测试
-  🛠️ 工具与工程   — 开源项目 / 框架 / 工程实践
-  🏢 产业动态     — 公司新闻 / 融资 / 产品发布
-  💬 观点与争议   — Ask HN / Show HN / 热议帖子
-社区情绪信号
-值得深读
-```
+历史简报存储在 [`digests/`](./digests/)。已发布的 Issues 按类型打标签：[`hot-agents`](../../issues?q=is%3Aissue+label%3Ahot-agents) · [`creator`](../../issues?q=is%3Aissue+label%3Acreator) · [`office`](../../issues?q=is%3Aissue+label%3Aoffice) · [`aigc`](../../issues?q=is%3Aissue+label%3Aaigc) · [`web`](../../issues?q=is%3Aissue+label%3Aweb) · [`trending`](../../issues?q=is%3Aissue+label%3Atrending) · [`ph`](../../issues?q=is%3Aissue+label%3Aph)。
 
 只有最近一天的 Issue 保持 open —— 每次运行 `pnpm close-stale` 会关闭更早的全部日报 Issue，列表因此稳定在一天的量级，而不是几千条。不会删除任何内容：上面的标签链接包含已关闭的 Issue，完整存档同时保存在 `digests/` 和 Web UI 里。没有日报标签的 Issue 以及 Pull Request 不会被动到。
 
-历史简报存储在 [`digests/`](./digests/)。已发布的 Issues 按类型打标签：[`digest`](../../issues?q=is%3Aissue+label%3Adigest) · [`openclaw`](../../issues?q=is%3Aissue+label%3Aopenclaw) · [`web`](../../issues?q=is%3Aissue+label%3Aweb) · [`trending`](../../issues?q=is%3Aissue+label%3Atrending) · [`hn`](../../issues?q=is%3Aissue+label%3Ahn)。
+早期的报告类型（CLI 工具、OpenClaw 生态、AI 基础设施、Hacker News、ArXiv、Hugging Face、Dev.to/Lobste.rs）已在 2026 年 10 月改版为上述四大方向时退役，历史报告仍可在 `digests/` 和 Web UI 中浏览；每周 / 每月汇总报告已于 2026 年 7 月停更。
 
 ## 定时计划
 

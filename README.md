@@ -2,21 +2,15 @@
 
 English | [中文](./README.zh.md)
 
-A GitHub Actions workflow that runs every morning at 07:00 CST. It aggregates AI ecosystem signals from 10 data sources, then publishes bilingual (Chinese + English) daily digests as GitHub Issues and committed Markdown files.
+A GitHub Actions workflow that runs every morning at ~07:00 CST. It aggregates AI ecosystem signals from four directions — hot agents, creator tooling, office AI and AIGC — and publishes bilingual (Chinese + English) daily digests as GitHub Issues and committed Markdown files.
 
 ### Data Sources
 
 | Source | Type | Data |
 |--------|------|------|
-| [GitHub Repos](https://github.com) | API | Issues, PRs, releases from 18 tracked AI tool repos |
-| [Claude Code Skills](https://github.com/anthropics/skills) | API | Trending skills sorted by community engagement |
-| [GitHub Trending](https://github.com/trending) | HTML + API | Daily trending repos + AI topic search (7-day window) |
-| [Hacker News](https://news.ycombinator.com) | [Algolia API](https://hn.algolia.com/api) | Top 30 AI stories from last 24h, 6 parallel queries |
+| [GitHub Repos](https://github.com) | API | Issues, PRs, releases from 24 tracked repos across 4 groups (agents / creator / office / AIGC) |
+| [GitHub Trending](https://github.com/trending) | HTML + API | Daily trending repos + topic search (7-day window) |
 | [Product Hunt](https://www.producthunt.com) | GraphQL API | Yesterday's top AI products by votes |
-| [ArXiv](https://arxiv.org) | [ArXiv API](https://export.arxiv.org/api/query) | Latest papers from cs.AI, cs.CL, cs.LG (last 48h) |
-| [Hugging Face](https://huggingface.co) | [Hub API](https://huggingface.co/api/models) | 30 trending models sorted by weekly likes — **weekly**, Mondays only |
-| [Dev.to](https://dev.to) | [Forem API](https://dev.to/api) | Top AI/LLM articles from 5 tags |
-| [Lobste.rs](https://lobste.rs) | JSON API | AI/ML tagged stories from last 7 days |
 | [Anthropic](https://anthropic.com) + [OpenAI](https://openai.com) | Sitemap | New articles detected via `lastmod` diff |
 
 ## Web UI
@@ -114,55 +108,61 @@ wrangler deploy
 
 ## Tracked sources
 
-### AI CLI tools (GitHub)
+Reports are organized into four audience-facing directions. Each direction tracks 6 GitHub repositories, generating a per-repo report plus a cross-project comparison — all written for non-developer readers (content, product, operations teams).
 
-| Tool | Repository |
-|------|-----------|
-| Claude Code | [anthropics/claude-code](https://github.com/anthropics/claude-code) |
-| OpenAI Codex | [openai/codex](https://github.com/openai/codex) |
-| Gemini CLI | [google-gemini/gemini-cli](https://github.com/google-gemini/gemini-cli) |
-| GitHub Copilot CLI | [github/copilot-cli](https://github.com/github/copilot-cli) |
-| OpenCode | [anomalyco/opencode](https://github.com/anomalyco/opencode) |
-| Pi | [earendil-works/pi](https://github.com/earendil-works/pi) |
-| Qwen Code | [QwenLM/qwen-code](https://github.com/QwenLM/qwen-code) |
+### 🤖 Hot AI Agents (热门智能体动态)
 
-Repos marked `discussions: true` in `config.yml` (Codex, Pi) also have their GitHub Discussions
-pulled in.
+Agent projects people are actually using and updating, from personal assistants to domain agents.
 
-### Claude Code Skills (GitHub)
+| Project | Repository |
+|---------|-----------|
+| Hermes Agent | [NousResearch/hermes-agent](https://github.com/NousResearch/hermes-agent) |
+| Agent Reach | [Panniantong/Agent-Reach](https://github.com/Panniantong/Agent-Reach) |
+| Career Ops | [career-ops-hq/career-ops](https://github.com/career-ops-hq/career-ops) |
+| Cherry Studio | [CherryHQ/cherry-studio](https://github.com/CherryHQ/cherry-studio) |
+| Nanobot | [HKUDS/nanobot](https://github.com/HKUDS/nanobot) |
+| CowAgent | [zhayujie/CowAgent](https://github.com/zhayujie/CowAgent) |
 
-| Source | Repository |
-|--------|-----------|
-| Claude Code Skills | [anthropics/skills](https://github.com/anthropics/skills) |
+### 🎬 Creator AI (博主/创作者赋能)
 
-PRs and issues are fetched without a date filter and sorted by popularity (comment count), so the report always reflects the most actively discussed skills — not just the newest.
+Video, audio and content-creation tooling for bloggers and new-media creators.
 
-### OpenClaw + AI agent ecosystem (GitHub)
+| Project | Repository |
+|---------|-----------|
+| MoneyPrinterTurbo | [harry0703/MoneyPrinterTurbo](https://github.com/harry0703/MoneyPrinterTurbo) |
+| OpenMontage | [calesthio/OpenMontage](https://github.com/calesthio/OpenMontage) |
+| pyVideoTrans | [jianchang512/pyvideotrans](https://github.com/jianchang512/pyvideotrans) |
+| Toonflow | [HBAI-Ltd/Toonflow-app](https://github.com/HBAI-Ltd/Toonflow-app) |
+| OpenCreator | [krillinai/OpenCreator](https://github.com/krillinai/OpenCreator) |
+| LiveTalking | [lipku/LiveTalking](https://github.com/lipku/LiveTalking) |
 
-OpenClaw is tracked as the primary reference project, alongside several peer projects in the personal AI assistant / autonomous agent space for cross-ecosystem comparison.
+### 💼 AI Office (办公与效率)
 
-| Project | Repository | Stars |
-|---------|-----------|-------|
-| OpenClaw | [openclaw/openclaw](https://github.com/openclaw/openclaw) | 387.8k |
-| Hermes Agent | [nousresearch/hermes-agent](https://github.com/nousresearch/hermes-agent) | 237.0k |
-| QwenPaw | [agentscope-ai/QwenPaw](https://github.com/agentscope-ai/QwenPaw) | 34.5k |
-| ZeroClaw | [zeroclaw-labs/zeroclaw](https://github.com/zeroclaw-labs/zeroclaw) | 32.7k |
-| IronClaw | [nearai/ironclaw](https://github.com/nearai/ironclaw) | 12.6k |
+Productivity and automation: workflow automation, notes, tables, slides and documents.
 
-### AI infrastructure (GitHub)
+| Project | Repository |
+|---------|-----------|
+| n8n | [n8n-io/n8n](https://github.com/n8n-io/n8n) |
+| PPT Master | [hugohe3/ppt-master](https://github.com/hugohe3/ppt-master) |
+| SiYuan | [siyuan-note/siyuan](https://github.com/siyuan-note/siyuan) |
+| Teable | [teableio/teable](https://github.com/teableio/teable) |
+| GenOffice | [genspark-ai/genoffice](https://github.com/genspark-ai/genoffice) |
+| Presenton | [presenton/presenton](https://github.com/presenton/presenton) |
 
-The inference and serving layer the agent/CLI tools run on top of — tracked in a dedicated report with its own cross-project comparison.
+### 🎨 AIGC
 
-| Project | Repository | Layer | Stars |
-|---------|-----------|-------|-------|
-| Ollama | [ollama/ollama](https://github.com/ollama/ollama) | Local runtime | 177.2k |
-| llama.cpp | [ggml-org/llama.cpp](https://github.com/ggml-org/llama.cpp) | Inference engine | 121.9k |
-| vLLM | [vllm-project/vllm](https://github.com/vllm-project/vllm) | Serving engine | 87.5k |
-| Unsloth | [unslothai/unsloth](https://github.com/unslothai/unsloth) | Fine-tuning | 69.0k |
-| LiteLLM | [BerriAI/litellm](https://github.com/BerriAI/litellm) | LLM gateway | 55.0k |
-| SGLang | [sgl-project/sglang](https://github.com/sgl-project/sglang) | Serving engine | 30.9k |
+Image, video and audio generation stacks — the tooling behind generative content.
 
-Summaries focus on new model/hardware support, performance work, breaking changes, and what each change means for developers building on top of these projects.
+| Project | Repository |
+|---------|-----------|
+| ComfyUI | [Comfy-Org/ComfyUI](https://github.com/Comfy-Org/ComfyUI) |
+| Open Generative AI | [Anil-matcha/Open-Generative-AI](https://github.com/Anil-matcha/Open-Generative-AI) |
+| InvokeAI | [invoke-ai/InvokeAI](https://github.com/invoke-ai/InvokeAI) |
+| VoiceStudio | [debpalash/VoiceStudio](https://github.com/debpalash/VoiceStudio) |
+| HunyuanVideo | [Tencent-Hunyuan/HunyuanVideo](https://github.com/Tencent-Hunyuan/HunyuanVideo) |
+| GPT-SoVITS | [RVC-Boss/GPT-SoVITS](https://github.com/RVC-Boss/GPT-SoVITS) |
+
+All four lists live in `config.yml` (`agents_repos`, `creator_repos`, `office_repos`, `aigc_repos`) — add or remove repos there, no code changes needed.
 
 ### GitHub AI Trending
 
@@ -171,13 +171,9 @@ Two data sources are fetched in parallel every day:
 | Source | Details |
 |--------|---------|
 | [github.com/trending](https://github.com/trending?since=daily) | Today's trending repos — parsed from HTML; includes today's new star count |
-| GitHub Search API | Repos active in the last 7 days matching 6 AI topics: `llm`, `ai-agent`, `rag`, `vector-database`, `large-language-model`, `machine-learning` |
+| GitHub Search API | Repos active in the last 7 days matching 6 topics aligned to the four directions: `ai-agent`, `aigc`, `llm`, `image-generation`, `text-to-video`, `text-to-speech` |
 
-The LLM filters out non-AI repos from the trending list, classifies the rest by dimension (AI infrastructure / agents / applications / models / RAG), and extracts trend signals.
-
-### Hacker News
-
-Top AI stories from the last 24 hours, fetched via the [Algolia HN Search API](https://hn.algolia.com/api). Six queries run in parallel (`AI`, `LLM`, `Claude`, `OpenAI`, `Anthropic`, `machine learning`), results are deduplicated and ranked by points. The top 30 stories are passed to the LLM for analysis.
+The LLM filters out non-AI repos, classifies the rest by direction (🤖 agents / 🎬 creator tools / 💼 office / 🎨 AIGC), and extracts trend signals.
 
 ### Official web content (sitemap-based)
 
@@ -190,15 +186,12 @@ New articles are detected by comparing sitemap `lastmod` timestamps against a pe
 
 ## Features
 
-- Fetches issues, pull requests, and releases updated in the last 24 hours across all tracked repos
-- Tracks trending Claude Code Skills — sorted by community engagement, not recency
-- Generates a per-tool summary for each CLI repository and a cross-tool comparative analysis
-- Generates a deep OpenClaw project report plus a cross-ecosystem comparison against 4 peer projects
-- Tracks 6 AI infrastructure projects (inference engines, gateways, fine-tuning) with a dedicated report and cross-project comparison
+- Tracks 24 AI projects across four directions — 🤖 hot agents, 🎬 creator tooling, 💼 office AI, 🎨 AIGC
+- Generates a per-project summary plus a cross-project comparison for each direction, written in plain language for non-developer readers
 - Scrapes official Anthropic and OpenAI web content via sitemaps; detects new articles incrementally
-- Monitors GitHub Trending daily + searches 6 AI topic tags; classifies repos by dimension and extracts trend signals
-- Fetches top-30 AI stories from Hacker News (last 24h, ranked by points); generates community sentiment report
+- Monitors GitHub Trending daily + searches 6 AI topics; classifies repos by direction and extracts trend signals
 - Publishes GitHub Issues for each report type; commits Markdown files to `digests/YYYY-MM-DD/`
+- Pushes a daily digest notification to Telegram / Feishu / WeCom (企业微信) when webhooks are configured
 - Generates every report body once in English and translates it to Chinese, instead of running the whole pipeline twice per language
 - Runs on a daily schedule via GitHub Actions; supports manual triggering
 - All tracked repositories are configurable via `config.yml` — no code changes needed
@@ -212,24 +205,17 @@ New articles are detected by comparing sitemap `lastmod` timestamps against a pe
 Edit `config.yml` in the repo root to add, remove, or replace the tracked repositories. The file is fully commented. No code changes are needed — the pipeline reads it on every run and falls back to built-in defaults if the file is absent.
 
 ```yaml
-# Add a new CLI tool
-cli_repos:
-  - id: my-tool
-    repo: owner/my-ai-cli
-    name: My AI Tool
-
-# Add a new peer project to the OpenClaw ecosystem comparison
-openclaw_peers:
+# Add a repo to the hot-agents report
+agents_repos:
   - id: my-agent
     repo: owner/my-agent
     name: My Agent
-
-# Add a new AI infrastructure project
-infra_repos:
-  - id: my-engine
-    repo: owner/my-engine
-    name: My Engine
     paginated: true   # for repos with >100 daily issue/PR updates
+
+# The other three sections work the same way:
+# creator_repos  → ai-creator   (博主/创作者赋能)
+# office_repos   → ai-office    (办公与效率)
+# aigc_repos     → ai-aigc      (AIGC)
 ```
 
 ### 3. Add Secrets
@@ -332,78 +318,38 @@ Files are written to `digests/YYYY-MM-DD/`:
 
 | File | Content | GitHub Issue label |
 |------|---------|-------------------|
-| `ai-cli.md` | CLI digest — cross-tool comparison + per-tool details | `digest` |
-| `ai-agents.md` | OpenClaw deep report + cross-ecosystem comparison + 4 peer details | `openclaw` |
-| `ai-infra.md` | AI infrastructure digest — cross-project comparison + per-project details | `infra` |
+| `ai-hot-agents.md` | Hot AI agents digest — cross-project comparison + per-project details | `hot-agents` |
+| `ai-creator.md` | Creator AI digest — videos, digital humans, dubbing, content production | `creator` |
+| `ai-office.md` | AI office digest — documents, spreadsheets, presentations, automation | `office` |
+| `ai-aigc.md` | AIGC digest — image / video / audio generation stacks | `aigc` |
 | `ai-web.md` | Official web content report (only written when new content exists) | `web` |
-| `ai-trending.md` | GitHub AI trending report — repos classified by dimension + trend signals (only written when data is available) | `trending` |
-| `ai-hn.md` | Hacker News AI community digest — top stories + sentiment analysis (only written when fetch succeeds) | `hn` |
+| `ai-trending.md` | GitHub AI trending report — repos classified by direction + trend signals (only written when data is available) | `trending` |
 | `ai-ph.md` | Product Hunt AI products digest (only written when `PRODUCTHUNT_TOKEN` is set and data is available) | `ph` |
-| `ai-arxiv.md` | ArXiv AI research digest — key papers from cs.AI/cs.CL/cs.LG | `arxiv` |
-| `ai-hf.md` | Hugging Face trending models digest — sorted by weekly likes (**weekly**: written on Mondays only) | `hf` |
-| `ai-community.md` | Tech community AI digest — Dev.to articles + Lobste.rs stories combined | `community` |
 
 A shared state file `digests/web-state.json` tracks which web URLs have been seen; it is committed alongside the daily digests.
 
-Each report is generated in both Chinese (`ai-cli.md`) and English (`ai-cli-en.md`). The Web UI sidebar shows ZH / EN toggle buttons for reports that have both variants.
+Each report is generated in both Chinese (`ai-hot-agents.md`) and English (`ai-hot-agents-en.md`). The Web UI sidebar shows ZH / EN toggle buttons for reports that have both variants.
 
 ---
 
-`ai-cli.md` / `ai-cli-en.md` structure:
-```
-## Cross-Tool Comparison
-  Ecosystem overview / Activity comparison table / Shared themes / Differentiation / Trend signals
-
-## Per-Tool Reports
-  <details> Claude Code    — [Claude Code Skills Highlights]
-                             Top skills / Community demand trends / High-potential pending skills
-                             ---
-                             Today's summary / Hot issues / PR progress / Trends
-  <details> OpenAI Codex   — Today's summary / Hot issues / PR progress / Trends
-  <details> Gemini CLI     — ...
-  <details> GitHub Copilot CLI — ...
-  <details> OpenCode       — ...
-  <details> Pi             — ...
-  <details> Qwen Code      — ...
-```
-
-`ai-agents.md` / `ai-agents-en.md` structure:
-```
-Issues: N | PRs: N | Projects covered: 5
-
-## OpenClaw Deep Dive
-  Today's summary / Releases / Project progress / Community highlights /
-  Bug stability / Feature requests / User feedback / Backlog
-
-## Cross-Ecosystem Comparison
-  Ecosystem overview / Activity table / OpenClaw positioning /
-  Shared technical directions / Differentiation / Community maturity / Trend signals
-
-## Peer Project Reports
-  <details> ZeroClaw     — Today's summary / Releases / Progress / ... (8 sections)
-  <details> Hermes Agent — ...
-  <details> IronClaw     — ...
-  <details> QwenPaw      — ...
-```
-
-`ai-infra.md` / `ai-infra-en.md` structure:
+The four direction reports (`ai-hot-agents.md`, `ai-creator.md`, `ai-office.md`, `ai-aigc.md`) share one structure:
 ```
 Projects covered: 6
 
 ## Cross-Project Comparison
-  Ecosystem overview / Activity table / Model support race /
-  Performance frontier / Layer positioning / Trend signals
+  Overview / Activity table / Shared themes / Positioning differences / Signals to watch
 
 ## Per-Project Reports
-  <details> vLLM       — Today's highlights / Releases & breaking changes /
-                         New model & hardware support / Performance & optimization /
-                         Stability & regressions / What it means for app developers
-  <details> SGLang     — ...
-  <details> llama.cpp  — ...
-  <details> Ollama     — ...
-  <details> LiteLLM    — ...
-  <details> Unsloth    — ...
+  <details> Hermes Agent  — Today's highlights / Releases & updates / Key progress /
+                            Community buzz / Signals to watch
+  <details> Agent Reach   — ...
+  <details> Career Ops    — ...
+  <details> Cherry Studio — ...
+  <details> Nanobot       — ...
+  <details> CowAgent      — ...
 ```
+
+All bodies are written in plain language for non-developer readers (content, product and operations teams), focused on "what you can do with it" rather than implementation detail.
 
 `ai-web.md` / `ai-web-en.md` structure:
 ```
@@ -422,35 +368,21 @@ Notable details
 Sources: GitHub Trending + GitHub Search API
 
 Today's summary
-Top repos by dimension
-  🔧 AI Infrastructure  — frameworks / SDKs / inference engines / CLIs
-  🤖 AI Agents          — agent frameworks / multi-agent / automation
-  📦 AI Applications    — vertical products / solutions
-  🧠 Models & Training  — model weights / training frameworks / fine-tuning
-  🔍 RAG & Knowledge    — vector databases / retrieval augmentation
+Top repos by direction
+  🤖 Agents             — agent frameworks / personal assistants / automation
+  🎬 Creator Tools      — video / digital human / dubbing / content production
+  💼 Office & Productivity — documents / spreadsheets / presentations / automation
+  🎨 AIGC               — image / video / audio generation
+  🧩 Other AI Applications
 Trend signal analysis
-Community focus
+Projects to watch
 ```
 
-`ai-hn.md` / `ai-hn-en.md` structure:
-```
-Sources: Hacker News (top-30 AI stories, last 24h)
-
-Today's summary
-Top stories & discussions
-  🔬 Models & Research  — new model releases / papers / benchmarks
-  🛠️ Tools & Engineering — open-source projects / frameworks / engineering practice
-  🏢 Industry news      — company news / funding / product launches
-  💬 Opinions & debate  — Ask HN / Show HN / hot threads
-Community sentiment signals
-Worth reading
-```
-
-Historical digests are stored in [`digests/`](./digests/). Published issues are tagged by type: [`digest`](../../issues?q=is%3Aissue+label%3Adigest) · [`openclaw`](../../issues?q=is%3Aissue+label%3Aopenclaw) · [`web`](../../issues?q=is%3Aissue+label%3Aweb) · [`trending`](../../issues?q=is%3Aissue+label%3Atrending) · [`hn`](../../issues?q=is%3Aissue+label%3Ahn) · [`ph`](../../issues?q=is%3Aissue+label%3Aph) · [`arxiv`](../../issues?q=is%3Aissue+label%3Aarxiv) · [`hf`](../../issues?q=is%3Aissue+label%3Ahf) · [`community`](../../issues?q=is%3Aissue+label%3Acommunity).
+Historical digests are stored in [`digests/`](./digests/). Published issues are tagged by type: [`hot-agents`](../../issues?q=is%3Aissue+label%3Ahot-agents) · [`creator`](../../issues?q=is%3Aissue+label%3Acreator) · [`office`](../../issues?q=is%3Aissue+label%3Aoffice) · [`aigc`](../../issues?q=is%3Aissue+label%3Aaigc) · [`web`](../../issues?q=is%3Aissue+label%3Aweb) · [`trending`](../../issues?q=is%3Aissue+label%3Atrending) · [`ph`](../../issues?q=is%3Aissue+label%3Aph).
 
 Only the most recent day's issues are left open — `pnpm close-stale` closes everything older on each run, so the issue list stays at roughly one day's worth instead of thousands. Nothing is deleted: the label links above include closed issues, and the full archive also lives under `digests/` and in the Web UI. Issues without a digest label, and pull requests, are never touched.
 
-Weekly and monthly rollup reports were discontinued in July 2026; past ones remain browsable under `digests/` and in the Web UI.
+The earlier report types (CLI tools, OpenClaw ecosystem, AI infrastructure, Hacker News, ArXiv, Hugging Face, Dev.to/Lobste.rs) were retired in October 2026 when the four directions above were introduced; past reports remain browsable under `digests/` and in the Web UI. Weekly and monthly rollups were discontinued in July 2026.
 
 ## Schedule
 

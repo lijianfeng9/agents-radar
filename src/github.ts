@@ -3,7 +3,7 @@
  * Reads GITHUB_TOKEN and DIGEST_REPO from environment at call time.
  */
 
-import { ISSUE_LABELS } from "./i18n.ts";
+import { GROUP_REPORTS, ISSUE_LABELS } from "./i18n.ts";
 import { toCstDateStr, sleep } from "./date.ts";
 
 // ---------------------------------------------------------------------------
@@ -308,52 +308,25 @@ export async function ensureLabel(name: string, color: string): Promise<void> {
   }
 }
 
-/**
- * Fetch trending skills data from a skills repo (e.g. anthropics/skills).
- * PRs sorted by popularity (comment count); issues sorted by comments.
- * No `since` filter — we want all-time hot items, not just the last 24 h.
- */
-export async function fetchSkillsData(repo: string): Promise<{ prs: GitHubItem[]; issues: GitHubItem[] }> {
-  const [prs, issuesRaw] = await Promise.all([
-    githubGet<GitHubItem[]>(`https://api.github.com/repos/${repo}/pulls`, {
-      state: "open",
-      sort: "popularity",
-      direction: "desc",
-      per_page: "50",
-    }),
-    githubGet<GitHubItem[]>(`https://api.github.com/repos/${repo}/issues`, {
-      state: "all",
-      sort: "comments",
-      direction: "desc",
-      per_page: "50",
-    }),
-  ]);
-  return { prs, issues: issuesRaw.filter((i) => !i.pull_request) };
-}
-
 const GITHUB_ISSUE_BODY_LIMIT = 65536;
 const TRUNCATION_NOTICE = "\n\n---\n> ⚠️ 内容超过 GitHub Issue 上限，完整报告见提交的 Markdown 文件。";
 
 /** GitHub label colors by label name. Default: "0075ca". */
 const LABEL_COLORS: Record<string, string> = {
-  openclaw: "e11d48",
+  "hot-agents": "e11d48",
+  "hot-agents-en": "f472b6",
+  creator: "8b5cf6",
+  "creator-en": "c4b5fd",
+  office: "0891b2",
+  "office-en": "22d3ee",
+  aigc: "f97316",
+  "aigc-en": "fdba74",
+  web: "6b7280",
+  "web-en": "9ca3af",
   trending: "f9a825",
-  hn: "ff6600",
-  ph: "da552f",
-  "digest-en": "1d76db",
-  "openclaw-en": "f472b6",
-  "web-en": "6366f1",
   "trending-en": "fbbf24",
-  "hn-en": "fb923c",
+  ph: "da552f",
   "ph-en": "e8854a",
-  arxiv: "b31b1b",
-  "arxiv-en": "d44a4a",
-  hf: "ff9d00",
-  "hf-en": "ffb84d",
-  community: "2563eb",
-  "community-en": "60a5fa",
-  infra: "0891b2",
-  "infra-en": "22d3ee",
 };
 
 /**
@@ -376,13 +349,29 @@ function neutralizeGitHubRefs(text: string): string {
  * Uses pagination to handle large backlogs. Returns the number of issues closed.
  */
 /**
- * Every label the digest pipeline attaches, plus the discontinued rollup
- * labels that older archived issues still carry. Only issues bearing one of
- * these are eligible for auto-closing, so an issue a person opened is never
- * touched.
+ * Every label the digest pipeline attaches, plus the discontinued report
+ * types and rollup labels that older archived issues still carry. Only issues
+ * bearing one of these are eligible for auto-closing, so an issue a person
+ * opened is never touched.
  */
 const DIGEST_ISSUE_LABELS = new Set([
   ...Object.values(ISSUE_LABELS).flatMap((l) => [l.zh, l.en]),
+  ...Object.values(GROUP_REPORTS).flatMap((r) => [r.issueLabel.zh, r.issueLabel.en]),
+  // Discontinued report types — archived issues still carry these.
+  "digest",
+  "digest-en",
+  "openclaw",
+  "openclaw-en",
+  "infra",
+  "infra-en",
+  "hn",
+  "hn-en",
+  "arxiv",
+  "arxiv-en",
+  "hf",
+  "hf-en",
+  "community",
+  "community-en",
   "weekly",
   "weekly-en",
   "monthly",

@@ -7,25 +7,10 @@
  * bilingual output for its report instead of being called once per language.
  */
 
-import {
-  type Lang,
-  WEB_REPORT,
-  TRENDING_REPORT,
-  HN_REPORT,
-  PH_REPORT,
-  ARXIV_REPORT,
-  HF_REPORT,
-  COMMUNITY_REPORT,
-  ISSUE_LABELS,
-} from "./i18n.ts";
-import {
-  buildWebReportPrompt,
-  buildHnPrompt,
-  buildPhPrompt,
-  buildArxivPrompt,
-  buildHfPrompt,
-  buildCommunityPrompt,
-} from "./prompts-data.ts";
+import { type Lang, WEB_REPORT, TRENDING_REPORT, PH_REPORT, GROUP_REPORTS, ISSUE_LABELS } from "./i18n.ts";
+import { buildGroupReportContent } from "./report-builders.ts";
+import { buildWebReportPrompt, buildPhPrompt } from "./prompts-data.ts";
+import type { RepoDigest } from "./prompts.ts";
 import {
   callLlm,
   translateToZh,
@@ -36,13 +21,8 @@ import {
 } from "./report.ts";
 import { createGitHubIssue } from "./github.ts";
 import { saveWebState, type WebFetchResult, type WebState } from "./web.ts";
-import type { HnData } from "./hn.ts";
 import type { PhData } from "./ph.ts";
 import type { TrendingData } from "./trending.ts";
-import type { ArxivData } from "./arxiv.ts";
-import type { HfData } from "./hf.ts";
-import type { DevtoData } from "./devto.ts";
-import type { LobstersData } from "./lobsters.ts";
 
 /** Output languages, in the order reports are written. */
 export const LANGS = ["zh", "en"] as const;
@@ -59,6 +39,43 @@ async function bilingualBody(enPrompt: string, maxTokens: number): Promise<Bilin
   const en = await callLlm(enPrompt, maxTokens);
   const zh = await translateToZh(en, maxTokens);
   return { en, zh };
+}
+
+// ---------------------------------------------------------------------------
+// Group reports (the four daily directions)
+// ---------------------------------------------------------------------------
+
+export async function saveGroupReport(
+  gid: string,
+  digestsByLang: Record<Lang, RepoDigest[]>,
+  comparison: BilingualBody,
+  utcStr: string,
+  dateStr: string,
+  digestRepo: string,
+): Promise<void> {
+  const info = GROUP_REPORTS[gid];
+  if (!info) throw new Error(`Unknown report group: ${gid}`);
+
+  for (const lang of LANGS) {
+    const fileName = lang === "en" ? `${gid}-en.md` : `${gid}.md`;
+    const content = buildGroupReportContent(
+      gid,
+      digestsByLang[lang],
+      comparison[lang],
+      utcStr,
+      dateStr,
+      autoGenFooter(lang),
+      lang,
+    );
+
+    console.log(`  Saved ${saveFile(content, dateStr, fileName)}`);
+
+    if (digestRepo) {
+      const issueTitle = info.issueTitle(dateStr, lang);
+      const issueUrl = await createGitHubIssue(issueTitle, content, info.issueLabel[lang]);
+      console.log(`  Created ${gid} issue (${lang}): ${issueUrl}`);
+    }
+  }
 }
 
 // ---------------------------------------------------------------------------
@@ -160,54 +177,6 @@ export async function saveTrendingReport(
 }
 
 // ---------------------------------------------------------------------------
-// Hacker News report
-// ---------------------------------------------------------------------------
-
-export async function saveHnReport(
-  hnData: HnData,
-  utcStr: string,
-  dateStr: string,
-  digestRepo: string,
-): Promise<void> {
-  if (!hnData.fetchSuccess) {
-    console.log("  [hn] No data available, skipping report.");
-    return;
-  }
-
-  console.log("  [hn] Calling LLM for HN report (EN) + translation (ZH)...");
-  try {
-    const summary = await bilingualBody(buildHnPrompt(hnData, dateStr, "en"), LLM_TOKENS_LISTING);
-
-    for (const lang of LANGS) {
-      const fileName = lang === "en" ? "ai-hn-en.md" : "ai-hn.md";
-      const header =
-        lang === "en"
-          ? `# ${HN_REPORT.title[lang]} ${dateStr}\n\n` +
-            `> Source: [Hacker News](https://news.ycombinator.com/) | ` +
-            `${hnData.stories.length} stories | Generated: ${utcStr} UTC\n\n` +
-            `---\n\n`
-          : `# ${HN_REPORT.title[lang]} ${dateStr}\n\n` +
-            `> 数据来源: [Hacker News](https://news.ycombinator.com/) | ` +
-            `共 ${hnData.stories.length} 条 | 生成时间: ${utcStr} UTC\n\n` +
-            `---\n\n`;
-
-      const hnContent = header + summary[lang] + autoGenFooter(lang);
-
-      console.log(`  Saved ${saveFile(hnContent, dateStr, fileName)}`);
-
-      if (digestRepo) {
-        const hnTitle = HN_REPORT.issueTitle(dateStr, lang);
-        const hnLabel = ISSUE_LABELS.hn[lang];
-        const hnUrl = await createGitHubIssue(hnTitle, hnContent, hnLabel);
-        console.log(`  Created HN issue (${lang}): ${hnUrl}`);
-      }
-    }
-  } catch (err) {
-    console.error(`  [hn] Report generation failed: ${err}`);
-  }
-}
-
-// ---------------------------------------------------------------------------
 // Product Hunt
 // ---------------------------------------------------------------------------
 
@@ -252,154 +221,5 @@ export async function savePhReport(
     }
   } catch (err) {
     console.error(`  [ph] Report generation failed: ${err}`);
-  }
-}
-
-// ---------------------------------------------------------------------------
-// ArXiv report
-// ---------------------------------------------------------------------------
-
-export async function saveArxivReport(
-  arxivData: ArxivData,
-  utcStr: string,
-  dateStr: string,
-  digestRepo: string,
-): Promise<void> {
-  if (!arxivData.fetchSuccess) {
-    console.log("  [arxiv] No data available, skipping report.");
-    return;
-  }
-
-  console.log("  [arxiv] Calling LLM for ArXiv report (EN) + translation (ZH)...");
-  try {
-    const summary = await bilingualBody(buildArxivPrompt(arxivData, dateStr, "en"), LLM_TOKENS_LISTING);
-
-    for (const lang of LANGS) {
-      const fileName = lang === "en" ? "ai-arxiv-en.md" : "ai-arxiv.md";
-      const header =
-        lang === "en"
-          ? `# ${ARXIV_REPORT.title[lang]} ${dateStr}\n\n` +
-            `> Source: [ArXiv](https://arxiv.org/) (cs.AI, cs.CL, cs.LG) | ` +
-            `${arxivData.papers.length} papers | Generated: ${utcStr} UTC\n\n` +
-            `---\n\n`
-          : `# ${ARXIV_REPORT.title[lang]} ${dateStr}\n\n` +
-            `> 数据来源: [ArXiv](https://arxiv.org/) (cs.AI, cs.CL, cs.LG) | ` +
-            `共 ${arxivData.papers.length} 篇论文 | 生成时间: ${utcStr} UTC\n\n` +
-            `---\n\n`;
-
-      const content = header + summary[lang] + autoGenFooter(lang);
-
-      console.log(`  Saved ${saveFile(content, dateStr, fileName)}`);
-
-      if (digestRepo) {
-        const title = ARXIV_REPORT.issueTitle(dateStr, lang);
-        const label = ISSUE_LABELS.arxiv[lang];
-        const url = await createGitHubIssue(title, content, label);
-        console.log(`  Created ArXiv issue (${lang}): ${url}`);
-      }
-    }
-  } catch (err) {
-    console.error(`  [arxiv] Report generation failed: ${err}`);
-  }
-}
-
-// ---------------------------------------------------------------------------
-// Hugging Face report — weekly, see HF_REPORT_WEEKDAY in index.ts
-// ---------------------------------------------------------------------------
-
-export async function saveHfReport(
-  hfData: HfData,
-  utcStr: string,
-  dateStr: string,
-  digestRepo: string,
-): Promise<void> {
-  if (!hfData.fetchSuccess) {
-    console.log("  [hf] No data available, skipping report.");
-    return;
-  }
-
-  console.log("  [hf] Calling LLM for Hugging Face report (EN) + translation (ZH)...");
-  try {
-    const summary = await bilingualBody(buildHfPrompt(hfData, dateStr, "en"), LLM_TOKENS_LISTING);
-
-    for (const lang of LANGS) {
-      const fileName = lang === "en" ? "ai-hf-en.md" : "ai-hf.md";
-      const header =
-        lang === "en"
-          ? `# ${HF_REPORT.title[lang]} ${dateStr}\n\n` +
-            `> Source: [Hugging Face Hub](https://huggingface.co/) | ` +
-            `${hfData.models.length} models | Generated: ${utcStr} UTC\n\n` +
-            `---\n\n`
-          : `# ${HF_REPORT.title[lang]} ${dateStr}\n\n` +
-            `> 数据来源: [Hugging Face Hub](https://huggingface.co/) | ` +
-            `共 ${hfData.models.length} 个模型 | 生成时间: ${utcStr} UTC\n\n` +
-            `---\n\n`;
-
-      const content = header + summary[lang] + autoGenFooter(lang);
-
-      console.log(`  Saved ${saveFile(content, dateStr, fileName)}`);
-
-      if (digestRepo) {
-        const title = HF_REPORT.issueTitle(dateStr, lang);
-        const label = ISSUE_LABELS.hf[lang];
-        const url = await createGitHubIssue(title, content, label);
-        console.log(`  Created HF issue (${lang}): ${url}`);
-      }
-    }
-  } catch (err) {
-    console.error(`  [hf] Report generation failed: ${err}`);
-  }
-}
-
-// ---------------------------------------------------------------------------
-// Community report (Dev.to + Lobste.rs)
-// ---------------------------------------------------------------------------
-
-export async function saveCommunityReport(
-  devtoData: DevtoData,
-  lobstersData: LobstersData,
-  utcStr: string,
-  dateStr: string,
-  digestRepo: string,
-): Promise<void> {
-  const hasData = devtoData.fetchSuccess || lobstersData.fetchSuccess;
-  if (!hasData) {
-    console.log("  [community] No data available, skipping report.");
-    return;
-  }
-
-  console.log("  [community] Calling LLM for community report (EN) + translation (ZH)...");
-  try {
-    const summary = await bilingualBody(
-      buildCommunityPrompt(devtoData, lobstersData, dateStr, "en"),
-      LLM_TOKENS_LISTING,
-    );
-    const devtoCount = devtoData.articles.length;
-    const lobstersCount = lobstersData.stories.length;
-
-    for (const lang of LANGS) {
-      const fileName = lang === "en" ? "ai-community-en.md" : "ai-community.md";
-      const header =
-        lang === "en"
-          ? `# ${COMMUNITY_REPORT.title[lang]} ${dateStr}\n\n` +
-            `> Sources: [Dev.to](https://dev.to/) (${devtoCount} articles) + [Lobste.rs](https://lobste.rs/) (${lobstersCount} stories) | Generated: ${utcStr} UTC\n\n` +
-            `---\n\n`
-          : `# ${COMMUNITY_REPORT.title[lang]} ${dateStr}\n\n` +
-            `> 数据来源: [Dev.to](https://dev.to/) (${devtoCount} 篇) + [Lobste.rs](https://lobste.rs/) (${lobstersCount} 条) | 生成时间: ${utcStr} UTC\n\n` +
-            `---\n\n`;
-
-      const content = header + summary[lang] + autoGenFooter(lang);
-
-      console.log(`  Saved ${saveFile(content, dateStr, fileName)}`);
-
-      if (digestRepo) {
-        const title = COMMUNITY_REPORT.issueTitle(dateStr, lang);
-        const label = ISSUE_LABELS.community[lang];
-        const url = await createGitHubIssue(title, content, label);
-        console.log(`  Created community issue (${lang}): ${url}`);
-      }
-    }
-  } catch (err) {
-    console.error(`  [community] Report generation failed: ${err}`);
   }
 }

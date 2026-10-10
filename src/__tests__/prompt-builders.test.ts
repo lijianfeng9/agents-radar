@@ -1,18 +1,9 @@
 import { describe, it, expect } from "vitest";
-import {
-  buildCliPrompt,
-  buildPeerPrompt,
-  buildInfraPrompt,
-  buildComparisonPrompt,
-  buildInfraComparisonPrompt,
-  buildPeersComparisonPrompt,
-  buildSkillsPrompt,
-} from "../prompts.ts";
-import { buildTrendingPrompt, buildWebReportPrompt, buildHnPrompt } from "../prompts-data.ts";
+import { buildGroupPrompt, buildGroupComparisonPrompt } from "../prompts.ts";
+import { buildTrendingPrompt, buildWebReportPrompt } from "../prompts-data.ts";
 import type { RepoConfig, GitHubItem, GitHubRelease, GitHubDiscussion } from "../github.ts";
 import type { RepoDigest } from "../prompts.ts";
 import type { TrendingData } from "../trending.ts";
-import type { HnData } from "../hn.ts";
 import type { WebFetchResult } from "../web.ts";
 
 // ---------------------------------------------------------------------------
@@ -75,206 +66,101 @@ function makeDigest(overrides: Partial<RepoDigest> = {}): RepoDigest {
 }
 
 // ---------------------------------------------------------------------------
-// buildCliPrompt
+// buildGroupPrompt
 // ---------------------------------------------------------------------------
 
-describe("buildCliPrompt", () => {
-  it("generates Chinese prompt by default", () => {
-    const result = buildCliPrompt(cfg, [makeItem()], [makeItem()], [release], [], "2026-03-09");
-    expect(result).toContain("技术分析师");
+describe("buildGroupPrompt", () => {
+  it("generates a Chinese prompt by default", () => {
+    const result = buildGroupPrompt(
+      "ai-hot-agents",
+      cfg,
+      [makeItem()],
+      [makeItem()],
+      [release],
+      [],
+      "2026-03-09",
+    );
     expect(result).toContain("TestTool");
     expect(result).toContain("2026-03-09");
     expect(result).toContain("org/test");
     expect(result).toContain("v1.0.0");
+    expect(result).toContain("今日速览");
+    expect(result).toContain("不写代码");
   });
 
-  it("generates English prompt", () => {
-    const result = buildCliPrompt(cfg, [makeItem()], [], [], [], "2026-03-09", "en");
-    expect(result).toContain("technical analyst");
+  it("generates an English prompt", () => {
+    const result = buildGroupPrompt("ai-hot-agents", cfg, [makeItem()], [], [], [], "2026-03-09", "en");
     expect(result).toContain("TestTool");
-    expect(result).toContain("Hot Issues");
+    expect(result).toContain("Today's Highlights");
+    expect(result).toContain("non-developer");
   });
 
-  it("shows 无 when no data", () => {
-    const result = buildCliPrompt(cfg, [], [], [], [], "2026-03-09");
+  it("carries the direction-specific focus", () => {
+    expect(buildGroupPrompt("ai-creator", cfg, [], [], [], [], "2026-03-09")).toContain("博主");
+    expect(buildGroupPrompt("ai-office", cfg, [], [], [], [], "2026-03-09")).toContain("办公");
+    expect(buildGroupPrompt("ai-aigc", cfg, [], [], [], [], "2026-03-09")).toContain("图像");
+  });
+
+  it("shows 无 when there is no data", () => {
+    const result = buildGroupPrompt("ai-hot-agents", cfg, [], [], [], [], "2026-03-09");
     expect(result).toContain("无");
   });
 
-  it("includes sample notes when items exceed limit", () => {
+  it("includes sample notes when issues exceed the limit", () => {
     const items = Array.from({ length: 50 }, (_, i) => makeItem({ number: i, comments: i }));
-    const result = buildCliPrompt(cfg, items, [], [], [], "2026-03-09");
+    const result = buildGroupPrompt("ai-hot-agents", cfg, items, [], [], [], "2026-03-09");
     expect(result).toContain("共 50 条");
     expect(result).toContain("30 条");
   });
 
   it("omits the Discussions section when there is no discussion data", () => {
-    const result = buildCliPrompt(cfg, [makeItem()], [], [], [], "2026-03-09");
+    const result = buildGroupPrompt("ai-hot-agents", cfg, [makeItem()], [], [], [], "2026-03-09");
     expect(result).not.toContain("最新 Discussions");
   });
 
   it("renders the Discussions section when data is present", () => {
-    const result = buildCliPrompt(cfg, [], [], [], [makeDiscussion()], "2026-03-09");
+    const result = buildGroupPrompt("ai-hot-agents", cfg, [], [], [], [makeDiscussion()], "2026-03-09");
     expect(result).toContain("最新 Discussions");
     expect(result).toContain("#42 [Ideas]");
-    expect(result).toContain("热门 Discussions");
+    expect(result).toContain("社区热点");
   });
 
-  it("renders the Discussions section in English", () => {
-    const result = buildCliPrompt(cfg, [], [], [], [makeDiscussion()], "2026-03-09", "en");
-    expect(result).toContain("Latest Discussions");
-    expect(result).toContain("Hot Discussions");
-  });
-
-  it("samples discussions by engagement when they exceed the limit", () => {
-    const items = Array.from({ length: 60 }, (_, i) =>
-      makeDiscussion({ number: i, comments: 0, upvotes: i }),
-    );
-    const result = buildCliPrompt(cfg, [], [], [], items, "2026-03-09");
-    expect(result).toContain("共 60 条");
-    expect(result).toContain("评论数 + 点赞数最多的 40 条");
-    // Highest-upvoted kept, lowest dropped
-    expect(result).toContain("#59 [Ideas]");
-    expect(result).not.toContain("#0 [Ideas]");
+  it("rejects an unknown group id", () => {
+    expect(() => buildGroupPrompt("nope", cfg, [], [], [], [], "2026-03-09")).toThrow("nope");
   });
 });
 
 // ---------------------------------------------------------------------------
-// buildPeerPrompt
+// buildGroupComparisonPrompt
 // ---------------------------------------------------------------------------
 
-describe("buildPeerPrompt", () => {
-  it("includes data overview section", () => {
-    const issues = [makeItem({ state: "open" }), makeItem({ state: "closed" })];
-    const result = buildPeerPrompt(cfg, issues, [makeItem()], [release], "2026-03-09");
-    expect(result).toContain("数据概览");
-    expect(result).toContain("新开/活跃: 1");
-    expect(result).toContain("已关闭: 1");
-  });
-
-  it("generates English prompt", () => {
-    const result = buildPeerPrompt(cfg, [], [], [], "2026-03-09", 30, 20, "en");
-    expect(result).toContain("Data Overview");
-    expect(result).toContain("None");
-  });
-});
-
-// ---------------------------------------------------------------------------
-// buildInfraPrompt
-// ---------------------------------------------------------------------------
-
-describe("buildInfraPrompt", () => {
-  it("generates Chinese prompt by default", () => {
-    const result = buildInfraPrompt(cfg, [makeItem()], [makeItem()], [release], "2026-03-09");
-    expect(result).toContain("AI 基础设施");
-    expect(result).toContain("新模型与硬件支持");
-    expect(result).toContain("TestTool");
-    expect(result).toContain("v1.0.0");
-  });
-
-  it("generates English prompt", () => {
-    const result = buildInfraPrompt(cfg, [makeItem()], [], [], "2026-03-09", "en");
-    expect(result).toContain("AI infrastructure");
-    expect(result).toContain("New Model & Hardware Support");
-    expect(result).toContain("None");
-  });
-
-  it("includes sample notes when items exceed limit", () => {
-    const items = Array.from({ length: 50 }, (_, i) => makeItem({ number: i, comments: i }));
-    const result = buildInfraPrompt(cfg, items, [], [], "2026-03-09");
-    expect(result).toContain("共 50 条");
-    expect(result).toContain("30 条");
-  });
-});
-
-// ---------------------------------------------------------------------------
-// buildInfraComparisonPrompt
-// ---------------------------------------------------------------------------
-
-describe("buildInfraComparisonPrompt", () => {
-  it("includes all digest summaries when they have data", () => {
-    const digests = [
-      makeDigest({ config: { ...cfg, name: "vLLM" }, summary: "Summary A", issues: [makeItem()] }),
-      makeDigest({ config: { ...cfg, name: "Ollama" }, summary: "Summary B", prs: [makeItem()] }),
-    ];
-    const result = buildInfraComparisonPrompt(digests, "2026-03-09");
-    expect(result).toContain("模型支持竞速");
-    expect(result).toContain("vLLM");
-    expect(result).toContain("Summary A");
-    expect(result).toContain("Ollama");
-    expect(result).toContain("Summary B");
-  });
-
-  it("shows no-activity for empty digests", () => {
-    const result = buildInfraComparisonPrompt([makeDigest({ summary: "Summary" })], "2026-03-09");
-    expect(result).toContain("过去24小时无活动");
-  });
-
-  it("generates English prompt", () => {
-    const result = buildInfraComparisonPrompt([makeDigest()], "2026-03-09", "en");
-    expect(result).toContain("Model Support Race");
-    expect(result).toContain("No activity in the last 24 hours.");
-  });
-});
-
-// ---------------------------------------------------------------------------
-// buildComparisonPrompt
-// ---------------------------------------------------------------------------
-
-describe("buildComparisonPrompt", () => {
+describe("buildGroupComparisonPrompt", () => {
   it("includes all digest summaries when they have data", () => {
     const digests = [
       makeDigest({ config: { ...cfg, name: "Tool A" }, summary: "Summary A", issues: [makeItem()] }),
       makeDigest({ config: { ...cfg, name: "Tool B" }, summary: "Summary B", prs: [makeItem()] }),
     ];
-    const result = buildComparisonPrompt(digests, "2026-03-09");
+    const result = buildGroupComparisonPrompt("ai-hot-agents", digests, "2026-03-09");
     expect(result).toContain("Tool A");
     expect(result).toContain("Summary A");
     expect(result).toContain("Tool B");
     expect(result).toContain("Summary B");
+    expect(result).toContain("活跃度对比");
   });
 
   it("shows no-activity for empty digests", () => {
-    const digests = [makeDigest({ summary: "Summary" })]; // no issues/prs/releases
-    const result = buildComparisonPrompt(digests, "2026-03-09");
+    const result = buildGroupComparisonPrompt(
+      "ai-hot-agents",
+      [makeDigest({ summary: "Summary" })],
+      "2026-03-09",
+    );
     expect(result).toContain("过去24小时无活动");
   });
-});
 
-// ---------------------------------------------------------------------------
-// buildPeersComparisonPrompt
-// ---------------------------------------------------------------------------
-
-describe("buildPeersComparisonPrompt", () => {
-  it("includes openclaw and peer sections", () => {
-    const openclawDigest = makeDigest({
-      config: { id: "openclaw", repo: "openclaw/openclaw", name: "OpenClaw" },
-      summary: "OC summary",
-    });
-    const peerDigests = [
-      makeDigest({ config: { ...cfg, name: "Peer" }, summary: "Peer summary", issues: [makeItem()] }),
-    ];
-    const result = buildPeersComparisonPrompt(openclawDigest, peerDigests, "2026-03-09");
-    expect(result).toContain("OpenClaw（核心参照");
-    expect(result).toContain("OC summary");
-    expect(result).toContain("Peer summary");
-  });
-});
-
-// ---------------------------------------------------------------------------
-// buildSkillsPrompt
-// ---------------------------------------------------------------------------
-
-describe("buildSkillsPrompt", () => {
-  it("includes skills repository context", () => {
-    const result = buildSkillsPrompt([makeItem()], [makeItem()], "2026-03-09");
-    expect(result).toContain("anthropics/skills");
-    expect(result).toContain("Claude Code Skills");
-  });
-
-  it("generates English variant", () => {
-    const result = buildSkillsPrompt([], [], "2026-03-09", "en");
-    expect(result).toContain("Claude Code ecosystem");
-    expect(result).toContain("None");
+  it("generates an English prompt", () => {
+    const result = buildGroupComparisonPrompt("ai-hot-agents", [makeDigest()], "2026-03-09", "en");
+    expect(result).toContain("No activity in the last 24 hours.");
+    expect(result).toContain("Activity Comparison");
   });
 });
 
@@ -304,6 +190,7 @@ describe("buildTrendingPrompt", () => {
     expect(result).toContain("Python");
     expect(result).toContain("5,000");
     expect(result).toContain("+100 today");
+    expect(result).toContain("办公与效率");
   });
 
   it("shows fetch failure message when trending fails", () => {
@@ -371,57 +258,5 @@ describe("buildWebReportPrompt", () => {
     const result = buildWebReportPrompt(results, "2026-03-09");
     expect(result).toContain("增量更新");
     expect(result).not.toContain("内容格局总览");
-  });
-});
-
-// ---------------------------------------------------------------------------
-// buildHnPrompt
-// ---------------------------------------------------------------------------
-
-describe("buildHnPrompt", () => {
-  it("includes stories with metadata", () => {
-    const data: HnData = {
-      stories: [
-        {
-          id: "123",
-          title: "AI News",
-          url: "https://example.com/ai",
-          hnUrl: "https://news.ycombinator.com/item?id=123",
-          points: 200,
-          comments: 50,
-          author: "bob",
-          createdAt: "2026-03-09T10:00:00Z",
-        },
-      ],
-      fetchSuccess: true,
-    };
-    const result = buildHnPrompt(data, "2026-03-09");
-    expect(result).toContain("AI News");
-    expect(result).toContain("分数: 200");
-    expect(result).toContain("评论: 50");
-    expect(result).toContain("作者: bob");
-    expect(result).toContain("共 1 条");
-  });
-
-  it("generates English variant", () => {
-    const data: HnData = {
-      stories: [
-        {
-          id: "1",
-          title: "Test",
-          url: "https://test.com",
-          hnUrl: "https://news.ycombinator.com/item?id=1",
-          points: 10,
-          comments: 2,
-          author: "a",
-          createdAt: "2026-03-09T10:00:00Z",
-        },
-      ],
-      fetchSuccess: true,
-    };
-    const result = buildHnPrompt(data, "2026-03-09", "en");
-    expect(result).toContain("Score: 10");
-    expect(result).toContain("Comments: 2");
-    expect(result).toContain("Hacker News");
   });
 });

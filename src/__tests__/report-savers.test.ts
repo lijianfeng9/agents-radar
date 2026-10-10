@@ -296,6 +296,43 @@ describe("saveDailyNews", () => {
     expect(file.cards.map((c) => c.url)).toEqual([NEWS_URL, REPO_URL]);
   });
 
+  it("carries the feed image onto matching cards", async () => {
+    const raw = {
+      sections: { llm: [{ title: "模型发布", summary: "说明", url: NEWS_URL }] },
+      cards: [{ title: "卡片", description: "看点", url: NEWS_URL }],
+    };
+    const file = await saveDailyNews(
+      raw,
+      makeCtx({ newsItems: [makeNewsItem({ image: "https://img.example.com/cover.png" })] }),
+    );
+    expect(file.cards[0]!.image).toBe("https://img.example.com/cover.png");
+  });
+
+  it("keeps images on fallback cards and omits the key when the feed had none", async () => {
+    const raw = {
+      sections: {
+        llm: [{ title: "模型发布", summary: "说明", url: NEWS_URL }],
+        agents: [{ title: "项目更新", summary: "说明", url: REPO_URL }],
+      },
+    };
+    const withImages = await saveDailyNews(
+      raw,
+      makeCtx({
+        newsItems: [
+          makeNewsItem({ image: "https://img.example.com/cover.png" }),
+          makeNewsItem({ title: "仓库更新", link: REPO_URL, image: "https://img.example.com/repo.png" }),
+        ],
+      }),
+    );
+    expect(withImages.cards.map((c) => c.image)).toEqual([
+      "https://img.example.com/cover.png",
+      "https://img.example.com/repo.png",
+    ]);
+
+    const bare = await saveDailyNews(raw, makeCtx());
+    expect(bare.cards[0]).not.toHaveProperty("image");
+  });
+
   it("throws when nothing usable survives validation", async () => {
     const raw = {
       sections: { llm: [{ title: "假新闻", summary: "", url: "https://fake.example.com/x" }] },

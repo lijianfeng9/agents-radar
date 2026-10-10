@@ -21,6 +21,8 @@ export interface NewsItem {
   link: string;
   published: Date;
   excerpt: string;
+  /** Lead image from the feed entry, when the source provides one. */
+  image?: string;
 }
 
 /** Per-source outcome, logged after each run. */
@@ -180,6 +182,24 @@ function parseDate(raw: string): Date | null {
   return Number.isNaN(d.getTime()) ? null : d;
 }
 
+/**
+ * Lead image for the feed entry: first <img src> inside the content HTML
+ * (leiphone / tmtpost / ifanr / appinn embed real covers there), falling back
+ * to enclosure / media:* elements. The URL survives cleanup for the WeCom
+ * card cover; a source without images simply yields undefined.
+ */
+function extractImage(block: string): string | undefined {
+  const content = tagAny(block, ["content:encoded", "content", "description", "summary"]);
+  const html = decodeEntities(content);
+  const fromHtml = html.match(/<img\b[^>]*\bsrc="([^"]+)"/i);
+  const media =
+    block.match(/<media:(?:thumbnail|content)\b[^>]*\burl="([^"]+)"/i) ??
+    block.match(/<enclosure\b[^>]*\burl="([^"]+)"/i);
+  let src = decodeEntities(fromHtml?.[1] ?? media?.[1] ?? "").trim();
+  if (src.startsWith("//")) src = `https:${src}`;
+  return /^https?:\/\//i.test(src) ? src : undefined;
+}
+
 export function parseFeed(xml: string, source: NewsSource): NewsItem[] {
   const items: NewsItem[] = [];
   for (const m of xml.matchAll(ITEM_RE)) {
@@ -194,7 +214,8 @@ export function parseFeed(xml: string, source: NewsSource): NewsItem[] {
       0,
       EXCERPT_CHARS,
     );
-    items.push({ sourceId: source.id, sourceName: source.name, title, link, published, excerpt });
+    const image = extractImage(block);
+    items.push({ sourceId: source.id, sourceName: source.name, title, link, published, excerpt, image });
   }
   return items;
 }

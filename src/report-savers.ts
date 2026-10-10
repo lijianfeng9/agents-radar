@@ -67,7 +67,11 @@ function cleanItems(raw: unknown, allowedUrls: Set<string>): DailyNewsItem[] {
   return out;
 }
 
-function cleanCards(raw: unknown, allowedUrls: Set<string>): DailyNewsCard[] {
+function cleanCards(
+  raw: unknown,
+  allowedUrls: Set<string>,
+  imageByUrl: Map<string, string>,
+): DailyNewsCard[] {
   if (!Array.isArray(raw)) return [];
   const out: DailyNewsCard[] = [];
   const seen = new Set<string>();
@@ -77,12 +81,17 @@ function cleanCards(raw: unknown, allowedUrls: Set<string>): DailyNewsCard[] {
     const url = asString(e["url"]);
     if (!title || !url || !allowedUrls.has(url) || seen.has(url)) continue;
     seen.add(url);
-    out.push({ title, description: asString(e["description"]), url });
+    const image = imageByUrl.get(url);
+    out.push({ title, description: asString(e["description"]), url, ...(image ? { image } : {}) });
   }
   return out.slice(0, MAX_CARDS);
 }
 
-export function normalizeDailyNews(raw: unknown, allowedUrls: Set<string>): DailyNews {
+export function normalizeDailyNews(
+  raw: unknown,
+  allowedUrls: Set<string>,
+  imageByUrl: Map<string, string> = new Map(),
+): DailyNews {
   const obj = (raw ?? {}) as Record<string, unknown>;
   const rawSections = (obj["sections"] ?? {}) as Record<string, unknown>;
 
@@ -105,7 +114,12 @@ export function normalizeDailyNews(raw: unknown, allowedUrls: Set<string>): Dail
         .filter((p): p is { repo: string; summary: string } => p !== null)
     : [];
 
-  return { summary, sections, trendingPicks, cards: cleanCards(obj["cards"], allowedUrls) };
+  return {
+    summary,
+    sections,
+    trendingPicks,
+    cards: cleanCards(obj["cards"], allowedUrls, imageByUrl),
+  };
 }
 
 // ---------------------------------------------------------------------------
@@ -150,14 +164,20 @@ export function buildTrendingRows(
 }
 
 /** Cards the model failed to produce: spread the top section items evenly. */
-function fallbackCards(news: DailyNews): DailyNewsCard[] {
+function fallbackCards(news: DailyNews, imageByUrl: Map<string, string>): DailyNewsCard[] {
   const out: DailyNewsCard[] = [];
   for (let i = 0; ; i++) {
     let added = false;
     for (const id of NEWS_SECTION_IDS) {
       const item = news.sections[id][i];
       if (!item) continue;
-      out.push({ title: item.title, description: item.summary, url: item.url });
+      const image = imageByUrl.get(item.url);
+      out.push({
+        title: item.title,
+        description: item.summary,
+        url: item.url,
+        ...(image ? { image } : {}),
+      });
       added = true;
       if (out.length >= MAX_CARDS) return out;
     }
@@ -171,13 +191,17 @@ function fallbackCards(news: DailyNews): DailyNewsCard[] {
 
 export async function saveDailyNews(raw: unknown, ctx: SaveDailyNewsCtx): Promise<DailyNewsFile> {
   const allowedUrls = new Set<string>();
-  for (const item of ctx.newsItems) allowedUrls.add(item.link);
+  const imageByUrl = new Map<string, string>();
+  for (const item of ctx.newsItems) {
+    allowedUrls.add(item.link);
+    if (item.image) imageByUrl.set(item.link, item.image);
+  }
   for (const r of [...ctx.trendingData.trendingRepos, ...ctx.trendingData.searchRepos])
     allowedUrls.add(r.url);
 
-  const news = normalizeDailyNews(raw, allowedUrls);
+  const news = normalizeDailyNews(raw, allowedUrls, imageByUrl);
   const trending = buildTrendingRows(news.trendingPicks, ctx.trendingData);
-  const cards = news.cards.length ? news.cards : fallbackCards(news);
+  const cards = news.cards.length ? news.cards : fallbackCards(news, imageByUrl);
 
   const itemCount = NEWS_SECTION_IDS.reduce((n, id) => n + news.sections[id].length, 0);
   if (itemCount === 0 && trending.length === 0) {

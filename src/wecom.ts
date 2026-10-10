@@ -1,8 +1,9 @@
 /**
  * WeCom (企业微信) group robot notification — reads the latest digest from
  * manifest.json and sends a highlights text message plus a news-card message
- * whose articles link straight to the original sources. Skips silently if
- * WECOM_WEBHOOK_URLS is not set.
+ * whose articles link straight to the original sources. Each article's cover
+ * is the source page's og:image (WeCom draws a gray placeholder without it).
+ * Skips silently if WECOM_WEBHOOK_URLS is not set.
  *
  * Required env vars:
  *   WECOM_WEBHOOK_URLS — comma-separated list of group robot webhook URLs
@@ -26,10 +27,19 @@ const WECOM_MAX_CARDS = 8;
 const CARD_TITLE_BYTES = 128;
 const CARD_DESC_BYTES = 512;
 
+const OG_TIMEOUT_MS = 8_000;
+// Covers are declared in the <head>; 300KB is far beyond what that needs and
+// keeps a pathological page from ballooning memory.
+const OG_MAX_HTML_BYTES = 300_000;
+const BROWSER_UA =
+  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36";
+
 export interface WecomCard {
   title: string;
   description: string;
   url: string;
+  /** Cover image; WeCom renders a gray placeholder card when this is missing. */
+  picurl?: string;
 }
 
 function getWebhookUrls(): string[] {
@@ -98,7 +108,7 @@ export function buildWecomText(date: string, news: DailyNewsFile | null, pagesUr
   const base = (pagesUrl ?? process.env["PAGES_URL"] ?? PAGES_URL_DEFAULT).replace(/\/$/, "");
   const reportUrl = `${base}/#${date}/ai-news`;
   const header = `📡 **AI 每日要闻 · ${date}**`;
-  const footer = `[📖 完整日报](${reportUrl})  ·  [🌐 Web UI](${base})`;
+  const footer = `[📖 完整日报](${reportUrl})  ·  [🌐 日报网站](${base})`;
 
   const bullets = [...(news?.summary ?? [])];
   const render = (): string =>
@@ -119,7 +129,78 @@ export function buildWecomCards(news: DailyNewsFile | null): WecomCard[] {
     title: byteSlice(c.title, CARD_TITLE_BYTES),
     description: byteSlice(c.description, CARD_DESC_BYTES),
     url: c.url,
+    ...(c.image ? { picurl: c.image } : {}),
   }));
+}
+
+const META_TAG_RE = /<meta\s[^>]*>/gi;
+const ATTR_RE = /([a-zA-Z][\w:-]*)\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s"'>]+))/g;
+
+/** Pick the page's cover image from its og:image / twitter:image meta tags. */
+export function extractOgImage(html: string): string | undefined {
+  const found: Record<string, string> = {};
+  for (const tag of html.match(META_TAG_RE) ?? []) {
+    const attrs: Record<string, string> = {};
+    for (const m of tag.matchAll(ATTR_RE)) {
+      attrs[m[1]!.toLowerCase()] = m[2] ?? m[3] ?? m[4] ?? "";
+    }
+    const key = (attrs["property"] ?? attrs["name"] ?? "").toLowerCase();
+    const value = attrs["content"];
+    if (value && (key === "og:image" || key === "og:image:secure_url" || key === "twitter:image")) {
+      found[key] ??= value;
+    }
+  }
+  return found["og:image"] ?? found["og:image:secure_url"] ?? found["twitter:image"];
+}
+
+/** Read at most maxBytes of a response body, decoded as UTF-8. */
+async function readCapped(res: Response, maxBytes: number): Promise<string> {
+  const reader = res.body?.getReader();
+  if (!reader) return "";
+  const decoder = new TextDecoder("utf-8");
+  let out = "";
+  let total = 0;
+  for (;;) {
+    const { done, value } = await reader.read();
+    if (done) break;
+    total += value.byteLength;
+    out += decoder.decode(value, { stream: true });
+    if (total >= maxBytes) {
+      await reader.cancel().catch(() => {});
+      break;
+    }
+  }
+  return out + decoder.decode();
+}
+
+/** Fetch a page and return its absolute og:image URL; undefined on any failure. */
+export async function fetchOgImage(pageUrl: string): Promise<string | undefined> {
+  try {
+    const res = await fetch(pageUrl, {
+      redirect: "follow",
+      signal: AbortSignal.timeout(OG_TIMEOUT_MS),
+      headers: { "User-Agent": BROWSER_UA, Accept: "text/html,application/xhtml+xml" },
+    });
+    if (!res.ok) return undefined;
+    if (!(res.headers.get("content-type") ?? "").includes("html")) return undefined;
+    const raw = extractOgImage(await readCapped(res, OG_MAX_HTML_BYTES));
+    if (!raw) return undefined;
+    const url = new URL(raw, res.url || pageUrl);
+    return url.protocol === "http:" || url.protocol === "https:" ? url.toString() : undefined;
+  } catch {
+    return undefined;
+  }
+}
+
+/** Attach each article's cover so WeCom cards show an image instead of gray. */
+export async function attachCardImages(cards: WecomCard[]): Promise<void> {
+  await Promise.all(
+    cards.map(async (card) => {
+      if (card.picurl) return;
+      const picurl = await fetchOgImage(card.url);
+      if (picurl) card.picurl = picurl;
+    }),
+  );
 }
 
 async function main(): Promise<void> {
@@ -162,7 +243,9 @@ async function main(): Promise<void> {
   let cardFailures = 0;
   const cards = buildWecomCards(news);
   if (cards.length) {
-    console.log(`[wecom] Sending ${cards.length} news card(s)…`);
+    await attachCardImages(cards);
+    const withImage = cards.filter((c) => c.picurl).length;
+    console.log(`[wecom] Sending ${cards.length} news card(s) (${withImage} with cover image)…`);
     cardFailures = await postToAllWebhooks({ msgtype: "news", news: { articles: cards } }, "cards");
   }
 

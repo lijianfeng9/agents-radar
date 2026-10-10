@@ -1,5 +1,13 @@
 import { describe, it, expect, afterEach } from "vitest";
-import { buildWecomText, buildWecomCards, sendToOneWebhook } from "../wecom.ts";
+import {
+  buildWecomText,
+  buildWecomCards,
+  sendToOneWebhook,
+  extractOgImage,
+  fetchOgImage,
+  attachCardImages,
+  type WecomCard,
+} from "../wecom.ts";
 import type { DailyNewsFile } from "../report-savers.ts";
 
 const BASE_URL = "https://example.com/radar";
@@ -33,7 +41,7 @@ describe("buildWecomText", () => {
     expect(msg).toContain("◦ Claude 发布新模型");
     expect(msg).toContain("◦ 某开源智能体新增 MCP 支持");
     expect(msg).toContain(`[📖 完整日报](${BASE_URL}/#2026-03-09/ai-news)`);
-    expect(msg).toContain(`[🌐 Web UI](${BASE_URL})`);
+    expect(msg).toContain(`[🌐 日报网站](${BASE_URL})`);
   });
 
   it("omits the bullet block when news.json is missing", () => {
@@ -105,6 +113,133 @@ describe("buildWecomCards", () => {
     expect(card.title).not.toContain("\uFFFD");
     expect(card.description).not.toContain("\uFFFD");
     expect(card.url).toBe("https://example.com/a");
+  });
+
+  it("passes a card's feed image through as picurl, omitting it when absent", () => {
+    const out = buildWecomCards(
+      makeNews({
+        cards: [
+          {
+            title: "有图",
+            description: "",
+            url: "https://example.com/a",
+            image: "https://img.example.com/a.jpg",
+          },
+          { title: "无图", description: "", url: "https://example.com/b" },
+        ],
+      }),
+    );
+    expect(out[0]!.picurl).toBe("https://img.example.com/a.jpg");
+    expect(out[1]).not.toHaveProperty("picurl");
+  });
+});
+
+// ---------------------------------------------------------------------------
+// extractOgImage / fetchOgImage / attachCardImages
+// ---------------------------------------------------------------------------
+
+describe("extractOgImage", () => {
+  it("reads og:image regardless of attribute order", () => {
+    expect(extractOgImage('<meta property="og:image" content="https://cdn.example.com/a.jpg">')).toBe(
+      "https://cdn.example.com/a.jpg",
+    );
+    expect(extractOgImage('<meta content="https://cdn.example.com/b.jpg" property="og:image">')).toBe(
+      "https://cdn.example.com/b.jpg",
+    );
+  });
+
+  it("prefers og:image over twitter:image and accepts single quotes", () => {
+    const html =
+      "<meta name='twitter:image' content='https://cdn.example.com/t.jpg'>" +
+      "<meta property='og:image' content='https://cdn.example.com/o.jpg'>";
+    expect(extractOgImage(html)).toBe("https://cdn.example.com/o.jpg");
+  });
+
+  it("falls back to twitter:image", () => {
+    expect(extractOgImage('<meta name="twitter:image" content="https://cdn.example.com/t.jpg">')).toBe(
+      "https://cdn.example.com/t.jpg",
+    );
+  });
+
+  it("returns undefined when the page declares no cover", () => {
+    expect(extractOgImage("<html><head><title>x</title></head></html>")).toBeUndefined();
+  });
+});
+
+describe("fetchOgImage", () => {
+  const origFetch = globalThis.fetch;
+
+  afterEach(() => {
+    globalThis.fetch = origFetch;
+  });
+
+  it("resolves a relative cover against the article URL", async () => {
+    globalThis.fetch = (async () =>
+      new Response('<html><head><meta property="og:image" content="/img/cover.png"></head></html>', {
+        status: 200,
+        headers: { "Content-Type": "text/html; charset=utf-8" },
+      })) as typeof fetch;
+    await expect(fetchOgImage("https://example.com/posts/1")).resolves.toBe(
+      "https://example.com/img/cover.png",
+    );
+  });
+
+  it("returns undefined for non-HTML responses", async () => {
+    globalThis.fetch = (async () =>
+      new Response("x", { status: 200, headers: { "Content-Type": "image/png" } })) as typeof fetch;
+    await expect(fetchOgImage("https://example.com/a")).resolves.toBeUndefined();
+  });
+
+  it("swallows network errors instead of failing the push", async () => {
+    globalThis.fetch = (async () => {
+      throw new Error("boom");
+    }) as typeof fetch;
+    await expect(fetchOgImage("https://example.com/a")).resolves.toBeUndefined();
+  });
+});
+
+describe("attachCardImages", () => {
+  const origFetch = globalThis.fetch;
+
+  afterEach(() => {
+    globalThis.fetch = origFetch;
+  });
+
+  it("attaches covers and keeps cards usable when one fetch fails", async () => {
+    globalThis.fetch = (async (input: RequestInfo | URL) => {
+      if (String(input).includes("fail")) throw new Error("boom");
+      return new Response('<meta property="og:image" content="https://cdn.example.com/ok.jpg">', {
+        status: 200,
+        headers: { "Content-Type": "text/html" },
+      });
+    }) as typeof fetch;
+
+    const cards: WecomCard[] = [
+      { title: "a", description: "d", url: "https://example.com/ok" },
+      { title: "b", description: "d", url: "https://example.com/fail" },
+    ];
+    await attachCardImages(cards);
+    expect(cards[0]!.picurl).toBe("https://cdn.example.com/ok.jpg");
+    expect(cards[1]!.picurl).toBeUndefined();
+    expect(cards[1]!.url).toBe("https://example.com/fail");
+  });
+
+  it("skips the og:image fetch for cards that already have a feed image", async () => {
+    let fetched = 0;
+    globalThis.fetch = (async () => {
+      fetched++;
+      return new Response('<meta property="og:image" content="https://cdn.example.com/og.jpg">', {
+        status: 200,
+        headers: { "Content-Type": "text/html" },
+      });
+    }) as typeof fetch;
+
+    const cards: WecomCard[] = [
+      { title: "a", description: "d", url: "https://example.com/a", picurl: "https://img.example.com/a.jpg" },
+    ];
+    await attachCardImages(cards);
+    expect(cards[0]!.picurl).toBe("https://img.example.com/a.jpg");
+    expect(fetched).toBe(0);
   });
 });
 

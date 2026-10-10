@@ -123,6 +123,61 @@ describe("parseFeed", () => {
     expect(items[0]!.published).toEqual(new Date("2026-03-08T21:30:00Z"));
     expect(items[0]!.excerpt).toBe("New MCP server support lands.");
   });
+
+  it("extracts the lead image from content HTML, decoding escaped markup", () => {
+    const RSS_IMG = `<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <item>
+      <title>带图新闻</title>
+      <link>https://www.qbitai.com/2026/03/789.html</link>
+      <pubDate>Sun, 08 Mar 2026 20:00:00 GMT</pubDate>
+      <description><![CDATA[<p><img src="https://www.qbitai.com/wp-content/uploads/cover.png" alt="封面"/></p><p>正文</p>]]></description>
+    </item>
+    <item>
+      <title>转义图新闻</title>
+      <link>https://www.qbitai.com/2026/03/790.html</link>
+      <pubDate>Sun, 08 Mar 2026 20:30:00 GMT</pubDate>
+      <description>&lt;img src="//cdn.example.com/escaped.jpg"&gt;</description>
+    </item>
+    <item>
+      <title>无图新闻</title>
+      <link>https://www.qbitai.com/2026/03/791.html</link>
+      <pubDate>Sun, 08 Mar 2026 21:00:00 GMT</pubDate>
+      <description>纯文本</description>
+    </item>
+  </channel>
+</rss>`;
+    const items = parseFeed(RSS_IMG, SOURCE);
+    expect(items[0]!.image).toBe("https://www.qbitai.com/wp-content/uploads/cover.png");
+    // Entity-escaped markup and protocol-relative URLs are handled too.
+    expect(items[1]!.image).toBe("https://cdn.example.com/escaped.jpg");
+    expect(items[2]!.image).toBeUndefined();
+  });
+
+  it("falls back to media:thumbnail and rejects non-http image URLs", () => {
+    const RSS_MEDIA = `<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <item>
+      <title>媒体缩略图</title>
+      <link>https://www.leiphone.com/category/ai/abc.html</link>
+      <pubDate>Sun, 08 Mar 2026 20:00:00 GMT</pubDate>
+      <description>文本</description>
+      <media:thumbnail url="https://www.leiphone.com/uploads/thumb.jpg"/>
+    </item>
+    <item>
+      <title>内联图片</title>
+      <link>https://www.leiphone.com/category/ai/def.html</link>
+      <pubDate>Sun, 08 Mar 2026 20:30:00 GMT</pubDate>
+      <description><![CDATA[<img src="data:image/png;base64,AAAA"/>]]></description>
+    </item>
+  </channel>
+</rss>`;
+    const items = parseFeed(RSS_MEDIA, SOURCE);
+    expect(items[0]!.image).toBe("https://www.leiphone.com/uploads/thumb.jpg");
+    expect(items[1]!.image).toBeUndefined();
+  });
 });
 
 // ---------------------------------------------------------------------------

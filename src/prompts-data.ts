@@ -26,6 +26,8 @@ export interface DailyNewsCard {
   title: string;
   description: string;
   url: string;
+  /** Cover image taken from the source feed; used as the WeCom card picurl. */
+  image?: string;
 }
 
 /** A trending repo the model picked, with its one-line Chinese pitch. */

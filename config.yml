@@ -1,115 +1,33 @@
 # agents-radar configuration
-# Edit this file to customize which repositories are tracked.
-# Changes take effect on the next workflow run.
+# Edit this file to customize the news sources. Changes take effect on the
+# next workflow run. Built-in defaults (see src/config.ts) are used when this
+# section is missing.
 #
-# Four daily reports, one per direction:
-#   agents_repos  → ai-hot-agents  (热门智能体动态)
-#   creator_repos → ai-creator     (博主/创作者赋能)
-#   office_repos  → ai-office      (办公与效率)
-#   aigc_repos    → ai-aigc        (AIGC 生成式内容)
-# Each entry requires: id (filename slug), repo (owner/repo), name (display name).
-# Set paginated: true for high-volume repos with many daily updates.
-# Set discussions: true to also pull GitHub Discussions (GraphQL). Enable only
-# where the board is actually active — most repos have it on but dormant.
+# Order matters: earlier sources win when the same story is reported by
+# several outlets. Set `enabled: false` to pause a source without deleting it.
+#
+# Roundup entries (早报/晨报/周报 and leiphone /zaobao/ links) are filtered out
+# automatically — they link to a list of headlines, not an article body.
 
-# ── 热门智能体 ────────────────────────────────────────────────────────────────
-agents_repos:
-  - id: hermes-agent
-    repo: NousResearch/hermes-agent
-    name: Hermes Agent
-    paginated: true
-  - id: agent-reach
-    repo: Panniantong/Agent-Reach
-    name: Agent Reach
-    paginated: true
-  - id: career-ops
-    repo: career-ops-hq/career-ops
-    name: Career Ops
-    paginated: true
-  - id: cherry-studio
-    repo: CherryHQ/cherry-studio
-    name: Cherry Studio
-    paginated: true
-  - id: nanobot
-    repo: HKUDS/nanobot
-    name: Nanobot
-    paginated: true
-  - id: cowagent
-    repo: zhayujie/CowAgent
-    name: CowAgent
-
-# ── 博主 / 创作者赋能 ─────────────────────────────────────────────────────────
-creator_repos:
-  - id: moneyprinter-turbo
-    repo: harry0703/MoneyPrinterTurbo
-    name: MoneyPrinterTurbo
-    paginated: true
-  - id: openmontage
-    repo: calesthio/OpenMontage
-    name: OpenMontage
-    paginated: true
-  - id: pyvideotrans
-    repo: jianchang512/pyvideotrans
-    name: pyVideoTrans
-    paginated: true
-  - id: toonflow
-    repo: HBAI-Ltd/Toonflow-app
-    name: Toonflow
-    paginated: true
-  - id: opencreator
-    repo: krillinai/OpenCreator
-    name: OpenCreator
-  - id: livetalking
-    repo: lipku/LiveTalking
-    name: LiveTalking
-
-# ── 办公与效率 ────────────────────────────────────────────────────────────────
-office_repos:
-  - id: n8n
-    repo: n8n-io/n8n
-    name: n8n
-    paginated: true
-  - id: ppt-master
-    repo: hugohe3/ppt-master
-    name: PPT Master
-    paginated: true
-  - id: siyuan
-    repo: siyuan-note/siyuan
-    name: SiYuan
-    paginated: true
-  - id: teable
-    repo: teableio/teable
-    name: Teable
-    paginated: true
-  - id: genoffice
-    repo: genspark-ai/genoffice
-    name: GenOffice
-  - id: presenton
-    repo: presenton/presenton
-    name: Presenton
-
-# ── AIGC ─────────────────────────────────────────────────────────────────────
-aigc_repos:
-  - id: comfyui
-    repo: Comfy-Org/ComfyUI
-    name: ComfyUI
-    paginated: true
-  - id: open-generative-ai
-    repo: Anil-matcha/Open-Generative-AI
-    name: Open Generative AI
-    paginated: true
-  - id: invokeai
-    repo: invoke-ai/InvokeAI
-    name: InvokeAI
-    paginated: true
-  - id: voicestudio
-    repo: debpalash/VoiceStudio
-    name: VoiceStudio
-    paginated: true
-  - id: hunyuanvideo
-    repo: Tencent-Hunyuan/HunyuanVideo
-    name: HunyuanVideo
-  - id: gpt-sovits
-    repo: RVC-Boss/GPT-SoVITS
-    name: GPT-SoVITS
-    paginated: true
+news_sources:
+  - id: qbitai
+    name: 量子位
+    url: https://www.qbitai.com/feed
+  - id: leiphone
+    name: 雷峰网
+    url: https://www.leiphone.com/feed
+  - id: tmtpost
+    name: 钛媒体
+    url: https://www.tmtpost.com/feed
+  - id: ifanr
+    name: 爱范儿
+    url: https://www.ifanr.com/feed
+  - id: oschina
+    name: 开源中国
+    url: https://www.oschina.net/news/rss
+  - id: sspai
+    name: 少数派
+    url: https://sspai.com/feed
+  - id: appinn
+    name: 小众软件
+    url: https://www.appinn.com/feed/

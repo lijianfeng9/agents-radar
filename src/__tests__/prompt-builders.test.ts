@@ -1,262 +1,156 @@
 import { describe, it, expect } from "vitest";
-import { buildGroupPrompt, buildGroupComparisonPrompt } from "../prompts.ts";
-import { buildTrendingPrompt, buildWebReportPrompt } from "../prompts-data.ts";
-import type { RepoConfig, GitHubItem, GitHubRelease, GitHubDiscussion } from "../github.ts";
-import type { RepoDigest } from "../prompts.ts";
-import type { TrendingData } from "../trending.ts";
-import type { WebFetchResult } from "../web.ts";
+import { buildDailyNewsPrompt, NEWS_SECTION_IDS } from "../prompts-data.ts";
+import type { NewsItem } from "../news.ts";
+import type { SearchRepo, TrendingData, TrendingRepo } from "../trending.ts";
 
 // ---------------------------------------------------------------------------
 // Fixtures
 // ---------------------------------------------------------------------------
 
-const cfg: RepoConfig = { id: "test", repo: "org/test", name: "TestTool" };
-
-function makeItem(overrides: Partial<GitHubItem> = {}): GitHubItem {
+function makeItem(over: Partial<NewsItem> = {}): NewsItem {
   return {
-    number: 1,
-    title: "Issue",
-    state: "open",
-    user: { login: "alice" },
-    labels: [],
-    created_at: "2026-03-09T00:00:00Z",
-    updated_at: "2026-03-09T12:00:00Z",
-    comments: 5,
-    reactions: { "+1": 2 },
-    body: "body",
-    html_url: "https://github.com/org/test/issues/1",
-    ...overrides,
+    sourceId: "qbitai",
+    sourceName: "量子位",
+    title: "某模型发布",
+    link: "https://www.qbitai.com/2026/03/123.html",
+    published: new Date("2026-03-09T02:00:00Z"),
+    excerpt: "一句话摘要",
+    ...over,
   };
 }
 
-function makeDiscussion(overrides: Partial<GitHubDiscussion> = {}): GitHubDiscussion {
+function makeTrendingRepo(over: Partial<TrendingRepo> = {}): TrendingRepo {
   return {
-    number: 42,
-    title: "Discussion title",
-    body: "Discussion body",
-    category: "Ideas",
-    author: "alice",
-    created_at: "2026-03-09T00:00:00Z",
-    updated_at: "2026-03-09T12:00:00Z",
-    comments: 4,
-    upvotes: 16,
-    answered: false,
-    html_url: "https://github.com/org/test/discussions/42",
-    ...overrides,
+    fullName: "openclaw/openclaw",
+    description: "Your own personal AI assistant",
+    language: "TypeScript",
+    todayStars: 1200,
+    totalStars: 88000,
+    forks: 5200,
+    url: "https://github.com/openclaw/openclaw",
+    ...over,
   };
 }
 
-const release: GitHubRelease = {
-  tag_name: "v1.0.0",
-  name: "Release 1.0",
-  body: "Release notes",
-  published_at: "2026-03-09T00:00:00Z",
-};
-
-function makeDigest(overrides: Partial<RepoDigest> = {}): RepoDigest {
+function makeSearchRepo(over: Partial<SearchRepo> = {}): SearchRepo {
   return {
-    config: cfg,
-    issues: [],
-    prs: [],
-    releases: [],
-    discussions: [],
-    summary: "Summary",
-    ...overrides,
+    fullName: "org/tool",
+    description: "An agent tool",
+    language: "Python",
+    stargazersCount: 4300,
+    pushedAt: "2026-03-08T00:00:00Z",
+    url: "https://github.com/org/tool",
+    searchQuery: "ai-agent",
+    ...over,
+  };
+}
+
+function makeTrending(over: Partial<TrendingData> = {}): TrendingData {
+  return {
+    trendingRepos: [makeTrendingRepo()],
+    searchRepos: [makeSearchRepo()],
+    trendingFetchSuccess: true,
+    ...over,
   };
 }
 
 // ---------------------------------------------------------------------------
-// buildGroupPrompt
+// Section ids
 // ---------------------------------------------------------------------------
 
-describe("buildGroupPrompt", () => {
-  it("generates a Chinese prompt by default", () => {
-    const result = buildGroupPrompt(
-      "ai-hot-agents",
-      cfg,
-      [makeItem()],
-      [makeItem()],
-      [release],
+describe("NEWS_SECTION_IDS", () => {
+  it("fixes the four directions in order", () => {
+    expect(NEWS_SECTION_IDS).toEqual(["llm", "agents", "creator", "office"]);
+  });
+});
+
+// ---------------------------------------------------------------------------
+// buildDailyNewsPrompt
+// ---------------------------------------------------------------------------
+
+describe("buildDailyNewsPrompt", () => {
+  it("numbers every news item with source, link and excerpt", () => {
+    const prompt = buildDailyNewsPrompt(
+      [
+        makeItem(),
+        makeItem({
+          sourceId: "leiphone",
+          sourceName: "雷峰网",
+          title: "开源项目更新",
+          link: "https://www.leiphone.com/news/456.html",
+          excerpt: "第二条摘要",
+        }),
+      ],
+      makeTrending(),
+      "2026-03-09",
+    );
+    expect(prompt).toContain("## 新闻条目（共 2 条）");
+    expect(prompt).toContain(
+      "1. [量子位] 某模型发布\n   链接: https://www.qbitai.com/2026/03/123.html\n   摘要: 一句话摘要",
+    );
+    expect(prompt).toContain("2. [雷峰网] 开源项目更新");
+    expect(prompt).toContain("链接: https://www.leiphone.com/news/456.html");
+    expect(prompt).toContain("摘要: 第二条摘要");
+    expect(prompt).toContain("今天是 2026-03-09");
+  });
+
+  it("notes an empty excerpt instead of leaving the line blank", () => {
+    const prompt = buildDailyNewsPrompt([makeItem({ excerpt: "" })], makeTrending(), "2026-03-09");
+    expect(prompt).toContain("摘要: （无摘要）");
+  });
+
+  it("lists trending repos with real stars and today's delta", () => {
+    const prompt = buildDailyNewsPrompt([], makeTrending(), "2026-03-09");
+    const stars = `${(88000).toLocaleString()}（今日 +${(1200).toLocaleString()}）`;
+    expect(prompt).toContain(`- openclaw/openclaw ⭐${stars} [TypeScript] — Your own personal AI assistant`);
+    expect(prompt).toContain("### 今日 Trending（github.com/trending）");
+  });
+
+  it("lists search repos with their topic label", () => {
+    const prompt = buildDailyNewsPrompt([], makeTrending(), "2026-03-09");
+    const stars = (4300).toLocaleString();
+    expect(prompt).toContain(`- org/tool ⭐${stars} [topic:ai-agent] — An agent tool`);
+    expect(prompt).toContain("### AI 主题搜索（近 7 天活跃）");
+  });
+
+  it("tells the model to leave the section empty when trending fetch failed", () => {
+    const prompt = buildDailyNewsPrompt(
       [],
+      makeTrending({ trendingRepos: [], searchRepos: [], trendingFetchSuccess: false }),
       "2026-03-09",
     );
-    expect(result).toContain("TestTool");
-    expect(result).toContain("2026-03-09");
-    expect(result).toContain("org/test");
-    expect(result).toContain("v1.0.0");
-    expect(result).toContain("今日速览");
-    expect(result).toContain("不写代码");
+    expect(prompt).toContain("（今日 GitHub Trending 抓取失败，请将该部分留空）");
+    expect(prompt).toContain("（无搜索结果）");
   });
 
-  it("generates an English prompt", () => {
-    const result = buildGroupPrompt("ai-hot-agents", cfg, [makeItem()], [], [], [], "2026-03-09", "en");
-    expect(result).toContain("TestTool");
-    expect(result).toContain("Today's Highlights");
-    expect(result).toContain("non-developer");
-  });
-
-  it("carries the direction-specific focus", () => {
-    expect(buildGroupPrompt("ai-creator", cfg, [], [], [], [], "2026-03-09")).toContain("博主");
-    expect(buildGroupPrompt("ai-office", cfg, [], [], [], [], "2026-03-09")).toContain("办公");
-    expect(buildGroupPrompt("ai-aigc", cfg, [], [], [], [], "2026-03-09")).toContain("图像");
-  });
-
-  it("shows 无 when there is no data", () => {
-    const result = buildGroupPrompt("ai-hot-agents", cfg, [], [], [], [], "2026-03-09");
-    expect(result).toContain("无");
-  });
-
-  it("includes sample notes when issues exceed the limit", () => {
-    const items = Array.from({ length: 50 }, (_, i) => makeItem({ number: i, comments: i }));
-    const result = buildGroupPrompt("ai-hot-agents", cfg, items, [], [], [], "2026-03-09");
-    expect(result).toContain("共 50 条");
-    expect(result).toContain("30 条");
-  });
-
-  it("omits the Discussions section when there is no discussion data", () => {
-    const result = buildGroupPrompt("ai-hot-agents", cfg, [makeItem()], [], [], [], "2026-03-09");
-    expect(result).not.toContain("最新 Discussions");
-  });
-
-  it("renders the Discussions section when data is present", () => {
-    const result = buildGroupPrompt("ai-hot-agents", cfg, [], [], [], [makeDiscussion()], "2026-03-09");
-    expect(result).toContain("最新 Discussions");
-    expect(result).toContain("#42 [Ideas]");
-    expect(result).toContain("社区热点");
-  });
-
-  it("rejects an unknown group id", () => {
-    expect(() => buildGroupPrompt("nope", cfg, [], [], [], [], "2026-03-09")).toThrow("nope");
-  });
-});
-
-// ---------------------------------------------------------------------------
-// buildGroupComparisonPrompt
-// ---------------------------------------------------------------------------
-
-describe("buildGroupComparisonPrompt", () => {
-  it("includes all digest summaries when they have data", () => {
-    const digests = [
-      makeDigest({ config: { ...cfg, name: "Tool A" }, summary: "Summary A", issues: [makeItem()] }),
-      makeDigest({ config: { ...cfg, name: "Tool B" }, summary: "Summary B", prs: [makeItem()] }),
-    ];
-    const result = buildGroupComparisonPrompt("ai-hot-agents", digests, "2026-03-09");
-    expect(result).toContain("Tool A");
-    expect(result).toContain("Summary A");
-    expect(result).toContain("Tool B");
-    expect(result).toContain("Summary B");
-    expect(result).toContain("活跃度对比");
-  });
-
-  it("shows no-activity for empty digests", () => {
-    const result = buildGroupComparisonPrompt(
-      "ai-hot-agents",
-      [makeDigest({ summary: "Summary" })],
+  it("caps the trending list at 30 lines", () => {
+    const repos = Array.from({ length: 35 }, (_, i) =>
+      makeTrendingRepo({ fullName: `owner/repo-${i + 1}`, url: `https://github.com/owner/repo-${i + 1}` }),
+    );
+    const prompt = buildDailyNewsPrompt(
+      [],
+      makeTrending({ trendingRepos: repos, searchRepos: [] }),
       "2026-03-09",
     );
-    expect(result).toContain("过去24小时无活动");
+    expect(prompt).toContain("owner/repo-30");
+    expect(prompt).not.toContain("owner/repo-31");
   });
 
-  it("generates an English prompt", () => {
-    const result = buildGroupComparisonPrompt("ai-hot-agents", [makeDigest()], "2026-03-09", "en");
-    expect(result).toContain("No activity in the last 24 hours.");
-    expect(result).toContain("Activity Comparison");
-  });
-});
-
-// ---------------------------------------------------------------------------
-// buildTrendingPrompt
-// ---------------------------------------------------------------------------
-
-describe("buildTrendingPrompt", () => {
-  it("includes trending repos", () => {
-    const data: TrendingData = {
-      trendingRepos: [
-        {
-          fullName: "org/repo",
-          description: "desc",
-          language: "Python",
-          todayStars: 100,
-          totalStars: 5000,
-          forks: 200,
-          url: "https://github.com/org/repo",
-        },
-      ],
-      searchRepos: [],
-      trendingFetchSuccess: true,
-    };
-    const result = buildTrendingPrompt(data, "2026-03-09");
-    expect(result).toContain("org/repo");
-    expect(result).toContain("Python");
-    expect(result).toContain("5,000");
-    expect(result).toContain("+100 today");
-    expect(result).toContain("办公与效率");
+  it("describes the four fixed sections with their ids", () => {
+    const prompt = buildDailyNewsPrompt([], makeTrending(), "2026-03-09");
+    expect(prompt).toContain('"llm"：大模型动向');
+    expect(prompt).toContain('"agents"：智能体 & 开源项目');
+    expect(prompt).toContain('"creator"：创作者 · AIGC 玩法');
+    expect(prompt).toContain('"office"：办公提效');
   });
 
-  it("shows fetch failure message when trending fails", () => {
-    const data: TrendingData = { trendingRepos: [], searchRepos: [], trendingFetchSuccess: false };
-    const result = buildTrendingPrompt(data, "2026-03-09");
-    expect(result).toContain("未能抓取");
-  });
-
-  it("includes search repos with topic tag", () => {
-    const data: TrendingData = {
-      trendingRepos: [],
-      searchRepos: [
-        {
-          fullName: "ai/agent",
-          description: "An AI agent",
-          language: "TypeScript",
-          stargazersCount: 1000,
-          pushedAt: "2026-03-08",
-          url: "https://github.com/ai/agent",
-          searchQuery: "ai-agent",
-        },
-      ],
-      trendingFetchSuccess: false,
-    };
-    const result = buildTrendingPrompt(data, "2026-03-09");
-    expect(result).toContain("[topic:ai-agent]");
-    expect(result).toContain("1,000");
-  });
-});
-
-// ---------------------------------------------------------------------------
-// buildWebReportPrompt
-// ---------------------------------------------------------------------------
-
-describe("buildWebReportPrompt", () => {
-  it("includes site sections for first run", () => {
-    const results: WebFetchResult[] = [
-      {
-        site: "anthropic",
-        siteName: "Anthropic",
-        isFirstRun: true,
-        newItems: [
-          {
-            url: "https://anthropic.com/news/test",
-            title: "Test",
-            lastmod: "2026-03-09",
-            content: "Content",
-            site: "anthropic",
-            category: "news",
-          },
-        ],
-        totalDiscovered: 50,
-      },
-    ];
-    const result = buildWebReportPrompt(results, "2026-03-09");
-    expect(result).toContain("首次全量抓取");
-    expect(result).toContain("Anthropic");
-    expect(result).toContain("内容格局总览"); // first-run-only section
-  });
-
-  it("shows incremental mode for non-first-run", () => {
-    const results: WebFetchResult[] = [
-      { site: "openai", siteName: "OpenAI", isFirstRun: false, newItems: [], totalDiscovered: 100 },
-    ];
-    const result = buildWebReportPrompt(results, "2026-03-09");
-    expect(result).toContain("增量更新");
-    expect(result).not.toContain("内容格局总览");
+  it("demands exact JSON and forbids invented URLs", () => {
+    const prompt = buildDailyNewsPrompt([], makeTrending(), "2026-03-09");
+    expect(prompt).toContain("只返回合法 JSON");
+    expect(prompt).toContain('"summary"');
+    expect(prompt).toContain('"sections"');
+    expect(prompt).toContain('"trending"');
+    expect(prompt).toContain('"cards"');
+    expect(prompt).toContain("必须从上面条目中原样复制");
   });
 });

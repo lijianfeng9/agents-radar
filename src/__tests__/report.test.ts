@@ -24,16 +24,11 @@ import {
   isConnectionError,
   isRetryable,
   callLlm,
-  translateToZh,
   saveFile,
   autoGenFooter,
   parseLlmJson,
-  llmStats,
-  llmFailureRatio,
-  resetLlmStats,
-  llmHealthLine,
-  assertLlmHealthy,
-  reportLlmHealth,
+  LLM_TOKENS_DEFAULT,
+  LLM_TOKENS_NEWS,
 } from "../report.ts";
 
 // ---------------------------------------------------------------------------
@@ -82,6 +77,17 @@ describe("is429", () => {
 });
 
 // ---------------------------------------------------------------------------
+// Token budgets
+// ---------------------------------------------------------------------------
+
+describe("token budgets", () => {
+  it("keeps the default and gives the daily-news call real headroom", () => {
+    expect(LLM_TOKENS_DEFAULT).toBe(4096);
+    expect(LLM_TOKENS_NEWS).toBe(8192);
+  });
+});
+
+// ---------------------------------------------------------------------------
 // saveFile
 // ---------------------------------------------------------------------------
 
@@ -97,12 +103,12 @@ describe("saveFile", () => {
 
   // saveFile uses path.join, which renders with the platform separator.
   it("returns the expected file path", () => {
-    const result = saveFile("content", "2026-03-09", "ai-cli.md");
-    expect(result).toBe(path.join("digests", "2026-03-09", "ai-cli.md"));
+    const result = saveFile("content", "2026-03-09", "ai-news.md");
+    expect(result).toBe(path.join("digests", "2026-03-09", "ai-news.md"));
   });
 
   it("creates parent directories recursively", () => {
-    saveFile("content", "2026-03-09", "ai-cli.md");
+    saveFile("content", "2026-03-09", "ai-news.md");
     expect(fs.mkdirSync).toHaveBeenCalledWith(path.join("digests", "2026-03-09"), { recursive: true });
   });
 
@@ -176,8 +182,8 @@ describe("parseLlmJson", () => {
   });
 
   it("tolerates an unescaped newline inside a string literal", () => {
-    // This is the failure that wiped highlights.json: a raw control character
-    // inside a string literal makes JSON.parse throw without sanitization.
+    // A raw control character inside a string literal makes JSON.parse throw
+    // without sanitization.
     const raw = '{"x": ["line one\nline two"]}';
     expect(() => JSON.parse(raw)).toThrow();
     expect(parseLlmJson(raw)).toEqual({ x: ["line one line two"] });
@@ -189,8 +195,6 @@ describe("parseLlmJson", () => {
   });
 
   it("tolerates a trailing comma before a closing brace", () => {
-    // The exact failure that wiped zh highlights on 2026-07-07:
-    // "Expected double-quoted property name in JSON" from a trailing comma.
     const raw = '{"a": [1, 2,], "b": 3,}';
     expect(() => JSON.parse(raw)).toThrow();
     expect(parseLlmJson(raw)).toEqual({ a: [1, 2], b: 3 });
@@ -220,8 +224,8 @@ describe("isConnectionError", () => {
   });
 
   it("detects a connection code buried in the cause chain", () => {
-    // The real shape seen on 2026-08-28: APIConnectionError -> TypeError:
-    // fetch failed -> AggregateError carrying code ETIMEDOUT.
+    // The real shape: APIConnectionError -> TypeError: fetch failed ->
+    // AggregateError carrying code ETIMEDOUT.
     const aggregate = Object.assign(new Error("connect timeout"), { code: "ETIMEDOUT" });
     const fetchFailed = Object.assign(new TypeError("boom"), { cause: aggregate });
     const outer = Object.assign(new Error("wrapped"), { cause: fetchFailed });
@@ -265,7 +269,6 @@ describe("callLlm", () => {
   beforeEach(() => {
     vi.useFakeTimers();
     mockCall.mockReset();
-    resetLlmStats();
   });
 
   afterEach(() => {
@@ -365,8 +368,8 @@ describe("callLlm", () => {
   });
 
   it("gives a connection error a longer ladder than a 429", async () => {
-    // The 2026-09-03 outage lasted ~4 min; the old shared 3-retry ladder gave
-    // up after 35 s. Connection failures now get 6 retries capped at 60 s.
+    // A rate limit clears in seconds; an unreachable endpoint lasts minutes.
+    // Connection failures get 6 retries capped at 60 s instead of 3 retries.
     const connErr = Object.assign(new Error("Connection error."), { name: "APIConnectionError" });
     mockCall.mockRejectedValue(connErr);
 
@@ -382,10 +385,9 @@ describe("callLlm", () => {
     expect(mockCall).toHaveBeenCalledTimes(7);
   });
 
-  it("caps the connection backoff at 60 s instead of doubling to 160 s", async () => {
+  it("caps the connection backoff at 60 s instead of doubling past it", async () => {
     const connErr = Object.assign(new Error("Connection error."), { name: "APIConnectionError" });
     mockCall.mockRejectedValue(connErr);
-    mockCall.mockRejectedValueOnce(connErr).mockRejectedValueOnce(connErr);
 
     const promise = callLlm("prompt");
     promise.catch(() => {});
@@ -415,216 +417,5 @@ describe("callLlm", () => {
 
     await expect(promise).rejects.toThrow("rate limited");
     expect(mockCall).toHaveBeenCalledTimes(4);
-  });
-});
-
-// ---------------------------------------------------------------------------
-// llmStats / llmFailureRatio
-// ---------------------------------------------------------------------------
-
-describe("llm health accounting", () => {
-  beforeEach(() => {
-    vi.useFakeTimers();
-    mockCall.mockReset();
-    resetLlmStats();
-  });
-
-  afterEach(() => {
-    vi.useRealTimers();
-  });
-
-  it("starts at zero and reports a 0 ratio with no samples", () => {
-    expect(llmStats).toEqual({ attempted: 0, failed: 0 });
-    expect(llmFailureRatio()).toBe(0);
-  });
-
-  it("counts one attempt per callLlm, not per retry", async () => {
-    const err429 = Object.assign(new Error("rate limited"), { status: 429 });
-    mockCall.mockRejectedValueOnce(err429).mockResolvedValueOnce("ok");
-
-    const promise = callLlm("prompt");
-    await vi.advanceTimersByTimeAsync(5_000);
-    await promise;
-
-    expect(llmStats).toEqual({ attempted: 1, failed: 0 });
-    expect(llmFailureRatio()).toBe(0);
-  });
-
-  it("counts a failure only once the retries are exhausted", async () => {
-    mockCall.mockRejectedValueOnce(new Error("bad request"));
-    mockCall.mockResolvedValueOnce("ok");
-
-    await expect(callLlm("a")).rejects.toThrow("bad request");
-    await callLlm("b");
-
-    expect(llmStats).toEqual({ attempted: 2, failed: 1 });
-    expect(llmFailureRatio()).toBe(0.5);
-  });
-
-  it("counts failures swallowed by translateToZh", async () => {
-    // translateToZh falls back to English rather than rethrowing, so without
-    // accounting inside callLlm a translation outage would leave no trace.
-    vi.spyOn(console, "error").mockImplementation(() => {});
-    mockCall.mockRejectedValueOnce(new Error("nope"));
-
-    expect(await translateToZh("English body")).toBe("English body");
-    expect(llmStats).toEqual({ attempted: 1, failed: 1 });
-    expect(llmFailureRatio()).toBe(1);
-  });
-});
-
-// ---------------------------------------------------------------------------
-// translateToZh
-// ---------------------------------------------------------------------------
-
-describe("translateToZh", () => {
-  beforeEach(() => {
-    mockCall.mockReset();
-  });
-
-  it("sends the English body through the translation prompt", async () => {
-    mockCall.mockResolvedValue("中文报告");
-    const out = await translateToZh("# English report");
-    expect(out).toBe("中文报告");
-    expect(mockCall).toHaveBeenCalledTimes(1);
-    const prompt = mockCall.mock.calls[0]![0];
-    expect(prompt).toContain("Simplified Chinese");
-    expect(prompt).toContain("# English report");
-  });
-
-  it("passes the caller's token budget through", async () => {
-    mockCall.mockResolvedValue("中文");
-    await translateToZh("body", 6144);
-    expect(mockCall.mock.calls[0]![1]).toBe(6144);
-  });
-
-  it("skips the LLM entirely for empty input", async () => {
-    const out = await translateToZh("   ");
-    expect(out).toBe("   ");
-    expect(mockCall).not.toHaveBeenCalled();
-  });
-
-  it("falls back to the English text when the call fails", async () => {
-    vi.spyOn(console, "error").mockImplementation(() => {});
-    mockCall.mockRejectedValue(new Error("boom"));
-    const out = await translateToZh("English body");
-    expect(out).toBe("English body");
-  });
-});
-
-// ---------------------------------------------------------------------------
-// assertLlmHealthy / reportLlmHealth
-// ---------------------------------------------------------------------------
-
-describe("assertLlmHealthy", () => {
-  beforeEach(() => {
-    resetLlmStats();
-  });
-
-  const record = (attempted: number, failed: number) => {
-    llmStats.attempted = attempted;
-    llmStats.failed = failed;
-  };
-
-  it("passes when nothing has been attempted", () => {
-    expect(() => assertLlmHealthy("summary")).not.toThrow();
-  });
-
-  it("passes below the minimum sample size even at 100% failure", () => {
-    // A very quiet day may make only a handful of calls; 2/4 must not kill it.
-    record(4, 4);
-    expect(() => assertLlmHealthy("summary")).not.toThrow();
-  });
-
-  it("passes at the ordinary noise floor", () => {
-    record(40, 2);
-    expect(() => assertLlmHealthy("summary")).not.toThrow();
-  });
-
-  it("passes just under the abort ratio", () => {
-    record(10, 4);
-    expect(() => assertLlmHealthy("summary")).not.toThrow();
-  });
-
-  it("throws at the abort ratio", () => {
-    record(10, 5);
-    expect(() => assertLlmHealthy("summary")).toThrow(/appears to be down/);
-  });
-
-  it("throws on the 2026-09-03 shape — every call lost", () => {
-    record(30, 30);
-    expect(() => assertLlmHealthy("summary")).toThrow(/30\/30 LLM calls failed \(100%\)/);
-  });
-
-  it("names the stage that tripped it", () => {
-    record(10, 10);
-    expect(() => assertLlmHealthy("report")).toThrow(/end of the report phase/);
-  });
-});
-
-describe("reportLlmHealth", () => {
-  const originalSummary = process.env["GITHUB_STEP_SUMMARY"];
-
-  beforeEach(() => {
-    resetLlmStats();
-    delete process.env["GITHUB_STEP_SUMMARY"];
-  });
-
-  afterEach(() => {
-    vi.restoreAllMocks();
-    if (originalSummary !== undefined) process.env["GITHUB_STEP_SUMMARY"] = originalSummary;
-    else delete process.env["GITHUB_STEP_SUMMARY"];
-  });
-
-  it("does not write a step summary on a clean run", () => {
-    llmStats.attempted = 40;
-    const append = vi.spyOn(fs, "appendFileSync").mockReturnValue(undefined);
-    vi.spyOn(console, "log").mockImplementation(() => {});
-    process.env["GITHUB_STEP_SUMMARY"] = "/tmp/step-summary";
-
-    reportLlmHealth();
-
-    expect(append).not.toHaveBeenCalled();
-  });
-
-  it("appends a warning to the Actions step summary when calls were lost", () => {
-    llmStats.attempted = 40;
-    llmStats.failed = 3;
-    const append = vi.spyOn(fs, "appendFileSync").mockReturnValue(undefined);
-    vi.spyOn(console, "warn").mockImplementation(() => {});
-    process.env["GITHUB_STEP_SUMMARY"] = "/tmp/step-summary";
-
-    reportLlmHealth();
-
-    expect(append).toHaveBeenCalledWith(
-      "/tmp/step-summary",
-      expect.stringContaining("3/40 LLM calls failed (8%)"),
-      "utf-8",
-    );
-  });
-
-  it("stays silent outside Actions", () => {
-    llmStats.attempted = 40;
-    llmStats.failed = 3;
-    const append = vi.spyOn(fs, "appendFileSync").mockReturnValue(undefined);
-    vi.spyOn(console, "warn").mockImplementation(() => {});
-
-    reportLlmHealth();
-
-    expect(append).not.toHaveBeenCalled();
-  });
-});
-
-describe("llmHealthLine", () => {
-  it("reports zero cleanly", () => {
-    resetLlmStats();
-    expect(llmHealthLine()).toBe("0/0 LLM calls failed (0%)");
-  });
-
-  it("rounds the percentage", () => {
-    resetLlmStats();
-    llmStats.attempted = 3;
-    llmStats.failed = 1;
-    expect(llmHealthLine()).toBe("1/3 LLM calls failed (33%)");
   });
 });

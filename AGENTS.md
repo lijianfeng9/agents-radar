@@ -2,18 +2,15 @@
 
 ## Project overview
 
-agents-radar is a daily digest generator for the AI open-source ecosystem. A GitHub Actions cron job runs at 22:37 UTC (06:37 CST next day) and produces bilingual (Chinese + English) reports, published as GitHub Issues and committed Markdown files.
+agents-radar is a daily Chinese AI news digest (《AI 每日要闻》). A GitHub Actions cron job runs at 22:37 UTC (06:37 CST next day), pulls the last ~26 hours from seven Chinese tech-media RSS feeds plus the GitHub trending snapshot, asks the LLM for **one** structured JSON digest, and publishes:
 
-Reports are organized into four audience-facing directions, each backed by its own repo list in `config.yml`:
+- `digests/YYYY-MM-DD/ai-news.md` — the report (Chinese only)
+- `digests/YYYY-MM-DD/news.json` — structured digest; also the input to the WeCom push
+- `digests/YYYY-MM-DD/highlights.json` — 速览 bullets for the Telegram/Feishu notifiers
+- a GitHub Issue per day, only when `DIGEST_REPO` is set (the daily workflow does not set it)
+- a WeCom (企业微信) push — markdown text + a `news` 图文卡片 message — via `pnpm notify:wecom`
 
-| Group id | Direction | File |
-|----------|-----------|------|
-| `ai-hot-agents` | 热门智能体动态 — agent projects people are actually using/updating | `ai-hot-agents.md` |
-| `ai-creator` | 博主/创作者赋能 — video, audio and content-creation tooling for creators | `ai-creator.md` |
-| `ai-office` | 办公与效率 — productivity, automation, docs, tables, slides | `ai-office.md` |
-| `ai-aigc` | AIGC — image/video/audio generation stacks | `ai-aigc.md` |
-
-Plus three data-source reports: `ai-trending.md` (GitHub trending retargeted at the five directions), `ai-web.md` (Anthropic/OpenAI site news), `ai-ph.md` (Product Hunt). Reports are written for a non-developer audience (content, product, operations) — not for the maintainers of the tracked projects.
+The report is written for a non-developer audience (content, product, operations, admin staff): 今日速览, four fixed sections (🔥 大模型动向 / 🤖 智能体 & 开源项目 / 🎬 创作者 · AIGC 玩法 / 💼 办公提效) and a 📈 GitHub 趋势 table. Every item is a clickable title plus a one-line summary.
 
 ## Commands
 
@@ -25,135 +22,130 @@ pnpm lint           # ESLint
 pnpm lint:fix       # ESLint --fix
 pnpm format         # Prettier --write src
 pnpm format:check   # Prettier --check src
+pnpm manifest       # regenerate manifest.json + feed.xml from digests/
+pnpm notify:wecom   # send the WeCom push for the latest digest (reads news.json)
+pnpm notify         # Telegram push (reads highlights.json)
+pnpm notify:feishu  # Feishu push (reads highlights.json)
+pnpm close-stale    # close digest issues older than the newest open day
 ```
 
 Required env vars for local runs:
 
 ```bash
-export GITHUB_TOKEN=ghp_xxxxx
-export DIGEST_REPO=owner/repo   # omit to skip GitHub issue creation
+export GITHUB_TOKEN=ghp_xxxxx    # optional: trending search API + stale-issue closing
+export DIGEST_REPO=owner/repo    # optional; set it to also open a GitHub issue
 
 # LLM provider (default: anthropic)
-export LLM_PROVIDER=anthropic   # anthropic | openai | github-copilot | openrouter | deepseek
+export LLM_PROVIDER=deepseek     # anthropic | openai | github-copilot | openrouter | deepseek | qwen
 
 # Anthropic (default)
 export ANTHROPIC_API_KEY=sk-ant-xxxxx
 
-# OpenAI
-# export OPENAI_API_KEY=sk-xxxxx
-
-# GitHub Copilot — uses GITHUB_TOKEN
-
-# OpenRouter
-# export OPENROUTER_API_KEY=sk-or-xxxxx
-
-# DeepSeek
+# DeepSeek — provider used by the GitHub Actions daily run
 # export DEEPSEEK_API_KEY=sk-xxxxx
+
+# OpenAI / OpenRouter / Qwen
+# export OPENAI_API_KEY=sk-xxxxx
+# export OPENROUTER_API_KEY=sk-or-xxxxx
+# export DASHSCOPE_API_KEY=sk-xxxxx
+```
+
+A typical local run (never run `pnpm notify:wecom` locally — the webhook would push to the real group):
+
+```bash
+set -a; source ../.env.secrets; set +a
+LLM_PROVIDER=deepseek DIGEST_REPO= npx tsx src/index.ts
 ```
 
 ## Architecture
 
-The pipeline runs in five sequential phases, each implemented as a named async function in `src/index.ts`:
+`main()` in `src/index.ts` runs three phases:
 
-1. **`fetchAllData`** — all network I/O in parallel: GitHub API (issues/PRs/releases) for 24 repos across the four groups, Anthropic/OpenAI sitemaps, GitHub Trending HTML + Search API, Product Hunt.
-2. **`generateSummaries`** — per-repo LLM calls **in English only**, all in parallel, rate-limited to 5 concurrent requests by a queue in `src/report.ts`.
-3. **`translateSummaries`** — translates the English bodies to Chinese via `translateToZh`.
-4. **Comparisons** — four English LLM calls (one per group), each translated.
-5. **Save phase** — `buildGroupReportContent` (in `src/report-builders.ts`) assembles each group report; `saveGroupReport` (in `src/report-savers.ts`) generates each body in English, translates it, then writes both language files (+ issues when `DIGEST_REPO` is set). Data-source reports use `saveWebReport` / `saveTrendingReport` / `savePhReport`.
+1. **Fetch** — `fetchAllNews(config.newsSources, now)` and `fetchTrendingData()` in parallel. A trending failure is non-fatal (empty data, prompt says to leave the section out); every news source failing aborts the run.
+2. **Generate** — `generateDailyNews`: `buildDailyNewsPrompt(items, trendingData, dateStr)` → `parseLlmJson(callLlm(prompt, LLM_TOKENS_NEWS))`. Two attempts; a connection failure waits `GENERATION_COOLDOWN_MS` (60 s) before attempt 2 so it lands outside the outage that just consumed `callLlm`'s retry ladder.
+3. **Save** — `saveDailyNews` validates the model's JSON against the actually fetched data, renders the markdown, and writes `ai-news.md` / `news.json` / `highlights.json` (+ issue when `DIGEST_REPO` is set).
+
+Notifications are separate scripts run after the digest step. `wecom.ts`, `notify.ts` and `feishu.ts` each read `manifest.json` for the latest date and then `digests/<date>/news.json` or `highlights.json`.
 
 ## Source files
 
 | File | Responsibility |
 |------|---------------|
-| `src/index.ts` | Orchestration: group config, phase functions, `main()` |
-| `src/i18n.ts` | Centralized bilingual strings: `Lang` type, `GROUP_REPORTS`, report titles, issue labels, footer text, `REPORT_LABELS`, `NOTIFY_LABELS` |
-| `src/github.ts` | GitHub API helpers: `fetchRecentItems`, `fetchRecentReleases`, `fetchRecentDiscussions` (GraphQL), `createGitHubIssue`; shared `RepoFetch` type |
-| `src/config.ts` | Loads `config.yml` into `RadarConfig` (`groups: RadarGroup[]`); `GROUP_IDS`, built-in defaults per group when a section is missing |
-| `src/prompts.ts` | LLM prompt builders for repo reports: `buildGroupPrompt`, `buildGroupComparisonPrompt`; plus `buildTranslationPrompt` / `buildJsonTranslationPrompt` |
-| `src/prompts-data.ts` | LLM prompt builders for data-source reports: `buildTrendingPrompt`, `buildWebReportPrompt`, `buildPhPrompt`, `buildHighlightsPrompt` |
-| `src/report.ts` | `callLlm` (with concurrency limiter), `translateToZh`, `saveFile`, `autoGenFooter` (uses i18n), LLM token budget constants |
-| `src/report-builders.ts` | `buildGroupReportContent` — assembles the final Markdown string for one group report in one language |
-| `src/report-savers.ts` | `saveGroupReport`, `saveWebReport`, `saveTrendingReport`, `savePhReport` — English LLM call + translation + both language files + optional GitHub issues; exports `LANGS` and `BilingualBody` |
-| `src/date.ts` | Date and timing utilities: `toCstDateStr`, `toUtcStr`, `weekdayOf`, `sleep` |
-| `src/providers/types.ts` | `LlmProvider` interface, `ProviderName` type, `VALID_PROVIDER_NAMES` |
-| `src/providers/openai-compatible.ts` | `OpenAICompatibleProvider` — shared base class for OpenAI-compatible providers |
-| `src/providers/anthropic.ts` | `AnthropicProvider` — Anthropic SDK wrapper |
-| `src/providers/openai.ts` | `OpenAIProvider` — extends `OpenAICompatibleProvider` |
-| `src/providers/github-copilot.ts` | `GitHubCopilotProvider` — extends `OpenAICompatibleProvider` |
-| `src/providers/openrouter.ts` | `OpenRouterProvider` — extends `OpenAICompatibleProvider` |
-| `src/providers/deepseek.ts` | `DeepSeekProvider` — extends `OpenAICompatibleProvider` |
-| `src/providers/qwen.ts` | `QwenProvider` — extends `OpenAICompatibleProvider`; Alibaba Model Studio |
-| `src/providers/index.ts` | `createProvider` factory + barrel re-exports |
-| `src/web.ts` | Sitemap-based web content fetching; state persisted to `digests/web-state.json` |
-| `src/trending.ts` | GitHub Trending HTML scraper + Search API topic queries |
-| `src/generate-manifest.ts` | Generates `manifest.json` (sidebar data for Web UI) and `feed.xml` (RSS 2.0 feed) |
+| `src/index.ts` | Orchestration: the three phases above, `generateDailyNews`, `main()` |
+| `src/news.ts` | RSS/Atom fetching: `parseFeed`, `stripHtml`, `isRoundup`, `dedupItems`, `selectItems`, `fetchAllNews`; window/cap constants |
+| `src/trending.ts` | GitHub Trending HTML scraper (`parseTrendingHtml`) + Search API topic queries; `fetchTrendingData` |
+| `src/config.ts` | Loads `config.yml` into `RadarConfig` (`newsSources: NewsSource[]`); built-in default source list when the file or section is missing |
+| `src/prompts-data.ts` | `buildDailyNewsPrompt` + `NEWS_SECTION_IDS` + the `DailyNews*` types |
+| `src/report.ts` | `callLlm` (concurrency limiter + retry ladders), `parseLlmJson`/`repairJson`, `is429`/`isConnectionError`/`isRetryable`, `saveFile`, `autoGenFooter`, token budgets |
+| `src/report-builders.ts` | `buildDailyNewsMarkdown` — renders the report markdown from validated digest data |
+| `src/report-savers.ts` | `normalizeDailyNews` (URL allow-list validation), `buildTrendingRows`, `saveDailyNews`; exports `DailyNewsFile` |
+| `src/i18n.ts` | `NEWS_REPORT` (titles, section headings, meta), `Lang`, `FOOTER`, `REPORT_LABELS` / `NOTIFY_LABELS` (legacy ids kept) |
+| `src/date.ts` | `toCstDateStr`, `toUtcStr`, `weekdayOf`, `sleep` |
+| `src/wecom.ts` | WeCom push: `buildWecomText` (byte-budget markdown), `buildWecomCards` (≤8 news cards), `sendToOneWebhook` |
+| `src/notify.ts` | Telegram push from `highlights.json` |
+| `src/feishu.ts` | Feishu card push from `highlights.json` |
+| `src/github.ts` | GitHub API helpers: `createGitHubIssue`, `closeSupersededIssues`, label colors |
+| `src/close-stale-issues.ts` | Entry point for `pnpm close-stale` |
+| `src/generate-manifest.ts` | Generates `manifest.json` (sidebar data for the Web UI) and `feed.xml` (RSS 2.0) |
+| `src/providers/*.ts` | `LlmProvider` implementations + `createProvider` factory (logs the provider name only — never keys or endpoints) |
 
 ## Report outputs
 
 Files written to `digests/YYYY-MM-DD/`:
 
-| File | Label | Notes |
-|------|-------|-------|
-| `ai-hot-agents.md` | `hot-agents` | Always generated; skipped per-repo when quiet |
-| `ai-creator.md` | `creator` | Always generated |
-| `ai-office.md` | `office` | Always generated |
-| `ai-aigc.md` | `aigc` | Always generated |
-| `ai-web.md` | `web` | Skipped if no new sitemap content |
-| `ai-trending.md` | `trending` | Skipped if both data sources fail |
-| `ai-ph.md` | `ph` | Skipped if Product Hunt fetch fails or token missing |
+| File | Notes |
+|------|-------|
+| `ai-news.md` | The daily report; issue label `ai-news` |
+| `news.json` | Structured digest (`DailyNewsFile`): summary, sections, trending rows, cards — consumed by the WeCom push |
+| `highlights.json` | `{zh: {"ai-news": [速览…]}, en: {}}` — consumed by the Telegram/Feishu notifiers |
 
-Discontinued types (`ai-cli`, `ai-agents`, `ai-infra`, `ai-hn`, `ai-arxiv`, `ai-hf`, `ai-community`, `ai-weekly`, `ai-monthly`) stay listed in `REPORT_LABELS` / `REPORT_FILES` / `index.html` so archived reports remain reachable — do not add generation code back.
+Discontinued types (`ai-hot-agents`, `ai-creator`, `ai-office`, `ai-aigc`, `ai-web`, `ai-trending`, `ai-ph`, `ai-cli`, `ai-agents`, `ai-infra`, `ai-hn`, `ai-arxiv`, `ai-hf`, `ai-community`, `ai-weekly`, `ai-monthly` and their `-en` variants) stay listed in `REPORT_LABELS` / `REPORT_FILES` / `index.html` `LABELS` / `DIGEST_ISSUE_LABELS` so archived reports remain reachable — do not add generation code back.
 
 ## Tracked sources
 
-Four groups (6 repos each), all in `config.yml`:
+News sources live in `config.yml` (`news_sources:`), in priority order — earlier sources win when the same story is merged:
 
-- **`agents_repos`** → `ai-hot-agents`: Hermes Agent, Agent Reach, Career Ops, Cherry Studio, Nanobot, CowAgent
-- **`creator_repos`** → `ai-creator`: MoneyPrinterTurbo, OpenMontage, pyVideoTrans, Toonflow, OpenCreator, LiveTalking
-- **`office_repos`** → `ai-office`: n8n, PPT Master, SiYuan, Teable, GenOffice, Presenton
-- **`aigc_repos`** → `ai-aigc`: ComfyUI, Open Generative AI, InvokeAI, VoiceStudio, HunyuanVideo, GPT-SoVITS
+量子位 (qbitai) · 雷峰网 (leiphone) · 钛媒体 (tmtpost) · 爱范儿 (ifanr) · 开源中国 (oschina) · 少数派 (sspai) · 小众软件 (appinn)
 
-- **Web**: anthropic.com + openai.com via sitemap, state in `digests/web-state.json`
-- **Trending**: github.com/trending (HTML) + GitHub Search API (6 topic queries aligned to the four directions, 7-day window)
-- **PH**: Product Hunt GraphQL API
+Plus GitHub data, fetched in parallel every run:
+
+- **Trending**: github.com/trending HTML (`parseTrendingHtml`) — total stars, forks, today's new stars
+- **Search**: GitHub Search API, 6 topic queries (`ai-agent`, `aigc`, `llm`, `image-generation`, `text-to-video`, `text-to-speech`), 7-day window, sorted by stars. Authenticated with `GITHUB_TOKEN` when present (unauthenticated runs hit 403 rate limits).
 
 ## Key conventions
 
-- All bilingual strings (titles, labels, footers, messages) are centralized in `src/i18n.ts`. Use the `Lang` type (`"zh" | "en"`) and `Record<Lang, string>` maps. Do not add inline bilingual ternaries elsewhere.
-- The four group reports are declared once in `GROUP_REPORTS` (`src/i18n.ts`, keyed by group id with `{title, meta, comparison, detail, issueLabel, issueTitle, short, persona, focus}`) and once in `config.yml`. `config.ts` exposes `GROUP_IDS`; `prompts.ts` reads persona/focus from `GROUP_REPORTS` so each group's prompt speaks in the right voice. Adding a repo is a `config.yml` edit only.
-- Report bodies are written for a non-developer audience (content/product/operations teams). Prompts explicitly say 不要编造数据里没有的内容 and avoid developer jargon; keep that tone when editing prompt text.
-- LLM prompt builders are split across two files: `src/prompts.ts` (repo-level prompts) and `src/prompts-data.ts` (data-source prompts).
-- Report **bodies** are generated in English and translated to Chinese (see CLAUDE.md "English-first generation"). Never add a second generation call to produce Chinese. `translateToZh(text, maxTokens)` must be passed the same token budget the English body was generated with.
-- `callLlm(prompt, maxTokens?)` defaults to 4096 tokens. `LLM_TOKENS_WEB` = 8192, `LLM_TOKENS_TRENDING` = 6144, `LLM_TOKENS_LISTING` = 6144 (Product Hunt).
-- `buildHighlightsPrompt(reportContents, lang, itemsPerReport = 4)` produces the WeCom/Telegram/Feishu highlight JSON. `itemsPerReport` defaults to 4 to keep the push under WeCom's 4000-byte markdown cap.
-- Discontinued report types (`ai-cli`, `ai-agents`, `ai-infra`, `ai-hn`, `ai-arxiv`, `ai-hf`, `ai-community`, `ai-weekly`, `ai-monthly`) remain in `REPORT_LABELS` (`src/i18n.ts`), `REPORT_FILES` (`src/generate-manifest.ts`), `LABELS` (`index.html`) and the legacy label list in `src/github.ts` only so archived reports stay reachable — do not add generation code back.
-- On 429 rate-limit errors `callLlm` retries with exponential backoff; on connection failures it uses a longer ladder (see CLAUDE.md). The concurrency slot is released during every wait.
-- The concurrency limiter (`LLM_CONCURRENCY = 5`) prevents 429s when many parallel LLM calls fire. Do not bypass it by calling SDK clients directly.
-- LLM provider is selected via `LLM_PROVIDER` env var (default: `anthropic`). Valid values: `anthropic`, `openai`, `github-copilot`, `openrouter`, `deepseek`, `qwen`.
-- Provider implementations live in `src/providers/`. Each file implements the `LlmProvider` interface. The factory in `src/providers/index.ts` validates the provider name and logs only the provider name — never API keys or endpoint URLs.
-- GitHub issue label colors are defined in `LABEL_COLORS` in `src/github.ts`. Add new labels there.
-- GitHub Discussions have no REST API, so `fetchRecentDiscussions` uses GraphQL. Enable per-repo with `discussions: true` — most tracked repos have the board enabled but dormant, and an unconditional fetch would just burn quota. Only `buildGroupPrompt` renders a Discussions section, and it is omitted entirely when there is no data.
-- `sampleNote(total, sampled, lang, by)` in `src/prompts.ts` formats the "(共 N 条，展示前 M 条)" note. Reuse it — do not inline the same string format. Pass `by: "engagement"` when the sample was ranked by comments + upvotes (discussions) instead of comments alone.
-- Web state (`digests/web-state.json`) is committed to git on every run. It is the source of truth for which URLs have been seen.
+- The digest is generated **once, in Chinese**. Never add a translation pass or a second language variant; `highlights.json` keeps an empty `en` map only so the notifiers' shape is unchanged.
+- Anti-hallucination invariants — keep them when touching the save path:
+  - `normalizeDailyNews` drops any item whose `url` is not in the allow-list (fetched news links + trending repo URLs). A fabricated URL would 404 on click.
+  - Trending stars in the report come from `buildTrendingRows` (real fetched data), never from the model; the model only picks the repo and writes the one-line summary.
+  - `saveDailyNews` throws when the model returns no usable entries *and* no trending rows — a missing day beats a published empty report.
+- `news.ts` selection pipeline, in order: 26 h window (+2 h future horizon) → roundup filter → per-source cap 15 → cross-source dedup → global cap 70.
+  - Roundup entries (早报/晨报/周报… via `ROUNDUP_TITLE_RE`, plus leiphone's `/zaobao/` links) are filtered deliberately: they link to a list of headlines, not an article body.
+  - Dedup is bigram Jaccard ≥ 0.6 on the normalized title; within a duplicate cluster the longest excerpt wins.
+- Trending star counts must be parsed with `countAfterAnchor` — GitHub renders the number after an inline SVG whose `path` data is full of digits, so the tag markup has to be stripped before scanning for the first number.
+- WeCom limits: markdown content ≤ 4000 bytes (`buildWecomText` drops 速览 bullets from the tail until it fits, never the report link), ≤ 8 cards, card title ≤ 128 bytes / description ≤ 512 bytes (`byteSlice` truncates on character boundaries). WeCom answers HTTP 200 even on failure — only the `errcode` in the body counts.
+- `callLlm(prompt, maxTokens?)` defaults to `LLM_TOKENS_DEFAULT` (4096); the daily digest uses `LLM_TOKENS_NEWS` (8192). The concurrency limiter (`LLM_CONCURRENCY = 5`) exists to prevent 429s — do not bypass it by calling SDK clients directly.
+- Retry ladders in `callLlm`: 429 → 3 retries at 5/10/20 s; connection failures (`isConnectionError` walks the SDK's `cause` chain) → 6 retries at 5/10/20/40/60/60 s, capped by `RETRY_MAX_MS`. The concurrency slot is released during every wait.
+- LLM provider is selected via `LLM_PROVIDER` (default `anthropic`; valid: `anthropic`, `openai`, `github-copilot`, `openrouter`, `deepseek`, `qwen`). The daily workflow runs `deepseek` (`deepseek-v4-flash`).
+- Prompt tone: the reader is a non-developer colleague. Prompts say 不要编造数据里没有的内容, avoid developer jargon, and keep every summary to one line — preserve that when editing `src/prompts-data.ts`.
+- Report metadata (`# AI 每日要闻 <date>`, section headings, the 数据来源/生成时间 meta line) is centralized in `NEWS_REPORT` (`src/i18n.ts`) and rendered by `buildDailyNewsMarkdown`. Do not inline these strings.
+- The daily workflow produces at most one digest per CST day: a `concurrency: daily-digest` group (`cancel-in-progress: false`) serializes overlapping runs, and a `guard` job skips **scheduled** runs whose `digests/YYYY-MM-DD` folder is already committed. `workflow_dispatch` always proceeds — that is the escape hatch for regenerating a day.
+- `closeSupersededIssues` (`pnpm close-stale`, the workflow's last step) keeps only the newest open digest day and closes the rest. It compares CST dates via `toCstDateStr` and excludes pull requests.
+- The daily workflow does not set `DIGEST_REPO`, so CI runs write files only and open no issues. `autoGenFooter` returns an empty string when `DIGEST_REPO` is unset, so local samples carry no footer.
 
 ## Web UI & RSS Feed
 
-- Web UI: `index.html` reads `manifest.json` to build the sidebar, then fetches `digests/YYYY-MM-DD/report.md` on demand.
-- RSS Feed: `feed.xml` at the repo root. Generated by `src/generate-manifest.ts` in the same `pnpm manifest` step. Contains the latest 30 items (newest first) across all report types. Item links use hash routing: `https://<owner>.github.io/agents-radar/#YYYY-MM-DD/report`, where `<owner>` is `GITHUB_REPOSITORY_OWNER` at generation time (falls back to `duanyytop` locally).
+- Web UI: `index.html` reads `manifest.json` to build the sidebar, then fetches `digests/YYYY-MM-DD/<report>.md` on demand.
+- RSS Feed: `feed.xml` at the repo root. Generated by `src/generate-manifest.ts` in the same `pnpm manifest` step. Contains the latest 30 items (newest first). Item links use hash routing: `https://<owner>.github.io/agents-radar/#YYYY-MM-DD/<report>`, where `<owner>` is `GITHUB_REPOSITORY_OWNER` at generation time (falls back to `duanyytop` locally).
 - Both `manifest.json` and `feed.xml` are committed together in the "Commit manifest and feed" GHA step.
-- The `REPORT_LABELS` map in `src/i18n.ts` must be kept in sync with the `LABELS` object in `index.html` when adding new report types.
+- The `NEWS_REPORT` title, `REPORT_LABELS` (`src/i18n.ts`) and the `LABELS` object in `index.html` must stay in sync; `REPORT_FILES` (`src/generate-manifest.ts`) decides which files the manifest picks up.
 
-## Adding a repo to a group
+## Adding a news source
 
-1. Add the entry to the matching section in `config.yml` (`agents_repos`, `creator_repos`, `office_repos`, `aigc_repos`). Set `paginated: true` when the repo has >100 daily issue/PR updates. That is the whole change — no code edits needed.
-2. If the repo list in a README/AGENTS/CLAUDE source table is now stale, update it.
+Add one entry to `news_sources:` in `config.yml` (`id`, `name`, `url`). That is the whole change — `config.ts` falls back to built-in defaults only when the section is entirely missing or empty. Set `enabled: false` to pause a source without deleting it. If a README/AGENTS source list is now stale, update it.
 
-## Adding a new report group
+## Adding a digest section
 
-1. Add the group id to `GROUP_IDS` in `src/config.ts`, a built-in default repo list, and the section name in `RawConfig`/`loadConfig`.
-2. Add an entry to `GROUP_REPORTS` in `src/i18n.ts` (`title`, `meta`, `comparison`, `detail`, `issueLabel`, `issueTitle`, `short`, `persona`, `focus`).
-3. Add a `config.yml` section.
-4. Add the report ID, label and file name to `REPORT_LABELS` (`src/i18n.ts`), `LABELS` (`index.html`) and `REPORT_FILES` (`src/generate-manifest.ts`).
-5. Add a label color pair in `LABEL_COLORS` and the label to `DIGEST_ISSUE_LABELS` in `src/github.ts`.
-6. Nothing else: `index.ts`, `report-builders.ts` and `report-savers.ts` iterate `config.groups` generically.
-7. Update both README files and this file.
+1. Add the id to `NEWS_SECTION_IDS` in `src/prompts-data.ts` and to the `sections` map in `NEWS_REPORT` (`src/i18n.ts`).
+2. Describe it in the prompt's 第二步 · 分区 list (with a count range) in `src/prompts-data.ts`.
+3. Update the expected-structure tests. Nothing else — `report-builders.ts`, `report-savers.ts` and the prompt renderer all iterate `NEWS_SECTION_IDS`.

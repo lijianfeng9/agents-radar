@@ -1,6 +1,7 @@
 /**
- * WeCom (企业微信) group robot notification — reads manifest.json and sends a
- * markdown message with links to the latest reports. Skips silently if
+ * WeCom (企业微信) group robot notification — reads the latest digest from
+ * manifest.json and sends a highlights text message plus a news-card message
+ * whose articles link straight to the original sources. Skips silently if
  * WECOM_WEBHOOK_URLS is not set.
  *
  * Required env vars:
@@ -12,13 +13,24 @@
 import fs from "node:fs";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
-import { NOTIFY_LABELS } from "./i18n.ts";
-import type { Highlights } from "./notify.ts";
+import type { DailyNewsFile } from "./report-savers.ts";
 
 const PAGES_URL_DEFAULT = "https://duanyytop.github.io/agents-radar";
 
 // WeCom rejects markdown content over 4096 bytes (UTF-8), so stay under it.
 const WECOM_MAX_BYTES = 4000;
+/** A news message carries at most 8 articles. */
+const WECOM_MAX_CARDS = 8;
+// Article field limits from the WeCom group-robot docs: title 128 bytes,
+// description 512 bytes. An oversized field makes WeCom reject the message.
+const CARD_TITLE_BYTES = 128;
+const CARD_DESC_BYTES = 512;
+
+export interface WecomCard {
+  title: string;
+  description: string;
+  url: string;
+}
 
 function getWebhookUrls(): string[] {
   const raw = process.env["WECOM_WEBHOOK_URLS"] ?? "";
@@ -32,11 +44,22 @@ function byteLength(s: string): number {
   return Buffer.byteLength(s, "utf-8");
 }
 
-export async function sendToOneWebhook(webhookUrl: string, content: string): Promise<void> {
+/** Truncate on character boundaries without splitting a multi-byte glyph. */
+function byteSlice(s: string, maxBytes: number): string {
+  if (byteLength(s) <= maxBytes) return s;
+  let out = "";
+  for (const ch of s) {
+    if (byteLength(out + ch) > maxBytes) break;
+    out += ch;
+  }
+  return out;
+}
+
+export async function sendToOneWebhook(webhookUrl: string, payload: unknown): Promise<void> {
   const res = await fetch(webhookUrl, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ msgtype: "markdown", markdown: { content } }),
+    body: JSON.stringify(payload),
   });
   // WeCom answers HTTP 200 even on failure — only the errcode in the body tells.
   const body = await res.text();
@@ -54,73 +77,49 @@ export async function sendToOneWebhook(webhookUrl: string, content: string): Pro
   }
 }
 
-async function sendWecom(content: string): Promise<void> {
+/** Push one payload to every webhook; returns how many webhooks failed. */
+async function postToAllWebhooks(payload: unknown, label: string): Promise<number> {
   const urls = getWebhookUrls();
-  const results = await Promise.allSettled(urls.map((url) => sendToOneWebhook(url, content)));
+  const results = await Promise.allSettled(urls.map((url) => sendToOneWebhook(url, payload)));
   const failures = results.filter((r) => r.status === "rejected");
   if (failures.length) {
     const msgs = failures.map((r) => (r as PromiseRejectedResult).reason);
-    console.error(`[wecom] ${failures.length}/${urls.length} webhook(s) failed:`, msgs);
-    if (failures.length === urls.length) throw new Error("All WeCom webhooks failed");
+    console.error(`[wecom] ${label}: ${failures.length}/${urls.length} webhook(s) failed:`, msgs);
   }
+  return failures.length;
 }
 
-export function buildWecomMessage(
-  date: string,
-  reports: string[],
-  pagesUrl?: string,
-  highlights?: Highlights | null,
-): string {
-  const PAGES_URL = (pagesUrl ?? process.env["PAGES_URL"] ?? PAGES_URL_DEFAULT).replace(/\/$/, "");
-  const ordered = reports.filter((r) => !r.endsWith("-en"));
-  const zhHighlights = highlights?.zh ?? {};
-  const enHighlights = highlights?.en ?? {};
+/**
+ * The highlights text: header, the day's 速览 bullets, and links to the full
+ * report. Bullets are dropped from the tail until the message fits — the
+ * report link is never trimmed.
+ */
+export function buildWecomText(date: string, news: DailyNewsFile | null, pagesUrl?: string): string {
+  const base = (pagesUrl ?? process.env["PAGES_URL"] ?? PAGES_URL_DEFAULT).replace(/\/$/, "");
+  const reportUrl = `${base}/#${date}/ai-news`;
+  const header = `📡 **AI 每日要闻 · ${date}**`;
+  const footer = `[📖 完整日报](${reportUrl})  ·  [🌐 Web UI](${base})`;
 
-  const blocks = ordered.map((r) => {
-    const zhLabel = NOTIFY_LABELS[r]?.zh ?? r;
-    const zhUrl = `${PAGES_URL}/#${date}/${r}`;
-    const enKey = `${r}-en`;
-    const enLabel = NOTIFY_LABELS[r]?.en ?? "EN";
-    const head = reports.includes(enKey)
-      ? `• [${zhLabel}](${zhUrl})  ·  [${enLabel}](${PAGES_URL}/#${date}/${enKey})`
-      : `• [${zhLabel}](${zhUrl})`;
-    // Fall back to en when a report's zh highlights are missing so a
-    // single-language failure never blanks the message.
-    const items = zhHighlights[r] ?? enHighlights[r] ?? [];
-    return { head, bullets: items.map((h) => `  ◦ ${h}`) };
-  });
+  const bullets = [...(news?.summary ?? [])];
+  const render = (): string =>
+    [header, ...(bullets.length ? ["**今日速览**", ...bullets.map((b) => `◦ ${b}`)] : []), footer].join(
+      "\n\n",
+    );
 
-  const header = `📡 **agents-radar · ${date}**`;
-  const footer = `[🌐 Web UI](${PAGES_URL})  ·  [⊕ RSS](${PAGES_URL}/feed.xml)`;
-
-  const render = (counts: number[]): string =>
-    [
-      header,
-      ...blocks.map((b, i) => [b.head, ...b.bullets.slice(0, counts[i] ?? 0)].join("\n")),
-      footer,
-    ].join("\n\n");
-
-  const counts = blocks.map((b) => b.bullets.length);
-  let content = render(counts);
-
-  // Drop highlight bullets round-robin (last report back to the first) until
-  // the message fits, so one oversized digest trims evenly across reports
-  // instead of losing only the trailing reports' highlights. Report links are
-  // never trimmed.
-  while (byteLength(content) > WECOM_MAX_BYTES) {
-    let removed = false;
-    for (let i = counts.length - 1; i >= 0; i--) {
-      const n = counts[i] ?? 0;
-      if (n === 0) continue;
-      counts[i] = n - 1;
-      removed = true;
-      content = render(counts);
-      if (byteLength(content) <= WECOM_MAX_BYTES) break;
-    }
-    if (!removed) break;
+  let content = render();
+  while (byteLength(content) > WECOM_MAX_BYTES && bullets.length) {
+    bullets.pop();
+    content = render();
   }
-
   return content;
+}
+
+export function buildWecomCards(news: DailyNewsFile | null): WecomCard[] {
+  return (news?.cards ?? []).slice(0, WECOM_MAX_CARDS).map((c) => ({
+    title: byteSlice(c.title, CARD_TITLE_BYTES),
+    description: byteSlice(c.description, CARD_DESC_BYTES),
+    url: c.url,
+  }));
 }
 
 async function main(): Promise<void> {
@@ -144,24 +143,33 @@ async function main(): Promise<void> {
     console.log("[wecom] manifest is empty — skipping.");
     return;
   }
-  const { date, reports } = latest;
+  const { date } = latest;
 
-  let highlights: Highlights | null = null;
-  const highlightsPath = path.join("digests", date, "highlights.json");
-  if (fs.existsSync(highlightsPath)) {
+  let news: DailyNewsFile | null = null;
+  const newsPath = path.join("digests", date, "news.json");
+  if (fs.existsSync(newsPath)) {
     try {
-      highlights = JSON.parse(fs.readFileSync(highlightsPath, "utf-8")) as Highlights;
+      news = JSON.parse(fs.readFileSync(newsPath, "utf-8")) as DailyNewsFile;
     } catch {
-      console.log("[wecom] Failed to parse highlights.json — sending without highlights.");
+      console.log("[wecom] Failed to parse news.json — sending without highlights.");
     }
   }
 
-  const content = buildWecomMessage(date, reports, undefined, highlights);
+  const text = buildWecomText(date, news);
+  console.log(`[wecom] Sending highlights text for ${date} (${byteLength(text)} bytes)…`);
+  const textFailures = await postToAllWebhooks({ msgtype: "markdown", markdown: { content: text } }, "text");
 
-  console.log(
-    `[wecom] Sending to ${urls.length} webhook(s) for ${date} (${reports.length} reports, ${byteLength(content)} bytes)…`,
-  );
-  await sendWecom(content);
+  let cardFailures = 0;
+  const cards = buildWecomCards(news);
+  if (cards.length) {
+    console.log(`[wecom] Sending ${cards.length} news card(s)…`);
+    cardFailures = await postToAllWebhooks({ msgtype: "news", news: { articles: cards } }, "cards");
+  }
+
+  // Either message carrying the day's content is enough to count as delivered.
+  if (textFailures >= urls.length && (!cards.length || cardFailures >= urls.length)) {
+    throw new Error("All WeCom webhooks failed for both text and cards");
+  }
   console.log("[wecom] Done!");
 }
 

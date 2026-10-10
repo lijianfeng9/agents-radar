@@ -46,7 +46,69 @@ const SEARCH_QUERIES = [
 ];
 
 // ---------------------------------------------------------------------------
-// GitHub Trending HTML fetch
+// GitHub Trending HTML parse
+// ---------------------------------------------------------------------------
+
+/**
+ * Read a count from the text of an anchor. GitHub renders the stars/forks
+ * number *after* an inline SVG icon whose path data is full of digits, so the
+ * tag markup must be stripped before scanning for the number — matching
+ * "anchor, one tag, digits" silently produced 0 for every repo when the icon
+ * markup changed to a multi-element SVG.
+ */
+function countAfterAnchor(block: string, path: string): number {
+  const anchor = block.match(new RegExp(`href="/[^"]+/${path}"[^>]*>([\\s\\S]*?)</a>`));
+  const text = anchor?.[1]?.replace(/<[^>]*>/g, " ") ?? "";
+  const digits = text.match(/[\d,]+/)?.[0];
+  return digits ? parseInt(digits.replace(/,/g, ""), 10) : 0;
+}
+
+export function parseTrendingHtml(html: string): TrendingRepo[] {
+  const repos: TrendingRepo[] = [];
+
+  // Split by article blocks
+  const articlePattern =
+    /<article[^>]*class="[^"]*Box-row[^"]*"[\s\S]*?(?=<article[^>]*class="[^"]*Box-row[^"]*"|$)/g;
+  const blocks = html.match(articlePattern) ?? [];
+
+  for (const block of blocks) {
+    try {
+      // fullName from <h2> > <a href="/owner/repo">
+      const nameMatch = block.match(/<h2[^>]*>[\s\S]*?<a[^>]+href="\/([^/"]+\/[^/"]+)"/);
+      if (!nameMatch?.[1]) continue;
+      const fullName = nameMatch[1].trim();
+
+      // description from col-9 paragraph
+      const descMatch = block.match(/<p[^>]*class="[^"]*col-9[^"]*"[^>]*>([\s\S]*?)<\/p>/);
+      const description = descMatch?.[1] ? descMatch[1].replace(/<[^>]+>/g, "").trim() : "";
+
+      // language
+      const langMatch = block.match(/<span[^>]+itemprop="programmingLanguage"[^>]*>([\s\S]*?)<\/span>/);
+      const language = langMatch?.[1] ? langMatch[1].replace(/<[^>]+>/g, "").trim() : "";
+
+      // today stars
+      const todayMatch = block.match(/([\d,]+)\s+stars?\s+today/i);
+      const todayStars = todayMatch?.[1] ? parseInt(todayMatch[1].replace(/,/g, ""), 10) : 0;
+
+      repos.push({
+        fullName,
+        description,
+        language,
+        todayStars,
+        totalStars: countAfterAnchor(block, "stargazers"),
+        forks: countAfterAnchor(block, "forks"),
+        url: `https://github.com/${fullName}`,
+      });
+    } catch {
+      // single block parse failure is non-fatal
+    }
+  }
+
+  return repos;
+}
+
+// ---------------------------------------------------------------------------
+// GitHub Trending fetch
 // ---------------------------------------------------------------------------
 
 async function fetchGitHubTrending(): Promise<{ repos: TrendingRepo[]; success: boolean }> {
@@ -63,53 +125,7 @@ async function fetchGitHubTrending(): Promise<{ repos: TrendingRepo[]; success: 
     }
 
     const html = await resp.text();
-    const repos: TrendingRepo[] = [];
-
-    // Split by article blocks
-    const articlePattern =
-      /<article[^>]*class="[^"]*Box-row[^"]*"[\s\S]*?(?=<article[^>]*class="[^"]*Box-row[^"]*"|$)/g;
-    const blocks = html.match(articlePattern) ?? [];
-
-    for (const block of blocks) {
-      try {
-        // fullName from <h2> > <a href="/owner/repo">
-        const nameMatch = block.match(/<h2[^>]*>[\s\S]*?<a[^>]+href="\/([^/"]+\/[^/"]+)"/);
-        if (!nameMatch?.[1]) continue;
-        const fullName = nameMatch[1].trim();
-
-        // description from col-9 paragraph
-        const descMatch = block.match(/<p[^>]*class="[^"]*col-9[^"]*"[^>]*>([\s\S]*?)<\/p>/);
-        const description = descMatch?.[1] ? descMatch[1].replace(/<[^>]+>/g, "").trim() : "";
-
-        // language
-        const langMatch = block.match(/<span[^>]+itemprop="programmingLanguage"[^>]*>([\s\S]*?)<\/span>/);
-        const language = langMatch?.[1] ? langMatch[1].replace(/<[^>]+>/g, "").trim() : "";
-
-        // today stars
-        const todayMatch = block.match(/([\d,]+)\s+stars?\s+today/i);
-        const todayStars = todayMatch?.[1] ? parseInt(todayMatch[1].replace(/,/g, ""), 10) : 0;
-
-        // total stars — look for link with /stargazers
-        const totalMatch = block.match(/href="\/[^"]+\/stargazers"[^>]*>\s*<[^>]+>\s*([\d,]+)/);
-        const totalStars = totalMatch?.[1] ? parseInt(totalMatch[1].replace(/,/g, ""), 10) : 0;
-
-        // forks
-        const forkMatch = block.match(/href="\/[^"]+\/forks"[^>]*>\s*<[^>]+>\s*([\d,]+)/);
-        const forks = forkMatch?.[1] ? parseInt(forkMatch[1].replace(/,/g, ""), 10) : 0;
-
-        repos.push({
-          fullName,
-          description,
-          language,
-          todayStars,
-          totalStars,
-          forks,
-          url: `https://github.com/${fullName}`,
-        });
-      } catch {
-        // single block parse failure is non-fatal
-      }
-    }
+    const repos = parseTrendingHtml(html);
 
     if (repos.length === 0) {
       console.error("  [trending] Parsed 0 repos — HTML structure may have changed");

@@ -3,7 +3,6 @@
  * Reads GITHUB_TOKEN and DIGEST_REPO from environment at call time.
  */
 
-import { GROUP_REPORTS, ISSUE_LABELS } from "./i18n.ts";
 import { toCstDateStr, sleep } from "./date.ts";
 
 // ---------------------------------------------------------------------------
@@ -355,9 +354,23 @@ function neutralizeGitHubRefs(text: string): string {
  * opened is never touched.
  */
 const DIGEST_ISSUE_LABELS = new Set([
-  ...Object.values(ISSUE_LABELS).flatMap((l) => [l.zh, l.en]),
-  ...Object.values(GROUP_REPORTS).flatMap((r) => [r.issueLabel.zh, r.issueLabel.en]),
+  // Current report.
+  "ai-news",
   // Discontinued report types — archived issues still carry these.
+  "hot-agents",
+  "hot-agents-en",
+  "creator",
+  "creator-en",
+  "office",
+  "office-en",
+  "aigc",
+  "aigc-en",
+  "web",
+  "web-en",
+  "trending",
+  "trending-en",
+  "ph",
+  "ph-en",
   "digest",
   "digest-en",
   "openclaw",

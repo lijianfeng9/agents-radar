@@ -11,6 +11,9 @@ const FEED_PATH = "feed.xml";
 const SITE_URL = `https://${process.env["GITHUB_REPOSITORY_OWNER"] ?? "duanyytop"}.github.io/agents-radar`;
 const DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
 const REPORT_FILES = [
+  "ai-news",
+  // Report types that are no longer generated — kept so archived reports stay
+  // reachable from the sidebar and RSS feed.
   "ai-hot-agents",
   "ai-hot-agents-en",
   "ai-creator",
@@ -25,8 +28,6 @@ const REPORT_FILES = [
   "ai-trending-en",
   "ai-ph",
   "ai-ph-en",
-  // Discontinued report types and rollups are no longer generated — kept so
-  // archived reports stay reachable from the sidebar and RSS feed.
   "ai-cli",
   "ai-cli-en",
   "ai-agents",

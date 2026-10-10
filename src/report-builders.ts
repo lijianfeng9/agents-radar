@@ -1,53 +1,63 @@
 /**
- * Report content builders — extracted from index.ts for testability.
+ * Renders the daily news report markdown from the validated digest data.
  */
 
-import type { RepoDigest } from "./prompts.ts";
-import { GROUP_REPORTS, type Lang } from "./i18n.ts";
+import { NEWS_REPORT } from "./i18n.ts";
+import { NEWS_SECTION_IDS, type DailyNewsSections } from "./prompts-data.ts";
 
-/**
- * Content of one group report: title, meta, repo links, cross-project
- * comparison and one <details> block per project.
- */
-export function buildGroupReportContent(
-  gid: string,
-  digests: RepoDigest[],
-  comparison: string,
-  utcStr: string,
-  dateStr: string,
-  footer: string,
-  lang: Lang = "zh",
-): string {
-  const info = GROUP_REPORTS[gid];
-  if (!info) throw new Error(`Unknown report group: ${gid}`);
+/** A trending repo joined with the real stars snapshot fetched from GitHub. */
+export interface TrendingHighlight {
+  repo: string;
+  url: string;
+  stars: string;
+  summary: string;
+}
 
-  const repoLinks = digests
-    .map((d) => `- [${d.config.name}](https://github.com/${d.config.repo})`)
-    .join("\n");
+export interface DailyNewsRenderInput {
+  dateStr: string;
+  utcStr: string;
+  sourceNames: string[];
+  /** News items that went into the prompt (before the LLM's selection). */
+  fetchedCount: number;
+  summary: string[];
+  sections: DailyNewsSections;
+  trending: TrendingHighlight[];
+  footer: string;
+}
 
-  const projectSections = digests
-    .map((d) =>
-      [
-        `<details>`,
-        `<summary><strong>${d.config.name}</strong> — <a href="https://github.com/${d.config.repo}">${d.config.repo}</a></summary>`,
-        ``,
-        d.summary,
-        ``,
-        `</details>`,
-      ].join("\n"),
-    )
-    .join("\n\n");
+function mdLink(text: string, url: string): string {
+  // Brackets in a title would break the markdown link syntax.
+  return `[${text.replace(/[[\]]/g, "")}](${url})`;
+}
 
-  return (
-    `# ${info.title[lang]} ${dateStr}\n\n` +
-    info.meta(utcStr, digests.length, lang) +
-    `${repoLinks}\n\n` +
-    `---\n\n` +
-    `## ${info.comparison[lang]}\n\n` +
-    comparison +
-    `\n\n---\n\n` +
-    `## ${info.detail[lang]}\n\n` +
-    projectSections +
-    footer
-  );
+export function buildDailyNewsMarkdown(input: DailyNewsRenderInput): string {
+  const { dateStr, utcStr, sourceNames, fetchedCount, summary, sections, trending, footer } = input;
+  const itemCount = NEWS_SECTION_IDS.reduce((n, id) => n + sections[id].length, 0);
+
+  const blocks: string[] = [
+    `# ${NEWS_REPORT.title} ${dateStr}`,
+    `> ${NEWS_REPORT.sources(sourceNames)} | ${NEWS_REPORT.meta(utcStr, itemCount, fetchedCount)}`,
+  ];
+
+  if (summary.length) {
+    blocks.push(`## ${NEWS_REPORT.summaryHeading}\n\n${summary.map((s) => `- ${s}`).join("\n")}`);
+  }
+
+  for (const id of NEWS_SECTION_IDS) {
+    const items = sections[id];
+    if (!items.length) continue;
+    blocks.push(
+      `## ${NEWS_REPORT.sections[id]}\n\n` +
+        items.map((it) => `- ${mdLink(it.title, it.url)} — ${it.summary}`).join("\n"),
+    );
+  }
+
+  if (trending.length) {
+    const rows = trending.map((r) => `| ${mdLink(r.repo, r.url)} | ${r.stars} | ${r.summary} |`).join("\n");
+    blocks.push(
+      `## ${NEWS_REPORT.trendingHeading}\n\n| 项目 | Stars | 说明 |\n| :--- | ---: | :--- |\n${rows}`,
+    );
+  }
+
+  return blocks.join("\n\n") + "\n" + footer;
 }

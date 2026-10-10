@@ -1,6 +1,6 @@
 {
   "anthropic": {
-    "lastChecked": "2026-10-10T01:53:53.875Z",
+    "lastChecked": "2026-10-10T05:50:54.800Z",
     "seenUrls": {
       "https://www.anthropic.com/news/responsible-scaling-policy-v3": "2026-02-25T23:57:06.000Z",
       "https://www.anthropic.com/research/deprecation-updates-opus-3": "2026-09-09T21:14:42.000Z",
@@ -478,7 +478,7 @@
     }
   },
   "openai": {
-    "lastChecked": "2026-10-10T01:53:54.606Z",
+    "lastChecked": "2026-10-10T05:50:56.801Z",
     "seenUrls": {
       "https://openai.com/index/arvind-kc-chief-people-officer/": "2026-10-10T00:19:06.242Z",
       "https://openai.com/index/put-ai-to-work-for-your-product-team/": "2026-10-09T18:14:59.017Z",
@@ -682,7 +682,7 @@
       "https://openai.com/index/introducing-gpt-5-3-codex-spark/": "2026-09-29T17:16:52.043Z",
       "https://openai.com/index/developers-can-now-submit-apps-to-chatgpt/": "2026-10-09T06:33:39.045Z",
       "https://openai.com/index/testing-ads-in-chatgpt/": "2026-10-09T10:32:48.173Z",
-      "https://openai.com/index/introducing-gpt-5-3-codex/": "2026-10-10T01:18:00.528Z",
+      "https://openai.com/index/introducing-gpt-5-3-codex/": "2026-10-10T03:17:52.091Z",
       "https://openai.com/index/our-approach-to-advertising-and-expanding-access/": "2026-10-09T06:33:31.086Z",
       "https://openai.com/index/introducing-chatgpt-health/": "2026-10-09T08:35:31.724Z",
       "https://openai.com/index/introducing-our-next-generation-audio-models/": "2026-10-09T20:29:33.230Z",
@@ -956,7 +956,7 @@
       "https://openai.com/index/chatgpt-for-veterans/": "2026-10-09T06:07:44.373Z",
       "https://openai.com/index/openai-certificate-courses/": "2026-01-08T19:50:52.734Z",
       "https://openai.com/index/introducing-chatgpt-pulse/": "2026-10-09T06:33:35.129Z",
-      "https://openai.com/index/aws-and-openai-partnership/": "2026-10-09T06:07:37.268Z",
+      "https://openai.com/index/aws-and-openai-partnership/": "2026-10-10T02:13:27.408Z",
       "https://openai.com/index/1-million-businesses-putting-ai-to-work/": "2026-10-09T17:22:40.683Z",
       "https://openai.com/index/introducing-chatgpt-atlas/": "2026-10-09T06:33:34.218Z",
       "https://openai.com/index/gartner-2025-emerging-leader/": "2026-08-13T23:14:27.040Z",
@@ -1120,7 +1120,7 @@
       "https://openai.com/index/safety-bug-bounty/": "2026-10-05T19:23:11.837Z",
       "https://openai.com/index/our-approach-to-the-model-spec/": "2026-10-09T09:56:17.534Z",
       "https://openai.com/index/accelerating-the-next-phase-ai/": "2026-10-09T18:32:11.990Z",
-      "https://openai.com/index/codex-flexible-pricing-for-teams/": "2026-10-10T01:18:02.996Z",
+      "https://openai.com/index/codex-flexible-pricing-for-teams/": "2026-10-10T03:17:54.107Z",
       "https://openai.com/index/openai-acquires-tbpn/": "2026-07-25T07:04:50.050Z",
       "https://openai.com/index/introducing-openai-safety-fellowship/": "2026-10-01T15:52:30.972Z",
       "https://openai.com/index/next-phase-of-enterprise-ai/": "2026-07-25T07:23:03.007Z",
@@ -1373,7 +1373,7 @@
       "https://openai.com/index/codex-maxxing-long-running-work/": "2026-10-09T12:29:09.621Z",
       "https://openai.com/index/builders-guide-to-gpt-5-6/": "2026-10-09T17:56:50.927Z",
       "https://openai.com/index/teens-learn-and-plan/": "2026-10-09T14:57:13.928Z",
-      "https://openai.com/index/gpt-6-for-everyone/": "2026-10-10T01:02:02.628Z",
+      "https://openai.com/index/gpt-6-for-everyone/": "2026-10-10T05:17:04.061Z",
       "https://openai.com/index/disrupting-malicious-uses-of-ai-influence-campaign-russia/": "2026-10-09T09:23:49.426Z",
       "https://openai.com/index/disrupting-ai-enabled-false-front-operations/": "2026-10-10T00:44:08.762Z",
       "https://openai.com/index/ai-native-company-workflows/": "2026-10-09T23:15:23.475Z",

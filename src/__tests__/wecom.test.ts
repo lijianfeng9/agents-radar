@@ -36,12 +36,12 @@ function makeNews(over: Partial<DailyNewsFile> = {}): DailyNewsFile {
 describe("buildWecomText", () => {
   it("renders the header, bullets and the report link", () => {
     const msg = buildWecomText("2026-03-09", makeNews(), BASE_URL);
-    expect(msg).toContain("📡 **AI 每日要闻 · 2026-03-09**");
-    expect(msg).toContain("**今日速览**");
+    expect(msg).toContain("📡 AI 每日要闻 · 2026-03-09");
+    expect(msg).toContain("今日速览");
     expect(msg).toContain("◦ Claude 发布新模型");
     expect(msg).toContain("◦ 某开源智能体新增 MCP 支持");
-    expect(msg).toContain(`[📖 完整日报](${BASE_URL}/#2026-03-09/ai-news)`);
-    expect(msg).toContain(`[🌐 日报网站](${BASE_URL})`);
+    expect(msg).toContain(`📖 完整日报：${BASE_URL}/#2026-03-09/ai-news`);
+    expect(msg).toContain(`🌐 日报网站：${BASE_URL}`);
   });
 
   it("omits the bullet block when news.json is missing", () => {
@@ -51,21 +51,22 @@ describe("buildWecomText", () => {
     expect(msg).toContain(`${BASE_URL}/#2026-03-09/ai-news`);
   });
 
-  it("uses markdown links instead of HTML", () => {
+  it("carries no markdown markers so 长按复制 reproduces it exactly", () => {
     const msg = buildWecomText("2026-03-09", makeNews(), BASE_URL);
+    expect(msg).not.toContain("**");
+    expect(msg).not.toContain("](");
     expect(msg).not.toContain("<a href=");
-    expect(msg).not.toContain("<b>");
-    expect(msg).toContain("**AI 每日要闻");
+    expect(msg).toContain("📡 AI 每日要闻");
   });
 
-  it("trims bullets to fit the 4000-byte limit, keeping the report link", () => {
+  it("trims bullets to fit the 2048-byte text limit, keeping the report link", () => {
     const long = "这是一条相当长的中文速览用于撑大消息体积";
     const news = makeNews({
       summary: Array.from({ length: 40 }, (_, i) => `第 ${i + 1} 条：${long}${long}`),
     });
     const msg = buildWecomText("2026-03-09", news, BASE_URL);
 
-    expect(Buffer.byteLength(msg, "utf-8")).toBeLessThanOrEqual(4000);
+    expect(Buffer.byteLength(msg, "utf-8")).toBeLessThanOrEqual(2048);
     // Bullets were dropped, but the report link never is.
     const bulletCount = msg.split("◦").length - 1;
     expect(bulletCount).toBeGreaterThan(0);

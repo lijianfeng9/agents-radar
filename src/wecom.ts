@@ -18,8 +18,11 @@ import type { DailyNewsFile } from "./report-savers.ts";
 
 const PAGES_URL_DEFAULT = "https://duanyytop.github.io/agents-radar";
 
-// WeCom rejects markdown content over 4096 bytes (UTF-8), so stay under it.
-const WECOM_MAX_BYTES = 4000;
+// The highlights message is sent as msgtype "text" on purpose: WeCom copies a
+// markdown message as its raw source (`**bold**`, `[label](url)`), so plain
+// text is the only format that 长按 → 复制 reproduces exactly. A text message
+// is capped at 2048 bytes (UTF-8) — stay under it.
+const WECOM_MAX_TEXT_BYTES = 2000;
 /** A news message carries at most 8 articles. */
 const WECOM_MAX_CARDS = 8;
 // Article field limits from the WeCom group-robot docs: title 128 bytes,
@@ -100,24 +103,28 @@ async function postToAllWebhooks(payload: unknown, label: string): Promise<numbe
 }
 
 /**
- * The highlights text: header, the day's 速览 bullets, and links to the full
- * report. Bullets are dropped from the tail until the message fits — the
- * report link is never trimmed.
+ * The highlights message: header, the day's 速览 bullets, and links to the
+ * full report — written as plain text so that copying it (长按 → 复制 → 微信)
+ * reproduces the message exactly; WeCom renders the bare URLs clickable.
+ * Bullets are dropped from the tail until the message fits — the report
+ * links are never trimmed.
  */
 export function buildWecomText(date: string, news: DailyNewsFile | null, pagesUrl?: string): string {
   const base = (pagesUrl ?? process.env["PAGES_URL"] ?? PAGES_URL_DEFAULT).replace(/\/$/, "");
   const reportUrl = `${base}/#${date}/ai-news`;
-  const header = `📡 **AI 每日要闻 · ${date}**`;
-  const footer = `[📖 完整日报](${reportUrl})  ·  [🌐 日报网站](${base})`;
+  const header = `📡 AI 每日要闻 · ${date}`;
+  const footer = `📖 完整日报：${reportUrl}\n🌐 日报网站：${base}`;
 
   const bullets = [...(news?.summary ?? [])];
-  const render = (): string =>
-    [header, ...(bullets.length ? ["**今日速览**", ...bullets.map((b) => `◦ ${b}`)] : []), footer].join(
-      "\n\n",
-    );
+  const render = (): string => {
+    const parts = [header];
+    if (bullets.length) parts.push(["今日速览", ...bullets.map((b) => `◦ ${b}`)].join("\n"));
+    parts.push(footer);
+    return parts.join("\n\n");
+  };
 
   let content = render();
-  while (byteLength(content) > WECOM_MAX_BYTES && bullets.length) {
+  while (byteLength(content) > WECOM_MAX_TEXT_BYTES && bullets.length) {
     bullets.pop();
     content = render();
   }
@@ -238,7 +245,7 @@ async function main(): Promise<void> {
 
   const text = buildWecomText(date, news);
   console.log(`[wecom] Sending highlights text for ${date} (${byteLength(text)} bytes)…`);
-  const textFailures = await postToAllWebhooks({ msgtype: "markdown", markdown: { content: text } }, "text");
+  const textFailures = await postToAllWebhooks({ msgtype: "text", text: { content: text } }, "text");
 
   let cardFailures = 0;
   const cards = buildWecomCards(news);

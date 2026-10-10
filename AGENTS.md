@@ -8,7 +8,7 @@ agents-radar is a daily Chinese AI news digest (《AI 每日要闻》). A GitHub
 - `digests/YYYY-MM-DD/news.json` — structured digest; also the input to the WeCom push
 - `digests/YYYY-MM-DD/highlights.json` — 速览 bullets for the Telegram/Feishu notifiers
 - a GitHub Issue per day, only when `DIGEST_REPO` is set (the daily workflow does not set it)
-- a WeCom (企业微信) push — markdown text + a `news` 图文卡片 message — via `pnpm notify:wecom`
+- a WeCom (企业微信) push — a plain-text highlights message + a `news` 图文卡片 message — via `pnpm notify:wecom`
 
 The report is written for a non-developer audience (content, product, operations, admin staff): 今日速览, four fixed sections (🔥 大模型动向 / 🤖 智能体 & 开源项目 / 🎬 创作者 · AIGC 玩法 / 💼 办公提效) and a 📈 GitHub 趋势 table. Every item is a clickable title plus a one-line summary.
 
@@ -81,7 +81,7 @@ Notifications are separate scripts run after the digest step. `wecom.ts`, `notif
 | `src/report-savers.ts` | `normalizeDailyNews` (URL allow-list validation), `buildTrendingRows`, `saveDailyNews`; exports `DailyNewsFile` |
 | `src/i18n.ts` | `NEWS_REPORT` (titles, section headings, meta), `Lang`, `FOOTER`, `REPORT_LABELS` / `NOTIFY_LABELS` (legacy ids kept) |
 | `src/date.ts` | `toCstDateStr`, `toUtcStr`, `weekdayOf`, `sleep` |
-| `src/wecom.ts` | WeCom push: `buildWecomText` (byte-budget markdown), `buildWecomCards` (≤8 news cards), `attachCardImages` (og:image covers → `picurl`), `sendToOneWebhook` |
+| `src/wecom.ts` | WeCom push: `buildWecomText` (byte-budget plain text), `buildWecomCards` (≤8 news cards), `attachCardImages` (og:image covers → `picurl`), `sendToOneWebhook` |
 | `src/notify.ts` | Telegram push from `highlights.json` |
 | `src/feishu.ts` | Feishu card push from `highlights.json` |
 | `src/github.ts` | GitHub API helpers: `createGitHubIssue`, `closeSupersededIssues`, label colors |
@@ -123,7 +123,7 @@ Plus GitHub data, fetched in parallel every run:
   - Roundup entries (早报/晨报/周报… via `ROUNDUP_TITLE_RE`, plus leiphone's `/zaobao/` links) are filtered deliberately: they link to a list of headlines, not an article body.
   - Dedup is bigram Jaccard ≥ 0.6 on the normalized title; within a duplicate cluster the longest excerpt wins.
 - Trending star counts must be parsed with `countAfterAnchor` — GitHub renders the number after an inline SVG whose `path` data is full of digits, so the tag markup has to be stripped before scanning for the first number.
-- WeCom limits: markdown content ≤ 4000 bytes (`buildWecomText` drops 速览 bullets from the tail until it fits, never the report link), ≤ 8 cards, card title ≤ 128 bytes / description ≤ 512 bytes (`byteSlice` truncates on character boundaries). WeCom answers HTTP 200 even on failure — only the `errcode` in the body counts. Each card's cover is the article page's `og:image` (`attachCardImages`, per-card failure just renders gray) — without `picurl` WeCom shows a gray placeholder.
+- WeCom limits: the highlights message goes out as msgtype `text` (≤ 2048 bytes, `buildWecomText` keeps content under 2000 and drops 速览 bullets from the tail until it fits, never the report links) — plain text on purpose, because WeCom copies a markdown message as its raw source (`**bold**`, `[label](url)`), so only text survives 长按 → 复制 → 粘贴 cleanly. Also ≤ 8 cards, card title ≤ 128 bytes / description ≤ 512 bytes (`byteSlice` truncates on character boundaries). WeCom answers HTTP 200 even on failure — only the `errcode` in the body counts. Each card's cover is the article page's `og:image` (`attachCardImages`, per-card failure just renders gray) — without `picurl` WeCom shows a gray placeholder.
 - `callLlm(prompt, maxTokens?)` defaults to `LLM_TOKENS_DEFAULT` (4096); the daily digest uses `LLM_TOKENS_NEWS` (8192). The concurrency limiter (`LLM_CONCURRENCY = 5`) exists to prevent 429s — do not bypass it by calling SDK clients directly.
 - Retry ladders in `callLlm`: 429 → 3 retries at 5/10/20 s; connection failures (`isConnectionError` walks the SDK's `cause` chain) → 6 retries at 5/10/20/40/60/60 s, capped by `RETRY_MAX_MS`. The concurrency slot is released during every wait.
 - LLM provider is selected via `LLM_PROVIDER` (default `anthropic`; valid: `anthropic`, `openai`, `github-copilot`, `openrouter`, `deepseek`, `qwen`). The daily workflow runs `deepseek` (`deepseek-v4-flash`).

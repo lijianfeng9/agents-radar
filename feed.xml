@@ -6,51 +6,53 @@
     <description>AI 开源生态每日简报 · Daily AI ecosystem digest</description>
     <language>zh-CN</language>
     <atom:link href="https://lijianfeng9.github.io/agents-radar/feed.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Sat, 10 Oct 2026 07:36:26 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 10 Oct 2026 08:02:04 +0000</lastBuildDate>
     <item>
       <title>AI 每日要闻 2026-10-10</title>
       <link>https://lijianfeng9.github.io/agents-radar/#2026-10-10/ai-news</link>
       <guid isPermaLink="true">https://lijianfeng9.github.io/agents-radar/#2026-10-10/ai-news</guid>
       <pubDate>Sat, 10 Oct 2026 00:00:00 +0000</pubDate>
-      <description>AI 每日要闻 2026-10-10 数据来源: 量子位 · 雷峰网 · 钛媒体 · 爱范儿 · 开源中国 · 少数派 · 小众软件 | 生成时间: 2026-10-10 07:35 UTC | 要闻 15 条 / 抓取 60 条 今日速览 阶跃 Step 5 Preview 登顶 OpenRouter，将于 10 月 15 日开源。 微软发决策模型 Decision-1，Jev 估值达 75 亿美元。 Claude Haiku 5.5 走低价，大模型价格战再起。 REA 把逆向工程接入 Agent，Manus 融资超 5 亿美元。 Nano Banana 2.1 实战与 AI 短剧成创作者新热点。 🔥 大模型动向 阶跃 Step 5 Preview 登顶 OpenRouter，10月15日开源 — 新旗舰基座模型登 Trending 榜第一，即将开源，开发者可关注。 微软发布决策模型 Microsoft-Decision-1 — 基于 Qwen 后训练，只输出选项概率，可被软件直接消费。 不输出文本的 Jev 估值飙到 75 亿美元 — 上线几周获 8.7 亿美元融资，三分之一财富...</description>
+      <description>AI 每日要闻 2026-10-10 数据来源: 量子位 · 钛媒体 · 爱范儿 · 开源中国 · 少数派 · 小众软件 | 生成时间: 2026-10-10 08:00 UTC | 要闻 17 条 / 抓取 50 条 今日速览 Anthropic 推出低价 Claude Haiku 5.5，轻量模型价格战升温。 微软与 TypeSafe 接连发布决策模型，非文本概率输出受资本追捧。 REA、TRAE 等工具更新，逆向工程和代码工作流进一步 Agent 化。 Google Nano Banana 2.1 生图升级，中文排版和多图一致性进步。 企业办公 Agent 加速落地，一汽硅基员工与 AI Coding 治理平台受关注。 🔥 大模型动向 微软发布决策模型 Microsoft-Decision-1 — 基于 Qwen 后训练的决策评分模型，输出校准概率，已被 Foundry 接入。 Jev 上线几周估值达 75 亿美元 — 不输出文本、只输出校准概率的决策模型，财富 500 强三分之一在用。 Claude Haiku 5.5 主打低价路线 — Anthropic 推出轻量模型，10...</description>
       <content:encoded><![CDATA[<h1>AI 每日要闻 2026-10-10</h1>
 <blockquote>
-<p>数据来源: 量子位 · 雷峰网 · 钛媒体 · 爱范儿 · 开源中国 · 少数派 · 小众软件 | 生成时间: 2026-10-10 07:35 UTC | 要闻 15 条 / 抓取 60 条</p>
+<p>数据来源: 量子位 · 钛媒体 · 爱范儿 · 开源中国 · 少数派 · 小众软件 | 生成时间: 2026-10-10 08:00 UTC | 要闻 17 条 / 抓取 50 条</p>
 </blockquote>
 <h2>今日速览</h2>
 <ul>
-<li>阶跃 Step 5 Preview 登顶 OpenRouter，将于 10 月 15 日开源。</li>
-<li>微软发决策模型 Decision-1，Jev 估值达 75 亿美元。</li>
-<li>Claude Haiku 5.5 走低价，大模型价格战再起。</li>
-<li>REA 把逆向工程接入 Agent，Manus 融资超 5 亿美元。</li>
-<li>Nano Banana 2.1 实战与 AI 短剧成创作者新热点。</li>
+<li>Anthropic 推出低价 Claude Haiku 5.5，轻量模型价格战升温。</li>
+<li>微软与 TypeSafe 接连发布决策模型，非文本概率输出受资本追捧。</li>
+<li>REA、TRAE 等工具更新，逆向工程和代码工作流进一步 Agent 化。</li>
+<li>Google Nano Banana 2.1 生图升级，中文排版和多图一致性进步。</li>
+<li>企业办公 Agent 加速落地，一汽硅基员工与 AI Coding 治理平台受关注。</li>
 </ul>
 <h2>🔥 大模型动向</h2>
 <ul>
-<li><a href="https://www.leiphone.com/category/industrynews/7iRgmb0q4JgVbmU8.html">阶跃 Step 5 Preview 登顶 OpenRouter，10月15日开源</a> — 新旗舰基座模型登 Trending 榜第一，即将开源，开发者可关注。</li>
-<li><a href="https://www.oschina.net/news/502942/microsoft-decision-1-model-foundry">微软发布决策模型 Microsoft-Decision-1</a> — 基于 Qwen 后训练，只输出选项概率，可被软件直接消费。</li>
-<li><a href="https://www.oschina.net/news/502935/the-maker-of-non-text-ai-model-jev-valued-at-7-5b">不输出文本的 Jev 估值飙到 75 亿美元</a> — 上线几周获 8.7 亿美元融资，三分之一财富 500 强已使用。</li>
-<li><a href="https://www.tmtpost.com/8163462.html">Claude Haiku 5.5 低价搅动大模型价格战</a> — Anthropic 推轻量低价模型，大模型竞争转向日常任务与成本。</li>
-<li><a href="https://www.qbitai.com/2026/10/502364.html">字节找到 DeepSeek 时强时弱的原因</a> — 研究指向 Token 站位影响答题稳定性，或助推理优化。</li>
-<li><a href="https://www.ifanr.com/1683401">陶哲轩转发抵制 OpenAI 声明</a> — 数学界质疑 OpenAI 刷成果，抵制合作呼吁回归人类理解。</li>
-<li><a href="https://www.leiphone.com/category/yanxishe/BfzpShx7bKSPT4Ul.html">田柯宇新实验室估值 2 亿美元做世界模型</a> — 争议创始人获五源、IDG 投资，瞄准世界模型赛道。</li>
-<li><a href="https://www.leiphone.com/category/private/A0uKolgD2esWoUfT.html">WorldArena 2.0 开考世界模型</a> — 评测世界模型能否预测动作、支持策略并落地机器人。</li>
+<li><a href="https://www.oschina.net/news/502942/microsoft-decision-1-model-foundry">微软发布决策模型 Microsoft-Decision-1</a> — 基于 Qwen 后训练的决策评分模型，输出校准概率，已被 Foundry 接入。</li>
+<li><a href="https://www.oschina.net/news/502935/the-maker-of-non-text-ai-model-jev-valued-at-7-5b">Jev 上线几周估值达 75 亿美元</a> — 不输出文本、只输出校准概率的决策模型，财富 500 强三分之一在用。</li>
+<li><a href="https://www.tmtpost.com/8163462.html">Claude Haiku 5.5 主打低价路线</a> — Anthropic 推出轻量模型，10 万 tokens 内价格下探，剑指日常简单任务。</li>
+<li><a href="https://www.ifanr.com/1683401">陶哲轩转发抵制 OpenAI 声明</a> — 数学界不满 OpenAI 密集发布成果，呼吁停止合作，引发 AI 与数学界争论。</li>
+<li><a href="https://www.qbitai.com/2026/10/502364.html">字节找到 DeepSeek 时强时弱原因</a> — 研究称答对与否和 Token 站位有关，为理解大模型推理波动提供新线索。</li>
+<li><a href="https://www.qbitai.com/2026/10/502359.html">《柳叶刀》研究：AI 有望改善医患关系</a> — Google 研究成果首登《柳叶刀》主刊，显示 AI 可辅助改善医患沟通。</li>
 </ul>
 <h2>🤖 智能体 &amp; 开源项目</h2>
 <ul>
-<li><a href="https://www.oschina.net/news/502941">REA 让 Coding Agent 具备逆向工程能力</a> — 以 MCP server 接入 Claude Code 等，直接问 App 功能实现。</li>
-<li><a href="https://www.qbitai.com/2026/10/502422.html">联想 TianxiCode 登 SWE-bench-Live 第一</a> — 代码智能体框架以 71% 解决率登顶全球。</li>
-<li><a href="https://www.qbitai.com/2026/10/502411.html">因果智能让机器人 0.2 秒急停</a> — 机器人可秒级重规划，应对人手突然介入等真实场景。</li>
+<li><a href="https://www.oschina.net/news/502941">REA：把逆向工程变成 Agent 能力</a> — 以 MCP server 接入 Claude Code、Cursor 等，让 Agent 检查反编译程序。</li>
+<li><a href="https://www.tmtpost.com/8163447.html">Manus 母公司融资超 5 亿美元</a> — 估值约 40 亿美元，2.0 后重新独立运营，AI Agent 赛道热度不减。</li>
+<li><a href="https://www.tmtpost.com/8163156.html">Personal Agent 让新 BAT 集体上头</a> — Manus Cue、Meta Muse、OpenAI dots 等密集发布，个人 Agent 开始配邮箱钱包电脑。</li>
+<li><a href="https://www.tmtpost.com/8163541.html">国产个人 Agent 卡在生态接入</a> — 报道称豆包、千问、元宝等推进个人智能体，但生态权限比模型能力更关键。</li>
+<li><a href="https://www.qbitai.com/2026/10/502426.html">TRAE 把 Code 和 Work 合并</a> — 字节 AI 编程工具整合代码与工作流，降低开发者在多入口间切换成本。</li>
+<li><a href="https://www.qbitai.com/2026/10/502422.html">联想 TianxiCode 登顶 SWE-bench-Live</a> — 自研代码智能体以 71% 问题解决率获全球第一，展示中国企业工程能力。</li>
 </ul>
 <h2>🎬 创作者 · AIGC 玩法</h2>
 <ul>
-<li><a href="https://www.oschina.net/news/502940">Nano Banana 2.1 九种实战用法</a> — Flash 价格实现 Pro 级多图一致与局部编辑，附提示词。</li>
+<li><a href="https://www.oschina.net/news/502940">Nano Banana 2.1 九种实战用法</a> — Google 生图模型换 Gemini 3.6 Flash 底座，支持多图一致性、局部编辑与海报。</li>
+<li><a href="https://www.tmtpost.com/8163363.html">00后戒断 AI 短剧：一个月卸载五次</a> — AI 短剧爽点密集、易上头，反映 AIGC 内容对注意力的强捕获与争议。</li>
 </ul>
 <h2>💼 办公提效</h2>
 <ul>
-<li><a href="https://www.oschina.net/news/502926">ApiGo v6.1 支持 AI 办公平台 MCP 接入</a> — 可连接千问办公、豆包等，用 SQL 快速发布数据接口。</li>
-<li><a href="https://www.qbitai.com/2026/10/502426.html">TRAE 把 Code 和 Work 合并</a> — AI 编程与办公工作流统一，降低开发与办公切换成本。</li>
-<li><a href="https://www.oschina.net/news/502923">Zentrola 1.1 补上 AI Coding 成本治理</a> — 统一管理模型访问、凭据、用量与 Token 配额。</li>
+<li><a href="https://www.tmtpost.com/8155165.html">中国一汽七个硅基员工上岗</a> — AI 产销调度员读取订单设备数据，推演调度建议并跟踪执行，企业 Agent 落地案例。</li>
+<li><a href="https://www.oschina.net/news/502923">Zentrola 1.1.0：治理 AI Coding</a> — 面向研发团队的 AI Coding 治理平台，新增应用接入、成本核算与 Token 配额。</li>
+<li><a href="https://www.oschina.net/news/502926">ApiGo v6.1 支持 MCP 接入 AI 办公平台</a> — 开源接口平台支持 WorkBuddy、千问办公、豆包等 MCP，可视化 SQL 发布接口。</li>
 </ul>
 <h2>📈 GitHub 趋势</h2>
 <table>
@@ -63,43 +65,43 @@
 </thead>
 <tbody><tr>
 <td align="left"><a href="https://github.com/morluto/rea">morluto/rea</a></td>
-<td align="right">54,997（今日 +14,927）</td>
-<td align="left">用 Agent 逆向工程任意软件，今日新增 stars 领先。</td>
-</tr>
-<tr>
-<td align="left"><a href="https://github.com/storytold/artcraft">storytold/artcraft</a></td>
-<td align="right">12,311（今日 +3,752）</td>
-<td align="left">面向艺术家与电影人的创作引擎，AIGC 工作流可关注。</td>
-</tr>
-<tr>
-<td align="left"><a href="https://github.com/cathrynlavery/diagram-design">cathrynlavery/diagram-design</a></td>
-<td align="right">48,244（今日 +1,739）</td>
-<td align="left">为 AI 编码工具提供 44 种图表设计，输出干净 HTML/SVG。</td>
+<td align="right">55,565（今日 +14,927）</td>
+<td align="left">让 coding agent 检查、反编译程序，GitHub 今日暴涨，逆向工程新玩法。</td>
 </tr>
 <tr>
 <td align="left"><a href="https://github.com/mattpocock/skills">mattpocock/skills</a></td>
-<td align="right">283,261（今日 +1,687）</td>
-<td align="left">可直接给 Agent 用的工程师技能集，提升编码任务表现。</td>
+<td align="right">283,299（今日 +1,687）</td>
+<td align="left">面向真实工程师的 Agent 技能集，直接来自作者 .agents 目录，可复用。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/cathrynlavery/diagram-design">cathrynlavery/diagram-design</a></td>
+<td align="right">48,260（今日 +1,739）</td>
+<td align="left">给 Claude Code、Codex 等用的编辑级图表设计，44 种图，输出 HTML/SVG。</td>
 </tr>
 <tr>
 <td align="left"><a href="https://github.com/anthropics/knowledge-work-plugins">anthropics/knowledge-work-plugins</a></td>
-<td align="right">28,449（今日 +709）</td>
-<td align="left">面向知识工作者的 Claude Cowork 官方插件集合。</td>
+<td align="right">28,460（今日 +709）</td>
+<td align="left">Anthropic 开源知识工作插件，帮 Claude Cowork 用户处理日常办公任务。</td>
 </tr>
 <tr>
 <td align="left"><a href="https://github.com/addyosmani/agent-skills">addyosmani/agent-skills</a></td>
-<td align="right">104,200（今日 +436）</td>
-<td align="left">生产级工程技能包，适配 Claude Code、Codex 等智能体。</td>
+<td align="right">104,213（今日 +436）</td>
+<td align="left">生产级 AI 编程 Agent 技能库，提升代码生成与工程实践质量。</td>
 </tr>
 <tr>
 <td align="left"><a href="https://github.com/alibaba/open-code-review">alibaba/open-code-review</a></td>
-<td align="right">45,553（今日 +326）</td>
-<td align="left">确定性管线加 LLM Agent，提供行级代码审查与安全规则。</td>
+<td align="right">45,575（今日 +326）</td>
+<td align="left">阿里规模验证的代码审查工具，确定性流水线加 LLM Agent，支持多语言规则。</td>
 </tr>
 <tr>
-<td align="left"><a href="https://github.com/BerriAI/litellm">BerriAI/litellm</a></td>
-<td align="right">60,806（今日 +95）</td>
-<td align="left">统一接入 100+ LLM API，带成本追踪与限流。</td>
+<td align="left"><a href="https://github.com/hugohe3/ppt-master">hugohe3/ppt-master</a></td>
+<td align="right">58,892</td>
+<td align="left">AI 把文档或主题变成原生 PPT，支持图表、动画、音频与自定义模板。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/xixihhhh/clipforge">xixihhhh/clipforge</a></td>
+<td align="right">963</td>
+<td align="left">上传商品图自动写脚本、配音、配画面，一键生成带货短视频，可本地部署。</td>
 </tr>
 </tbody></table>
 ]]></content:encoded>

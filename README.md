@@ -249,6 +249,7 @@ Go to **Settings → Secrets and variables → Actions** and add:
 | `TELEGRAM_BOT_TOKEN` | optional | Telegram bot token from [@BotFather](https://t.me/BotFather). If set, a message is sent after each digest run |
 | `TELEGRAM_CHAT_ID` | optional | Telegram chat/channel/group ID to send notifications to |
 | `FEISHU_WEBHOOK_URLS` | optional | Comma-separated Feishu custom bot webhook URLs. If set, a card message is sent to each group after each digest run |
+| `WECOM_WEBHOOK_URLS` | optional | Comma-separated WeCom (企业微信) group robot webhook URLs. If set, a markdown message is sent to each group after each digest run |
 
 > `GITHUB_TOKEN` is provided automatically by GitHub Actions. When using `github-copilot` as the provider, the same `GITHUB_TOKEN` is used for LLM calls.
 
@@ -257,6 +258,10 @@ Go to **Settings → Secrets and variables → Actions** and add:
 2. Add the bot to your channel/group, or start a DM with it
 3. Get the chat ID via [@userinfobot](https://t.me/userinfobot) or the [getUpdates](https://core.telegram.org/bots/api#getupdates) API
 4. Add `TELEGRAM_BOT_TOKEN` and `TELEGRAM_CHAT_ID` as repository secrets
+
+**Setting up WeCom notifications** (optional):
+1. In your WeCom group, open "Group Robot" (群机器人) → "Add Robot" and copy the webhook URL
+2. Add `WECOM_WEBHOOK_URLS` as a repository secret (comma-separate multiple URLs)
 
 > If neither secret is set, the notification step is silently skipped.
 

@@ -13,6 +13,7 @@
     "manifest": "tsx src/generate-manifest.ts",
     "notify": "tsx src/notify.ts",
     "notify:feishu": "tsx src/feishu.ts",
+    "notify:wecom": "tsx src/wecom.ts",
     "close-stale": "tsx src/close-stale-issues.ts",
     "test": "vitest run",
     "test:watch": "vitest",

@@ -248,6 +248,7 @@ infra_repos:
 | `TELEGRAM_BOT_TOKEN` | 可选 | Telegram bot token，从 [@BotFather](https://t.me/BotFather) 获取。设置后每次 digest 完成自动推送通知 |
 | `TELEGRAM_CHAT_ID` | 可选 | 接收通知的 Telegram 频道 / 群组 / 用户 ID |
 | `FEISHU_WEBHOOK_URLS` | 可选 | 飞书自定义机器人 Webhook URL，多个用英文逗号分隔。设置后每次 digest 完成自动推送卡片通知到所有群 |
+| `WECOM_WEBHOOK_URLS` | 可选 | 企业微信群机器人 Webhook URL，多个用英文逗号分隔。设置后每次 digest 完成自动推送 markdown 通知到所有群 |
 
 > `GITHUB_TOKEN` 由 GitHub Actions 自动提供，无需手动添加。使用 `github-copilot` 作为 Provider 时，同一 `GITHUB_TOKEN` 也用于 LLM 调用。
 
@@ -256,6 +257,10 @@ infra_repos:
 2. 将 bot 加入频道 / 群组，或直接与 bot 私聊
 3. 通过 [@userinfobot](https://t.me/userinfobot) 获取 chat ID
 4. 在仓库 Secrets 中添加 `TELEGRAM_BOT_TOKEN` 和 `TELEGRAM_CHAT_ID`
+
+**配置企业微信推送**（可选）：
+1. 在企业微信群中打开「群机器人」→「添加机器人」，复制 Webhook 地址
+2. 在仓库 Secrets 中添加 `WECOM_WEBHOOK_URLS`（多个地址用英文逗号分隔）
 
 > 两个 secret 均未设置时，通知步骤静默跳过，不影响正常运行。
 

@@ -1,0 +1,190 @@
+{
+  "date": "2026-10-12",
+  "generated": "2026-10-12 01:44",
+  "sources": [
+    "量子位",
+    "钛媒体",
+    "爱范儿",
+    "开源中国",
+    "少数派",
+    "小众软件"
+  ],
+  "fetchedCount": 29,
+  "summary": [
+    "Manus完成超5亿美元融资，恢复独立后首笔外部融资。",
+    "谷歌Gemini Agent可调用Claude，模型混用成新趋势。",
+    "壁仞科技再募40亿港元，国产GPU加码商业化。",
+    "GPT-4o API快照进入停用倒计时，开发者仍在挽留。",
+    "开源AI短剧工具Toonflow登上GitHub趋势。"
+  ],
+  "sections": {
+    "llm": [
+      {
+        "title": "壁仞科技再募40亿港元",
+        "summary": "国产GPU公司上市后二轮配售，加码商业化。",
+        "url": "https://www.tmtpost.com/8163998.html"
+      },
+      {
+        "title": "硅谷AI现状：谁有算力谁是爹",
+        "summary": "马斯克连横A社，硅谷VC开始囤GPU，算力成硬通货。",
+        "url": "https://www.qbitai.com/2026/10/502585.html"
+      },
+      {
+        "title": "GPT-4o下架8个月，拯救行动继续",
+        "summary": "初代4o的API快照进入停用倒计时，开发者仍挽留。",
+        "url": "https://www.qbitai.com/2026/10/502550.html"
+      },
+      {
+        "title": "AI创造的新工作，可能轮不到你",
+        "summary": "新职业名单变长，但多数岗位要求算法与编程。",
+        "url": "https://www.tmtpost.com/8164296.html"
+      },
+      {
+        "title": "本末科技上市，具身智能赛道受关注",
+        "summary": "机器人关节模组商市值超百亿，但基本盘仍在扫地机。",
+        "url": "https://www.tmtpost.com/8164407.html"
+      }
+    ],
+    "agents": [
+      {
+        "title": "Manus完成超5亿美元融资",
+        "summary": "恢复独立后首笔外部融资，国内AI应用最大单笔。",
+        "url": "https://www.tmtpost.com/8163955.html"
+      },
+      {
+        "title": "谷歌Gemini Agent可调用Claude",
+        "summary": "Google Cloud新Agent遇难题可调Claude，模型混用成趋势。",
+        "url": "https://www.tmtpost.com/8164268.html"
+      },
+      {
+        "title": "DeepSeek Bot民间版来了",
+        "summary": "DSH装插件即可用，低门槛体验智能体。",
+        "url": "https://www.qbitai.com/2026/10/502544.html"
+      },
+      {
+        "title": "Go Agent框架covonaut发布v1.1.5",
+        "summary": "改进检查点、Token用量与缓存，适合生产级Agent。",
+        "url": "https://www.oschina.net/news/502958"
+      }
+    ],
+    "creator": [
+      {
+        "title": "10个有意思的GitHub项目",
+        "summary": "含Gufo本地AI引擎、ArtCraft创作工具与扫描PDF翻译。",
+        "url": "https://www.appinn.com/10-tools-github/"
+      },
+      {
+        "title": "AMD显卡插老车，手搓真智驾",
+        "summary": "老款丰田插上RX 9060，本地跑模型实现脱手辅助驾驶。",
+        "url": "https://www.ifanr.com/1683790"
+      }
+    ],
+    "office": [
+      {
+        "title": "SmartCall发布AI客服新版本",
+        "summary": "基于大模型与Asterisk，支持手机接听和智能外呼。",
+        "url": "https://www.oschina.net/news/502959"
+      },
+      {
+        "title": "Modu默读：离线OCR与听书阅读器",
+        "summary": "跨平台阅读器支持扫描PDF、离线OCR和听书，适合知识管理。",
+        "url": "https://www.appinn.com/faxian-top10-2641/"
+      }
+    ]
+  },
+  "trending": [
+    {
+      "repo": "morluto/rea",
+      "url": "https://github.com/morluto/rea",
+      "stars": "107,129（今日 +25,599）",
+      "summary": "用智能体逆向应用行为到二进制，今日暴涨2.5万星。"
+    },
+    {
+      "repo": "storytold/artcraft",
+      "url": "https://github.com/storytold/artcraft",
+      "stars": "18,074（今日 +2,957）",
+      "summary": "面向艺术家、设计师和电影人的创作引擎，适合AIGC工作流。"
+    },
+    {
+      "repo": "cathrynlavery/diagram-design",
+      "url": "https://github.com/cathrynlavery/diagram-design",
+      "stars": "50,434（今日 +1,083）",
+      "summary": "给Claude Code等编程智能体用的编辑级图表库，44种图。"
+    },
+    {
+      "repo": "lyogavin/airllm",
+      "url": "https://github.com/lyogavin/airllm",
+      "stars": "36,527（今日 +548）",
+      "summary": "单张4GB显卡跑70B大模型，降低本地推理门槛。"
+    },
+    {
+      "repo": "HBAI-Ltd/Toonflow-app",
+      "url": "https://github.com/HBAI-Ltd/Toonflow-app",
+      "stars": "17,258",
+      "summary": "开源AI短剧/漫剧制作平台，含分镜、图像和视频生成。"
+    },
+    {
+      "repo": "harry0703/MoneyPrinterTurbo",
+      "url": "https://github.com/harry0703/MoneyPrinterTurbo",
+      "stars": "129,774",
+      "summary": "输入主题或关键词，一键生成高清短视频。"
+    },
+    {
+      "repo": "firecrawl/firecrawl",
+      "url": "https://github.com/firecrawl/firecrawl",
+      "stars": "190,548",
+      "summary": "给AI智能体抓取网页与数据，构建联网能力。"
+    },
+    {
+      "repo": "Graphify-Labs/graphify",
+      "url": "https://github.com/Graphify-Labs/graphify",
+      "stars": "125,577",
+      "summary": "把代码库、文档和PDF变成可查询知识图谱。"
+    }
+  ],
+  "cards": [
+    {
+      "title": "Manus融资超5亿美元",
+      "description": "恢复独立后首笔外部融资，国内AI应用最大单笔。",
+      "url": "https://www.tmtpost.com/8163955.html",
+      "image": "https://images.tmtpost.com/uploads/images/2026/10/81e9628fb3b103b6a5fcb18358258f8b_1791724074.jpg"
+    },
+    {
+      "title": "谷歌Agent可调用Claude",
+      "description": "Google Cloud新Agent遇难题可调Claude，模型混用成趋势。",
+      "url": "https://www.tmtpost.com/8164268.html",
+      "image": "https://images.tmtpost.com/uploads/images/2026/10/c30dc049e81328b63b35b35a347dc764_1791692879.jpg"
+    },
+    {
+      "title": "DeepSeek Bot民间版",
+      "description": "DSH装插件即可用，低门槛体验智能体。",
+      "url": "https://www.qbitai.com/2026/10/502544.html"
+    },
+    {
+      "title": "GPT-4o拯救行动继续",
+      "description": "初代4o API快照进入停用倒计时，开发者仍挽留。",
+      "url": "https://www.qbitai.com/2026/10/502550.html"
+    },
+    {
+      "title": "10个有意思的GitHub项目",
+      "description": "含本地AI引擎、ArtCraft创作工具与扫描PDF翻译。",
+      "url": "https://www.appinn.com/10-tools-github/",
+      "image": "https://s.w.org/images/core/emoji/17.0.2/72x72/1f602.png"
+    },
+    {
+      "title": "SmartCall发布AI客服",
+      "description": "基于大模型与Asterisk，支持手机接听和智能外呼。",
+      "url": "https://www.oschina.net/news/502959"
+    },
+    {
+      "title": "用Agents逆向一切",
+      "description": "热门项目，今日暴涨2.5万星，可逆向应用到底层二进制。",
+      "url": "https://github.com/morluto/rea"
+    },
+    {
+      "title": "开源AI短剧制作工具",
+      "description": "集成剧本、分镜、图像和视频生成，支持本地部署。",
+      "url": "https://github.com/HBAI-Ltd/Toonflow-app"
+    }
+  ]
+}

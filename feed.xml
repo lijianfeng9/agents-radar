@@ -6,7 +6,102 @@
     <description>AI 开源生态每日简报 · Daily AI ecosystem digest</description>
     <language>zh-CN</language>
     <atom:link href="https://lijianfeng9.github.io/agents-radar/feed.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Sun, 11 Oct 2026 01:15:33 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 12 Oct 2026 01:46:06 +0000</lastBuildDate>
+    <item>
+      <title>AI 每日要闻 2026-10-12</title>
+      <link>https://lijianfeng9.github.io/agents-radar/#2026-10-12/ai-news</link>
+      <guid isPermaLink="true">https://lijianfeng9.github.io/agents-radar/#2026-10-12/ai-news</guid>
+      <pubDate>Mon, 12 Oct 2026 00:00:00 +0000</pubDate>
+      <description>AI 每日要闻 2026-10-12 数据来源: 量子位 · 钛媒体 · 爱范儿 · 开源中国 · 少数派 · 小众软件 | 生成时间: 2026-10-12 01:44 UTC | 要闻 13 条 / 抓取 29 条 今日速览 Manus完成超5亿美元融资，恢复独立后首笔外部融资。 谷歌Gemini Agent可调用Claude，模型混用成新趋势。 壁仞科技再募40亿港元，国产GPU加码商业化。 GPT-4o API快照进入停用倒计时，开发者仍在挽留。 开源AI短剧工具Toonflow登上GitHub趋势。 🔥 大模型动向 壁仞科技再募40亿港元 — 国产GPU公司上市后二轮配售，加码商业化。 硅谷AI现状：谁有算力谁是爹 — 马斯克连横A社，硅谷VC开始囤GPU，算力成硬通货。 GPT-4o下架8个月，拯救行动继续 — 初代4o的API快照进入停用倒计时，开发者仍挽留。 AI创造的新工作，可能轮不到你 — 新职业名单变长，但多数岗位要求算法与编程。 本末科技上市，具身智能赛道受关注 — 机器人关节模组商市值超百亿，但基本盘仍在扫地机。 🤖 智能体 &amp;amp; 开源项目 Manu...</description>
+      <content:encoded><![CDATA[<h1>AI 每日要闻 2026-10-12</h1>
+<blockquote>
+<p>数据来源: 量子位 · 钛媒体 · 爱范儿 · 开源中国 · 少数派 · 小众软件 | 生成时间: 2026-10-12 01:44 UTC | 要闻 13 条 / 抓取 29 条</p>
+</blockquote>
+<h2>今日速览</h2>
+<ul>
+<li>Manus完成超5亿美元融资，恢复独立后首笔外部融资。</li>
+<li>谷歌Gemini Agent可调用Claude，模型混用成新趋势。</li>
+<li>壁仞科技再募40亿港元，国产GPU加码商业化。</li>
+<li>GPT-4o API快照进入停用倒计时，开发者仍在挽留。</li>
+<li>开源AI短剧工具Toonflow登上GitHub趋势。</li>
+</ul>
+<h2>🔥 大模型动向</h2>
+<ul>
+<li><a href="https://www.tmtpost.com/8163998.html">壁仞科技再募40亿港元</a> — 国产GPU公司上市后二轮配售，加码商业化。</li>
+<li><a href="https://www.qbitai.com/2026/10/502585.html">硅谷AI现状：谁有算力谁是爹</a> — 马斯克连横A社，硅谷VC开始囤GPU，算力成硬通货。</li>
+<li><a href="https://www.qbitai.com/2026/10/502550.html">GPT-4o下架8个月，拯救行动继续</a> — 初代4o的API快照进入停用倒计时，开发者仍挽留。</li>
+<li><a href="https://www.tmtpost.com/8164296.html">AI创造的新工作，可能轮不到你</a> — 新职业名单变长，但多数岗位要求算法与编程。</li>
+<li><a href="https://www.tmtpost.com/8164407.html">本末科技上市，具身智能赛道受关注</a> — 机器人关节模组商市值超百亿，但基本盘仍在扫地机。</li>
+</ul>
+<h2>🤖 智能体 &amp; 开源项目</h2>
+<ul>
+<li><a href="https://www.tmtpost.com/8163955.html">Manus完成超5亿美元融资</a> — 恢复独立后首笔外部融资，国内AI应用最大单笔。</li>
+<li><a href="https://www.tmtpost.com/8164268.html">谷歌Gemini Agent可调用Claude</a> — Google Cloud新Agent遇难题可调Claude，模型混用成趋势。</li>
+<li><a href="https://www.qbitai.com/2026/10/502544.html">DeepSeek Bot民间版来了</a> — DSH装插件即可用，低门槛体验智能体。</li>
+<li><a href="https://www.oschina.net/news/502958">Go Agent框架covonaut发布v1.1.5</a> — 改进检查点、Token用量与缓存，适合生产级Agent。</li>
+</ul>
+<h2>🎬 创作者 · AIGC 玩法</h2>
+<ul>
+<li><a href="https://www.appinn.com/10-tools-github/">10个有意思的GitHub项目</a> — 含Gufo本地AI引擎、ArtCraft创作工具与扫描PDF翻译。</li>
+<li><a href="https://www.ifanr.com/1683790">AMD显卡插老车，手搓真智驾</a> — 老款丰田插上RX 9060，本地跑模型实现脱手辅助驾驶。</li>
+</ul>
+<h2>💼 办公提效</h2>
+<ul>
+<li><a href="https://www.oschina.net/news/502959">SmartCall发布AI客服新版本</a> — 基于大模型与Asterisk，支持手机接听和智能外呼。</li>
+<li><a href="https://www.appinn.com/faxian-top10-2641/">Modu默读：离线OCR与听书阅读器</a> — 跨平台阅读器支持扫描PDF、离线OCR和听书，适合知识管理。</li>
+</ul>
+<h2>📈 GitHub 趋势</h2>
+<table>
+<thead>
+<tr>
+<th align="left">项目</th>
+<th align="right">Stars</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><a href="https://github.com/morluto/rea">morluto/rea</a></td>
+<td align="right">107,129（今日 +25,599）</td>
+<td align="left">用智能体逆向应用行为到二进制，今日暴涨2.5万星。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/storytold/artcraft">storytold/artcraft</a></td>
+<td align="right">18,074（今日 +2,957）</td>
+<td align="left">面向艺术家、设计师和电影人的创作引擎，适合AIGC工作流。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/cathrynlavery/diagram-design">cathrynlavery/diagram-design</a></td>
+<td align="right">50,434（今日 +1,083）</td>
+<td align="left">给Claude Code等编程智能体用的编辑级图表库，44种图。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/lyogavin/airllm">lyogavin/airllm</a></td>
+<td align="right">36,527（今日 +548）</td>
+<td align="left">单张4GB显卡跑70B大模型，降低本地推理门槛。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/HBAI-Ltd/Toonflow-app">HBAI-Ltd/Toonflow-app</a></td>
+<td align="right">17,258</td>
+<td align="left">开源AI短剧/漫剧制作平台，含分镜、图像和视频生成。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/harry0703/MoneyPrinterTurbo">harry0703/MoneyPrinterTurbo</a></td>
+<td align="right">129,774</td>
+<td align="left">输入主题或关键词，一键生成高清短视频。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/firecrawl/firecrawl">firecrawl/firecrawl</a></td>
+<td align="right">190,548</td>
+<td align="left">给AI智能体抓取网页与数据，构建联网能力。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/Graphify-Labs/graphify">Graphify-Labs/graphify</a></td>
+<td align="right">125,577</td>
+<td align="left">把代码库、文档和PDF变成可查询知识图谱。</td>
+</tr>
+</tbody></table>
+]]></content:encoded>
+    </item>
     <item>
       <title>AI 每日要闻 2026-10-11</title>
       <link>https://lijianfeng9.github.io/agents-radar/#2026-10-11/ai-news</link>
@@ -12006,119 +12101,6 @@ Referenced issue: <a href="https://github.com/RVC-Boss/GPT-SoVITS/issues/2788">h
 </ol>
 <hr>
 <p><em>本日报由 <a href="https://github.com/duanyytop/agents-radar">agents-radar</a> 自动生成。</em></p>
-]]></content:encoded>
-    </item>
-    <item>
-      <title>Tech Community AI Digest 2026-10-09</title>
-      <link>https://lijianfeng9.github.io/agents-radar/#2026-10-09/ai-community-en</link>
-      <guid isPermaLink="true">https://lijianfeng9.github.io/agents-radar/#2026-10-09/ai-community-en</guid>
-      <pubDate>Fri, 09 Oct 2026 00:00:00 +0000</pubDate>
-      <description>Tech Community AI Digest 2026-10-09 Sources: Dev.to (30 articles) + Lobste.rs (2 stories) | Generated: 2026-10-09 02:31 UTC Tech Community AI Digest – 2026-10-09 Today&amp;#39;s Highlights AI productivity tools are under intense scrutiny, with developers debating whether faster shipping via AI reflects real engineering maturity or just short-term hype. A growing concern centers on the hidden costs and fragility of AI agents—especially around token usage, model trustworthiness, and context handling. ...</description>
-      <content:encoded><![CDATA[<h1>Tech Community AI Digest 2026-10-09</h1>
-<blockquote>
-<p>Sources: <a href="https://dev.to/">Dev.to</a> (30 articles) + <a href="https://lobste.rs/">Lobste.rs</a> (2 stories) | Generated: 2026-10-09 02:31 UTC</p>
-</blockquote>
-<hr>
-<h1><strong>Tech Community AI Digest – 2026-10-09</strong></h1>
-<hr>
-<h2><strong>Today&#39;s Highlights</strong></h2>
-<p>AI productivity tools are under intense scrutiny, with developers debating whether faster shipping via AI reflects real engineering maturity or just short-term hype. A growing concern centers on the hidden costs and fragility of AI agents—especially around token usage, model trustworthiness, and context handling. On both platforms, there’s strong interest in local and offline AI systems, from on-device image recognition to privacy-preserving agents. Benchmarking and verification are emerging as critical practices, as seen in reproducible tests for intent classification and decision models. Meanwhile, open-source AI projects like <em>TouchGrass</em>, <em>AgriSensa Garden Studio</em>, and <em>Llama Village</em> highlight a shift toward meaningful, real-world applications beyond chatbots.</p>
-<hr>
-<h2><strong>Dev.to Highlights</strong></h2>
-<table>
-<thead>
-<tr>
-<th align="left">Article</th>
-<th align="right">Reactions</th>
-<th align="right">Comments</th>
-<th align="left">Summary</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left"><a href="https://dev.to/gramli/to-retry-or-not-to-retry-that-is-the-question-1j2l">To Retry or Not to Retry? That Is the Question.</a></td>
-<td align="right">46</td>
-<td align="right">39</td>
-<td align="left">This Kaggle Challenge submission dives into retry logic in AI workflows—critical for robustness when dealing with flaky APIs or model timeouts.</td>
-</tr>
-<tr>
-<td align="left"><a href="https://dev.to/metalbear/how-our-engineering-team-uses-ai-part-ii-meat-proxies-148g">How Our Engineering Team Uses AI, Part II: Meat Proxies</a></td>
-<td align="right">29</td>
-<td align="right">6</td>
-<td align="left">Teams are using &quot;meat proxies&quot;—human-in-the-loop workflows—to stabilize AI agent outputs and maintain code quality during high-speed development.</td>
-</tr>
-<tr>
-<td align="left"><a href="https://dev.to/cyclopt_dimitrisk/shipping-faster-with-ai-isnt-engineering-maturity-its-a-demo-that-hasnt-met-year-two-yet-436g">Shipping faster with AI isn&#39;t engineering maturity. It&#39;s a demo that hasn&#39;t met year two yet.</a></td>
-<td align="right">14</td>
-<td align="right">1</td>
-<td align="left">A sharp critique: flashy AI metrics (PRs merged, time-to-prototype) mask deeper issues in reliability and long-term maintainability.</td>
-</tr>
-<tr>
-<td align="left"><a href="https://dev.to/theycallmeswift/i-got-jev-to-zero-mistakes-im-still-using-flash-lite-2mo7">I got Jev to zero mistakes. I&#39;m still using Flash-Lite.</a></td>
-<td align="right">13</td>
-<td align="right">1</td>
-<td align="left">Despite achieving perfect accuracy with Jev, the author sticks with fast, lightweight Gemini Flash-Lite—highlighting the trade-off between precision and speed.</td>
-</tr>
-<tr>
-<td align="left"><a href="https://dev.to/michellebuchiokonicha/i-turned-149k-messy-images-into-an-offline-recognition-system-3cp3">I Turned 149k Messy Images into an Offline Recognition System</a></td>
-<td align="right">12</td>
-<td align="right">3</td>
-<td align="left">A deep dive into training a custom YOLO26n food detector on diverse, unclean data—proving offline vision models can be viable and scalable.</td>
-</tr>
-<tr>
-<td align="left"><a href="https://dev.to/bloqarl/your-repo-is-not-trusted-context-what-i-changed-after-giving-coding-agents-real-repositories-2ken">Your repo is not trusted context. What I changed after giving coding agents real repositories</a></td>
-<td align="right">2</td>
-<td align="right">1</td>
-<td align="left">A security-focused engineer shares hard lessons: even trusted repos can mislead AI agents—context filtering and sandboxing are essential.</td>
-</tr>
-<tr>
-<td align="left"><a href="https://dev.to/apppro_5726/a-benchmark-card-makes-an-agent-score-auditable-227e">A Benchmark Card Makes an Agent Score Auditable</a></td>
-<td align="right">3</td>
-<td align="right">1</td>
-<td align="left">Advocates for standardized benchmark cards to make AI agent performance transparent, repeatable, and accountable.</td>
-</tr>
-<tr>
-<td align="left"><a href="https://dev.to/fulviojorge/your-intent-classifier-is-12-points-worse-in-portuguese-benchmarking-laya-strands-decider-and-j9m">Your intent classifier is 12 points worse in Portuguese: benchmarking Laya, Strands Decider and Qwen3 embeddings</a></td>
-<td align="right">3</td>
-<td align="right">2</td>
-<td align="left">Language bias in NLP models is measurable—this benchmark shows how non-English languages suffer due to data imbalance.</td>
-</tr>
-</tbody></table>
-<hr>
-<h2><strong>Lobste.rs Highlights</strong></h2>
-<table>
-<thead>
-<tr>
-<th align="left">Story</th>
-<th align="right">Score</th>
-<th align="right">Comments</th>
-<th align="left">Summary</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left"><a href="https://lobste.rs/s/xff77a/best_books_courses_channels_leapfrog_on">Best Books/Courses/Channels to Leapfrog on AI/ML Material</a> · <a href="https://lobste.rs/s/xff77a/best_books_courses_channels_leapfrog_on">discuss</a></td>
-<td align="right">5</td>
-<td align="right">4</td>
-<td align="left">A curated list of top-tier learning resources for developers aiming to cut through the noise and rapidly upskill in AI/ML.</td>
-</tr>
-<tr>
-<td align="left"><a href="https://tracel.ai/blog/release-0.22.0/">Burn 0.22.0: Faster Builds, Easier Extensions, and Smarter Autotuning</a> · <a href="https://lobste.rs/s/cme2vx/burn_0_22_0_faster_builds_easier">discuss</a></td>
-<td align="right">4</td>
-<td align="right">3</td>
-<td align="left">This Rust-based AI toolchain update focuses on performance gains and developer ergonomics—ideal for teams building efficient inference pipelines.</td>
-</tr>
-</tbody></table>
-<hr>
-<h2><strong>Community Pulse</strong></h2>
-<p>Developers across Dev.to and Lobste.rs are increasingly focused on <strong>practicality over novelty</strong> in AI adoption. The recurring theme is <strong>trust and transparency</strong>: many are questioning whether AI agents deliver sustainable value or merely accelerate technical debt. Common concerns include token inflation from redundant tool output, unreliable retrieval confidence in RAG systems, and poor cross-language performance—especially in Portuguese and other under-resourced languages. There&#39;s a clear movement toward <strong>local, auditable, and offline-capable AI</strong>, driven by privacy, cost, and reliability needs. Best practices emerging include benchmarking with holdout sets, human-in-the-loop validation, and using “meat proxies” to manage agent behavior. Open-source tools like <em>TouchGrass</em>, <em>AgriSensa</em>, and <em>Burn</em> reflect a desire for AI that enhances real-world interaction—not just digital productivity.</p>
-<hr>
-<h2><strong>Worth Reading</strong></h2>
-<ol>
-<li><strong><a href="https://dev.to/gramli/to-retry-or-not-to-retry-that-is-the-question-1j2l">To Retry or Not to Retry? That Is the Question.</a></strong> – A must-read for anyone designing resilient AI workflows; it tackles a subtle but critical pattern in production systems.</li>
-<li><strong><a href="https://dev.to/michellebuchiokonicha/i-turned-149k-messy-images-into-an-offline-recognition-system-3cp3">I Turned 149k Messy Images into an Offline Recognition System</a></strong> – An inspiring, hands-on guide to building a real-world on-device AI system from imperfect data.</li>
-<li><strong><a href="https://tracel.ai/blog/release-0.22.0/">Burn 0.22.0: Faster Builds, Easier Extensions, and Smarter Autotuning</a></strong> – For Rust and AI performance enthusiasts: this release brings tangible improvements in build speed and tuning automation.</li>
-</ol>
-<hr>
-<p><em>This digest is auto-generated by <a href="https://github.com/duanyytop/agents-radar">agents-radar</a>.</em></p>
 ]]></content:encoded>
     </item>
   </channel>

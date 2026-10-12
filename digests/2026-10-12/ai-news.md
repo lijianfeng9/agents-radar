@@ -1,49 +1,49 @@
 # AI 每日要闻 2026-10-12
 
-> 数据来源: 量子位 · 钛媒体 · 爱范儿 · 开源中国 · 少数派 · 小众软件 | 生成时间: 2026-10-12 01:44 UTC | 要闻 13 条 / 抓取 29 条
+> 数据来源: 量子位 · 钛媒体 · 爱范儿 · 开源中国 · 少数派 · 小众软件 | 生成时间: 2026-10-12 02:25 UTC | 要闻 13 条 / 抓取 31 条
 
 ## 今日速览
 
-- Manus完成超5亿美元融资，恢复独立后首笔外部融资。
-- 谷歌Gemini Agent可调用Claude，模型混用成新趋势。
-- 壁仞科技再募40亿港元，国产GPU加码商业化。
-- GPT-4o API快照进入停用倒计时，开发者仍在挽留。
-- 开源AI短剧工具Toonflow登上GitHub趋势。
+- Manus 完成超 5 亿美元融资，国内 AI 应用最大单笔。
+- 壁仞科技拟再募 40 亿港元，国产 GPU 商业化提速。
+- 硅谷 AI 算力为王，VC 开始囤 GPU。
+- DeepSeek Bot 民间版来了，DSH 装插件即可用。
+- GitHub 爆火 rea，用智能体反向工程 App 与二进制。
 
 ## 🔥 大模型动向
 
-- [壁仞科技再募40亿港元](https://www.tmtpost.com/8163998.html) — 国产GPU公司上市后二轮配售，加码商业化。
-- [硅谷AI现状：谁有算力谁是爹](https://www.qbitai.com/2026/10/502585.html) — 马斯克连横A社，硅谷VC开始囤GPU，算力成硬通货。
-- [GPT-4o下架8个月，拯救行动继续](https://www.qbitai.com/2026/10/502550.html) — 初代4o的API快照进入停用倒计时，开发者仍挽留。
-- [AI创造的新工作，可能轮不到你](https://www.tmtpost.com/8164296.html) — 新职业名单变长，但多数岗位要求算法与编程。
-- [本末科技上市，具身智能赛道受关注](https://www.tmtpost.com/8164407.html) — 机器人关节模组商市值超百亿，但基本盘仍在扫地机。
+- [Manus 完成超 5 亿美元融资](https://www.tmtpost.com/8163955.html) — 恢复独立运营后首笔融资，国内 AI 应用最大单笔。
+- [壁仞科技拟再配售募资 40 亿港元](https://www.tmtpost.com/8163998.html) — 国产 GPU 上市后连推配售，资金加码商业化。
+- [硅谷 AI 现状：谁有算力谁是爹](https://www.qbitai.com/2026/10/502585.html) — 马斯克连横 A 社，硅谷 VC 开始囤 GPU。
+- [GPT-4o 的拯救行动还在继续](https://www.qbitai.com/2026/10/502550.html) — 初代 4o API 快照进入停用倒计时，用户仍在争取。
+- [AI 创造的新工作，可能轮不到你](https://www.tmtpost.com/8164296.html) — 新职业名单变长，但求职者难匹配到合适岗位。
 
 ## 🤖 智能体 & 开源项目
 
-- [Manus完成超5亿美元融资](https://www.tmtpost.com/8163955.html) — 恢复独立后首笔外部融资，国内AI应用最大单笔。
-- [谷歌Gemini Agent可调用Claude](https://www.tmtpost.com/8164268.html) — Google Cloud新Agent遇难题可调Claude，模型混用成趋势。
-- [DeepSeek Bot民间版来了](https://www.qbitai.com/2026/10/502544.html) — DSH装插件即可用，低门槛体验智能体。
-- [Go Agent框架covonaut发布v1.1.5](https://www.oschina.net/news/502958) — 改进检查点、Token用量与缓存，适合生产级Agent。
+- [DeepSeek Bot 民间版来了](https://www.qbitai.com/2026/10/502544.html) — DSH 装个插件就能用，尝鲜大模型智能体。
+- [covonaut Go Agent 框架更新](https://www.oschina.net/news/502958) — 改进检查点、Token 用量与缓存，生产级 Agent 框架。
+- [本末科技上市，具身智能受关注](https://www.tmtpost.com/8164407.html) — 直驱关节模组厂商上市，市值超百亿，机器人供应链受关注。
+- [老哥给老车插 AMD 显卡手搓智驾](https://www.ifanr.com/1683790) — 用本地显卡跑智驾模型，老款埃尔法实现脱手辅助驾驶。
 
 ## 🎬 创作者 · AIGC 玩法
 
-- [10个有意思的GitHub项目](https://www.appinn.com/10-tools-github/) — 含Gufo本地AI引擎、ArtCraft创作工具与扫描PDF翻译。
-- [AMD显卡插老车，手搓真智驾](https://www.ifanr.com/1683790) — 老款丰田插上RX 9060，本地跑模型实现脱手辅助驾驶。
+- [10 个有意思的 GitHub 项目](https://www.appinn.com/10-tools-github/) — 含 AI 场景生图、扫描 PDF 翻译、Adobe 替代品等。
+- [发现频道：10 款好评软件](https://www.appinn.com/faxian-top10-2641/) — 含离线 OCR 阅读器、听书、桌面短剧等工具。
 
 ## 💼 办公提效
 
-- [SmartCall发布AI客服新版本](https://www.oschina.net/news/502959) — 基于大模型与Asterisk，支持手机接听和智能外呼。
-- [Modu默读：离线OCR与听书阅读器](https://www.appinn.com/faxian-top10-2641/) — 跨平台阅读器支持扫描PDF、离线OCR和听书，适合知识管理。
+- [SmartCall v1.0.8 发布](https://www.oschina.net/news/502959) — AI 大模型呼叫中心，新增坐席可配置手机接听。
+- [双 11 增长转向 AI 导购与投放](https://www.tmtpost.com/8164872.html) — 平台补贴与广告挂钩，AI 参与导购和流量分配。
 
 ## 📈 GitHub 趋势
 
 | 项目 | Stars | 说明 |
 | :--- | ---: | :--- |
-| [morluto/rea](https://github.com/morluto/rea) | 107,129（今日 +25,599） | 用智能体逆向应用行为到二进制，今日暴涨2.5万星。 |
-| [storytold/artcraft](https://github.com/storytold/artcraft) | 18,074（今日 +2,957） | 面向艺术家、设计师和电影人的创作引擎，适合AIGC工作流。 |
-| [cathrynlavery/diagram-design](https://github.com/cathrynlavery/diagram-design) | 50,434（今日 +1,083） | 给Claude Code等编程智能体用的编辑级图表库，44种图。 |
-| [lyogavin/airllm](https://github.com/lyogavin/airllm) | 36,527（今日 +548） | 单张4GB显卡跑70B大模型，降低本地推理门槛。 |
-| [HBAI-Ltd/Toonflow-app](https://github.com/HBAI-Ltd/Toonflow-app) | 17,258 | 开源AI短剧/漫剧制作平台，含分镜、图像和视频生成。 |
-| [harry0703/MoneyPrinterTurbo](https://github.com/harry0703/MoneyPrinterTurbo) | 129,774 | 输入主题或关键词，一键生成高清短视频。 |
-| [firecrawl/firecrawl](https://github.com/firecrawl/firecrawl) | 190,548 | 给AI智能体抓取网页与数据，构建联网能力。 |
-| [Graphify-Labs/graphify](https://github.com/Graphify-Labs/graphify) | 125,577 | 把代码库、文档和PDF变成可查询知识图谱。 |
+| [morluto/rea](https://github.com/morluto/rea) | 108,999（今日 +25,599） | 用智能体反向工程 App 与二进制，今日新增 2.5 万星。 |
+| [storytold/artcraft](https://github.com/storytold/artcraft) | 18,209（今日 +2,957） | 面向艺术家、设计师与影视人的开源 AI 创作引擎。 |
+| [cathrynlavery/diagram-design](https://github.com/cathrynlavery/diagram-design) | 50,497（今日 +1,083） | 为 AI 编码助手提供 44 种编辑级图表设计，输出 HTML+SVG。 |
+| [lyogavin/airllm](https://github.com/lyogavin/airllm) | 36,554（今日 +548） | 单张 4GB 显卡即可推理 70B 大模型，降低本地门槛。 |
+| [unslothai/unsloth](https://github.com/unslothai/unsloth) | 77,810 | 本地运行和训练 LLM 与扩散模型的 UI，支持多款新模型。 |
+| [mudler/LocalAI](https://github.com/mudler/LocalAI) | 49,479 | 开源本地 AI 引擎，任何硬件可跑 LLM、语音、图像、视频。 |
+| [HBAI-Ltd/Toonflow-app](https://github.com/HBAI-Ltd/Toonflow-app) | 17,262 | 开源 AI 短剧、漫剧平台，集成剧本、分镜、图像与视频生成。 |
+| [harry0703/MoneyPrinterTurbo](https://github.com/harry0703/MoneyPrinterTurbo) | 129,796 | 根据主题或关键词一键生成高清短视频。 |

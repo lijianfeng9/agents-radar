@@ -6,7 +6,105 @@
     <description>AI 开源生态每日简报 · Daily AI ecosystem digest</description>
     <language>zh-CN</language>
     <atom:link href="https://lijianfeng9.github.io/agents-radar/feed.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Mon, 12 Oct 2026 02:26:55 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 13 Oct 2026 02:33:09 +0000</lastBuildDate>
+    <item>
+      <title>AI 每日要闻 2026-10-13</title>
+      <link>https://lijianfeng9.github.io/agents-radar/#2026-10-13/ai-news</link>
+      <guid isPermaLink="true">https://lijianfeng9.github.io/agents-radar/#2026-10-13/ai-news</guid>
+      <pubDate>Tue, 13 Oct 2026 00:00:00 +0000</pubDate>
+      <description>AI 每日要闻 2026-10-13 数据来源: 量子位 · 钛媒体 · 开源中国 · 少数派 · 小众软件 | 生成时间: 2026-10-13 02:31 UTC | 要闻 16 条 / 抓取 35 条 今日速览 Meta发布Muse Wonder旗舰模型，部分能力超GPT-6。 智谱新模型达490 tokens/s，谷歌Gemini转向Auto入口。 Linus用Claude Code写内核补丁，AI编程进入新阶段。 AI短剧成国内第一大算力场景，办公Agent三足鼎立。 具身智能数据采集成产业链，王兴兴称一两年迎转折。 🔥 大模型动向 Meta发布Muse Wonder，杀回模型前沿 — 时隔一年多推出旗舰模型，编程与长周期Agent部分超GPT-6。 智谱新模型，490 tokens/s！ — GLM速度仙人，输出速度达每秒490词元，适合实时生成。 谷歌对 Gemini 的用法变了 — 旗舰Argon仅向企业成员开放，免费账号模型菜单收成Auto。 TikTok CEO：AI三年内改写科学 — 周受资判断物理、生物、化学等领域将迎AI驱动的科学突破。 王兴兴：具身智能转折...</description>
+      <content:encoded><![CDATA[<h1>AI 每日要闻 2026-10-13</h1>
+<blockquote>
+<p>数据来源: 量子位 · 钛媒体 · 开源中国 · 少数派 · 小众软件 | 生成时间: 2026-10-13 02:31 UTC | 要闻 16 条 / 抓取 35 条</p>
+</blockquote>
+<h2>今日速览</h2>
+<ul>
+<li>Meta发布Muse Wonder旗舰模型，部分能力超GPT-6。</li>
+<li>智谱新模型达490 tokens/s，谷歌Gemini转向Auto入口。</li>
+<li>Linus用Claude Code写内核补丁，AI编程进入新阶段。</li>
+<li>AI短剧成国内第一大算力场景，办公Agent三足鼎立。</li>
+<li>具身智能数据采集成产业链，王兴兴称一两年迎转折。</li>
+</ul>
+<h2>🔥 大模型动向</h2>
+<ul>
+<li><a href="https://www.tmtpost.com/8166180.html">Meta发布Muse Wonder，杀回模型前沿</a> — 时隔一年多推出旗舰模型，编程与长周期Agent部分超GPT-6。</li>
+<li><a href="https://www.qbitai.com/2026/10/502649.html">智谱新模型，490 tokens/s！</a> — GLM速度仙人，输出速度达每秒490词元，适合实时生成。</li>
+<li><a href="https://www.tmtpost.com/8166223.html">谷歌对 Gemini 的用法变了</a> — 旗舰Argon仅向企业成员开放，免费账号模型菜单收成Auto。</li>
+<li><a href="https://www.tmtpost.com/8166003.html">TikTok CEO：AI三年内改写科学</a> — 周受资判断物理、生物、化学等领域将迎AI驱动的科学突破。</li>
+<li><a href="https://www.tmtpost.com/8166189.html">王兴兴：具身智能转折点一两年内来</a> — 他称GPT-7可能直接打穿具身智能，时间表随新模型发布前移。</li>
+<li><a href="https://www.tmtpost.com/8165971.html">28岁姚顺雨坐马化腾身旁</a> — 腾讯AI核心圈挤满90后，资本开支同比增81.9%押注Agent。</li>
+</ul>
+<h2>🤖 智能体 &amp; 开源项目</h2>
+<ul>
+<li><a href="https://www.oschina.net/news/502978/linus-torvalds-used-claude-code">Linus把Claude Code写的内核补丁推送到仓库</a> — 代码、测试与审阅初稿由LLM完成，AI编程进入内核开发。</li>
+<li><a href="https://www.oschina.net/news/502976">给AI一块1980年代国产CPU，它复现了BASIC</a> — 5分钟写模拟器，一个下午复现BASIC，全程未写一行代码。</li>
+<li><a href="https://www.qbitai.com/2026/10/502654.html">华为AI靠RSI通关25款游戏</a> — 操作次数比人类少56%，游戏打到21:0后甚至不再调用大模型。</li>
+<li><a href="https://www.oschina.net/news/502968">给DeepSeek Harness装上bot插件</a> — 社区项目可搭长期bot团队，有主bot、互发消息和群聊。</li>
+<li><a href="https://www.tmtpost.com/8165995.html">AI喂养，正在成为一条产业链</a> — 具身智能缺物理数据，普通人录动作卖数据训练机器人。</li>
+</ul>
+<h2>🎬 创作者 · AIGC 玩法</h2>
+<ul>
+<li><a href="https://www.tmtpost.com/8165999.html">AI短剧成算力时代最大“印钞机”</a> — AI短剧与视频生成占国内词元消耗55%，远超软件开发。</li>
+<li><a href="https://www.oschina.net/news/502979">FocusAny v2.3.0 本地AI工具条</a> — 快捷键呼出大模型、插件与工作流，稳定性大扫除。</li>
+</ul>
+<h2>💼 办公提效</h2>
+<ul>
+<li><a href="https://www.tmtpost.com/8166000.html">AI办公正在形成“三足鼎立”局面</a> — 腾讯WorkBuddy、阿里千问办公、字节豆包完成品牌整合。</li>
+<li><a href="https://www.tmtpost.com/8164914.html">亚信科技万人AI Coding跃迁</a> — 人均代码产出提升14.6%，研发体系走向AI Native。</li>
+<li><a href="https://www.oschina.net/news/502970">DatI 0.7.2：在Agent中记录行程与花费</a> — Data Agent支持受控写操作，可自动记录假期行程与花费。</li>
+</ul>
+<h2>📈 GitHub 趋势</h2>
+<table>
+<thead>
+<tr>
+<th align="left">项目</th>
+<th align="right">Stars</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><a href="https://github.com/morluto/rea">morluto/rea</a></td>
+<td align="right">162,393（今日 +45,327）</td>
+<td align="left">用智能体逆向应用行为到原生二进制，今日新增4.5万星。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/cathrynlavery/diagram-design">cathrynlavery/diagram-design</a></td>
+<td align="right">52,756（今日 +2,081）</td>
+<td align="left">为AI编程助手生成44种编辑级图表，自包含HTML+SVG。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/lyogavin/airllm">lyogavin/airllm</a></td>
+<td align="right">37,600（今日 +879）</td>
+<td align="left">单张4GB GPU可推理2.8T参数大模型，大幅降低门槛。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/Alishahryar1/free-claude-code">Alishahryar1/free-claude-code</a></td>
+<td align="right">59,225（今日 +626）</td>
+<td align="left">在终端、IDE或手机免费使用Claude Code等AI编程工具。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/mksglu/context-mode">mksglu/context-mode</a></td>
+<td align="right">27,361（今日 +246）</td>
+<td align="left">为AI编程智能体压缩98%工具输出并持久化会话记忆。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/calesthio/OpenMontage">calesthio/OpenMontage</a></td>
+<td align="right">67,587</td>
+<td align="left">开源智能体视频制作系统，12条生产管线与100+工具。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/hugohe3/ppt-master">hugohe3/ppt-master</a></td>
+<td align="right">61,164</td>
+<td align="left">AI把文档或主题转成原生PowerPoint，含图表与旁白。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/Panniantong/Agent-Reach">Panniantong/Agent-Reach</a></td>
+<td align="right">96,623</td>
+<td align="left">一个CLI让智能体搜索Twitter、Reddit、B站和小红书。</td>
+</tr>
+</tbody></table>
+]]></content:encoded>
+    </item>
     <item>
       <title>AI 每日要闻 2026-10-12</title>
       <link>https://lijianfeng9.github.io/agents-radar/#2026-10-12/ai-news</link>
@@ -11988,119 +12086,6 @@ Referenced issue: <a href="https://github.com/RVC-Boss/GPT-SoVITS/issues/2788">h
 </ol>
 <hr>
 <p><em>This digest is auto-generated by <a href="https://github.com/duanyytop/agents-radar">agents-radar</a>.</em></p>
-]]></content:encoded>
-    </item>
-    <item>
-      <title>技术社区 AI 动态日报 2026-10-09</title>
-      <link>https://lijianfeng9.github.io/agents-radar/#2026-10-09/ai-community</link>
-      <guid isPermaLink="true">https://lijianfeng9.github.io/agents-radar/#2026-10-09/ai-community</guid>
-      <pubDate>Fri, 09 Oct 2026 00:00:00 +0000</pubDate>
-      <description>技术社区 AI 动态日报 2026-10-09 数据来源: Dev.to (30 篇) + Lobste.rs (2 条) | 生成时间: 2026-10-09 02:31 UTC 技术社区AI简报 – 2026-10-09 今日亮点 AI生产力工具正面临严格审视，开发者们正在争论：通过AI实现更快的交付是否真正体现了工程成熟度，还是仅仅短期炒作。一个日益突出的担忧是AI代理隐藏的成本与脆弱性——尤其体现在令牌使用、模型可信度以及上下文处理方面。在各大平台上，对本地化和离线AI系统的需求持续高涨，从设备端图像识别到注重隐私的智能代理均受关注。可复现的基准测试与验证正成为关键实践，例如意图分类与决策模型的可复现测试。与此同时，TouchGrass、AgriSensa Garden Studio 和 Llama Village 等开源项目凸显出一种趋势：从聊天机器人转向具有实际意义、面向真实世界的应用。 Dev.to 亮点 文章 赞数 评论数 摘要 重试还是不重试？这才是问题所在。 46 39 这篇来自Kaggle挑战赛的投稿深入探讨了AI工作流中的重试逻辑——在处理不稳定API或模型超时...</description>
-      <content:encoded><![CDATA[<h1>技术社区 AI 动态日报 2026-10-09</h1>
-<blockquote>
-<p>数据来源: <a href="https://dev.to/">Dev.to</a> (30 篇) + <a href="https://lobste.rs/">Lobste.rs</a> (2 条) | 生成时间: 2026-10-09 02:31 UTC</p>
-</blockquote>
-<hr>
-<h1><strong>技术社区AI简报 – 2026-10-09</strong></h1>
-<hr>
-<h2><strong>今日亮点</strong></h2>
-<p>AI生产力工具正面临严格审视，开发者们正在争论：通过AI实现更快的交付是否真正体现了工程成熟度，还是仅仅短期炒作。一个日益突出的担忧是AI代理隐藏的成本与脆弱性——尤其体现在令牌使用、模型可信度以及上下文处理方面。在各大平台上，对本地化和离线AI系统的需求持续高涨，从设备端图像识别到注重隐私的智能代理均受关注。可复现的基准测试与验证正成为关键实践，例如意图分类与决策模型的可复现测试。与此同时，<em>TouchGrass</em>、<em>AgriSensa Garden Studio</em> 和 <em>Llama Village</em> 等开源项目凸显出一种趋势：从聊天机器人转向具有实际意义、面向真实世界的应用。</p>
-<hr>
-<h2><strong>Dev.to 亮点</strong></h2>
-<table>
-<thead>
-<tr>
-<th align="left">文章</th>
-<th align="right">赞数</th>
-<th align="right">评论数</th>
-<th align="left">摘要</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left"><a href="https://dev.to/gramli/to-retry-or-not-to-retry-that-is-the-question-1j2l">重试还是不重试？这才是问题所在。</a></td>
-<td align="right">46</td>
-<td align="right">39</td>
-<td align="left">这篇来自Kaggle挑战赛的投稿深入探讨了AI工作流中的重试逻辑——在处理不稳定API或模型超时时，这是确保鲁棒性的关键。</td>
-</tr>
-<tr>
-<td align="left"><a href="https://dev.to/metalbear/how-our-engineering-team-uses-ai-part-ii-meat-proxies-148g">我们工程团队如何使用AI（二）：肉身代理</a></td>
-<td align="right">29</td>
-<td align="right">6</td>
-<td align="left">团队正在采用“肉身代理”——即人机协同流程——来稳定AI代理输出，并在高速开发中维持代码质量。</td>
-</tr>
-<tr>
-<td align="left"><a href="https://dev.to/cyclopt_dimitrisk/shipping-faster-with-ai-isnt-engineering-maturity-its-a-demo-that-hasnt-met-year-two-yet-436g">用AI提速交付 ≠ 工程成熟。这只是尚未经历第二年的演示。</a></td>
-<td align="right">14</td>
-<td align="right">1</td>
-<td align="left">一篇尖锐批判：花哨的AI指标（合并的PR数量、原型耗时）掩盖了可靠性与长期可维护性方面的深层问题。</td>
-</tr>
-<tr>
-<td align="left"><a href="https://dev.to/theycallmeswift/i-got-jev-to-zero-mistakes-im-still-using-flash-lite-2mo7">我让Jev实现了零错误。但我仍在用Flash-Lite。</a></td>
-<td align="right">13</td>
-<td align="right">1</td>
-<td align="left">尽管用Jev实现了完美准确率，作者仍坚持使用快速轻量的Gemini Flash-Lite——凸显精度与速度之间的权衡。</td>
-</tr>
-<tr>
-<td align="left"><a href="https://dev.to/michellebuchiokonicha/i-turned-149k-messy-images-into-an-offline-recognition-system-3cp3">我把14.9万张杂乱图片变成了离线识别系统</a></td>
-<td align="right">12</td>
-<td align="right">3</td>
-<td align="left">详细剖析如何在多样且脏乱的数据上训练自定义YOLO26n食物检测器——证明离线视觉模型具备可行性和可扩展性。</td>
-</tr>
-<tr>
-<td align="left"><a href="https://dev.to/bloqarl/your-repo-is-not-trusted-context-what-i-changed-after-giving-coding-agents-real-repositories-2ken">你的代码库不是可信上下文。我在赋予编码代理真实仓库后做了哪些改变</a></td>
-<td align="right">2</td>
-<td align="right">1</td>
-<td align="left">一位安全工程师分享血泪教训：即使信任的代码库也可能误导AI代理——上下文过滤与沙箱机制至关重要。</td>
-</tr>
-<tr>
-<td align="left"><a href="https://dev.to/apppro_5726/a-benchmark-card-makes-an-agent-score-auditable-227e">基准卡让代理评分变得可审计</a></td>
-<td align="right">3</td>
-<td align="right">1</td>
-<td align="left">倡导使用标准化基准卡，使AI代理性能透明、可复现且可问责。</td>
-</tr>
-<tr>
-<td align="left"><a href="https://dev.to/fulviojorge/your-intent-classifier-is-12-points-worse-in-portuguese-benchmarking-laya-strands-decider-and-j9m">你的意图分类器在葡萄牙语下差了12分：对Laya、Strands Decider与Qwen3嵌入的基准测试</a></td>
-<td align="right">3</td>
-<td align="right">2</td>
-<td align="left">NLP模型中的语言偏见可量化——本基准测试显示非英语语言因数据不平衡而表现较差。</td>
-</tr>
-</tbody></table>
-<hr>
-<h2><strong>Lobste.rs 亮点</strong></h2>
-<table>
-<thead>
-<tr>
-<th align="left">新闻</th>
-<th align="right">得分</th>
-<th align="right">评论数</th>
-<th align="left">摘要</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left"><a href="https://lobste.rs/s/xff77a/best_books_courses_channels_leapfrog_on">学习AI/ML最值得跳过的书籍/课程/频道推荐</a> · <a href="https://lobste.rs/s/xff77a/best_books_courses_channels_leapfrog_on">讨论</a></td>
-<td align="right">5</td>
-<td align="right">4</td>
-<td align="left">一份精选的学习资源清单，帮助开发者避开噪音，快速提升在AI/ML领域的技能。</td>
-</tr>
-<tr>
-<td align="left"><a href="https://tracel.ai/blog/release-0.22.0/">Burn 0.22.0：更快构建、更易扩展、更智能自动调优</a> · <a href="https://lobste.rs/s/cme2vx/burn_0_22_0_faster_builds_easier">讨论</a></td>
-<td align="right">4</td>
-<td align="right">3</td>
-<td align="left">基于Rust的AI工具链更新，聚焦性能提升与开发体验优化——适合构建高效推理管道的团队。</td>
-</tr>
-</tbody></table>
-<hr>
-<h2><strong>社区脉动</strong></h2>
-<p>来自Dev.to与Lobste.rs的开发者们正越来越多地将重心放在<strong>实用性而非新颖性</strong>的AI应用上。反复出现的主题是<strong>信任与透明</strong>：许多人质疑AI代理是否带来可持续价值，还是仅加速技术债务。常见担忧包括冗余工具输出导致的令牌通胀、RAG系统中检索置信度不可靠，以及跨语言性能差——尤其在葡萄牙语等资源匮乏语言中表现明显。一股清晰的趋势正在形成：<strong>本地化、可审计、支持离线运行的AI</strong>，由隐私、成本与可靠性需求驱动。新兴的最佳实践包括使用保留集进行基准测试、人工在环验证，以及利用“肉身代理”管理代理行为。<em>TouchGrass</em>、<em>AgriSensa</em> 与 <em>Burn</em> 等开源工具反映出一种诉求：让AI增强真实世界互动，而不仅仅是提升数字生产力。</p>
-<hr>
-<h2><strong>值得阅读</strong></h2>
-<ol>
-<li><strong><a href="https://dev.to/gramli/to-retry-or-not-to-retry-that-is-the-question-1j2l">重试还是不重试？这才是问题所在。</a></strong> – 任何设计高韧性AI工作流的人都必读；它揭示了生产系统中一个微妙但关键的模式。</li>
-<li><strong><a href="https://dev.to/michellebuchiokonicha/i-turned-149k-messy-images-into-an-offline-recognition-system-3cp3">我把14.9万张杂乱图片变成了离线识别系统</a></strong> – 一部鼓舞人心、实操性强的指南，展示如何从不完美的数据构建真正的设备端AI系统。</li>
-<li><strong><a href="https://tracel.ai/blog/release-0.22.0/">Burn 0.22.0：更快构建、更易扩展、更智能自动调优</a></strong> – 面向Rust与AI性能爱好者：本次发布带来了构建速度与调优自动化方面的切实改进。</li>
-</ol>
-<hr>
-<p><em>本日报由 <a href="https://github.com/duanyytop/agents-radar">agents-radar</a> 自动生成。</em></p>
 ]]></content:encoded>
     </item>
   </channel>

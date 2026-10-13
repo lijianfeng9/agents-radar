@@ -1,0 +1,205 @@
+{
+  "date": "2026-10-13",
+  "generated": "2026-10-13 02:31",
+  "sources": [
+    "量子位",
+    "钛媒体",
+    "开源中国",
+    "少数派",
+    "小众软件"
+  ],
+  "fetchedCount": 35,
+  "summary": [
+    "Meta发布Muse Wonder旗舰模型，部分能力超GPT-6。",
+    "智谱新模型达490 tokens/s，谷歌Gemini转向Auto入口。",
+    "Linus用Claude Code写内核补丁，AI编程进入新阶段。",
+    "AI短剧成国内第一大算力场景，办公Agent三足鼎立。",
+    "具身智能数据采集成产业链，王兴兴称一两年迎转折。"
+  ],
+  "sections": {
+    "llm": [
+      {
+        "title": "Meta发布Muse Wonder，杀回模型前沿",
+        "summary": "时隔一年多推出旗舰模型，编程与长周期Agent部分超GPT-6。",
+        "url": "https://www.tmtpost.com/8166180.html"
+      },
+      {
+        "title": "智谱新模型，490 tokens/s！",
+        "summary": "GLM速度仙人，输出速度达每秒490词元，适合实时生成。",
+        "url": "https://www.qbitai.com/2026/10/502649.html"
+      },
+      {
+        "title": "谷歌对 Gemini 的用法变了",
+        "summary": "旗舰Argon仅向企业成员开放，免费账号模型菜单收成Auto。",
+        "url": "https://www.tmtpost.com/8166223.html"
+      },
+      {
+        "title": "TikTok CEO：AI三年内改写科学",
+        "summary": "周受资判断物理、生物、化学等领域将迎AI驱动的科学突破。",
+        "url": "https://www.tmtpost.com/8166003.html"
+      },
+      {
+        "title": "王兴兴：具身智能转折点一两年内来",
+        "summary": "他称GPT-7可能直接打穿具身智能，时间表随新模型发布前移。",
+        "url": "https://www.tmtpost.com/8166189.html"
+      },
+      {
+        "title": "28岁姚顺雨坐马化腾身旁",
+        "summary": "腾讯AI核心圈挤满90后，资本开支同比增81.9%押注Agent。",
+        "url": "https://www.tmtpost.com/8165971.html"
+      }
+    ],
+    "agents": [
+      {
+        "title": "Linus把Claude Code写的内核补丁推送到仓库",
+        "summary": "代码、测试与审阅初稿由LLM完成，AI编程进入内核开发。",
+        "url": "https://www.oschina.net/news/502978/linus-torvalds-used-claude-code"
+      },
+      {
+        "title": "给AI一块1980年代国产CPU，它复现了BASIC",
+        "summary": "5分钟写模拟器，一个下午复现BASIC，全程未写一行代码。",
+        "url": "https://www.oschina.net/news/502976"
+      },
+      {
+        "title": "华为AI靠RSI通关25款游戏",
+        "summary": "操作次数比人类少56%，游戏打到21:0后甚至不再调用大模型。",
+        "url": "https://www.qbitai.com/2026/10/502654.html"
+      },
+      {
+        "title": "给DeepSeek Harness装上bot插件",
+        "summary": "社区项目可搭长期bot团队，有主bot、互发消息和群聊。",
+        "url": "https://www.oschina.net/news/502968"
+      },
+      {
+        "title": "AI喂养，正在成为一条产业链",
+        "summary": "具身智能缺物理数据，普通人录动作卖数据训练机器人。",
+        "url": "https://www.tmtpost.com/8165995.html"
+      }
+    ],
+    "creator": [
+      {
+        "title": "AI短剧成算力时代最大“印钞机”",
+        "summary": "AI短剧与视频生成占国内词元消耗55%，远超软件开发。",
+        "url": "https://www.tmtpost.com/8165999.html"
+      },
+      {
+        "title": "FocusAny v2.3.0 本地AI工具条",
+        "summary": "快捷键呼出大模型、插件与工作流，稳定性大扫除。",
+        "url": "https://www.oschina.net/news/502979"
+      }
+    ],
+    "office": [
+      {
+        "title": "AI办公正在形成“三足鼎立”局面",
+        "summary": "腾讯WorkBuddy、阿里千问办公、字节豆包完成品牌整合。",
+        "url": "https://www.tmtpost.com/8166000.html"
+      },
+      {
+        "title": "亚信科技万人AI Coding跃迁",
+        "summary": "人均代码产出提升14.6%，研发体系走向AI Native。",
+        "url": "https://www.tmtpost.com/8164914.html"
+      },
+      {
+        "title": "DatI 0.7.2：在Agent中记录行程与花费",
+        "summary": "Data Agent支持受控写操作，可自动记录假期行程与花费。",
+        "url": "https://www.oschina.net/news/502970"
+      }
+    ]
+  },
+  "trending": [
+    {
+      "repo": "morluto/rea",
+      "url": "https://github.com/morluto/rea",
+      "stars": "162,393（今日 +45,327）",
+      "summary": "用智能体逆向应用行为到原生二进制，今日新增4.5万星。"
+    },
+    {
+      "repo": "cathrynlavery/diagram-design",
+      "url": "https://github.com/cathrynlavery/diagram-design",
+      "stars": "52,756（今日 +2,081）",
+      "summary": "为AI编程助手生成44种编辑级图表，自包含HTML+SVG。"
+    },
+    {
+      "repo": "lyogavin/airllm",
+      "url": "https://github.com/lyogavin/airllm",
+      "stars": "37,600（今日 +879）",
+      "summary": "单张4GB GPU可推理2.8T参数大模型，大幅降低门槛。"
+    },
+    {
+      "repo": "Alishahryar1/free-claude-code",
+      "url": "https://github.com/Alishahryar1/free-claude-code",
+      "stars": "59,225（今日 +626）",
+      "summary": "在终端、IDE或手机免费使用Claude Code等AI编程工具。"
+    },
+    {
+      "repo": "mksglu/context-mode",
+      "url": "https://github.com/mksglu/context-mode",
+      "stars": "27,361（今日 +246）",
+      "summary": "为AI编程智能体压缩98%工具输出并持久化会话记忆。"
+    },
+    {
+      "repo": "calesthio/OpenMontage",
+      "url": "https://github.com/calesthio/OpenMontage",
+      "stars": "67,587",
+      "summary": "开源智能体视频制作系统，12条生产管线与100+工具。"
+    },
+    {
+      "repo": "hugohe3/ppt-master",
+      "url": "https://github.com/hugohe3/ppt-master",
+      "stars": "61,164",
+      "summary": "AI把文档或主题转成原生PowerPoint，含图表与旁白。"
+    },
+    {
+      "repo": "Panniantong/Agent-Reach",
+      "url": "https://github.com/Panniantong/Agent-Reach",
+      "stars": "96,623",
+      "summary": "一个CLI让智能体搜索Twitter、Reddit、B站和小红书。"
+    }
+  ],
+  "cards": [
+    {
+      "title": "Meta发布Muse Wonder",
+      "description": "部分编程与Agent能力超GPT-6，Meta重回前沿。",
+      "url": "https://www.tmtpost.com/8166180.html",
+      "image": "https://images.tmtpost.com/uploads/images/2026/10/2048795bee6fe5f6cd5afd3f5bf5b6ca_1791854784.jpg"
+    },
+    {
+      "title": "智谱新模型490 tokens/s",
+      "description": "输出速度拉满，适合实时生成与高并发场景。",
+      "url": "https://www.qbitai.com/2026/10/502649.html"
+    },
+    {
+      "title": "谷歌Gemini不用挑了",
+      "description": "旗舰Argon仅限企业成员，免费账号只剩Auto。",
+      "url": "https://www.tmtpost.com/8166223.html",
+      "image": "https://images.tmtpost.com/uploads/images/2026/10/650e7392bc11cb7519d2f0bd0fcba876_1791854526.png"
+    },
+    {
+      "title": "Linus用Claude Code写内核",
+      "description": "代码、测试与初稿均由LLM完成，AI编程里程碑。",
+      "url": "https://www.oschina.net/news/502978/linus-torvalds-used-claude-code"
+    },
+    {
+      "title": "AI短剧每秒烧1块钱",
+      "description": "词元消耗占55%，成国内第一大算力场景。",
+      "url": "https://www.tmtpost.com/8165999.html",
+      "image": "https://images.tmtpost.com/uploads/images/2023/tkrss/2rt43q5whyt3.png"
+    },
+    {
+      "title": "AI办公三足鼎立",
+      "description": "腾讯、阿里、字节同步整合，办公Agent格局初显。",
+      "url": "https://www.tmtpost.com/8166000.html",
+      "image": "https://images.tmtpost.com/uploads/images/2023/tkrss/ty5465ejyt3.png"
+    },
+    {
+      "title": "AI逆向1980国产CPU",
+      "description": "5分钟写模拟器，一个下午复现BASIC。",
+      "url": "https://www.oschina.net/news/502976"
+    },
+    {
+      "title": "rea：用智能体逆向一切",
+      "description": "今日新增4.5万星，从应用行为到原生二进制。",
+      "url": "https://github.com/morluto/rea"
+    }
+  ]
+}

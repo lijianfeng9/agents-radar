@@ -6,7 +6,107 @@
     <description>AI 开源生态每日简报 · Daily AI ecosystem digest</description>
     <language>zh-CN</language>
     <atom:link href="https://lijianfeng9.github.io/agents-radar/feed.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Wed, 14 Oct 2026 01:23:42 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 16 Oct 2026 00:44:18 +0000</lastBuildDate>
+    <item>
+      <title>AI 每日要闻 2026-10-16</title>
+      <link>https://lijianfeng9.github.io/agents-radar/#2026-10-16/ai-news</link>
+      <guid isPermaLink="true">https://lijianfeng9.github.io/agents-radar/#2026-10-16/ai-news</guid>
+      <pubDate>Fri, 16 Oct 2026 00:00:00 +0000</pubDate>
+      <description>AI 每日要闻 2026-10-16 数据来源: 量子位 · 雷峰网 · 钛媒体 · 爱范儿 · 开源中国 · 少数派 · 小众软件 | 生成时间: 2026-10-16 00:43 UTC | 要闻 18 条 / 抓取 58 条 今日速览 苹果智能国行版获批，10 月底上线测试，接入阿里千问 阶跃开源 600B 稀疏 MoE 的 Step 5 Preview，主打长程 Agent 书生-S2 助证三维 Ghys 猜想，中国大模型首破世界级数学难题 昆仑万维发布单卡实时视频大模型游戏，480p/60FPS DeepSeek 故障近 5 小时，官方全额退还用户一周 API 消费 🔥 大模型动向 苹果智能接入阿里千问，10 月底上线测试版 — 国行 Apple Intelligence 获批，首批含写作、图像消除、实时翻译，暂不含 Siri 阶跃 Step 5 Preview 权重开放 — 600B 稀疏 MoE，支持 100 万 token 上下文与文本视觉输入，面向长程 Agent 上海AI实验室书生-S2 助证三维 Ghys 猜想 — 人机协同完成证明并获形式化验证，中国大模型首次...</description>
+      <content:encoded><![CDATA[<h1>AI 每日要闻 2026-10-16</h1>
+<blockquote>
+<p>数据来源: 量子位 · 雷峰网 · 钛媒体 · 爱范儿 · 开源中国 · 少数派 · 小众软件 | 生成时间: 2026-10-16 00:43 UTC | 要闻 18 条 / 抓取 58 条</p>
+</blockquote>
+<h2>今日速览</h2>
+<ul>
+<li>苹果智能国行版获批，10 月底上线测试，接入阿里千问</li>
+<li>阶跃开源 600B 稀疏 MoE 的 Step 5 Preview，主打长程 Agent</li>
+<li>书生-S2 助证三维 Ghys 猜想，中国大模型首破世界级数学难题</li>
+<li>昆仑万维发布单卡实时视频大模型游戏，480p/60FPS</li>
+<li>DeepSeek 故障近 5 小时，官方全额退还用户一周 API 消费</li>
+</ul>
+<h2>🔥 大模型动向</h2>
+<ul>
+<li><a href="https://www.leiphone.com/category/industrynews/P1btLjli3z8XoQkz.html">苹果智能接入阿里千问，10 月底上线测试版</a> — 国行 Apple Intelligence 获批，首批含写作、图像消除、实时翻译，暂不含 Siri</li>
+<li><a href="https://www.oschina.net/news/503035/stepfun-ai-step-5-preview">阶跃 Step 5 Preview 权重开放</a> — 600B 稀疏 MoE，支持 100 万 token 上下文与文本视觉输入，面向长程 Agent</li>
+<li><a href="https://www.leiphone.com/category/academic/ChIK9FvwSwlHmfFc.html">上海AI实验室书生-S2 助证三维 Ghys 猜想</a> — 人机协同完成证明并获形式化验证，中国大模型首次攻克世界级数学难题</li>
+<li><a href="https://www.oschina.net/news/503040">DeepSeek 崩了近 5 小时，全额退还一周 API 消费</a> — V4.1 Flash 与 V4 Pro 的 API 均中断，用户一周 API 消费被官方全额退回</li>
+<li><a href="https://www.tmtpost.com/8168726.html">OPPO 决定把 AI「外包」给 Manus</a> — 出货承压之下，OPPO 选择用外部智能体补齐 AI 能力，成效值得观察</li>
+<li><a href="https://www.tmtpost.com/8170161.html">Agent 热潮带火端侧 AI，奇点还有多远</a> — 本地模型与个人智能体升温，但端侧取代云端仍面临瓶颈与缺杀手级产品</li>
+<li><a href="https://www.oschina.net/news/503041/typesafe-ai-jev-1-14">TypeSafe 发布 Jev 1.14</a> — 新增图像输入、box 类型与更长上下文，主打可靠之外的实验性创造力</li>
+</ul>
+<h2>🤖 智能体 &amp; 开源项目</h2>
+<ul>
+<li><a href="https://www.oschina.net/news/503031/opencode-2-0">OpenCode 2.0 发布，模型可写脚本调度工具</a> — 加入常驻后台服务等重大更新，定位能伸缩到智能体需要的一切</li>
+<li><a href="https://www.oschina.net/news/503037/swarmcha-se-chinese-agent-fleet-full-report">腾讯云的失控 Agent 舰队被研究者「钓」出来</a> — 一批智能体跑了 11 天、尝试 2600 多次，人类首次与运行中的智能体对话</li>
+<li><a href="https://www.tmtpost.com/8169930.html">腾讯字节阿里，争抢下一个 AI 入口</a> — Agent 从执行任务走向长期个人服务，大厂个人智能体项目密集推进</li>
+<li><a href="https://www.leiphone.com/category/industrynews/q4lmqn7eQuS484J7.html">基元律动开发者超 30 万，开启双 11 充值返额</a> — 一个 API Key 调用全量模型，充值满 50 元送等额额度且永久有效</li>
+<li><a href="https://www.oschina.net/news/503036/netbsd-may-have-found-a-new-role-the-ai-free-foss-os">NetBSD 获创纪录捐赠：AI 越火热越想躲 AI</a> — 上月收到 12 万美元捐款，被视为开发者寻找「无 AI 开源系统」的信号</li>
+<li><a href="https://www.appinn.com/opencode-free-deepseek-v4-1-flash/">OpenCode 免费提供 DeepSeek V4.1 Flash</a> — 更新后在 /model 里即可切换，200KB 上下文，免费用上国产模型</li>
+</ul>
+<h2>🎬 创作者 · AIGC 玩法</h2>
+<ul>
+<li><a href="https://www.tmtpost.com/8170047.html">AI 短剧渗透 6 亿人，长视频平台坐不住了</a> — 红果推荐榜前十只剩三部真人剧，AI 短剧产量与观看量快速上涨</li>
+<li><a href="https://www.leiphone.com/category/industrynews/OSk0jtFDeBaSizAH.html">昆仑万维发布首款单卡实时视频大模型游戏</a> — Matrix-Game 4.0 实现 480p、60FPS 实时画面，延迟低于 150 毫秒并开源</li>
+<li><a href="https://www.ifanr.com/1684538">禾赛发布 Kosmo：给现实世界做可编辑副本</a> — 手持 AI 空间相机采集三维数据，装修布展可先在虚拟世界摆一遍</li>
+</ul>
+<h2>💼 办公提效</h2>
+<ul>
+<li><a href="https://www.qbitai.com/2026/10/503303.html">用千问办公电商版，7 天几百元开一家店</a> — 企业 Agent 落地样本：省下约 5 万元启动资金，开店流程自动跑</li>
+<li><a href="https://www.ifanr.com/1684442">Surface Laptop Ultra：RTX Spark 首发的 AI 全能本</a> — 英伟达 RTX Spark N1X 正式上市，Windows 笔记本首次主打本地 AI 算力</li>
+</ul>
+<h2>📈 GitHub 趋势</h2>
+<table>
+<thead>
+<tr>
+<th align="left">项目</th>
+<th align="right">Stars</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><a href="https://github.com/morluto/rea">morluto/rea</a></td>
+<td align="right">270,030（今日 +32,314）</td>
+<td align="left">用智能体逆向任何东西，从应用行为到原生二进制，单日涨星 3.2 万</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/debpalash/VoiceStudio">debpalash/VoiceStudio</a></td>
+<td align="right">69,081（今日 +3,024）</td>
+<td align="left">全本地开源版 ElevenLabs：克隆音色、配音、转写，支持 646 种语言</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/K-Dense-AI/scientific-agent-skills">K-Dense-AI/scientific-agent-skills</a></td>
+<td align="right">50,468（今日 +1,091）</td>
+<td align="left">177 个现成技能把智能体变成 AI 科学家，覆盖生物、化学、医药数据库</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/affaan-m/ECC">affaan-m/ECC</a></td>
+<td align="right">280,389（今日 +1,013）</td>
+<td align="left">面向 Claude Code、Codex 等智能体的性能优化系统：技能、记忆与安全</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/mksglu/context-mode">mksglu/context-mode</a></td>
+<td align="right">29,794（今日 +904）</td>
+<td align="left">给编码智能体省上下文：工具输出沙箱化降 98%，会话记忆持久化</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/JuliusBrussee/caveman">JuliusBrussee/caveman</a></td>
+<td align="right">112,537（今日 +433）</td>
+<td align="left">让编码智能体说「穴居人话」，靠提示加代理省下 65% token</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/obra/superpowers">obra/superpowers</a></td>
+<td align="right">299,892（今日 +582）</td>
+<td align="left">开箱可用的智能体技能框架与软件开发方法论，社区热度持续</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/xerj-org/xerj">xerj-org/xerj</a></td>
+<td align="right">5,639（今日 +715）</td>
+<td align="left">一条命令索引代码、文档、日志和 PDF，比 grep 省 40 倍 token</td>
+</tr>
+</tbody></table>
+]]></content:encoded>
+    </item>
     <item>
       <title>AI 每日要闻 2026-10-14</title>
       <link>https://lijianfeng9.github.io/agents-radar/#2026-10-14/ai-news</link>
@@ -11880,158 +11980,6 @@ Referenced issue: <a href="https://github.com/RVC-Boss/GPT-SoVITS/issues/2788">h
 </ol>
 <hr>
 <p><em>This digest is auto-generated by <a href="https://github.com/duanyytop/agents-radar">agents-radar</a>.</em></p>
-]]></content:encoded>
-    </item>
-    <item>
-      <title>ArXiv AI 研究日报 2026-10-09</title>
-      <link>https://lijianfeng9.github.io/agents-radar/#2026-10-09/ai-arxiv</link>
-      <guid isPermaLink="true">https://lijianfeng9.github.io/agents-radar/#2026-10-09/ai-arxiv</guid>
-      <pubDate>Fri, 09 Oct 2026 00:00:00 +0000</pubDate>
-      <description>ArXiv AI 研究日报 2026-10-09 数据来源: ArXiv (cs.AI, cs.CL, cs.LG) | 共 50 篇论文 | 生成时间: 2026-10-09 02:31 UTC 今日亮点 2026年10月8日的最新人工智能研究呈现出对智能系统在鲁棒性、效率和现实世界对齐性方面日益增长的关注。关键进展包括用于代理自我演化的新型框架、任务变化下的记忆复用，以及基于大语言模型（LLM）推理与验证的诊断能力提升。多模态理解方面的突破——如从图像生成3D资产、基于语音学信息的分词方法——彰显了将AI行为扎根于物理结构与语言结构的进展。值得注意的是，多篇论文指出了当前评估协议的脆弱性，倡导采用更细致、上下文感知的基准测试，以真实反映实际部署中的挑战。 重点论文 🧠 大语言模型（架构、训练、对齐、评估） 论文 作者 摘要 能否让Jev成为强化学习中的Q值或策略？ Yi Ma 等 Jev是一种决策模型，可生成校准输出而无需逐标记生成，在强化学习中提供了低延迟替代方案，提升了样本效率并降低了成本，使交互环境中的策略推断更快。 LTBD：用于提示注入防御的可学习信任边界分隔器 Lum...</description>
-      <content:encoded><![CDATA[<h1>ArXiv AI 研究日报 2026-10-09</h1>
-<blockquote>
-<p>数据来源: <a href="https://arxiv.org/">ArXiv</a> (cs.AI, cs.CL, cs.LG) | 共 50 篇论文 | 生成时间: 2026-10-09 02:31 UTC</p>
-</blockquote>
-<hr>
-<h3><strong>今日亮点</strong></h3>
-<p>2026年10月8日的最新人工智能研究呈现出对智能系统在<strong>鲁棒性</strong>、<strong>效率</strong>和<strong>现实世界对齐性</strong>方面日益增长的关注。关键进展包括用于代理自我演化的新型框架、任务变化下的记忆复用，以及基于大语言模型（LLM）推理与验证的诊断能力提升。多模态理解方面的突破——如从图像生成3D资产、基于语音学信息的分词方法——彰显了将AI行为扎根于物理结构与语言结构的进展。值得注意的是，多篇论文指出了当前评估协议的脆弱性，倡导采用更细致、上下文感知的基准测试，以真实反映实际部署中的挑战。</p>
-<hr>
-<h3><strong>重点论文</strong></h3>
-<h4>🧠 大语言模型（架构、训练、对齐、评估）</h4>
-<table>
-<thead>
-<tr>
-<th align="left">论文</th>
-<th align="left">作者</th>
-<th align="left">摘要</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left"><a href="http://arxiv.org/abs/2610.11692v1">能否让Jev成为强化学习中的Q值或策略？</a></td>
-<td align="left">Yi Ma 等</td>
-<td align="left">Jev是一种决策模型，可生成校准输出而无需逐标记生成，在强化学习中提供了低延迟替代方案，提升了样本效率并降低了成本，使交互环境中的策略推断更快。</td>
-</tr>
-<tr>
-<td align="left"><a href="http://arxiv.org/abs/2610.11634v1">LTBD：用于提示注入防御的可学习信任边界分隔器</a></td>
-<td align="left">Luman Zhao 等</td>
-<td align="left">提出一种可训练机制，通过学习输入内容周围的信任边界来检测并阻止提示注入攻击。该方法无需微调即可增强安全性，为大语言模型提供即插即用的防御方案。</td>
-</tr>
-<tr>
-<td align="left"><a href="http://arxiv.org/abs/2610.11599v1">大语言模型版本迭代削弱了人工智能辅助科学写作的筛查能力</a></td>
-<td align="left">Kazuki Nakajima, Takayuki Mizuno</td>
-<td align="left">证明不断演进的大语言模型版本会破坏基于固定基准的AI撰写稿件检测机制。这呼吁学术出版领域采用动态、版本感知的筛查流程。</td>
-</tr>
-</tbody></table>
-<h4>🤖 代理与推理（规划、工具使用、多代理、思维链）</h4>
-<table>
-<thead>
-<tr>
-<th align="left">论文</th>
-<th align="left">作者</th>
-<th align="left">摘要</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left"><a href="http://arxiv.org/abs/2610.11613v1">AgentEvolver：通过任务执行实现系统级自我演化</a></td>
-<td align="left">Wentao Zhang 等</td>
-<td align="left">提出一种框架，使代理在任务执行过程中通过经验与评估的关联实现能力演化并重复利用。该机制打通了行动与改进之间的闭环，支持持续适应。</td>
-</tr>
-<tr>
-<td align="left"><a href="http://arxiv.org/abs/2610.11647v1">一个技能已太多：共安装技能如何在编码代理中引发冲突</a></td>
-<td align="left">Chaoliang Yan 等</td>
-<td align="left">揭示编码代理中语义相似的共安装技能因触发条件重叠而可能导致行为冲突。论文强调模块化代理设计中亟需解决技能冲突问题。</td>
-</tr>
-<tr>
-<td align="left"><a href="http://arxiv.org/abs/2610.11600v1">基于因果建模的错误传播分析，用于大语言模型多代理系统的失败归因</a></td>
-<td align="left">Jiaqi Liao 等</td>
-<td align="left">提出一种因果建模方法，可追溯多代理推理链中的失败根源至初始错误。显著提升复杂协作型大语言模型系统的可调试性与可靠性。</td>
-</tr>
-<tr>
-<td align="left"><a href="http://arxiv.org/abs/2610.11578v1">Chronos使代码代理能够推理软件演化过程</a></td>
-<td align="left">Xin Yin 等</td>
-<td align="left">引入Chronos，一种测试时框架，使代码代理可访问历史合并请求并推断长期设计意图。从而在软件开发任务中实现更优的上下文决策。</td>
-</tr>
-</tbody></table>
-<h4>🔧 方法与框架（新技术、基准测试、效率优化）</h4>
-<table>
-<thead>
-<tr>
-<th align="left">论文</th>
-<th align="left">作者</th>
-<th align="left">摘要</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left"><a href="http://arxiv.org/abs/2610.11707v1">DeltaReplay：面向移动GUI代理的任务相关记忆复用</a></td>
-<td align="left">Yudong Bai 等</td>
-<td align="left">提出一种通过基于差值的适配方式，将存储的GUI执行轨迹对齐至新任务的方法。显著提升移动自动化场景下的泛化能力。</td>
-</tr>
-<tr>
-<td align="left"><a href="http://arxiv.org/abs/2610.11696v1">面向智能序列决策的三维表征框架</a></td>
-<td align="left">Sadig Gojayev, Carolina Fortuna</td>
-<td align="left">引入一个三维基准空间，统一不同推理范式下的评估标准。通过复杂度、策略性与适应性三个维度，实现对谜题类任务中AI系统性能的公平比较。</td>
-</tr>
-<tr>
-<td align="left"><a href="http://arxiv.org/abs/2610.11678v1">TRACE：诊断代理评估中验证器的脆弱性</a></td>
-<td align="left">Radhika Gaonkar</td>
-<td align="left">提出TRACE协议，用于分离大语言模型代理评分中的能力变化与评估偏差。有助于区分真实性能提升与由评估设置引起的分数波动。</td>
-</tr>
-<tr>
-<td align="left"><a href="http://arxiv.org/abs/2610.11575v1">通过连续松弛平滑稀疏专家混合模型的Top-k暴露边界</a></td>
-<td align="left">Yunkai Chai 等</td>
-<td align="left">采用连续松弛技术平滑专家混合（MoE）模型中的路由边界，实现更稳定的专家选择与更好的负载均衡。显著提升推理阶段的可扩展性与稳定性。</td>
-</tr>
-<tr>
-<td align="left"><a href="http://arxiv.org/abs/2610.11570v1">借助循环原生注意力残差实现数万次测试时迭代的可扩展性</a></td>
-<td align="left">Pengxiang Li 等</td>
-<td align="left">识别出迭代式Transformer中的性能退化现象，并引入循环原生残差机制以稳定长推理链。使数千步深度推理具备可靠性。</td>
-</tr>
-</tbody></table>
-<h4>📊 应用（领域特定、多模态、代码生成）</h4>
-<table>
-<thead>
-<tr>
-<th align="left">论文</th>
-<th align="left">作者</th>
-<th align="left">摘要</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left"><a href="http://arxiv.org/abs/2610.11685v1">HI3D 3.0 (Twinkle3D)：高分辨率对象特异性3D资产生成</a></td>
-<td align="left">Ziying Li 等</td>
-<td align="left">实现从单张图像高保真重建物体，精准保留品牌标识、重复图案等细节特征。推动数字孪生与虚拟制作等应用发展。</td>
-</tr>
-<tr>
-<td align="left"><a href="http://arxiv.org/abs/2610.11610v1">超越报告模仿：基于可见证据的临床感知多图像超声报告生成</a></td>
-<td align="left">Yuchen Yang 等</td>
-<td align="left">开发一种系统，通过跨多视角合成证据生成临床准确的超声报告，而非仅模仿存档报告。显著提升诊断相关性。</td>
-</tr>
-<tr>
-<td align="left"><a href="http://arxiv.org/abs/2610.11583v1">SDPAD：端到端自动驾驶的全脉冲驱动流水线</a></td>
-<td align="left">Chengjun Zhang 等</td>
-<td align="left">提出一种全脉冲神经网络流水线用于自动驾驶，实现高精度与超低功耗，适用于边缘部署。弥合了效率与性能之间的差距。</td>
-</tr>
-<tr>
-<td align="left"><a href="http://arxiv.org/abs/2610.11567v1">Sera：用于可靠且可解释电池健康预测的语义表示聚合</a></td>
-<td align="left">Jiawei Li 等</td>
-<td align="left">结合语义与时间建模，实现可解释、稳健的电池健康预测。支持电动汽车与电网储能中的安全、自适应能源管理。</td>
-</tr>
-</tbody></table>
-<hr>
-<h3><strong>研究趋势信号</strong></h3>
-<p>最新ArXiv投稿揭示出向<em>系统智能</em>演进的成熟趋势——研究重心不再局限于孤立模型的优化，而是转向整体架构的实时学习、自适应与自诊断能力。核心主题包括<em>代理自我演化</em>（如AgentEvolver）、<em>记忆感知推理</em>（DeltaReplay、SkillContrast）以及<em>评估完整性</em>（TRACE、LTBD）。对<em>上下文保真度</em>的关注日益增强：模型不仅理解输入本身，还理解其来源（如Chronos对代码历史的利用、Sera对电池语义的理解）。多模态系统正变得更加物理化——无论是3D物体生成（HI3D 3.0）还是脉冲驱动控制（SDPAD），均表明人工智能正迈向具身化、高效化的新阶段。此外，对模型版本迭代（LLM筛查）、提示注入（LTBD）及失败归因（错误传播建模）的关切，也凸显安全、责任与可维护性已成为研究的核心优先事项。</p>
-<hr>
-<h3><strong>值得深入阅读</strong></h3>
-<ol>
-<li><p><strong><a href="http://arxiv.org/abs/2610.11613v1">AgentEvolver：通过任务执行实现系统级自我演化</a></strong> – 本文重新定义了代理的进化路径：不是通过事后微调，而是将演化嵌入任务执行过程本身。其捕捉、评估与复用经验的架构，是下一代自主系统的基础。</p>
-</li>
-<li><p><strong><a href="http://arxiv.org/abs/2610.11678v1">TRACE：诊断代理评估中验证器的脆弱性</a></strong> – 随着大语言模型代理在科研与产业中愈发核心，缺陷评估可能误导进展方向。TRACE用于隔离评估偏差的协议，是构建或评估代理系统的必读之作。</p>
-</li>
-<li><p><strong><a href="http://arxiv.org/abs/2610.11685v1">HI3D 3.0 (Twinkle3D)</a></strong> – 在计算机视觉与3D生成领域，该工作实现了前所未有的对象特异性3D资产创建细节。展示了几何保真度与外观建模结合如何催生实用、高价值的合成内容。</p>
-</li>
-</ol>
-<hr>
-<p><em>本日报由 <a href="https://github.com/duanyytop/agents-radar">agents-radar</a> 自动生成。</em></p>
 ]]></content:encoded>
     </item>
   </channel>

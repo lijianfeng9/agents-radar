@@ -6,7 +6,108 @@
     <description>AI 开源生态每日简报 · Daily AI ecosystem digest</description>
     <language>zh-CN</language>
     <atom:link href="https://lijianfeng9.github.io/agents-radar/feed.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Fri, 16 Oct 2026 00:44:18 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 17 Oct 2026 00:46:52 +0000</lastBuildDate>
+    <item>
+      <title>AI 每日要闻 2026-10-17</title>
+      <link>https://lijianfeng9.github.io/agents-radar/#2026-10-17/ai-news</link>
+      <guid isPermaLink="true">https://lijianfeng9.github.io/agents-radar/#2026-10-17/ai-news</guid>
+      <pubDate>Sat, 17 Oct 2026 00:00:00 +0000</pubDate>
+      <description>AI 每日要闻 2026-10-17 数据来源: 雷峰网 · 钛媒体 · 爱范儿 · 开源中国 · 少数派 · 小众软件 | 生成时间: 2026-10-17 00:45 UTC | 要闻 19 条 / 抓取 53 条 今日速览 Meta 发布 816B 开源模型，可在两台 Mac Studio 运行。 国内个人 Agent 竞速升温，豆包手机遭 155 款 App 拒绝。 可灵 4.0 上线，支持 30 秒直出与 10-bit HDR。 国行 Apple Intelligence 十月底测试，首批含写作修图翻译。 千问办公落地中控与电商商家，企业 AI 应用加速。 🔥 大模型动向 Meta 发布 Muse Spark Open 开源模型 — 816B参数、可在两台Mac Studio运行，号称美国最强开源权重模型。 硅谷大模型补贴战，DeepSeek性价比几何 — OpenAI、Anthropic 发额度，免费模型增多，国产模型性价比承压。 国行苹果 AI 十月底上线测试版 — 首批含写作、修图、翻译，新Siri暂未纳入，等待两年多终落地。 字节 Seed 成立大模型安全与对齐部门...</description>
+      <content:encoded><![CDATA[<h1>AI 每日要闻 2026-10-17</h1>
+<blockquote>
+<p>数据来源: 雷峰网 · 钛媒体 · 爱范儿 · 开源中国 · 少数派 · 小众软件 | 生成时间: 2026-10-17 00:45 UTC | 要闻 19 条 / 抓取 53 条</p>
+</blockquote>
+<h2>今日速览</h2>
+<ul>
+<li>Meta 发布 816B 开源模型，可在两台 Mac Studio 运行。</li>
+<li>国内个人 Agent 竞速升温，豆包手机遭 155 款 App 拒绝。</li>
+<li>可灵 4.0 上线，支持 30 秒直出与 10-bit HDR。</li>
+<li>国行 Apple Intelligence 十月底测试，首批含写作修图翻译。</li>
+<li>千问办公落地中控与电商商家，企业 AI 应用加速。</li>
+</ul>
+<h2>🔥 大模型动向</h2>
+<ul>
+<li><a href="https://www.oschina.net/news/503051/meta-ai-muse-spark-open">Meta 发布 Muse Spark Open 开源模型</a> — 816B参数、可在两台Mac Studio运行，号称美国最强开源权重模型。</li>
+<li><a href="https://www.tmtpost.com/8170871.html">硅谷大模型补贴战，DeepSeek性价比几何</a> — OpenAI、Anthropic 发额度，免费模型增多，国产模型性价比承压。</li>
+<li><a href="https://www.oschina.net/news/503053">国行苹果 AI 十月底上线测试版</a> — 首批含写作、修图、翻译，新Siri暂未纳入，等待两年多终落地。</li>
+<li><a href="https://www.oschina.net/news/503048/seed-alignment-preparedness-team-looking-for-global-talents">字节 Seed 成立大模型安全与对齐部门</a> — 国内前沿实验室首家独立安全对齐部门，全球招10位研究员。</li>
+<li><a href="https://www.leiphone.com/category/yanxishe/gO1lTcRqFyRtbiFP.html">Anthropic 五年前路线图泄露</a> — 机密文档提前写出Coding Agent、Tool Use、长上下文等今天主流方向。</li>
+<li><a href="https://www.leiphone.com/category/yanxishe/Vr0JmbkUeZV5D9Qz.html">可解释性大佬称AI不是黑箱</a> — 推翻十年旧结论，称99%神经元清晰可见，或改变理解大模型方式。</li>
+<li><a href="https://www.tmtpost.com/8171189.html">星尘智能再融10亿，估值150亿</a> — 具身智能融资冷静期仍获深投控领投，成行业信心样本。</li>
+<li><a href="https://www.leiphone.com/category/industrynews/1zjGZ4srbO3kyVEw.html">阿里千问上车宝马 iX3</a> — 宝马与阿里联合开发中国座舱AI，千问大模型融入智能个人助理。</li>
+</ul>
+<h2>🤖 智能体 &amp; 开源项目</h2>
+<ul>
+<li><a href="https://www.tmtpost.com/8170874.html">字节腾讯阿里扎堆个人Agent</a> — 国内大厂竞速个人智能体，瞄准能替用户代办事务的中国版Muse。</li>
+<li><a href="https://www.tmtpost.com/8170908.html">豆包手机被155款App拒绝</a> — 微信淘宝等拒绝AI代操作，协议接入与风控仍是手机智能体难题。</li>
+<li><a href="https://www.tmtpost.com/8171142.html">Agent落地风电，风机变身智能体</a> — 远景发布AI风储一体机，风机走向可感知、预测、协同的Agent。</li>
+<li><a href="https://www.appinn.com/strata-macos-35b-model/">Strata 支持 macOS 与35B本地模型</a> — 家用显卡/Apple Silicon可跑Qwen3.6-35B，本地AI门槛再降低。</li>
+</ul>
+<h2>🎬 创作者 · AIGC 玩法</h2>
+<ul>
+<li><a href="https://www.leiphone.com/category/industrynews/1GERVRJ72xJKmsus.html">可灵 Kling 4.0 正式上线</a> — 支持10-bit HDR、30秒原生直出、15项参考，视频生成更专业可控。</li>
+<li><a href="https://www.appinn.com/videoproc-converter-ai-v7-8/">VideoProc AI 周年庆限免</a> — AI视频增强、图片修复与4K/10K放大工具免费领，名额有限。</li>
+</ul>
+<h2>💼 办公提效</h2>
+<ul>
+<li><a href="https://www.leiphone.com/category/industrynews/csaOBaiXpZZLOOtp.html">千问办公商家付费用户超20%</a> — 电商商家用AI做调研、商品图和详情页，开店准备从一个月缩到7天。</li>
+<li><a href="https://www.leiphone.com/category/industrynews/8IM46Vzpf7IFumo7.html">中控技术接入千问办公</a> — 流程工业龙头用Agent落地营销全链路，将扩展采购、财务、人力等。</li>
+<li><a href="https://www.tmtpost.com/8171375.html">京东双十一押注AI与服务消费</a> — 取消定金预售，AI购物助手、数字人、机器人军团覆盖3000+场景。</li>
+<li><a href="https://www.oschina.net/news/503049">ApiGo v6.3.0 支持AI办公平台MCP</a> — 在线接口平台可接千问办公、豆包等MCP，快速把SQL发布为接口。</li>
+<li><a href="https://www.oschina.net/news/503059">蓝鲸 Lite AI运维平台本周更新</a> — 支持对话搭建仪表盘，主机巡检打通执行、报告与通知。</li>
+</ul>
+<h2>📈 GitHub 趋势</h2>
+<table>
+<thead>
+<tr>
+<th align="left">项目</th>
+<th align="right">Stars</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><a href="https://github.com/debpalash/VoiceStudio">debpalash/VoiceStudio</a></td>
+<td align="right">71,202（今日 +2,301）</td>
+<td align="left">本地开源 ElevenLabs 替代，支持语音克隆、配音、转录，创作者可试。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/anthropics/claude-plugins-official">anthropics/claude-plugins-official</a></td>
+<td align="right">40,552（今日 +1,552）</td>
+<td align="left">Anthropic 官方 Claude Code 插件目录，快速扩展编码智能体能力。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/K-Dense-AI/scientific-agent-skills">K-Dense-AI/scientific-agent-skills</a></td>
+<td align="right">51,511（今日 +1,158）</td>
+<td align="left">把任意 AI Agent 变成科研助手，177个技能接入100+科学数据库。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/obra/superpowers">obra/superpowers</a></td>
+<td align="right">300,682（今日 +973）</td>
+<td align="left">智能体技能框架与开发方法论，可构建可复用的AI工作流。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/xerj-org/xerj">xerj-org/xerj</a></td>
+<td align="right">6,928（今日 +1,648）</td>
+<td align="left">为 AI 提供数据搜索索引，比 grep 省40倍token，适合RAG与记忆。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/mksglu/context-mode">mksglu/context-mode</a></td>
+<td align="right">30,231（今日 +449）</td>
+<td align="left">优化编码智能体上下文，工具输出沙箱减少98%，支持17平台。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/calesthio/OpenMontage">calesthio/OpenMontage</a></td>
+<td align="right">68,911</td>
+<td align="left">开源智能体视频制作系统，12条管线、100+工具，可把编码助手变成视频工作室。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/ruvnet/ruflo">ruvnet/ruflo</a></td>
+<td align="right">75,632（今日 +672）</td>
+<td align="left">多智能体蜂群编排与自主工作流，支持Claude Code/Codex等。</td>
+</tr>
+</tbody></table>
+]]></content:encoded>
+    </item>
     <item>
       <title>AI 每日要闻 2026-10-16</title>
       <link>https://lijianfeng9.github.io/agents-radar/#2026-10-16/ai-news</link>
@@ -11823,163 +11924,6 @@ Referenced issue: <a href="https://github.com/RVC-Boss/GPT-SoVITS/issues/2788">h
 </ol>
 <hr>
 <p><em>本日报由 <a href="https://github.com/duanyytop/agents-radar">agents-radar</a> 自动生成。</em></p>
-]]></content:encoded>
-    </item>
-    <item>
-      <title>Hacker News AI Community Digest 2026-10-09</title>
-      <link>https://lijianfeng9.github.io/agents-radar/#2026-10-09/ai-hn-en</link>
-      <guid isPermaLink="true">https://lijianfeng9.github.io/agents-radar/#2026-10-09/ai-hn-en</guid>
-      <pubDate>Fri, 09 Oct 2026 00:00:00 +0000</pubDate>
-      <description>Hacker News AI Community Digest 2026-10-09 Source: Hacker News | 30 stories | Generated: 2026-10-09 02:31 UTC Today&amp;#39;s Highlights The AI community on Hacker News is buzzing around two major themes: the accelerating convergence of AI and fundamental research—especially in mathematics—and growing skepticism about OpenAI’s transparency and financial claims. The withdrawal of three mathematical results by OpenAI has sparked intense debate, with over 500 comments questioning accountability and sci...</description>
-      <content:encoded><![CDATA[<h1>Hacker News AI Community Digest 2026-10-09</h1>
-<blockquote>
-<p>Source: <a href="https://news.ycombinator.com/">Hacker News</a> | 30 stories | Generated: 2026-10-09 02:31 UTC</p>
-</blockquote>
-<hr>
-<hr>
-<h3><strong>Today&#39;s Highlights</strong></h3>
-<p>The AI community on Hacker News is buzzing around two major themes: the accelerating convergence of AI and fundamental research—especially in mathematics—and growing skepticism about OpenAI’s transparency and financial claims. The withdrawal of three mathematical results by OpenAI has sparked intense debate, with over 500 comments questioning accountability and scientific integrity. Meanwhile, breakthroughs like Step 5 Preview (1M-context MoE) and Claude Haiku 5.5 signal rapid model advancement, while projects like <em>Edi Life OS</em> and <em>Aura</em> reflect a rising interest in self-hosted, agent-driven personal systems. There&#39;s palpable excitement—but also unease—about AI’s role in high-stakes domains like cryptography and pure math.</p>
-<hr>
-<h3><strong>Top News &amp; Discussions</strong></h3>
-<h4>🔬 Models &amp; Research</h4>
-<table>
-<thead>
-<tr>
-<th align="left">Title</th>
-<th align="right">Score</th>
-<th align="right">Comments</th>
-<th align="left">Summary</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left"><a href="https://openrouter.ai/stepfun/step-5-preview">Step 5 Preview, a 1M-context MoE from StepFun, shows up on OpenRouter</a> · <a href="https://news.ycombinator.com/item?id=50007764">HN</a></td>
-<td align="right">104</td>
-<td align="right">25</td>
-<td align="left">A new 1M-context mixture-of-experts model from StepFun demonstrates massive scale and efficiency gains; HN users are excited about its potential for complex reasoning tasks, though some caution against premature hype.</td>
-</tr>
-<tr>
-<td align="left"><a href="https://www.anthropic.com/claude-haiku-5-5">Claude Haiku 5.5</a> · <a href="https://news.ycombinator.com/item?id=49996437">HN</a></td>
-<td align="right">1034</td>
-<td align="right">482</td>
-<td align="left">Anthropic’s latest lightweight model improves speed and cost-efficiency without sacrificing quality—widely praised as a benchmark for efficient inference, especially in real-time applications.</td>
-</tr>
-<tr>
-<td align="left"><a href="https://github.com/SamsungLabs/LittleBit">Sub-1-Bit LLM Compression via Latent Factorization</a> · <a href="https://news.ycombinator.com/item?id=50005608">HN</a></td>
-<td align="right">77</td>
-<td align="right">23</td>
-<td align="left">This novel compression technique reduces LLM storage to under 1 bit per parameter—potentially enabling on-device AI at scale; developers are intrigued by its theoretical implications and practical feasibility.</td>
-</tr>
-<tr>
-<td align="left"><a href="https://www.quantamagazine.org/as-ai-closed-in-on-unique-games-proof-researchers-raced-to-beat-the-machines-20261007/">As AI Closed in on &#39;Unique Games&#39; Proof, Researchers Raced to Beat the Machines</a> · <a href="https://news.ycombinator.com/item?id=50012046">HN</a></td>
-<td align="right">4</td>
-<td align="right">0</td>
-<td align="left">AI approached a long-standing proof in computational complexity theory, prompting last-minute human efforts to validate or preempt it—symbolizing the deepening tension between human and machine discovery.</td>
-</tr>
-</tbody></table>
-<h4>🛠️ Tools &amp; Engineering</h4>
-<table>
-<thead>
-<tr>
-<th align="left">Title</th>
-<th align="right">Score</th>
-<th align="right">Comments</th>
-<th align="left">Summary</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left"><a href="https://github.com/edrisranjbar/lifeos">Show HN: Edi Life OS – self-hosted life dashboard with an MCP server for AI</a> · <a href="https://news.ycombinator.com/item?id=50014150">HN</a></td>
-<td align="right">21</td>
-<td align="right">3</td>
-<td align="left">A personal AI agent system that manages daily tasks via a modular, self-hosted architecture; early adopters appreciate its privacy focus but note limited maturity.</td>
-</tr>
-<tr>
-<td align="left"><a href="https://github.com/chetto1983/Aura">Show HN: Aura – a self-hosted, multi-user AI agent with per-person graph memory</a> · <a href="https://news.ycombinator.com/item?id=50010250">HN</a></td>
-<td align="right">6</td>
-<td align="right">1</td>
-<td align="left">A privacy-first, multi-user AI agent platform using graph-based memory—seen as a promising direction for decentralized personal AI ecosystems.</td>
-</tr>
-<tr>
-<td align="left"><a href="https://github.com/pingdotgg/ts-rust">Port of the TypeScript compiler, checker and lsp to Rust, by LLM</a> · <a href="https://news.ycombinator.com/item?id=50000676">HN</a></td>
-<td align="right">109</td>
-<td align="right">207</td>
-<td align="left">An LLM-generated port of core TS tooling to Rust—demonstrates both promise and peril of AI code generation; many warn about correctness and maintainability risks.</td>
-</tr>
-</tbody></table>
-<h4>🏢 Industry News</h4>
-<table>
-<thead>
-<tr>
-<th align="left">Title</th>
-<th align="right">Score</th>
-<th align="right">Comments</th>
-<th align="left">Summary</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left"><a href="https://twitter.com/danintheory/status/2108065033070789090">OpenAI withdraws three mathematical results</a> · <a href="https://news.ycombinator.com/item?id=50002650">HN</a></td>
-<td align="right">251</td>
-<td align="right">545</td>
-<td align="left">OpenAI retracted three claimed mathematical proofs amid scrutiny—sparking concerns about reproducibility and scientific rigor; HN is divided between alarm and skepticism toward corporate AI labs.</td>
-</tr>
-<tr>
-<td align="left"><a href="https://www.cnbc.com/2026/10/08/open-ai-revenue-nvidia-oracle-coreweave.html">OpenAI annualised revenues $20B less than previously signalled</a> · <a href="https://news.ycombinator.com/item?id=50008187">HN</a></td>
-<td align="right">358</td>
-<td align="right">246</td>
-<td align="left">Revised revenue figures suggest OpenAI’s growth may be slower than advertised—raising questions about market positioning and investor confidence.</td>
-</tr>
-<tr>
-<td align="left"><a href="https://biohub.org/news/virtual-biology-initiative-expansion/">AI-ready biological data: $1.8B global commitment</a> · <a href="https://news.ycombinator.com/item?id=50011999">HN</a></td>
-<td align="right">77</td>
-<td align="right">10</td>
-<td align="left">A landmark public-private effort to create standardized, AI-accessible biological datasets—seen as critical for accelerating drug discovery and synthetic biology.</td>
-</tr>
-</tbody></table>
-<h4>💬 Opinions &amp; Debates</h4>
-<table>
-<thead>
-<tr>
-<th align="left">Title</th>
-<th align="right">Score</th>
-<th align="right">Comments</th>
-<th align="left">Summary</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left"><a href="https://www.reddit.com/r/ClaudeAI/s/mbe5IY2LF9">I think I found a planet nobody knew existed. I used Claude Code to find it</a> · <a href="https://news.ycombinator.com/item?id=50002665">HN</a></td>
-<td align="right">115</td>
-<td align="right">49</td>
-<td align="left">A user claims to have discovered a planetary candidate using Claude Code—highlights AI’s emerging role in exploratory science, though experts urge peer review before acceptance.</td>
-</tr>
-<tr>
-<td align="left"><a href="https://rudolphina.univie.ac.at/en/can-ai-replace-mathematicians-university-vienna">Can AI replace mathematicians? Vienna researchers weigh in</a> · <a href="https://news.ycombinator.com/item?id=50010458">HN</a></td>
-<td align="right">6</td>
-<td align="right">0</td>
-<td align="left">University of Vienna study argues AI excels at verification but lacks creativity—reflecting ongoing debate on whether machines can “discover” or only “solve.”</td>
-</tr>
-<tr>
-<td align="left"><a href="https://mikitabalesni.com/letter/letter.pdf">OpenAI cannot make AI safe on its own [pdf]</a> · <a href="https://news.ycombinator.com/item?id=50010569">HN</a></td>
-<td align="right">17</td>
-<td align="right">7</td>
-<td align="left">A strong critique asserting that safety cannot be managed in isolation by any single company—calls for open governance models; resonates with the broader distrust in centralized AI control.</td>
-</tr>
-</tbody></table>
-<hr>
-<h3><strong>Community Sentiment Signal</strong></h3>
-<p>Hacker News today reflects a community deeply engaged yet increasingly cautious about AI’s trajectory. The top-scoring threads—particularly OpenAI’s retractions and revenue revision—indicate a surge in scrutiny over corporate transparency and scientific credibility. These discussions dominate not just in score but in comment volume, revealing a shift from pure excitement to critical evaluation. The controversy around OpenAI’s actions has ignited a broader conversation about accountability, with many users calling for independent verification and open-source validation of AI claims.</p>
-<p>Meanwhile, technical breakthroughs like Step 5 Preview and Sub-1-Bit Compression are met with genuine enthusiasm, signaling continued faith in engineering progress. However, the rise of Show HN projects focused on self-hosted AI agents (Edi Life OS, Aura) suggests a growing desire for autonomy and privacy—possibly a reaction to centralization fears. Compared to previous cycles, there’s a clearer pivot from &quot;what can AI do?&quot; to &quot;who controls it, and how do we trust it?&quot;</p>
-<p>This mood reflects a maturing ecosystem: innovation remains robust, but trust is now the bottleneck.</p>
-<hr>
-<h3><strong>Worth Deep Reading</strong></h3>
-<ol>
-<li><p><strong><a href="https://mikitabalesni.com/letter/letter.pdf">OpenAI cannot make AI safe on its own [pdf]</a></strong><br>— A compelling argument that AI safety requires open collaboration beyond corporate walls. Essential reading for anyone concerned with long-term AI governance and systemic risk.</p>
-</li>
-<li><p><strong><a href="https://www.quantamagazine.org/as-ai-closed-in-on-unique-games-proof-researchers-raced-to-beat-the-machines-20261007/">As AI Closed in on &#39;Unique Games&#39; Proof, Researchers Raced to Beat the Machines</a></strong><br>— A gripping narrative of human-AI co-evolution in theoretical computer science. Offers rare insight into how AI is changing the nature of mathematical discovery.</p>
-</li>
-<li><p><strong><a href="https://github.com/SamsungLabs/LittleBit">Sub-1-Bit LLM Compression via Latent Factorization</a></strong><br>— A groundbreaking paper in model efficiency. For engineers and ML researchers, this represents a potential paradigm shift in deploying AI on resource-constrained devices.</p>
-</li>
-</ol>
-<hr>
-<p><em>This digest is auto-generated by <a href="https://github.com/duanyytop/agents-radar">agents-radar</a>.</em></p>
 ]]></content:encoded>
     </item>
   </channel>

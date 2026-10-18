@@ -6,7 +6,106 @@
     <description>AI 开源生态每日简报 · Daily AI ecosystem digest</description>
     <language>zh-CN</language>
     <atom:link href="https://lijianfeng9.github.io/agents-radar/feed.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Sat, 17 Oct 2026 00:46:52 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 18 Oct 2026 00:16:40 +0000</lastBuildDate>
+    <item>
+      <title>AI 每日要闻 2026-10-18</title>
+      <link>https://lijianfeng9.github.io/agents-radar/#2026-10-18/ai-news</link>
+      <guid isPermaLink="true">https://lijianfeng9.github.io/agents-radar/#2026-10-18/ai-news</guid>
+      <pubDate>Sun, 18 Oct 2026 00:00:00 +0000</pubDate>
+      <description>AI 每日要闻 2026-10-18 数据来源: 量子位 · 雷峰网 · 钛媒体 · 开源中国 · 少数派 · 小众软件 | 生成时间: 2026-10-18 00:15 UTC | 要闻 22 条 / 抓取 27 条 今日速览 DeepSeek发布V4.1-Flash-1017，开放搜索API并主打超高性价比。 智谱发布法律大模型，宣称懂法能力全球第一。 清华开源智能体操作系统，任务成本降83%且支持MCP。 可灵Kling 4.0上线，AI视频生成与资本热度同步升温。 办公AI竞争转向上下文，企业微信、Salesforce等加码。 🔥 大模型动向 DeepSeek发布V4.1-Flash-1017 — 超低价新模型并开放自研搜索API，性价比是最大看点。 智谱发布法律大模型，懂法能力全球第一 — 面向法律场景的专用模型，展示垂直行业落地进展。 Claude半小时解开20年密码学悬案 — AI用半小时破解学界悬案，谜底指向时间，展示推理能力。 Anthropic IPO估值预期下调5000亿美元 — 营收增速回落，投资者下调上市估值，头部模型公司承压。 AI Cloud 100：具...</description>
+      <content:encoded><![CDATA[<h1>AI 每日要闻 2026-10-18</h1>
+<blockquote>
+<p>数据来源: 量子位 · 雷峰网 · 钛媒体 · 开源中国 · 少数派 · 小众软件 | 生成时间: 2026-10-18 00:15 UTC | 要闻 22 条 / 抓取 27 条</p>
+</blockquote>
+<h2>今日速览</h2>
+<ul>
+<li>DeepSeek发布V4.1-Flash-1017，开放搜索API并主打超高性价比。</li>
+<li>智谱发布法律大模型，宣称懂法能力全球第一。</li>
+<li>清华开源智能体操作系统，任务成本降83%且支持MCP。</li>
+<li>可灵Kling 4.0上线，AI视频生成与资本热度同步升温。</li>
+<li>办公AI竞争转向上下文，企业微信、Salesforce等加码。</li>
+</ul>
+<h2>🔥 大模型动向</h2>
+<ul>
+<li><a href="https://www.qbitai.com/2026/10/504067.html">DeepSeek发布V4.1-Flash-1017</a> — 超低价新模型并开放自研搜索API，性价比是最大看点。</li>
+<li><a href="https://www.qbitai.com/2026/10/503965.html">智谱发布法律大模型，懂法能力全球第一</a> — 面向法律场景的专用模型，展示垂直行业落地进展。</li>
+<li><a href="https://www.qbitai.com/2026/10/503910.html">Claude半小时解开20年密码学悬案</a> — AI用半小时破解学界悬案，谜底指向时间，展示推理能力。</li>
+<li><a href="https://www.tmtpost.com/8171993.html">Anthropic IPO估值预期下调5000亿美元</a> — 营收增速回落，投资者下调上市估值，头部模型公司承压。</li>
+<li><a href="https://www.tmtpost.com/8171952.html">AI Cloud 100：具身智能成新前沿</a> — 上海大会榜单显示具身智能公司最多，Physical AI受关注。</li>
+</ul>
+<h2>🤖 智能体 &amp; 开源项目</h2>
+<ul>
+<li><a href="https://www.qbitai.com/2026/10/503935.html">清华开源智能体操作系统，任务成本降83%</a> — 原生支持MCP，AI记忆可查可改，降低智能体任务成本。</li>
+<li><a href="https://www.tmtpost.com/8171971.html">通用大模型重做机器人研发与交付</a> — Claude、GPT-6等生成控制方案，机器人连续1.5小时零失误装配。</li>
+<li><a href="https://github.com/anthropics/claude-plugins-official">Claude Code官方插件目录</a> — Anthropic托管的插件目录，方便发现和安装高质量插件。</li>
+<li><a href="https://github.com/affaan-m/ECC">ECC：智能体性能优化系统</a> — 优化Claude Code等智能体的技能、记忆与安全。</li>
+<li><a href="https://github.com/stablyai/orca">Orca：多智能体工作台</a> — 用自有订阅运行多种编码智能体，支持桌面与远程。</li>
+<li><a href="https://github.com/HKUDS/CLI-Anything">CLI-Anything：让软件Agent化</a> — 用CLI枢纽让所有软件都能被智能体调用。</li>
+<li><a href="https://github.com/xerj-org/xerj">xerj：AI数据搜索新方式</a> — 自动索引代码、文档与日志，比grep少用40倍token。</li>
+</ul>
+<h2>🎬 创作者 · AIGC 玩法</h2>
+<ul>
+<li><a href="https://www.tmtpost.com/8171555.html">Kling 4.0发布，可灵估值反超快手</a> — 可灵新一代视频生成模型上线，AI视频业务估值受关注。</li>
+<li><a href="https://www.tmtpost.com/8171535.html">AI视频创业明星夹在字节缝隙中</a> — 多家AI视频公司估值走高，但字节生态扩张带来竞争压力。</li>
+<li><a href="https://github.com/debpalash/VoiceStudio">VoiceStudio：本地开源语音克隆</a> — 支持语音克隆、设计、配音与646种语言，完全本地运行。</li>
+<li><a href="https://github.com/dramaclaw/dramaclaw">dramaclaw：AIGC视频流水线</a> — 从剧本到成片一条流水线，覆盖短剧、广告和电商视频。</li>
+<li><a href="https://github.com/zenstory-ai/drama-skills">开源AI短剧创作技能集</a> — 覆盖剧本、分镜、图片视频提示词，适配Claude Code。</li>
+</ul>
+<h2>💼 办公提效</h2>
+<ul>
+<li><a href="https://www.tmtpost.com/8171629.html">办公AI竞争转向上下文争夺</a> — Gemini Agent、企业微信WorkBuddy等加码企业上下文与流程。</li>
+<li><a href="https://www.tmtpost.com/8171970.html">Salesforce发布AIforce，按结果收费</a> — 开放软件入口让AI调用数据与流程，探索工作量与结果收费。</li>
+<li><a href="https://github.com/hugohe3/ppt-master">ppt-master：AI生成原生PPT</a> — 把文档或主题变成原生PPT，含图表、动效与配音。</li>
+<li><a href="https://github.com/CherryHQ/cherry-studio">Cherry Studio：多模型生产力工作台</a> — 统一接入前沿模型，内置300+助手与智能体。</li>
+<li><a href="https://github.com/siyuan-note/siyuan">思源笔记：人与AI协作知识库</a> — 开源、隐私优先、自托管，支持AI智能体参与知识管理。</li>
+</ul>
+<h2>📈 GitHub 趋势</h2>
+<table>
+<thead>
+<tr>
+<th align="left">项目</th>
+<th align="right">Stars</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><a href="https://github.com/anthropics/claude-plugins-official">anthropics/claude-plugins-official</a></td>
+<td align="right">41,737（今日 +1,397）</td>
+<td align="left">Anthropic官方Claude Code插件目录，快速发现高质量插件。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/MadsLorentzen/ai-job-search">MadsLorentzen/ai-job-search</a></td>
+<td align="right">50,378（今日 +1,365）</td>
+<td align="left">本地运行的AI求职框架，评估职位并定制简历与面试准备。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/affaan-m/ECC">affaan-m/ECC</a></td>
+<td align="right">282,498（今日 +1,145）</td>
+<td align="left">面向Claude Code等智能体的性能优化系统，覆盖记忆与安全。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/debpalash/VoiceStudio">debpalash/VoiceStudio</a></td>
+<td align="right">73,327（今日 +2,125）</td>
+<td align="left">本地开源的ElevenLabs替代，支持语音克隆、配音和646种语言。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/stablyai/orca">stablyai/orca</a></td>
+<td align="right">95,394（今日 +830）</td>
+<td align="left">集中运行多智能体的工作台，支持桌面、移动与远程运行时。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/xerj-org/xerj">xerj-org/xerj</a></td>
+<td align="right">7,782（今日 +1,160）</td>
+<td align="left">为AI搜索数据建自动索引，比grep少用40倍token。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/HKUDS/CLI-Anything">HKUDS/CLI-Anything</a></td>
+<td align="right">54,051（今日 +574）</td>
+<td align="left">让所有软件都能被智能体调用的CLI枢纽。</td>
+</tr>
+</tbody></table>
+]]></content:encoded>
+    </item>
     <item>
       <title>AI 每日要闻 2026-10-17</title>
       <link>https://lijianfeng9.github.io/agents-radar/#2026-10-17/ai-news</link>
@@ -11768,162 +11867,6 @@ Referenced issue: <a href="https://github.com/RVC-Boss/GPT-SoVITS/issues/2788">h
 
 <hr>
 <p><em>This digest is auto-generated by <a href="https://github.com/duanyytop/agents-radar">agents-radar</a>.</em></p>
-]]></content:encoded>
-    </item>
-    <item>
-      <title>Hacker News AI 社区动态日报 2026-10-09</title>
-      <link>https://lijianfeng9.github.io/agents-radar/#2026-10-09/ai-hn</link>
-      <guid isPermaLink="true">https://lijianfeng9.github.io/agents-radar/#2026-10-09/ai-hn</guid>
-      <pubDate>Fri, 09 Oct 2026 00:00:00 +0000</pubDate>
-      <description>Hacker News AI 社区动态日报 2026-10-09 数据来源: Hacker News | 共 30 条 | 生成时间: 2026-10-09 02:31 UTC 今日亮点 Hacker News 上的 AI 社区正围绕两大主题热烈讨论：人工智能与基础研究（尤其是数学领域）的加速融合，以及对 OpenAI 透明度和财务声明日益增长的怀疑。OpenAI 撤回三项数学成果引发激烈争论，超过 500 条评论质疑其问责制与科学严谨性。与此同时，Step 5 Preview（1M 上下文 MoE）和 Claude Haiku 5.5 等突破预示着模型能力的快速演进，而 Edi Life OS 与 Aura 等项目则反映出人们对自托管、代理驱动型个人系统兴趣的上升。尽管对人工智能在密码学和纯数学等高风险领域的角色充满期待，但忧虑情绪也日益明显。 热点新闻与讨论 🔬 模型与研究 标题 分数 评论数 摘要 Step 5 Preview，来自 StepFun 的 1M 上下文 MoE 模型现身 OpenRouter · HN 104 25 StepFun 推出的新一代 1M 上下文混合专...</description>
-      <content:encoded><![CDATA[<h1>Hacker News AI 社区动态日报 2026-10-09</h1>
-<blockquote>
-<p>数据来源: <a href="https://news.ycombinator.com/">Hacker News</a> | 共 30 条 | 生成时间: 2026-10-09 02:31 UTC</p>
-</blockquote>
-<hr>
-<h3><strong>今日亮点</strong></h3>
-<p>Hacker News 上的 AI 社区正围绕两大主题热烈讨论：人工智能与基础研究（尤其是数学领域）的加速融合，以及对 OpenAI 透明度和财务声明日益增长的怀疑。OpenAI 撤回三项数学成果引发激烈争论，超过 500 条评论质疑其问责制与科学严谨性。与此同时，Step 5 Preview（1M 上下文 MoE）和 Claude Haiku 5.5 等突破预示着模型能力的快速演进，而 <em>Edi Life OS</em> 与 <em>Aura</em> 等项目则反映出人们对自托管、代理驱动型个人系统兴趣的上升。尽管对人工智能在密码学和纯数学等高风险领域的角色充满期待，但忧虑情绪也日益明显。</p>
-<hr>
-<h3><strong>热点新闻与讨论</strong></h3>
-<h4>🔬 模型与研究</h4>
-<table>
-<thead>
-<tr>
-<th align="left">标题</th>
-<th align="right">分数</th>
-<th align="right">评论数</th>
-<th align="left">摘要</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left"><a href="https://openrouter.ai/stepfun/step-5-preview">Step 5 Preview，来自 StepFun 的 1M 上下文 MoE 模型现身 OpenRouter</a> · <a href="https://news.ycombinator.com/item?id=50007764">HN</a></td>
-<td align="right">104</td>
-<td align="right">25</td>
-<td align="left">StepFun 推出的新一代 1M 上下文混合专家模型展现出巨大规模与效率优势；HN 用户对其在复杂推理任务中的潜力表示兴奋，但部分人提醒警惕过早炒作。</td>
-</tr>
-<tr>
-<td align="left"><a href="https://www.anthropic.com/claude-haiku-5-5">Claude Haiku 5.5</a> · <a href="https://news.ycombinator.com/item?id=49996437">HN</a></td>
-<td align="right">1034</td>
-<td align="right">482</td>
-<td align="left">Anthropic 最新轻量级模型在不牺牲质量的前提下提升了速度与成本效益——广受赞誉，被视为高效推理的标杆，尤其适用于实时应用场景。</td>
-</tr>
-<tr>
-<td align="left"><a href="https://github.com/SamsungLabs/LittleBit">基于潜在因子分解的亚 1 位 LLM 压缩技术</a> · <a href="https://news.ycombinator.com/item?id=50005608">HN</a></td>
-<td align="right">77</td>
-<td align="right">23</td>
-<td align="left">这项创新压缩技术将 LLM 存储降至每参数低于 1 位——有望实现设备端大规模部署 AI；开发者对其理论意义与实际可行性深感兴趣。</td>
-</tr>
-<tr>
-<td align="left"><a href="https://www.quantamagazine.org/as-ai-closed-in-on-unique-games-proof-researchers-raced-to-beat-the-machines-20261007/">当 AI 接近“唯一游戏”定理证明时，研究人员争分夺秒赶在机器之前完成验证</a> · <a href="https://news.ycombinator.com/item?id=50012046">HN</a></td>
-<td align="right">4</td>
-<td align="right">0</td>
-<td align="left">AI 靠近计算复杂性理论中一个长期未解的证明，促使人类学者在最后一刻尝试验证或抢先完成——象征着人机发现之间日益加深的张力。</td>
-</tr>
-</tbody></table>
-<h4>🛠️ 工具与工程</h4>
-<table>
-<thead>
-<tr>
-<th align="left">标题</th>
-<th align="right">分数</th>
-<th align="right">评论数</th>
-<th align="left">摘要</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left"><a href="https://github.com/edrisranjbar/lifeos">Show HN：Edi Life OS – 自托管生活仪表盘，配备 MCP 服务器的 AI 代理</a> · <a href="https://news.ycombinator.com/item?id=50014150">HN</a></td>
-<td align="right">21</td>
-<td align="right">3</td>
-<td align="left">一个通过模块化自托管架构管理日常任务的个人 AI 代理系统；早期用户赞赏其隐私导向，但也指出尚处初级阶段，成熟度有限。</td>
-</tr>
-<tr>
-<td align="left"><a href="https://github.com/chetto1983/Aura">Show HN：Aura – 自托管、多用户 AI 代理，支持个性化图谱记忆</a> · <a href="https://news.ycombinator.com/item?id=50010250">HN</a></td>
-<td align="right">6</td>
-<td align="right">1</td>
-<td align="left">以隐私为核心、基于图结构记忆的多用户 AI 代理平台——被视为去中心化个人 AI 生态系统的有前景方向。</td>
-</tr>
-<tr>
-<td align="left"><a href="https://github.com/pingdotgg/ts-rust">由 LLM 生成的 TypeScript 编译器、检查器与 LSP 到 Rust 的移植版本</a> · <a href="https://news.ycombinator.com/item?id=50000676">HN</a></td>
-<td align="right">109</td>
-<td align="right">207</td>
-<td align="left">LLM 自动生成的核心 TS 工具链到 Rust 的移植——展现了 AI 代码生成的潜力与风险；许多人警告其正确性与可维护性隐患。</td>
-</tr>
-</tbody></table>
-<h4>🏢 行业新闻</h4>
-<table>
-<thead>
-<tr>
-<th align="left">标题</th>
-<th align="right">分数</th>
-<th align="right">评论数</th>
-<th align="left">摘要</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left"><a href="https://twitter.com/danintheory/status/2108065033070789090">OpenAI 撤回三项数学成果</a> · <a href="https://news.ycombinator.com/item?id=50002650">HN</a></td>
-<td align="right">251</td>
-<td align="right">545</td>
-<td align="left">OpenAI 在外界审视下撤回三项宣称的数学证明——引发对可复现性与科学严谨性的担忧；HN 社区对此分裂为警觉与对商业 AI 实验室的怀疑两派。</td>
-</tr>
-<tr>
-<td align="left"><a href="https://www.cnbc.com/2026/10/08/open-ai-revenue-nvidia-oracle-coreweave.html">OpenAI 年化收入比此前披露低 200 亿美元</a> · <a href="https://news.ycombinator.com/item?id=50008187">HN</a></td>
-<td align="right">358</td>
-<td align="right">246</td>
-<td align="left">修订后的营收数据表明，OpenAI 的增长可能慢于宣传——引发对其市场定位与投资者信心的质疑。</td>
-</tr>
-<tr>
-<td align="left"><a href="https://biohub.org/news/virtual-biology-initiative-expansion/">面向 AI 的生物数据：全球承诺 18 亿美元</a> · <a href="https://news.ycombinator.com/item?id=50011999">HN</a></td>
-<td align="right">77</td>
-<td align="right">10</td>
-<td align="left">一项里程碑式的公私合作计划，旨在创建标准化、可被 AI 访问的生物数据集——被视为加速药物研发与合成生物学的关键。</td>
-</tr>
-</tbody></table>
-<h4>💬 观点与争议</h4>
-<table>
-<thead>
-<tr>
-<th align="left">标题</th>
-<th align="right">分数</th>
-<th align="right">评论数</th>
-<th align="left">摘要</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left"><a href="https://www.reddit.com/r/ClaudeAI/s/mbe5IY2LF9">我认为我发现了从未被人知晓的行星。我用了 Claude Code 找到了它</a> · <a href="https://news.ycombinator.com/item?id=50002665">HN</a></td>
-<td align="right">115</td>
-<td align="right">49</td>
-<td align="left">一位用户声称使用 Claude Code 发现了一个行星候选体——凸显了人工智能在探索性科学中的新兴作用，但专家仍呼吁在认可前进行同行评审。</td>
-</tr>
-<tr>
-<td align="left"><a href="https://rudolphina.univie.ac.at/en/can-ai-replace-mathematicians-university-vienna">人工智能能否取代数学家？维也纳研究者发声</a> · <a href="https://news.ycombinator.com/item?id=50010458">HN</a></td>
-<td align="right">6</td>
-<td align="right">0</td>
-<td align="left">维也纳大学研究认为，人工智能在验证方面表现优异，但缺乏创造力——反映了关于机器能否“发现”而非仅“求解”的持续争论。</td>
-</tr>
-<tr>
-<td align="left"><a href="https://mikitabalesni.com/letter/letter.pdf">OpenAI 无法独自让人工智能安全 [pdf]</a> · <a href="https://news.ycombinator.com/item?id=50010569">HN</a></td>
-<td align="right">17</td>
-<td align="right">7</td>
-<td align="left">一篇有力批判，主张安全性不能由任何单一公司独立掌控——呼吁开放治理模式；与更广泛的对集中式 AI 控制的不信任感共鸣。</td>
-</tr>
-</tbody></table>
-<hr>
-<h3><strong>社区情绪信号</strong></h3>
-<p>今日的 Hacker News 反映出一个深度参与但日益谨慎的社区。最高分话题——尤其是 OpenAI 的撤稿与营收修正——表明公众对企业的透明度与科学可信度的审查显著增强。这些讨论不仅分数高，评论数量也庞大，显示出从纯粹兴奋转向批判性评估的转变。围绕 OpenAI 行为的争议已激发一场更广泛的问责制对话，许多用户呼吁对 AI 声称进行独立验证与开源复现。</p>
-<p>与此同时，像 Step 5 Preview 与亚 1 位压缩这样的技术突破则引发真实热情，彰显了对工程进步的持续信心。然而，以自托管 AI 代理为核心的 Show HN 项目（如 Edi Life OS、Aura）兴起，暗示人们愈发渴望自主权与隐私保护——可能是对集中化风险的反应。与以往周期相比，公众关注点已从“人工智能能做什么”转向“谁在控制它，我们如何信任它”。</p>
-<p>这一情绪反映了一个正在成熟的生态系统：创新依然强劲，但信任已成为瓶颈。</p>
-<hr>
-<h3><strong>值得深入阅读</strong></h3>
-<ol>
-<li><p><strong><a href="https://mikitabalesni.com/letter/letter.pdf">OpenAI 无法独自让人工智能安全 [pdf]</a></strong><br>—— 一个强有力的论点：人工智能安全需要超越企业围墙的开放协作。对关心长期人工智能治理与系统性风险的人士而言，必读之作。</p>
-</li>
-<li><p><strong><a href="https://www.quantamagazine.org/as-ai-closed-in-on-unique-games-proof-researchers-raced-to-beat-the-machines-20261007/">当 AI 接近“唯一游戏”定理证明时，研究人员争分夺秒赶在机器之前完成验证</a></strong><br>—— 一篇引人入胜的人机协同进化叙事，揭示了人工智能如何重塑理论计算机科学中的数学发现本质。</p>
-</li>
-<li><p><strong><a href="https://github.com/SamsungLabs/LittleBit">基于潜在因子分解的亚 1 位 LLM 压缩技术</a></strong><br>—— 一项模型效率领域的突破性论文。对工程师与机器学习研究者而言，这可能代表在资源受限设备上部署 AI 的范式转变。</p>
-</li>
-</ol>
-<hr>
-<p><em>本日报由 <a href="https://github.com/duanyytop/agents-radar">agents-radar</a> 自动生成。</em></p>
 ]]></content:encoded>
     </item>
   </channel>

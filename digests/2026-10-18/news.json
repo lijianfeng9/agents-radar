@@ -1,0 +1,228 @@
+{
+  "date": "2026-10-18",
+  "generated": "2026-10-18 00:15",
+  "sources": [
+    "量子位",
+    "雷峰网",
+    "钛媒体",
+    "开源中国",
+    "少数派",
+    "小众软件"
+  ],
+  "fetchedCount": 27,
+  "summary": [
+    "DeepSeek发布V4.1-Flash-1017，开放搜索API并主打超高性价比。",
+    "智谱发布法律大模型，宣称懂法能力全球第一。",
+    "清华开源智能体操作系统，任务成本降83%且支持MCP。",
+    "可灵Kling 4.0上线，AI视频生成与资本热度同步升温。",
+    "办公AI竞争转向上下文，企业微信、Salesforce等加码。"
+  ],
+  "sections": {
+    "llm": [
+      {
+        "title": "DeepSeek发布V4.1-Flash-1017",
+        "summary": "超低价新模型并开放自研搜索API，性价比是最大看点。",
+        "url": "https://www.qbitai.com/2026/10/504067.html"
+      },
+      {
+        "title": "智谱发布法律大模型，懂法能力全球第一",
+        "summary": "面向法律场景的专用模型，展示垂直行业落地进展。",
+        "url": "https://www.qbitai.com/2026/10/503965.html"
+      },
+      {
+        "title": "Claude半小时解开20年密码学悬案",
+        "summary": "AI用半小时破解学界悬案，谜底指向时间，展示推理能力。",
+        "url": "https://www.qbitai.com/2026/10/503910.html"
+      },
+      {
+        "title": "Anthropic IPO估值预期下调5000亿美元",
+        "summary": "营收增速回落，投资者下调上市估值，头部模型公司承压。",
+        "url": "https://www.tmtpost.com/8171993.html"
+      },
+      {
+        "title": "AI Cloud 100：具身智能成新前沿",
+        "summary": "上海大会榜单显示具身智能公司最多，Physical AI受关注。",
+        "url": "https://www.tmtpost.com/8171952.html"
+      }
+    ],
+    "agents": [
+      {
+        "title": "清华开源智能体操作系统，任务成本降83%",
+        "summary": "原生支持MCP，AI记忆可查可改，降低智能体任务成本。",
+        "url": "https://www.qbitai.com/2026/10/503935.html"
+      },
+      {
+        "title": "通用大模型重做机器人研发与交付",
+        "summary": "Claude、GPT-6等生成控制方案，机器人连续1.5小时零失误装配。",
+        "url": "https://www.tmtpost.com/8171971.html"
+      },
+      {
+        "title": "Claude Code官方插件目录",
+        "summary": "Anthropic托管的插件目录，方便发现和安装高质量插件。",
+        "url": "https://github.com/anthropics/claude-plugins-official"
+      },
+      {
+        "title": "ECC：智能体性能优化系统",
+        "summary": "优化Claude Code等智能体的技能、记忆与安全。",
+        "url": "https://github.com/affaan-m/ECC"
+      },
+      {
+        "title": "Orca：多智能体工作台",
+        "summary": "用自有订阅运行多种编码智能体，支持桌面与远程。",
+        "url": "https://github.com/stablyai/orca"
+      },
+      {
+        "title": "CLI-Anything：让软件Agent化",
+        "summary": "用CLI枢纽让所有软件都能被智能体调用。",
+        "url": "https://github.com/HKUDS/CLI-Anything"
+      },
+      {
+        "title": "xerj：AI数据搜索新方式",
+        "summary": "自动索引代码、文档与日志，比grep少用40倍token。",
+        "url": "https://github.com/xerj-org/xerj"
+      }
+    ],
+    "creator": [
+      {
+        "title": "Kling 4.0发布，可灵估值反超快手",
+        "summary": "可灵新一代视频生成模型上线，AI视频业务估值受关注。",
+        "url": "https://www.tmtpost.com/8171555.html"
+      },
+      {
+        "title": "AI视频创业明星夹在字节缝隙中",
+        "summary": "多家AI视频公司估值走高，但字节生态扩张带来竞争压力。",
+        "url": "https://www.tmtpost.com/8171535.html"
+      },
+      {
+        "title": "VoiceStudio：本地开源语音克隆",
+        "summary": "支持语音克隆、设计、配音与646种语言，完全本地运行。",
+        "url": "https://github.com/debpalash/VoiceStudio"
+      },
+      {
+        "title": "dramaclaw：AIGC视频流水线",
+        "summary": "从剧本到成片一条流水线，覆盖短剧、广告和电商视频。",
+        "url": "https://github.com/dramaclaw/dramaclaw"
+      },
+      {
+        "title": "开源AI短剧创作技能集",
+        "summary": "覆盖剧本、分镜、图片视频提示词，适配Claude Code。",
+        "url": "https://github.com/zenstory-ai/drama-skills"
+      }
+    ],
+    "office": [
+      {
+        "title": "办公AI竞争转向上下文争夺",
+        "summary": "Gemini Agent、企业微信WorkBuddy等加码企业上下文与流程。",
+        "url": "https://www.tmtpost.com/8171629.html"
+      },
+      {
+        "title": "Salesforce发布AIforce，按结果收费",
+        "summary": "开放软件入口让AI调用数据与流程，探索工作量与结果收费。",
+        "url": "https://www.tmtpost.com/8171970.html"
+      },
+      {
+        "title": "ppt-master：AI生成原生PPT",
+        "summary": "把文档或主题变成原生PPT，含图表、动效与配音。",
+        "url": "https://github.com/hugohe3/ppt-master"
+      },
+      {
+        "title": "Cherry Studio：多模型生产力工作台",
+        "summary": "统一接入前沿模型，内置300+助手与智能体。",
+        "url": "https://github.com/CherryHQ/cherry-studio"
+      },
+      {
+        "title": "思源笔记：人与AI协作知识库",
+        "summary": "开源、隐私优先、自托管，支持AI智能体参与知识管理。",
+        "url": "https://github.com/siyuan-note/siyuan"
+      }
+    ]
+  },
+  "trending": [
+    {
+      "repo": "anthropics/claude-plugins-official",
+      "url": "https://github.com/anthropics/claude-plugins-official",
+      "stars": "41,737（今日 +1,397）",
+      "summary": "Anthropic官方Claude Code插件目录，快速发现高质量插件。"
+    },
+    {
+      "repo": "MadsLorentzen/ai-job-search",
+      "url": "https://github.com/MadsLorentzen/ai-job-search",
+      "stars": "50,378（今日 +1,365）",
+      "summary": "本地运行的AI求职框架，评估职位并定制简历与面试准备。"
+    },
+    {
+      "repo": "affaan-m/ECC",
+      "url": "https://github.com/affaan-m/ECC",
+      "stars": "282,498（今日 +1,145）",
+      "summary": "面向Claude Code等智能体的性能优化系统，覆盖记忆与安全。"
+    },
+    {
+      "repo": "debpalash/VoiceStudio",
+      "url": "https://github.com/debpalash/VoiceStudio",
+      "stars": "73,327（今日 +2,125）",
+      "summary": "本地开源的ElevenLabs替代，支持语音克隆、配音和646种语言。"
+    },
+    {
+      "repo": "stablyai/orca",
+      "url": "https://github.com/stablyai/orca",
+      "stars": "95,394（今日 +830）",
+      "summary": "集中运行多智能体的工作台，支持桌面、移动与远程运行时。"
+    },
+    {
+      "repo": "xerj-org/xerj",
+      "url": "https://github.com/xerj-org/xerj",
+      "stars": "7,782（今日 +1,160）",
+      "summary": "为AI搜索数据建自动索引，比grep少用40倍token。"
+    },
+    {
+      "repo": "HKUDS/CLI-Anything",
+      "url": "https://github.com/HKUDS/CLI-Anything",
+      "stars": "54,051（今日 +574）",
+      "summary": "让所有软件都能被智能体调用的CLI枢纽。"
+    }
+  ],
+  "cards": [
+    {
+      "title": "DeepSeek新模型发布",
+      "description": "超低价新模型并开放自研搜索API，性价比拉满。",
+      "url": "https://www.qbitai.com/2026/10/504067.html"
+    },
+    {
+      "title": "清华开源智能体OS",
+      "description": "任务成本降83%，记忆可查可改且原生支持MCP。",
+      "url": "https://www.qbitai.com/2026/10/503935.html"
+    },
+    {
+      "title": "Claude破解20年悬案",
+      "description": "半小时解开学界20年悬案，展示强推理能力。",
+      "url": "https://www.qbitai.com/2026/10/503910.html"
+    },
+    {
+      "title": "Kling 4.0上线",
+      "description": "可灵新一代视频生成模型，画面与叙事再升级。",
+      "url": "https://www.tmtpost.com/8171555.html",
+      "image": "https://images.tmtpost.com/uploads/images/2026/10/16/208af9427cd4c6ef7c7c81ddfb89793d_1792147217.jpeg"
+    },
+    {
+      "title": "开源本地VoiceStudio",
+      "description": "本地开源语音克隆与配音，支持646种语言。",
+      "url": "https://github.com/debpalash/VoiceStudio"
+    },
+    {
+      "title": "AI生成原生PPT",
+      "description": "把文档或主题变成带动效、图表与配音的PPT。",
+      "url": "https://github.com/hugohe3/ppt-master"
+    },
+    {
+      "title": "Claude Code插件目录",
+      "description": "Anthropic官方插件目录，一键发现高质量插件。",
+      "url": "https://github.com/anthropics/claude-plugins-official"
+    },
+    {
+      "title": "办公AI转向上下文",
+      "description": "Gemini Agent、企业微信WorkBuddy加码企业上下文。",
+      "url": "https://www.tmtpost.com/8171629.html",
+      "image": "https://images.tmtpost.com/uploads/images/2023/tkrss/43t5y6jytfeb3.png"
+    }
+  ]
+}

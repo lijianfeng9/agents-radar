@@ -6,7 +6,105 @@
     <description>AI 开源生态每日简报 · Daily AI ecosystem digest</description>
     <language>zh-CN</language>
     <atom:link href="https://lijianfeng9.github.io/agents-radar/feed.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Mon, 19 Oct 2026 00:28:56 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 20 Oct 2026 01:15:32 +0000</lastBuildDate>
+    <item>
+      <title>AI 每日要闻 2026-10-20</title>
+      <link>https://lijianfeng9.github.io/agents-radar/#2026-10-20/ai-news</link>
+      <guid isPermaLink="true">https://lijianfeng9.github.io/agents-radar/#2026-10-20/ai-news</guid>
+      <pubDate>Tue, 20 Oct 2026 00:00:00 +0000</pubDate>
+      <description>AI 每日要闻 2026-10-20 数据来源: 雷峰网 · 钛媒体 · 爱范儿 · 开源中国 · 少数派 · 小众软件 | 生成时间: 2026-10-20 01:14 UTC | 要闻 16 条 / 抓取 51 条 今日速览 DeepSeek V4.1 Flash 更新，许愿式编程与搜索 API 同步开放 腾讯混元用 Terminal-RSI 让模型习得新能力，RSI 竞赛升温 Manus Cue、Muse、Dot 等个人 Agent 实测：能力增强但限制仍多 Lovart 2.0 把设计 AI 推向个人助理，创作工作流更完整 GitHub 上 AI 求职、多 Agent 编排和 ComfyUI 持续走热 🔥 大模型动向 DeepSeek V4.1 Flash 更新与搜索 API 开放 — 模型能力与速度提升，搜索 API 开放且按成功请求低价计费 腾讯混元 Terminal-RSI：让模型学会新能力 — 用 RSI 让模型超越原框架，在终端实操基准中提升表现 Kimi 与 DeepSeek 的路线差异越来越明显 — 融资、收入、技术与商业化选择分化，国产大模型进入分层竞争 Me...</description>
+      <content:encoded><![CDATA[<h1>AI 每日要闻 2026-10-20</h1>
+<blockquote>
+<p>数据来源: 雷峰网 · 钛媒体 · 爱范儿 · 开源中国 · 少数派 · 小众软件 | 生成时间: 2026-10-20 01:14 UTC | 要闻 16 条 / 抓取 51 条</p>
+</blockquote>
+<h2>今日速览</h2>
+<ul>
+<li>DeepSeek V4.1 Flash 更新，许愿式编程与搜索 API 同步开放</li>
+<li>腾讯混元用 Terminal-RSI 让模型习得新能力，RSI 竞赛升温</li>
+<li>Manus Cue、Muse、Dot 等个人 Agent 实测：能力增强但限制仍多</li>
+<li>Lovart 2.0 把设计 AI 推向个人助理，创作工作流更完整</li>
+<li>GitHub 上 AI 求职、多 Agent 编排和 ComfyUI 持续走热</li>
+</ul>
+<h2>🔥 大模型动向</h2>
+<ul>
+<li><a href="https://www.oschina.net/news/503080">DeepSeek V4.1 Flash 更新与搜索 API 开放</a> — 模型能力与速度提升，搜索 API 开放且按成功请求低价计费</li>
+<li><a href="https://www.tmtpost.com/8173087.html">腾讯混元 Terminal-RSI：让模型学会新能力</a> — 用 RSI 让模型超越原框架，在终端实操基准中提升表现</li>
+<li><a href="https://www.tmtpost.com/8172461.html">Kimi 与 DeepSeek 的路线差异越来越明显</a> — 融资、收入、技术与商业化选择分化，国产大模型进入分层竞争</li>
+<li><a href="https://www.leiphone.com/category/ai/jKVjygWUe9Aj0QEd.html">Meta Muse Wonder 3D 建模遭质疑</a> — 开发者复测发现 3D 短板，官方承认跨模型测试差异</li>
+<li><a href="https://www.leiphone.com/category/industrynews/uCsyLxONvXeV9qXc.html">AI 人才薪酬倒挂，大厂抢人卷到职级</a> — 基础模型岗位薪资高于高职级，招聘收缩但顶尖人才仍不设预算</li>
+<li><a href="https://www.leiphone.com/category/chips/56PWzwTNdteGx04q.html">铭芯启睿完成超 4 亿元 A 轮融资</a> — 前 Graphcore 总裁加入，押注 LPU 与阻变存储器 AI 芯片</li>
+</ul>
+<h2>🤖 智能体 &amp; 开源项目</h2>
+<ul>
+<li><a href="https://www.oschina.net/news/503098">YOLO Data Agent v1.1.0 发布</a> — 开源数据智能体，用可验证链路避免大模型直接写 SQL 的口径漂移</li>
+<li><a href="https://www.tmtpost.com/8173445.html">Manus Cue 实测：AI 助理有了身份证</a> — 可独立邮箱、电话、钱包与电脑，但电话支付仍受国际账号限制</li>
+<li><a href="https://www.tmtpost.com/8173460.html">Muse 与 Dot 实测：洋 Agent 逛中国互联网</a> — 对比两款个人 Agent 处理日程、邮件和国内电商任务的实际表现</li>
+<li><a href="https://www.oschina.net/news/503095">RuleGo v1.0.0 发布：规则链编排 AI 智能体</a> — Go 语言规则引擎首个稳定版，可视化拖拽即可编排自动化与 Agent</li>
+<li><a href="https://www.leiphone.com/category/ai/wHcf2tZUiQkXGM0i.html">Anthropic 换掉 Git：AI 编码反噬工具链</a> — 代码变更暴增迫使自研版本控制系统，GitHub 也改造密钥扫描</li>
+</ul>
+<h2>🎬 创作者 · AIGC 玩法</h2>
+<ul>
+<li><a href="https://www.ifanr.com/1684840">实测 Lovart 2.0：设计 AI 进入个人助理时代</a> — 从出图走向理解品牌、协作改稿和复用经验，减少设计沟通成本</li>
+<li><a href="https://www.appinn.com/fake-photocraft-malware/">AI 复刻 Adobe 全家桶，黑客借机投毒</a> — 仿冒 PhotoCraft 的安装包携带恶意程序，创作者下载开源工具需警惕</li>
+</ul>
+<h2>💼 办公提效</h2>
+<ul>
+<li><a href="https://www.oschina.net/news/503096">调问更新：AI 电话问卷与智能回访上线</a> — 开源问卷系统支持电话回访、配额甄别，企业调研收集更灵活</li>
+<li><a href="https://www.oschina.net/news/503081">WIKI 知识库 v1.1.3：补齐关键词检索</a> — BM25 与向量召回融合再重排，专有名词和原文检索更准</li>
+<li><a href="https://www.oschina.net/news/503074">伏羲智能决策工作台 v0.0.2 发布</a> — 打通需求分析到 DMN 生成，业务人员可更快落决策模型</li>
+</ul>
+<h2>📈 GitHub 趋势</h2>
+<table>
+<thead>
+<tr>
+<th align="left">项目</th>
+<th align="right">Stars</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><a href="https://github.com/MadsLorentzen/ai-job-search">MadsLorentzen/ai-job-search</a></td>
+<td align="right">57,330（今日 +3,856）</td>
+<td align="left">基于 Claude Code 的求职框架，评估岗位、改简历、备面试一站完成</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/stablyai/orca">stablyai/orca</a></td>
+<td align="right">98,307（今日 +1,590）</td>
+<td align="left">在同一处调度多智能体舰队，桌面、移动和远程运行都可接入</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/anomalyco/opencode">anomalyco/opencode</a></td>
+<td align="right">217,827（今日 +1,311）</td>
+<td align="left">开源编码智能体，可直接在终端理解代码库并执行开发任务</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/Comfy-Org/ComfyUI">Comfy-Org/ComfyUI</a></td>
+<td align="right">139,740（今日 +1,011）</td>
+<td align="left">节点式扩散模型工作台，本地生图与视频创作的高效引擎</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/akitaonrails/ai-memory">akitaonrails/ai-memory</a></td>
+<td align="right">11,361（今日 +666）</td>
+<td align="left">为编码 Agent 提供长期记忆，方便在不同供应商间交接上下文</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/HKUDS/CLI-Anything">HKUDS/CLI-Anything</a></td>
+<td align="right">55,249（今日 +606）</td>
+<td align="left">让各类软件具备 Agent 原生接口，扩展自动化操作边界</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/ruvnet/ruflo">ruvnet/ruflo</a></td>
+<td align="right">77,201（今日 +564）</td>
+<td align="left">多智能体蜂群编排框架，内置记忆、RAG 与自学习能力</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/headroomlabs-ai/headroom">headroomlabs-ai/headroom</a></td>
+<td align="right">76,256（今日 +310）</td>
+<td align="left">压缩工具输出与 RAG 片段，为编码 Agent 降低 20% 以上 token</td>
+</tr>
+</tbody></table>
+]]></content:encoded>
+    </item>
     <item>
       <title>AI 每日要闻 2026-10-19</title>
       <link>https://lijianfeng9.github.io/agents-radar/#2026-10-19/ai-news</link>
@@ -10437,766 +10535,6 @@ Referenced issue: <a href="https://github.com/RVC-Boss/GPT-SoVITS/issues/2788">h
 
 <hr>
 <p><em>This digest is auto-generated by <a href="https://github.com/duanyytop/agents-radar">agents-radar</a>.</em></p>
-]]></content:encoded>
-    </item>
-    <item>
-      <title>AI 基础设施日报 2026-10-09</title>
-      <link>https://lijianfeng9.github.io/agents-radar/#2026-10-09/ai-infra</link>
-      <guid isPermaLink="true">https://lijianfeng9.github.io/agents-radar/#2026-10-09/ai-infra</guid>
-      <pubDate>Fri, 09 Oct 2026 00:00:00 +0000</pubDate>
-      <description>AI 基础设施日报 2026-10-09 生成时间: 2026-10-09 02:31 UTC | 覆盖项目: 6 个 vLLM SGLang llama.cpp Ollama LiteLLM Unsloth 横向对比 跨项目AI基础设施生态报告 – 2026-10-09 1. 生态概览 2026年末的AI基础设施格局呈现出明显的两极分化：一端是高性能、低延迟的服务引擎，另一端是以开发者为中心、灵活的运行时平台，二者在智能体工作流的边缘逐步融合。vLLM和SGLang在优化下一代架构（SM12x、ROCm、DSpark）的推理性能方面处于领先地位，而llama.cpp和Ollama则聚焦于跨平台可访问性与本地执行。Unsloth作为混合型力量崭露头角——在训练与推理之间架起桥梁，并专精于决策模型。LiteLLM则充当企业级编排层，支持多服务商集成与成本感知路由。整个生态正在快速成熟，但各层级的稳定性问题仍反复出现。 2. 活跃度对比 项目 开启的问题 (↑) 合并的PR (↑) 发布状态 vLLM 147 (+8) 53 (+12) 无新发布（v0.31 稳定版） SGLang 183...</description>
-      <content:encoded><![CDATA[<h1>AI 基础设施日报 2026-10-09</h1>
-<blockquote>
-<p>生成时间: 2026-10-09 02:31 UTC | 覆盖项目: 6 个</p>
-</blockquote>
-<ul>
-<li><a href="https://github.com/vllm-project/vllm">vLLM</a></li>
-<li><a href="https://github.com/sgl-project/sglang">SGLang</a></li>
-<li><a href="https://github.com/ggml-org/llama.cpp">llama.cpp</a></li>
-<li><a href="https://github.com/ollama/ollama">Ollama</a></li>
-<li><a href="https://github.com/BerriAI/litellm">LiteLLM</a></li>
-<li><a href="https://github.com/unslothai/unsloth">Unsloth</a></li>
-</ul>
-<hr>
-<h2>横向对比</h2>
-<h1><strong>跨项目AI基础设施生态报告 – 2026-10-09</strong></h1>
-<hr>
-<h3><strong>1. 生态概览</strong></h3>
-<p>2026年末的AI基础设施格局呈现出明显的两极分化：一端是<strong>高性能、低延迟的服务引擎</strong>，另一端是<strong>以开发者为中心、灵活的运行时平台</strong>，二者在智能体工作流的边缘逐步融合。vLLM和SGLang在优化下一代架构（SM12x、ROCm、DSpark）的推理性能方面处于领先地位，而llama.cpp和Ollama则聚焦于跨平台可访问性与本地执行。Unsloth作为混合型力量崭露头角——在训练与推理之间架起桥梁，并专精于决策模型。LiteLLM则充当企业级编排层，支持多服务商集成与成本感知路由。整个生态正在快速成熟，但各层级的稳定性问题仍反复出现。</p>
-<hr>
-<h3><strong>2. 活跃度对比</strong></h3>
-<table>
-<thead>
-<tr>
-<th>项目</th>
-<th>开启的问题 (↑)</th>
-<th>合并的PR (↑)</th>
-<th>发布状态</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><strong>vLLM</strong></td>
-<td>147 (+8)</td>
-<td>53 (+12)</td>
-<td>无新发布（v0.31 稳定版）</td>
-</tr>
-<tr>
-<td><strong>SGLang</strong></td>
-<td>183 (+11)</td>
-<td>41 (+9)</td>
-<td>无新发布（v0.30.x 活跃）</td>
-</tr>
-<tr>
-<td><strong>llama.cpp</strong></td>
-<td>192 (+15)</td>
-<td>28 (+7)</td>
-<td>v1.10.0-b11514（已修复补丁）</td>
-</tr>
-<tr>
-<td><strong>Ollama</strong></td>
-<td>218 (+13)</td>
-<td>37 (+10)</td>
-<td>v0.40.2 已发布（存在关键MLX问题）</td>
-</tr>
-<tr>
-<td><strong>LiteLLM</strong></td>
-<td>124 (+6)</td>
-<td>24 (+5)</td>
-<td>v1.106.0-dev.2（非破坏性更新）</td>
-</tr>
-<tr>
-<td><strong>Unsloth</strong></td>
-<td>161 (+9)</td>
-<td>45 (+11)</td>
-<td>v0.1.905-beta（功能预览版）</td>
-</tr>
-</tbody></table>
-<blockquote>
-<p>🔍 <em>观察</em>：<strong>Ollama和llama.cpp</strong> 问题数量最高，源于平台特定的回归问题（MLX线程限制、Vulkan内核缺陷）。<strong>Unsloth</strong> 在PR提交速度上领先，主要由预览版功能开发驱动。</p>
-</blockquote>
-<hr>
-<h3><strong>3. 模型支持竞赛</strong></h3>
-<table>
-<thead>
-<tr>
-<th>新模型 / 架构</th>
-<th>vLLM</th>
-<th>SGLang</th>
-<th>llama.cpp</th>
-<th>Ollama</th>
-<th>LiteLLM</th>
-<th>Unsloth</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><strong>GLM-5.3-Flash</strong></td>
-<td>✅ (ROCm/SM12x)</td>
-<td>⚠️ 输出退化</td>
-<td>✅ (b11507+)</td>
-<td>❌</td>
-<td>✅</td>
-<td>✅ (Q4_K_M GGUF)</td>
-</tr>
-<tr>
-<td><strong>Qwen3.8-Flash-Next</strong></td>
-<td>✅ (ROCm追踪)</td>
-<td>✅ (DSV41)</td>
-<td>✅ (GGUF)</td>
-<td>⚠️ 云端失败</td>
-<td>✅</td>
-<td>❌</td>
-</tr>
-<tr>
-<td><strong>DeepSeek-V4.1-Flash</strong></td>
-<td>✅ (SM120 有限支持)</td>
-<td>✅ (DSV41 优化)</td>
-<td>✅ (DFlash)</td>
-<td>❌</td>
-<td>❌</td>
-<td>✅ (实验性)</td>
-</tr>
-<tr>
-<td><strong>Kimi K2.5 视觉编码器</strong></td>
-<td>✅ (修复 eager torch.compile)</td>
-<td>❌</td>
-<td>❌</td>
-<td>❌</td>
-<td>❌</td>
-<td>❌</td>
-</tr>
-<tr>
-<td><strong>MiniCPM-V 4.7 (3D RoPE)</strong></td>
-<td>❌</td>
-<td>❌</td>
-<td>✅</td>
-<td>❌</td>
-<td>❌</td>
-<td>❌</td>
-</tr>
-<tr>
-<td><strong>GPT-6.1 Sol (Bedrock)</strong></td>
-<td>❌</td>
-<td>❌</td>
-<td>❌</td>
-<td>❌</td>
-<td>✅</td>
-<td>❌</td>
-</tr>
-<tr>
-<td><strong>决策模型 (Jev风格)</strong></td>
-<td>❌</td>
-<td>❌</td>
-<td>❌</td>
-<td>❌</td>
-<td>❌</td>
-<td>✅ (v0.1.905-beta)</td>
-</tr>
-</tbody></table>
-<blockquote>
-<p>🏆 <strong>胜者</strong>：<strong>Unsloth</strong> 在<strong>专用模型支持</strong>上领先，尤其凭借其全新的<strong>决策模型训练流水线</strong>。<br>🥈 <strong>亚军</strong>：<strong>vLLM</strong> 在<strong>多架构就绪性</strong>（ROCm、SM12x、DSpark）方面表现突出，尤其适合高吞吐推理场景。<br>🥉 <strong>显著缺口</strong>：尚无项目能完整支持<strong>具备3D RoPE的视觉语言模型</strong>，仅限基础GGUF加载。</p>
-</blockquote>
-<hr>
-<h3><strong>4. 性能前沿</strong></h3>
-<table>
-<thead>
-<tr>
-<th>优化重点</th>
-<th>vLLM</th>
-<th>SGLang</th>
-<th>llama.cpp</th>
-<th>Ollama</th>
-<th>LiteLLM</th>
-<th>Unsloth</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><strong>KV缓存效率</strong></td>
-<td>✅ FP8 OOM修复、AITER、分片</td>
-<td>✅ 池级别分片、DSA</td>
-<td>✅ MoE跨GPU缓存</td>
-<td>⚠️ 上下文截断</td>
-<td>❌</td>
-<td>⚠️ MoE溢出至内存</td>
-</tr>
-<tr>
-<td><strong>内核级优化</strong></td>
-<td>✅ AITER top-k（300μs）、XQA</td>
-<td>✅ FlashInfer自动调优、GEMM融合</td>
-<td>✅ Radix top-k（-99.7%）</td>
-<td>⚠️ 线程组限制</td>
-<td>❌</td>
-<td>✅ 修补内核</td>
-</tr>
-<tr>
-<td><strong>量化与内存管理</strong></td>
-<td>✅ <code>fp8</code> + CUDA图修复</td>
-<td>✅ <code>repetition_penalty</code>崩溃修复</td>
-<td>✅ 动态量化</td>
-<td>❌</td>
-<td>✅ BYOK成本追踪</td>
-<td>✅ 自动缩放的MoE溢出</td>
-</tr>
-<tr>
-<td><strong>分布式服务</strong></td>
-<td>✅ 流水线并行、split_group</td>
-<td>✅ KV分片、MTP/DSA</td>
-<td>❌（单卡专注）</td>
-<td>❌</td>
-<td>✅ 多服务商路由</td>
-<td>❌</td>
-</tr>
-<tr>
-<td><strong>推测性解码</strong></td>
-<td>✅ 稳定（PR #60753）</td>
-<td>✅ MiniMax-M3配对</td>
-<td>✅ DFlash支持</td>
-<td>❌</td>
-<td>❌</td>
-<td>❌</td>
-</tr>
-</tbody></table>
-<blockquote>
-<p>🔥 <strong>性能王者</strong>：<strong>llama.cpp</strong> 在<strong>内核优化</strong>（Radix top-k降低约99.7%）和<strong>MoE跨GPU扩展性</strong>方面占据绝对优势。<br>💡 <strong>新兴焦点</strong>：<strong>vLLM与SGLang</strong> 正在推进<strong>推测性解码稳定性</strong>与<strong>分布式KV分片</strong>——这对智能体系统至关重要。</p>
-</blockquote>
-<hr>
-<h3><strong>5. 层级定位</strong></h3>
-<table>
-<thead>
-<tr>
-<th>项目</th>
-<th>主要层级</th>
-<th>核心差异点</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><strong>vLLM</strong></td>
-<td><strong>推理引擎</strong></td>
-<td>NVIDIA/ROCm环境下的高性能、低延迟服务行业标准；后端集成能力最强</td>
-</tr>
-<tr>
-<td><strong>SGLang</strong></td>
-<td><strong>推理引擎 + 运行时</strong></td>
-<td>独特组合：支持FlashInfer自动调优、推测性解码与Apple Silicon重构；连接引擎与应用</td>
-</tr>
-<tr>
-<td><strong>llama.cpp</strong></td>
-<td><strong>本地运行时 / 嵌入式</strong></td>
-<td>CPU/GPU/边缘推理领域的最佳实践；主导基于GGUF的本地部署</td>
-</tr>
-<tr>
-<td><strong>Ollama</strong></td>
-<td><strong>网关 / 开发者体验</strong></td>
-<td>通过CLI/UI简化模型接入；社区集成强大，但后端稳定性脆弱</td>
-</tr>
-<tr>
-<td><strong>LiteLLM</strong></td>
-<td><strong>API网关 / 编排层</strong></td>
-<td>企业级多服务商路由、成本追踪、按用户认证（GitHub Copilot BYOK）</td>
-</tr>
-<tr>
-<td><strong>Unsloth</strong></td>
-<td><strong>训练/微调 + 推理</strong></td>
-<td>首个发布<strong>决策模型训练</strong>能力；结合高效微调与可导出推理流水线</td>
-</tr>
-</tbody></table>
-<blockquote>
-<p>🧩 <strong>战略洞察</strong>：<strong>训练-推理鸿沟正在缩小</strong>。Unsloth能够直接训练并导出<strong>决策模型</strong>，标志着向<strong>端到端智能体生命周期平台</strong>的转变。</p>
-</blockquote>
-<hr>
-<h3><strong>6. 趋势信号</strong></h3>
-<h4><strong>从今日活动提取的关键趋势</strong></h4>
-<ol>
-<li><p><strong>智能体工作流正加剧稳定性压力</strong><br>多个项目报告在多轮推理中出现输出退化（如vLLM/SGLang中的GLM-5.3-Flash），表明长上下文、迭代式智能体已成为核心推理可靠性的压力测试场景。</p>
-</li>
-<li><p><strong>硬件碎片化持续加剧</strong><br><strong>Apple Silicon（MLX线程限制）</strong>、<strong>MUSA（FWHT溢出）</strong> 和 <strong>ROCm（精度崩溃）</strong> 的关键问题暴露了深层的平台特异性不稳定性——尤其在非NVIDIA环境中更为明显。</p>
-</li>
-<li><p><strong>量化与内存管理已成为核心功能</strong><br>Unsloth的动态MoE溢出、vLLM的分页共享内存、Unsloth的自动缩放GPU缓存表明，高效的内存使用不再可选，而是规模化的核心要素。</p>
-</li>
-<li><p><strong>企业级可观测性已成为刚需</strong><br>LiteLLM的<code>AggregatingSink</code>遥测与GitHub Copilot BYOK令牌计费，反映出生产级大模型栈对<strong>成本透明度</strong>与<strong>可审计性</strong>的需求日益增长。</p>
-</li>
-<li><p><strong>专业化 &gt; 通用化</strong><br>Unsloth的决策模型发布、SGLang的Apple Silicon重构、llama.cpp的XDNA支持，均表明<strong>平台专属优化已成为新的竞争壁垒</strong>。</p>
-</li>
-</ol>
-<h4><strong>应用开发者应关注事项</strong></h4>
-<ul>
-<li><strong>避免在Apple Silicon上使用Ollama v0.40.x</strong> —— 建议暂用v0.35.1，直至MLX线程组问题修复。</li>
-<li><strong>勿在无JIT支持的情况下启用 <code>kv_cache_dtype=&quot;fp8&quot;</code></strong>（vLLM）。</li>
-<li><strong>多模态任务请使用 <code>paged_shm</code> 或 <code>--mm-processor-cache-type paged_shm</code></strong>（vLLM）。</li>
-<li><strong>若运行长期存活代理，建议将LiteLLM固定在v1.104.2</strong> —— RAM泄漏问题仍存在。</li>
-<li><strong>尽早测试决策模型流水线</strong> —— Unsloth的v0.1.905-beta已支持强大的新型智能体模式。</li>
-</ul>
-<blockquote>
-<p>✅ <strong>结论</strong>：基础设施栈正变得更强大，但也更脆弱。<strong>稳定性、内存安全与硬件可移植性</strong>已成为关键差异化因素。除非你在构建实验性智能体，否则应优先选择<strong>生产就绪版本</strong>，而非追逐前沿功能。</p>
-</blockquote>
-<hr>
-<h2>各项目详细报告</h2>
-<details>
-<summary><strong>vLLM</strong> — <a href="https://github.com/vllm-project/vllm">vllm-project/vllm</a></summary>
-
-<h1>vLLM Digest – 2026-10-09</h1>
-<hr>
-<h3><strong>1. 今日亮点</strong></h3>
-<p>vLLM 持续保持强劲的优化势头，针对 GLM-5.3-Flash 与 Qwen3-Next 在 ROCm 及 SM12x GPU 上实现了关键性能提升，并修复了 FP8 KV 缓存 OOM 问题以及推测解码稳定性问题。值得注意的是，一项高影响力 PR 引入了 GDN 后端的内部预填充检查点，显著提升了长上下文推理效率——尤其适用于智能体工作流。</p>
-<hr>
-<h3><strong>2. 发布与破坏性变更</strong></h3>
-<p>过去 24 小时内未报告任何发布或破坏性变更。未观察到新版本发布或 API/配置的破坏性更改。</p>
-<hr>
-<h3><strong>3. 新模型与硬件支持</strong></h3>
-<ul>
-<li>✅ <strong>GLM-5.3-Flash</strong>：通过基于分片索引器的预填充优化（PR #54951）和 AITER 预填充优化（PR #60753），现已支持 SM12x 与 ROCm 平台。</li>
-<li>✅ <strong>Qwen3.8-Flash-Next / Qwen3.8-2.4T-A95B</strong>：针对 ROCm（gfx950/MI355X）的性能追踪与优化工作正在进行中（问题 #59575, #57149）。</li>
-<li>✅ <strong>DeepSeek-V4.1-Flash</strong>：已添加对 SM120（RTX PRO 6000 Blackwell）的支持，但受限于缺失 FlashInfer 稀疏 MLA 内核，仅支持 <code>page_block_size=64</code>（问题 #59203）。</li>
-<li>✅ <strong>Kimi K2.5 Vision Encoder</strong>：修复了导致热缓存重载失败的 eager <code>torch.compile</code> 问题（PR #53011）。</li>
-</ul>
-<blockquote>
-<p>🔗 <a href="https://github.com/vllm-project/vllm/pull/54951">GLM-5.3-Flash 分片索引器</a> | <a href="https://github.com/vllm-project/vllm/issues/59575">Qwen3-Next ROCm 优化</a></p>
-</blockquote>
-<hr>
-<h3><strong>4. 性能与优化</strong></h3>
-<ul>
-<li><strong>GLM-5.3-Flash (ROCm)</strong>：AITER 预填充 top-k 时间从 <strong>1.9ms → ~300μs/层</strong>（512k ISL 时），每最终分块减少约 350ms 的总开销（PR #60753）。</li>
-<li><strong>NVIDIA SM12x</strong>：NVFP4 KV 缓存解码现在正确使用 XQA 注意力后端，而非回退至 FA2（PR #60452），避免了不必要的 CUDA Graph 开销。</li>
-<li><strong>多模态内存</strong>：分页共享内存存储（<code>--mm-processor-cache-type paged_shm</code>）支持高效的多模态张量进程间通信（PR #51349）。</li>
-<li><strong>流水线并行</strong>：延迟创建 NCCL2 组提升了在 <code>split_group</code> 模式下的启动可靠性（PR #60751）。</li>
-<li><strong>KV 缓存规划</strong>：关于模型自定义规划的 RFC（问题 #44276）旨在降低复杂部署中的内存碎片。</li>
-</ul>
-<blockquote>
-<p>🔗 <a href="https://github.com/vllm-project/vllm/pull/60753">AITER 预填充 Top-K 优化</a> | <a href="https://github.com/vllm-project/vllm/pull/60452">SM12x XQA 解码修复</a></p>
-</blockquote>
-<hr>
-<h3><strong>5. 稳定性与回归问题</strong></h3>
-<ul>
-<li>⚠️ <strong>严重 FP8 KV 缓存 OOM</strong>：由于启动阶段未计入 CUDA Graph 内存预算，导致崩溃（问题 #60350）。<em>修复 PR 待提交。</em></li>
-<li>⚠️ <strong>DFlash2/DSpark + 前缀缓存损坏</strong>：在 Qwen3.8-27B NVFP4（v0.30/0.31）上缓存命中后出现输出损坏——确认为回归问题（问题 #60174）。<em>暂无修复方案。</em></li>
-<li>⚠️ <strong>GLM-5.3-Flash 性能退化</strong>：多轮智能体使用中反复出现“词乱”输出（问题 #56605）。<em>根本原因可能与长解码累积有关。</em></li>
-<li>⚠️ <strong>ROCm 准确性崩溃</strong>：启用 <code>VLLM_ROCM_USE_AITER=1</code> 的高并发运行中出现准确性下降（问题 #60160）。</li>
-<li>⚠️ <strong>FlashInfer 回退崩溃</strong>：当无可用 JIT 时，<code>kv_cache_dtype=&quot;fp8&quot;</code> 会静默失败（问题 #60262）。<em>应自动回退至 TRITON_ATTN。</em></li>
-</ul>
-<blockquote>
-<p>🔗 <a href="https://github.com/vllm-project/vllm/issues/60350">FP8 OOM 问题</a> | <a href="https://github.com/vllm-project/vllm/issues/60174">Qwen3.8-27B 损坏问题</a></p>
-</blockquote>
-<hr>
-<h3><strong>6. 对应用开发者的启示</strong></h3>
-<ul>
-<li><strong>非 JIT 环境下避免使用 <code>kv_cache_dtype=&quot;fp8&quot;</code></strong>：请显式指定 <code>--attention-backend triton</code>，直至自动回退机制修复（问题 #60262）。</li>
-<li><strong>多模态工作负载推荐使用 <code>paged_shm</code></strong>：可降低 GPU 内存压力并提升 IPC 效率（PR #51349）。</li>
-<li><strong>关注 v0.30+ 中的回归问题</strong>：避免在前缀缓存场景中使用 <code>DFlash2/DSpark</code>；预计 Qwen3.8-27B 输出质量下降。</li>
-<li><strong>仅在稳定时启用 AITER</strong>：在 ROCm 平台上，高并发场景下请禁用 <code>VLLM_ROCM_USE_AITER=1</code>，直到问题 #60160 解决。</li>
-<li><strong>规划长上下文智能体流程</strong>：鉴于 GLM-5.3-Flash 存在退化问题，建议谨慎处理重复推理循环，考虑批处理或状态剪枝。</li>
-</ul>
-<blockquote>
-<p>💡 技巧提示：对于生产级智能体系统，建议优先使用 <code>--attention-backend triton</code> 而非 <code>flashinfer</code>，直至 FP8/CUDA Graph 相关缺陷修复完成。</p>
-</blockquote>
-<hr>
-<p><em>数据来源：<a href="https://github.com/vllm-project/vllm">vLLM GitHub</a></em></p>
-</details>
-
-<details>
-<summary><strong>SGLang</strong> — <a href="https://github.com/sgl-project/sglang">sgl-project/sglang</a></summary>
-
-<h1>SGLang Digest — 2026-10-09</h1>
-<hr>
-<h3><strong>1. 今日亮点</strong></h3>
-<p>SGLang 项目持续推进下一代大模型服务基础设施的建设，重点包括 <strong>CI 稳定性改进</strong>、<strong>DeepSeek V4.1 优化</strong> 以及 <strong>Apple Silicon 服务架构重构</strong>。值得注意的是，多个 PR 已合并或提交，聚焦于 FlashInfer 自动调优、KV 缓存分片和 DSpark/DSV41 模型的推测解码等关键性能提升。</p>
-<hr>
-<h3><strong>2. 发布与破坏性变更</strong></h3>
-<p><em>过去 24 小时内未发布新版本。</em><br>但多项配置与 API 变更正在进行中：</p>
-<ul>
-<li><strong><code>--enable-deterministic-inference</code> + <code>repetition_penalty</code> 现在会在 granite-4.0-h 上触发 <code>torch.compile</code> 崩溃</strong>（问题 <a href="https://github.com/sgl-project/sglang/issues/43061">#43061</a>），表明在特定推理模式下存在潜在破坏性行为。</li>
-<li>一项新的 <strong>基于能力的设备准入机制 RFC</strong> (<a href="https://github.com/sgl-project/sglang/issues/42173">#42173</a>) 提出对非 NVIDIA CUDA 兼容平台施加更严格的验证，可能影响未来的部署灵活性。</li>
-</ul>
-<hr>
-<h3><strong>3. 新模型与硬件支持</strong></h3>
-<ul>
-<li>✅ <strong>MiniMax-M3 DSpark</strong>：通过 PR <a href="https://github.com/sgl-project/sglang/pull/33673">#33673</a> 添加推测解码支持，实现与 MiniMax-M3 的草稿模型配对，显著加快生成速度。</li>
-<li>📌 <strong>Apple Silicon (MLX/Torch)</strong>：<a href="https://github.com/sgl-project/sglang/issues/32321">RFC 提案</a> 描述了使用导出的 MLX 区域和由 Torch 主导的 SRT 路径对 Apple Silicon 服务进行完整重构——这是实现 M 系列原生性能的关键。</li>
-<li>🔧 <strong>NPU 支持扩展</strong>：持续集成华为 Ascend NPU，更新 GLM-5.2 DSA CP V2 策略 (<a href="https://github.com/sgl-project/sglang/pull/40165">#40165</a>) 并增强 DSA KV 布局能力检测 (<a href="https://github.com/sgl-project/sglang/pull/41875">#41875</a>)。</li>
-<li>⚙️ <strong>ROCm/AMD</strong>：为 MI355 上的 <code>residual_gate_add</code> 内核添加 PTX 跳过逻辑，防止 ROCm 编译失败 (<a href="https://github.com/sgl-project/sglang/pull/43103">#43103</a>)。</li>
-</ul>
-<hr>
-<h3><strong>4. 性能与优化</strong></h3>
-<ul>
-<li><strong>FlashInfer 自动调优缓存持久化</strong>：修复每秩 MoE GEMM 形状不匹配导致启动时缓存被丢弃的问题 (<a href="https://github.com/sgl-project/sglang/issues/40320">#40320</a>)；现在可在重启间复用。</li>
-<li><strong>KV 缓存分片</strong>：两项重大 PR 实现了 <strong>DSA 索引器</strong> (<a href="https://github.com/sgl-project/sglang/pull/40925">#40925</a>) 和 <strong>MTP</strong> (<a href="https://github.com/sgl-project/sglang/pull/40929">#40929</a>) 的池级分片，显著提升大规模部署下的可扩展性。</li>
-<li><strong>DeepSeek V4.1 (DSV41) 优化流水线</strong>：<ul>
-<li>集成 <strong>DeepGEMM MegaGate 路由</strong> (<a href="https://github.com/sgl-project/sglang/pull/43244">#43244</a>)</li>
-<li>启用 <strong>mHC SP + engram 融合</strong>（追踪于 <a href="https://github.com/sgl-project/sglang/issues/42170">#43065</a>）</li>
-<li>将 <code>q_rope_store</code> 合并进 <code>fused_q_norm_rope</code> (<a href="https://github.com/sgl-project/sglang/pull/41657">#41657</a>)</li>
-</ul>
-</li>
-<li><strong>调度器重叠</strong>：PR <a href="https://github.com/sgl-project/sglang/pull/43177">#43177</a> 将调度器启动与数据并行控制器初始化重叠，有效降低冷启动延迟。</li>
-</ul>
-<hr>
-<h3><strong>5. 稳定性与回归问题</strong></h3>
-<p>⚠️ <strong>严重问题报告</strong>：</p>
-<ol>
-<li><strong>GLM-5.3-Flash 退化输出</strong>（多工具提示下出现 <code>!</code> 重复）：问题 <a href="https://github.com/sgl-project/sglang/issues/40843">#40843</a> 与 <a href="https://github.com/sgl-project/sglang/issues/36669">#36669</a> 中报告。暂无修复 PR；影响推理代理。</li>
-<li><strong>Falcon-H1 在首次请求时崩溃</strong>：由默认可中断预填充 CUDA Graph 触发非法内存访问 (<a href="https://github.com/sgl-project/sglang/issues/42774">#42774</a>)。优先级高。</li>
-<li><strong>流断开后僵尸请求泄漏</strong>：源自回滚的 #34160 (<a href="https://github.com/sgl-project/sglang/issues/36333">#36333</a>) — 导致残留状态，引发“state was deleted”错误。</li>
-</ol>
-<p>🛠️ <strong>不稳定的 CI 基础设施</strong>：问题 <a href="https://github.com/sgl-project/sglang/issues/42752">#42752</a> 报告 <code>PR Test Base/Extra</code> 存在反复失败现象，影响 PR 审查效率。</p>
-<hr>
-<h3><strong>6. 对应用开发者的启示</strong></h3>
-<ul>
-<li><strong>在修复落地前，请避免在 <code>repetition_penalty</code> 下使用 <code>--enable-deterministic-inference</code></strong> (<a href="https://github.com/sgl-project/sglang/issues/43061">#43061</a>)。</li>
-<li><strong>仅当不依赖前缀复用指标时才使用 <code>--schedule-policy fcfs</code> 等策略</strong> — 因为 <code>num_matched_prefix_tokens</code> 仍为零 (<a href="https://github.com/sgl-project/sglang/issues/43094">#43094</a>)。</li>
-<li><strong>对 GLM-5.3-Flash 和复杂工具调用场景预期不稳定</strong> — 建议准备降级方案或输入净化逻辑。</li>
-<li><strong>Apple Silicon 用户</strong>：请关注 <a href="https://github.com/sgl-project/sglang/issues/32321">Apple Silicon RFC</a> 以获取原生 MLX/Torch 集成进展。</li>
-<li><strong>在 NVIDIA DGX Spark (SM121) 上进行生产部署时</strong>：建议通过 QSA/GDN 调优优化 (<a href="https://github.com/sgl-project/sglang/issues/36796">#36796</a>)，并在必要时确保禁用 CUDA Graph。</li>
-</ul>
-<blockquote>
-<p>🔗 <em>实时协作请加入 Slack：<a href="https://slack.sglang.ai">slack.sglang.ai</a></em></p>
-</blockquote>
-</details>
-
-<details>
-<summary><strong>llama.cpp</strong> — <a href="https://github.com/ggml-org/llama.cpp">ggml-org/llama.cpp</a></summary>
-
-<p><strong>llama.cpp Digest – 2026-10-09</strong></p>
-<hr>
-<h3><strong>1. 今日亮点</strong></h3>
-<p>最新发布周期（b11514–b11501）聚焦于 CUDA 与 Vulkan 内核的关键优化，包括一项基于基数的 top-k 性能改进，使大上下文模型的内核启动次数减少约 70%。关键稳定性修复解决了多 GPU 上 MoE 缓存分布、DFlash 输出头共享以及 MUSA 上的共享内存限制问题。这些更新共同推动了高吞吐推理的可扩展性及跨后端的可靠性。</p>
-<hr>
-<h3><strong>2. 发布与破坏性变更</strong></h3>
-<ul>
-<li><strong>b11514</strong>：通过 PR <a href="https://github.com/ggml-org/llama.cpp/pull/30167">#30167</a> 修复 MUSA (<code>mp_21</code>) 上 FWHT 共享内存溢出问题；若使用大型张量的 MUSA 后端，需重新编译。</li>
-<li><strong>b11512</strong>：通过从 GGUF 元数据读取绑定权重，修复 DFlash 输出头共享缺陷；解决混合/绑定架构中的模型状态损坏问题 (<a href="https://github.com/ggml-org/llama.cpp/pull/30111">#30111</a>)。</li>
-<li><strong>b11507</strong>：通过层拆分支持跨多 GPU 的 MoE 专家缓存（PR <a href="https://github.com/ggml-org/llama.cpp/pull/30112">#30112</a>)；使多 GPU 系统上可运行更大规模的 MoE 模型。</li>
-</ul>
-<blockquote>
-<p>✅ <em>今日未报告破坏性 API 变更。迁移需使用更新后的后端重新编译。</em></p>
-</blockquote>
-<hr>
-<h3><strong>3. 新增模型与硬件支持</strong></h3>
-<ul>
-<li><strong>硬件</strong>：新增对 <strong>XDNA 后端</strong>（Issue #21725）的实验性支持，面向专用 AI 加速器。</li>
-<li><strong>模型</strong>：初步支持 <strong>MiniCPM-V 4.7</strong>，包含 3D RoPE（PR <a href="https://github.com/ggml-org/llama.cpp/pull/29416">#29416</a>)，实现对下一代视觉语言模型的推理。</li>
-<li><strong>后端</strong>：持续优化 <strong>SYCL/OpenCL</strong>（PRs <a href="https://github.com/ggml-org/llama.cpp/pull/30185">#30185</a>, <a href="https://github.com/ggml-org/llama.cpp/pull/30184">#30184</a>)，适配 Adreno A6x 及其他移动 GPU。</li>
-</ul>
-<hr>
-<h3><strong>4. 性能与优化</strong></h3>
-<ul>
-<li><strong>CUDA Top-K</strong>：以网格遍历行的 <strong>基数选择</strong> 替代 CUB 的每行 <code>DeviceTopKKernel</code>（PR <a href="https://github.com/ggml-org/llama.cpp/pull/28713">#28713</a>）。在 Qwen4exp 34,816 token 场景下：<strong>内核启动次数从 1,671,253 降至 5,761</strong>，开销降低 <strong>约 99.7%</strong>。</li>
-<li><strong>Vulkan Flash Attention</strong>：引入查询行切片（512 行块），优化深层 KV 上下文处理（PR <a href="https://github.com/ggml-org/llama.cpp/pull/30191">#30191</a>），提升 RDNA3 显卡的吞吐量。</li>
-<li><strong>SYCL 优化</strong>：将残差加法融合进 RMSNorm，优化分块门控 delta 网络预填充（PRs <a href="https://github.com/ggml-org/llama.cpp/pull/30183">#30183</a>–<a href="https://github.com/ggml-org/llama.cpp/pull/30182">#30182</a>），显著提升 Adreno 平台解码效率。</li>
-<li><strong>CPU Concat</strong>：修复线程固定宽度拼接逻辑，使其在所有张量维度上均衡分配工作（PR <a href="https://github.com/ggml-org/llama.cpp/pull/30150">#30150</a>），消除单线程瓶颈。</li>
-</ul>
-<hr>
-<h3><strong>5. 稳定性与回归问题</strong></h3>
-<table>
-<thead>
-<tr>
-<th>严重程度</th>
-<th>问题</th>
-<th>影响</th>
-<th>修复状态</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>关键</td>
-<td><a href="https://github.com/ggml-org/llama.cpp/issues/25593">评估错误：SM_60 FP32 静默数学损失</a></td>
-<td>P100 (sm_60) 上因 FP16→FP32 提升导致质量下降</td>
-<td>❌ 尚未修复</td>
-</tr>
-<tr>
-<td>高</td>
-<td><a href="https://github.com/ggml-org/llama.cpp/issues/30107">Vulkan TOP_K: +inf/NaN 被忽略</a></td>
-<td>极端值导致无效的令牌选择</td>
-<td>✅ 已在 b11505 中修复</td>
-</tr>
-<tr>
-<td>高</td>
-<td><a href="https://github.com/ggml-org/llama.cpp/issues/27282">多 GPU MoE 缓存导致崩溃</a></td>
-<td>GPU 居住的 LRU 在 MTP 草稿上下文中触发 OOM</td>
-<td>✅ b11507 中部分修复</td>
-</tr>
-<tr>
-<td>中等</td>
-<td><a href="https://github.com/ggml-org/llama.cpp/issues/27638">Flash Attention 回退到 SCALAR 路径导致 O(N²)</a></td>
-<td>Intel Arc 设备在高负载下出现设备丢失</td>
-<td>⚠️ 正在处理中（PR <a href="https://github.com/ggml-org/llama.cpp/pull/30191">#30191</a>)</td>
-</tr>
-</tbody></table>
-<blockquote>
-<p>🔴 <strong>注意</strong>：自 #29622 之后，<code>Qwen3.8-Flash-Next-GGUF:UD-IQ3_XXS</code> 性能下降（问题 #30033）表明近期 SYCL 变更可能影响某些量化方案。</p>
-</blockquote>
-<hr>
-<h3><strong>6. 对应用开发者的启示</strong></h3>
-<ul>
-<li><strong>使用 b11507+ 版本</strong> 进行跨多 GPU 的 MoE 推理（如 Qwen3.8-Flash-Next）——新的层拆分缓存机制支持可扩展部署。</li>
-<li><strong>启用 <code>GGML_CUDA_TOPK_RADIX_MIN_ROWS</code></strong>（默认值：1024），以利用新基数 top-k 优化，适用于长上下文模型（≥32K token）。</li>
-<li><strong>避免使用 <code>cache_prompt=false</code></strong>，除非手动管理检查点——近期 PR 跳过了不必要的内存节省，但可能破坏现有流程。</li>
-<li><strong>密切监控 Vulkan/MUSA 构建</strong>：MUSA 现在需显式调优大尺寸 FWHT 内核，Vulkan 仍对极端输入（+inf/NaN）敏感。</li>
-<li><strong>考虑在移动端或 AI 加速器目标上使用 SYCL</strong>——持续的 OpenCL/SYCL 优化在 Adreno 与 XDNA 平台上已展现显著性能提升。</li>
-</ul>
-<p>👉 <em>生产环境建议：升级后务必针对您的模型栈进行测试，尤其是使用推测解码或 MoE 时。</em></p>
-</details>
-
-<details>
-<summary><strong>Ollama</strong> — <a href="https://github.com/ollama/ollama">ollama/ollama</a></summary>
-
-<h3><strong>Ollama Digest — 2026-10-09</strong></h3>
-<h4><strong>1. 今日亮点</strong></h4>
-<p>Ollama 团队发布了 <strong>v0.40.2</strong>，重点提升内部稳定性与用户体验，包括隐藏重复的模型保护项，并在社区集成中新增 <code>oxi</code>。针对 MLX 后端的关键回归问题（例如 <code>qwen3.6:35b-mlx</code> 崩溃）正在积极排查中，已有多个 PR 在处理崩溃传播和内存清理问题。与此同时，社区仍在推动 Intel OpenVINO 集成及云模型可靠性的改进。</p>
-<h4><strong>2. 发布与破坏性变更</strong></h4>
-<ul>
-<li><strong>v0.40.2</strong>（今日发布）：  <ul>
-<li>通过 <a href="https://github.com/ollama/ollama/pull/18874">PR #18874</a> 修复了 <code>ollama list</code> 中重复/旧版模型保护项的可见性问题。  </li>
-<li>在社区集成中新增 <code>oxi</code> (<a href="https://github.com/ollama/ollama/pull/18739">PR #18739</a>)。  </li>
-<li><em>未检测到破坏性 API 变更。</em></li>
-</ul>
-</li>
-</ul>
-<h4><strong>3. 新模型与硬件支持</strong></h4>
-<ul>
-<li><strong>Intel OpenVINO</strong>：高优先级功能请求 <a href="https://github.com/ollama/ollama/issues/2169">#2169</a> 仍处于开放状态（95 个赞），倡导在 Intel 系统上自动启用 OpenVINO 备用方案。相关议题：<a href="https://github.com/ollama/ollama/issues/15917">#15917</a> 要求通过 OpenVINO 实现原生 Intel GPU/NPU 支持。  </li>
-<li><strong>MLX 后端</strong>：Apple Silicon 上持续开发；但 v0.40.x 版本报告多起崩溃（如 <a href="https://github.com/ollama/ollama/issues/18870">#18870</a>, <a href="https://github.com/ollama/ollama/issues/18856">#18856</a>），原因是线程组限制（<code>Maximum threads per threadgroup is 896 but requested 1024</code>）。  </li>
-<li><strong>模型请求</strong>：  <ul>
-<li>请求添加 <a href="https://huggingface.co/collections/IndexTeam/index-translate">Index Translate 家族</a> (<a href="https://github.com/ollama/ollama/issues/18871">#18871</a>)。  </li>
-<li>云模型如 <code>deepseek-v4.1-flash:cloud</code>, <code>mimo-v2.6</code>, <code>hy4</code>, <code>stepfun</code>, <code>laguna</code>, 以及 <code>reflection-ai</code> 被广泛请求 (<a href="https://github.com/ollama/ollama/issues/18850">#18850</a>)。</li>
-</ul>
-</li>
-</ul>
-<h4><strong>4. 性能与优化</strong></h4>
-<ul>
-<li><strong>MLX 内核限制</strong>：<code>mlx runner</code> 中存在关键回归，当超出线程组限制时会引发崩溃（例如 <code>sdpa_vector_2pass_1_bfloat16_t_256_256_nomask_qnt_c_nos</code> 内核需 1024 个线程，最大允许为 896）——详见 <a href="https://github.com/ollama/ollama/issues/18846">#18846</a>, <a href="https://github.com/ollama/ollama/issues/18856">#18856</a>。  </li>
-<li><strong>内存管理</strong>：如 <a href="https://github.com/ollama/ollama/pull/18882">#18882</a> 所示，旨在通过加载时迁移旧版 GGUF 补丁并启动时回收未引用块，消除遗留补丁，提升长期存储效率。  </li>
-<li><strong>流式传输与上下文处理</strong>：正在修复上下文截断逻辑 (<a href="https://github.com/ollama/ollama/issues/17778">#17778</a>) 以及流式响应中的工具调用处理 (<a href="https://github.com/ollama/ollama/issues/18798">#18798</a>)。</li>
-</ul>
-<h4><strong>5. 稳定性与回归问题</strong></h4>
-<ul>
-<li><strong>严重（高危）</strong>：  <ul>
-<li>Apple Silicon（M 系列）上运行 <code>qwen3.6:35b-mlx</code> 时出现 <code>mlx runner panic: Maximum threads</code> —— 在 v0.40.0–0.40.1-rc0 中可复现，但在 v0.35.0 中未出现 (<a href="https://github.com/ollama/ollama/issues/18856">#18856</a>)。  </li>
-<li><code>gemma4:e2b-mlx</code> 在 M6 Mac Mini 上因 <code>mlx runner failed: panic: mlx</code> 无法运行 (<a href="https://github.com/ollama/ollama/issues/18885">#18885</a>)。  </li>
-<li><code>gpt-oss:latest</code> 在 NVIDIA GPU 上出现 <code>ffn_down_exps.weight size overflows</code> 问题 (<a href="https://github.com/ollama/ollama/issues/18869">#18869</a>)。</li>
-</ul>
-</li>
-<li><strong>中等</strong>：  <ul>
-<li><code>Clef Flash</code> 在 <code>num_ctx=16384</code> 时无法加载，因 <code>n_ubatch = n_ctx</code> 导致 OOM (<a href="https://github.com/ollama/ollama/issues/18865">#18865</a>)。  </li>
-<li><code>embeddinggemma-2:740m</code> 在无 MLX 运行时的 Linux 系统上无法拉取 (<a href="https://github.com/ollama/ollama/issues/18825">#18825</a>)。  </li>
-<li><code>ollama run</code> 在 RPi 5 上首次调用后会无声挂起 (<a href="https://github.com/ollama/ollama/issues/18796">#18796</a>)。</li>
-</ul>
-</li>
-<li><strong>正在进行修复</strong>：  <ul>
-<li><a href="https://github.com/ollama/ollama/pull/18886">#18886</a>：防止清理过程中触发屏蔽式崩溃。  </li>
-<li><a href="https://github.com/ollama/ollama/pull/18882">#18882</a>：加载时迁移旧版 GGUF，移除兼容性补丁。</li>
-</ul>
-</li>
-</ul>
-<h4><strong>6. 对应用开发者的意义</strong></h4>
-<ul>
-<li><strong>避免在 Apple Silicon（MLX）上使用 v0.40.x</strong>：请使用 v0.35.1 或更早版本，直到 <code>mlx</code> 线程组问题解决。大型模型（如 <code>qwen3.6:35b-mlx</code>, <code>gemma4:e2b-mlx</code>）可能引发崩溃。  </li>
-<li><strong>云模型需谨慎</strong>：<code>deepseek-v4.1-flash:cloud</code> 在图像输入超过约 655k token 时返回 500 错误 (<a href="https://github.com/ollama/ollama/issues/18853">#18853</a>)；建议对高上下文多模态任务使用本地模型。  </li>
-<li><strong>流式响应注意点</strong>：注意 <code>/v1/responses</code> 流中 <code>output_index</code> 重用及消息重排序问题 (<a href="https://github.com/ollama/ollama/issues/18798">#18798</a>) —— 客户端需验证排序逻辑。  </li>
-<li><strong>模型选择建议</strong>：对于 Intel 系统，关注 <a href="https://github.com/ollama/ollama/issues/2169">#2169</a> 以获取未来 OpenVINO 集成进展。  </li>
-<li><strong>CI 可靠性提升</strong>：新引入的 CI 重试逻辑 (<a href="https://github.com/ollama/ollama/pull/18883">#18883</a>) 提升了构建稳定性，对分支工作流尤为有益。</li>
-</ul>
-<hr>
-<p><em>本摘要基于 GitHub 活动（2026-10-08–09）整理。请持续关注 PR 与议题以获取实时更新。</em></p>
-</details>
-
-<details>
-<summary><strong>LiteLLM</strong> — <a href="https://github.com/BerriAI/litellm">BerriAI/litellm</a></summary>
-
-<p><strong>LiteLLM 摘要 – 2026-10-09</strong></p>
-<hr>
-<h3><strong>1. 今日亮点</strong></h3>
-<p>LiteLLM 生态系统持续演进，重点聚焦遥测、稳定性及企业级集成。主要进展包括通过 BYOK（问题 #45422）增强 GitHub Copilot 的成本追踪能力，改进对 AWS Bedrock 上新 GPT-6.1 Sol 模型的支持（PRs #45488, #45482），以及在高负载下修复内存泄漏和流式输出正确性等关键问题。一项重要 PR (#45487) 引入了聚合遥测接收器，有效降低噪声同时保留可操作指标。</p>
-<hr>
-<h3><strong>2. 发布与破坏性变更</strong></h3>
-<p>最新版本（<code>v1.106.0-dev.2</code>、<code>v1.105.0-rc.3</code>、<code>v1.104.2</code>、<code>v1.102.4</code>、<code>v1.101.6</code>）无破坏性变更。所有 Docker 镜像均使用 <a href="https://docs.sigstore.dev/cosign/overview/">cosign</a> 签名，密钥与 <a href="https://github.com/BerriAI/litellm/commit/0112e53046018d726492c814b3644b7d376029d0">提交 <code>0112e53</code></a> 中引入的相同。用户部署前应验证签名。</p>
-<blockquote>
-<p>🔗 <a href="https://docs.sigstore.dev/cosign/overview/">验证 Docker 镜像签名</a></p>
-</blockquote>
-<hr>
-<h3><strong>3. 新模型与硬件支持</strong></h3>
-<ul>
-<li>✅ <strong>GPT-6.1 Sol（AWS Bedrock）</strong>：上下文窗口提升至 1,000,000 标记；已在 Bedrock 模型卡片中新增超快速层级定价 (<a href="https://github.com/BerriAI/litellm/pull/45488">PR #45488</a>, <a href="https://github.com/BerriAI/litellm/pull/45482">PR #45482</a>)。  </li>
-<li>✅ <strong>Microsoft 365 Copilot</strong>：新增 <code>microsoft_365_copilot</code> 提供商，支持按用户进行 OAuth token 交换 (<a href="https://github.com/BerriAI/litellm/pull/45158">PR #45158</a>)。  </li>
-<li>✅ <strong>GitHub Copilot（BYOK）</strong>：现已通过 OAuth 支持按用户认证 (<a href="https://github.com/BerriAI/litellm/pull/45241">PR #45241</a>)。</li>
-</ul>
-<blockquote>
-<p>🔗 <a href="https://github.com/BerriAI/litellm/pull/45158">添加 Microsoft 365 Copilot 提供商</a><br>🔗 <a href="https://github.com/BerriAI/litellm/pull/45241">为 Copilot 添加按用户 GitHub OAuth</a></p>
-</blockquote>
-<hr>
-<h3><strong>4. 性能与优化</strong></h3>
-<ul>
-<li>📈 <strong>遥测聚合</strong>：新引入的 <code>AggregatingSink</code> 通过将每请求事件折叠为固定桶直方图，大幅降低遥测数据量，实现可扩展的可观测性，而不会压垮后端系统 (<a href="https://github.com/BerriAI/litellm/pull/45487">PR #45487</a>)。  </li>
-<li>⚙️ <strong>速率限制可见性提升</strong>：当共享策略执行不可用时，Redis 限流器回退机制现在提供更清晰的状态报告 (<a href="https://github.com/BerriAI/litellm/issues/35533">问题 #35533</a>)。  </li>
-<li>🔁 <strong>流式传输效率</strong>：已修复 vLLM 后端模型在 <code>stream=True + logprobs=True</code> 场景下导致流提前终止的问题 (<a href="https://github.com/BerriAI/litellm/issues/18801">问题 #18801</a>)。</li>
-</ul>
-<hr>
-<h3><strong>5. 稳定性与回归问题</strong></h3>
-<p>高严重性问题仍处于活跃状态，主要集中于资源管理和数据完整性：</p>
-<table>
-<thead>
-<tr>
-<th>问题</th>
-<th>严重性</th>
-<th>状态</th>
-<th>修复 PR？</th>
-<th>备注</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><a href="https://github.com/BerriAI/litellm/issues/12685">#12685</a></td>
-<td>严重</td>
-<td>已关闭</td>
-<td>否</td>
-<td>长时间运行后内存占用持续升高；重启前无法恢复。</td>
-</tr>
-<tr>
-<td><a href="https://github.com/BerriAI/litellm/issues/27954">#27954</a></td>
-<td>高</td>
-<td>开放</td>
-<td>否</td>
-<td>Kubernetes Pod 因未受控的内存增长而崩溃。</td>
-</tr>
-<tr>
-<td><a href="https://github.com/BerriAI/litellm/issues/45422">#45422</a></td>
-<td>高</td>
-<td>开放</td>
-<td>否</td>
-<td>自 v1.103.1 升级至 v1.104.2 后，GitHub Copilot BYOK 的标记计数功能失效。</td>
-</tr>
-<tr>
-<td><a href="https://github.com/BerriAI/litellm/issues/45457">#45457</a></td>
-<td>中等</td>
-<td>开放</td>
-<td>否</td>
-<td>Google GenAI 流在首个分块前即中断；无重试逻辑。</td>
-</tr>
-</tbody></table>
-<blockquote>
-<p>🔗 <a href="https://github.com/BerriAI/litellm/issues/12685">内存泄漏问题</a><br>🔗 <a href="https://github.com/BerriAI/litellm/issues/45422">GitHub Copilot 标记计数失败</a></p>
-</blockquote>
-<hr>
-<h3><strong>6. 对应用开发者的启示</strong></h3>
-<ul>
-<li><strong>长期运行代理需谨慎</strong>：若用于生产环境，请密切监控内存使用情况——问题 #12685 报告的内存泄漏表明可能需要定期重启或主动进行内存剖析。  </li>
-<li><strong>采用新的认证模式</strong>：为实现安全且用户粒度的访问控制（如 Copilot、M365），建议通过 <code>github_copilot/per-user-oauth</code> 和 <code>microsoft_365_copilot</code> 使用按用户的 OAuth 流程。  </li>
-<li><strong>期待更优的可观测性</strong>：借助 <code>AggregatingSink</code> 与结构化遥测，现在可构建更精准的成本仪表盘和 SLO，而无需面对海量日志。  </li>
-<li><strong>避免在 vLLM 上使用 <code>logprobs + stream</code></strong>：在修复前，请使用其他提供商，或禁用其中任一功能以避免崩溃。</li>
-</ul>
-<p>👉 <em>建议</em>：若可靠性至关重要，请锁定稳定版本（<code>v1.104.2</code> 或更早）；仅在测试环境中启用 <code>v1.106.0-dev.2</code> 并开启监控。</p>
-<hr>
-<p><em>摘要源自 GitHub 活动（2026-10-09）。获取实时更新，请关注 <a href="https://github.com/BerriAI/litellm">BerriAI/litellm</a>。</em></p>
-</details>
-
-<details>
-<summary><strong>Unsloth</strong> — <a href="https://github.com/unslothai/unsloth">unslothai/unsloth</a></summary>
-
-<p><strong>Unsloth Digest – 2026-10-09</strong></p>
-<hr>
-<h3><strong>1. 今日亮点</strong></h3>
-<p>Unsloth 发布 v0.1.905-beta，首次原生支持训练 <em>决策模型</em> —— 可将任意文本或视觉大模型转变为高精度（最高达 80%）的 Jev 风格决策引擎。本次更新还带来了更完善的 ComfyUI 集成、扩散模型优化以及改进的桌面浏览器体验。与此同时，Unsloth Studio 的持续开发工作聚焦于更智能的上下文处理、更优的模型预览渲染，以及增强的网络搜索集成。</p>
-<hr>
-<h3><strong>2. 发布与破坏性变更</strong></h3>
-<ul>
-<li><strong>v0.1.905-beta</strong>:  <ul>
-<li>通过 <code>FastLanguageModel.from_pretrained()</code> 新增 <code>DecisionModel</code> 训练流程，支持基于人类反馈微调决策逻辑。  </li>
-<li>可直接从 Unsloth 导出并部署决策模型（<code>unsloth.export_decision_model()</code>）。  </li>
-<li>原生支持 ComfyUI 模型，桌面应用界面优化（含浏览器刷新修复）。<br>🔗 <a href="https://github.com/unslothai/unsloth/releases/tag/v0.1.905-beta">GitHub Release v0.1.905-beta</a></li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<p>✅ <strong>迁移提示</strong>：现有 SFT/GRPO 工作流保持兼容；新决策训练需使用新版训练脚本，采用 <code>DecisionTrainer</code>。</p>
-</blockquote>
-<hr>
-<h3><strong>3. 新模型与硬件支持</strong></h3>
-<ul>
-<li><p><strong>支持的模型</strong>:  </p>
-<ul>
-<li><code>unsloth/Qwen-Image-2.1-GGUF</code> (Q4_K_M) 现已在 M5 Max（48GB 内存）上支持，但用户报告在高负载下存在内存问题 (<a href="https://github.com/unslothai/unsloth/issues/11792">#11792</a>)。  </li>
-<li>通过功能请求新增对 <code>microsoft/bitnet-b1.58-2B-4T</code> 的实验性支持 (<a href="https://github.com/unslothai/unsloth/issues/2390">#2390</a>) —— 尚未实现。  </li>
-<li>已文档化 <code>Devstral-Small-2505</code> 分词器转换流程 (<a href="https://github.com/unslothai/unsloth/issues/2652">#2652</a>)。</li>
-</ul>
-</li>
-<li><p><strong>硬件与后端</strong>:  </p>
-<ul>
-<li>llama-server 后端中增强 MoE 专家溢出至系统内存功能，并支持自动缩放 GPU 缓存（<code>--moe-cache-mib auto</code>）(<a href="https://github.com/unslothai/unsloth/pull/12951">#12951</a>)。  </li>
-<li>当 MoE 专家溢出至 CPU 时，优化微批大小为 2048 (<a href="https://github.com/unslothai/unsloth/pull/12950">#12950</a>)。  </li>
-<li>完全兼容 Ollama 连接，包括上下文栏中的令牌使用追踪 (<a href="https://github.com/unslothai/unsloth/pull/13106">#13106</a>)。</li>
-</ul>
-</li>
-</ul>
-<hr>
-<h3><strong>4. 性能与优化</strong></h3>
-<ul>
-<li><p><strong>推理速度</strong>:  </p>
-<ul>
-<li>Unsloth 的修补层在 NVIDIA GPU 上继续提供约 2 倍的推理加速，得益于优化内核。  </li>
-<li>通过改进线程管理，降低长上下文对话延迟 (<a href="https://github.com/unslothai/unsloth/pull/13107">#13107</a>, <a href="https://github.com/unslothai/unsloth/pull/13113">#13113</a>)。</li>
-</ul>
-</li>
-<li><p><strong>内存效率</strong>:  </p>
-<ul>
-<li>修复 <code>LlamaForCausalLM</code> 初始化期间的内存峰值问题 (<a href="https://github.com/unslothai/unsloth/issues/1801">#1801</a>)。  </li>
-<li>TRL PPOTrainer 现已避免不必要的 1.2 GB 缓冲区保留 (<a href="https://github.com/unslothai/unsloth/pull/13108">#13108</a>)。  </li>
-<li>动态量化服务通过 VLLM 现已稳定支持 <code>unsloth/Mistral-Small-24B-Base-2501-unsloth-bnb-4bit</code> (<a href="https://github.com/unslothai/unsloth/issues/1886">#1886</a>)。</li>
-</ul>
-</li>
-</ul>
-<hr>
-<h3><strong>5. 稳定性与回归问题</strong></h3>
-<table>
-<thead>
-<tr>
-<th>严重程度</th>
-<th>问题</th>
-<th>状态</th>
-<th>影响</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>⚠️ 高</td>
-<td>在 Colab T4 上训练 Qwen3-0.6B 时出现 <code>RuntimeError: PassManager::run failed</code> (<a href="https://github.com/unslothai/unsloth/issues/2482">#2482</a>)</td>
-<td>已关闭</td>
-<td>训练无声失败；可能由 CUDA 内核不匹配导致。</td>
-</tr>
-<tr>
-<td>⚠️ 高</td>
-<td>通过 VLLM 服务动态量化模型时触发 <code>AssertionError</code> (<a href="https://github.com/unslothai/unsloth/issues/1886">#1886</a>)</td>
-<td>已关闭</td>
-<td>修复已合并；请验证 <code>load_format=bitsandbytes</code> 与 <code>quantization=bitsandbytes</code> 是否一致。</td>
-</tr>
-<tr>
-<td>⚠️ 中</td>
-<td>GRPO 训练产生乱码输出 (<a href="https://github.com/unslothai/unsloth/issues/1672">#1672</a>)</td>
-<td>已关闭</td>
-<td>可能由错误的 EOS token 处理或采样配置引起。</td>
-</tr>
-<tr>
-<td>⚠️ 中</td>
-<td>WSL 上尽管显存未使用仍出现 <code>CUDA out of memory</code> (<a href="https://github.com/unslothai/unsloth/issues/1744">#1744</a>, <a href="https://github.com/unslothai/unsloth/issues/1797">#1797</a>)</td>
-<td>已关闭</td>
-<td>根本原因：内存碎片；建议启用 <code>use_gradient_checkpointing=&quot;unsloth&quot;</code> 并降低批大小。</td>
-</tr>
-<tr>
-<td>⚠️ 低</td>
-<td><code>NotImplementedError</code>: beam search 缺少 <code>_reorder_cache</code> (<a href="https://github.com/unslothai/unsloth/issues/1099">#1099</a>)</td>
-<td>已开放</td>
-<td>影响 <code>num_beams &gt; 1</code> 推理；修复待 Transformers 上游处理。</td>
-</tr>
-</tbody></table>
-<blockquote>
-<p>🛠️ <strong>修复合并</strong>：近期多个稳定性改进已合并，包括 <code>PPOTrainer</code> 崩溃修复 (<a href="https://github.com/unslothai/unsloth/pull/13108">#13108</a>) 和 <code>Ollama</code> 上下文栏显示优化 (<a href="https://github.com/unslothai/unsloth/pull/13106">#13106</a>)。</p>
-</blockquote>
-<hr>
-<h3><strong>6. 对应用开发者的意义</strong></h3>
-<ul>
-<li><strong>构建决策引擎</strong>：使用 <code>v0.1.905-beta</code> 直接在你的技术栈中训练并部署高精度决策模型（如路由、验证或策略执行）。  </li>
-<li><strong>高效部署</strong>：利用 VLLM 与 GGUF 模型（如 Qwen-Image-2.1）的动态量化能力，在边缘设备上实现低延迟推理。  </li>
-<li><strong>规避内存陷阱</strong>：本地训练大模型时，除非必要，否则避免使用 <code>use_gradient_checkpointing=&quot;unsloth&quot;</code> —— 应改用 <code>True</code> 以防止 OOM 崩溃。  </li>
-<li><strong>提升用户体验</strong>：使用新 Studio 功能——实时 React 预览 (<a href="https://github.com/unslothai/unsloth/pull/13039">#13039</a>)、多部分下载指示器 (<a href="https://github.com/unslothai/unsloth/pull/13112">#13112</a>) 以及改进的网页解析能力，打造更丰富的代理界面。  </li>
-<li><strong>监控依赖项</strong>：确保 <code>xFormers</code> 与正确的 PyTorch/CUDA 版本编译，以避免 <code>LLVM ERROR</code> (<a href="https://github.com/unslothai/unsloth/issues/512">#512</a>)。</li>
-</ul>
-<p>👉 <strong>推荐操作</strong>：升级至 <code>v0.1.905-beta</code>，测试决策模型训练流程。审计梯度检查点设置，并确认所有模型拉取均正确尊重 <code>HF_ENDPOINT</code> (<a href="https://github.com/unslothai/unsloth/issues/1353">#1353</a>)。</p>
-</details>
-
-<hr>
-<p><em>本日报由 <a href="https://github.com/duanyytop/agents-radar">agents-radar</a> 自动生成。</em></p>
 ]]></content:encoded>
     </item>
   </channel>

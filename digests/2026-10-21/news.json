@@ -1,0 +1,213 @@
+{
+  "date": "2026-10-21",
+  "generated": "2026-10-21 00:52",
+  "sources": [
+    "量子位",
+    "雷峰网",
+    "钛媒体",
+    "爱范儿",
+    "开源中国",
+    "少数派",
+    "小众软件"
+  ],
+  "fetchedCount": 52,
+  "summary": [
+    "中国模型调用量领先，行业转向真实使用与付费。",
+    "MiniMax 更新、Claude 新模型曝光，Agent 与记忆能力升温。",
+    "DeepSeek 开源推理框架，OpenCode 曝密钥泄露。",
+    "VAST、蚂蚁百灵开源创作工具，AI 短剧暴利退潮。",
+    "腾讯 WorkBuddy 面向全国教师免费一年。"
+  ],
+  "sections": {
+    "llm": [
+      {
+        "title": "挣真钱：中国 AI 独角兽的成人礼",
+        "summary": "中国模型调用量领先，行业转向真实使用与付费，商业化成新分水岭。",
+        "url": "https://www.tmtpost.com/8173526.html"
+      },
+      {
+        "title": "田柯宇 AI 实验室获近 3000 万美元融资",
+        "summary": "世界模型实验室未发布产品即获融资，投后估值 2 亿美元。",
+        "url": "https://www.tmtpost.com/8174442.html"
+      },
+      {
+        "title": "美国禁止政府机构使用 DeepSeek",
+        "summary": "美国土安全部要求联邦民用机构移除 DeepSeek 相关产品和服务。",
+        "url": "https://www.oschina.net/news/503109"
+      },
+      {
+        "title": "MemT 1.0 记忆原生大模型开源",
+        "summary": "把记忆内化进模型架构，可沉淀并主动调用经验，减少重复调教。",
+        "url": "https://www.ifanr.com/1684997"
+      },
+      {
+        "title": "MiniMax M3.1 Flash 更新",
+        "summary": "强化 Agent、编程与 Computer Use 能力，推理更快、成本降 70%。",
+        "url": "https://www.oschina.net/news/503104/minimax-m3-1-flash"
+      },
+      {
+        "title": "Claude 新模型曝光：修 Bug 治标又治本",
+        "summary": "曝光信息称其能跳出思维定势，修复问题更接近根因。",
+        "url": "https://www.qbitai.com/2026/10/504314.html"
+      }
+    ],
+    "agents": [
+      {
+        "title": "DeepSeek 开源推理框架 DeepInfer",
+        "summary": "开源决定算力成本的推理中间层，直接影响 AI 服务调用效率。",
+        "url": "https://www.oschina.net/news/503116"
+      },
+      {
+        "title": "OpenCode 陷入密钥泄露风波",
+        "summary": "AI 编程智能体托管密钥遭攻击，有开发者一夜被盗刷 1700 美元。",
+        "url": "https://www.tmtpost.com/8174735.html"
+      },
+      {
+        "title": "Strata 0.2 测试版：低配电脑跑本地大模型",
+        "summary": "开源工具降低本地大模型门槛，内存加显存 27.6GB 即可运行。",
+        "url": "https://www.appinn.com/strata-0-2-beta/"
+      },
+      {
+        "title": "REA 爆火：AI 智能体分钟级复刻功能",
+        "summary": "实测两分钟生成可用 keygen，产品开发与逆向门槛被大幅拉低。",
+        "url": "https://www.tmtpost.com/8174357.html"
+      }
+    ],
+    "creator": [
+      {
+        "title": "VAST 开源实时世界模型 EdenLive",
+        "summary": "一句话生成可交互世界，支持白模、场景或录像实时渲染。",
+        "url": "https://www.ifanr.com/1685059"
+      },
+      {
+        "title": "蚂蚁百灵开源 Ming-3.0 语音系列",
+        "summary": "把声音创作、长语音分析与转写拆成多模型，TTS 支持导演模式。",
+        "url": "https://www.oschina.net/news/503107"
+      },
+      {
+        "title": "年轻人花钱“手搓”AI 人设",
+        "summary": "角色扮演指令成商品，几元到十几元即可买到现成人设模板。",
+        "url": "https://www.tmtpost.com/8174252.html"
+      },
+      {
+        "title": "爱奇艺“跳看”：AI 让长剧短看",
+        "summary": "生成式 AI 浓缩剧情并支持进退切换，长视频有了新打开方式。",
+        "url": "https://www.leiphone.com/category/industrynews/jJI2TPXI1eYWxECq.html"
+      },
+      {
+        "title": "AI 短剧“彩票工厂”不再赚钱",
+        "summary": "成本骤降后流量成本高企，AI 短剧暴利期正在退潮。",
+        "url": "https://www.tmtpost.com/8174771.html"
+      }
+    ],
+    "office": [
+      {
+        "title": "腾讯 WorkBuddy 教育公益版免费一年",
+        "summary": "全国在职教师可领一年 AI 助手，用于备课、做 PPT、作业设计。",
+        "url": "https://www.appinn.com/workbuddy-education/"
+      },
+      {
+        "title": "CloudDM 4.5.0 新增 AI SQL 助手",
+        "summary": "开源数据库管理工具支持自然语言生成 SQL，降低查数与操作门槛。",
+        "url": "https://www.oschina.net/news/503105"
+      }
+    ]
+  },
+  "trending": [
+    {
+      "repo": "MadsLorentzen/ai-job-search",
+      "url": "https://github.com/MadsLorentzen/ai-job-search",
+      "stars": "60,589（今日 +3,861）",
+      "summary": "本地运行的 AI 求职框架，可评估岗位、改简历、写求职信和备面。"
+    },
+    {
+      "repo": "cloudflare/security-audit-skill",
+      "url": "https://github.com/cloudflare/security-audit-skill",
+      "stars": "34,229（今日 +1,712）",
+      "summary": "给编码智能体用的多阶段安全审计技能，输出可独立验证的发现。"
+    },
+    {
+      "repo": "stablyai/orca",
+      "url": "https://github.com/stablyai/orca",
+      "stars": "99,741（今日 +1,565）",
+      "summary": "统一调度 Grok Bot、Claude Code 等编码智能体，支持桌面与移动端。"
+    },
+    {
+      "repo": "DietrichGebert/ponytail",
+      "url": "https://github.com/DietrichGebert/ponytail",
+      "stars": "169,660（今日 +1,208）",
+      "summary": "让 AI 智能体像最懒资深开发一样思考，少写没必要写的代码。"
+    },
+    {
+      "repo": "Comfy-Org/ComfyUI",
+      "url": "https://github.com/Comfy-Org/ComfyUI",
+      "stars": "140,766（今日 +1,206）",
+      "summary": "最流行的节点式扩散模型 GUI，本地图像与视频生成效率高。"
+    },
+    {
+      "repo": "anomalyco/opencode",
+      "url": "https://github.com/anomalyco/opencode",
+      "stars": "218,927（今日 +1,240）",
+      "summary": "开源编码智能体，支持在终端中理解代码、修改与执行任务。"
+    },
+    {
+      "repo": "Graphify-Labs/graphify",
+      "url": "https://github.com/Graphify-Labs/graphify",
+      "stars": "130,244（今日 +802）",
+      "summary": "把代码库、文档和 SQL 转成可查询知识图谱，供智能体使用。"
+    },
+    {
+      "repo": "anthropics/knowledge-work-plugins",
+      "url": "https://github.com/anthropics/knowledge-work-plugins",
+      "stars": "30,794（今日 +267）",
+      "summary": "面向知识工作者的 Claude Cowork 插件集合，可扩展办公场景。"
+    }
+  ],
+  "cards": [
+    {
+      "title": "中国 AI 独角兽转向挣钱",
+      "description": "模型调用量领先，真实使用与付费成新分水岭。",
+      "url": "https://www.tmtpost.com/8173526.html",
+      "image": "https://images.tmtpost.com/uploads/images/2026/10/702b253a920851aa17b99d2bc4181e3c_1792489214.png"
+    },
+    {
+      "title": "MiniMax M3.1 Flash 更新",
+      "description": "Agent 与 Computer Use 能力提升，成本降 70%。",
+      "url": "https://www.oschina.net/news/503104/minimax-m3-1-flash"
+    },
+    {
+      "title": "MemT 1.0 记忆原生模型",
+      "description": "让 AI 记住调教经验，减少重复沟通。",
+      "url": "https://www.ifanr.com/1684997",
+      "image": "https://s3.ifanr.com/wp-content/uploads/2026/10/93.jpg"
+    },
+    {
+      "title": "DeepSeek 开源推理框架",
+      "description": "开源推理框架，直接影响 AI 服务算力成本。",
+      "url": "https://www.oschina.net/news/503116"
+    },
+    {
+      "title": "OpenCode 密钥泄露",
+      "description": "AI 编程工具密钥被盗刷，开发者需立刻检查。",
+      "url": "https://www.tmtpost.com/8174735.html",
+      "image": "https://images.tmtpost.com/uploads/images/2026/10/30a3b1bf32847d679f88792ac2c31c40_1792488598.jpg"
+    },
+    {
+      "title": "VAST 开源实时世界模型",
+      "description": "一句话生成可交互世界，游戏与动画预览可用。",
+      "url": "https://www.ifanr.com/1685059",
+      "image": "https://s3.ifanr.com/wp-content/uploads/2026/10/lark2pad-1792487740547-1.jpg"
+    },
+    {
+      "title": "腾讯 WorkBuddy 免费一年",
+      "description": "全国教师可领，备课、PPT、作业设计都能用。",
+      "url": "https://www.appinn.com/workbuddy-education/",
+      "image": "https://www.appinn.com/wp-content/uploads/2026/10/workbuddy-education-cover.jpg"
+    },
+    {
+      "title": "ComfyUI 登 GitHub 趋势",
+      "description": "节点式生成工作流，本地玩转图像与视频。",
+      "url": "https://github.com/Comfy-Org/ComfyUI"
+    }
+  ]
+}

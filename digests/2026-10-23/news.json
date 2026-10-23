@@ -1,0 +1,210 @@
+{
+  "date": "2026-10-23",
+  "generated": "2026-10-23 00:54",
+  "sources": [
+    "量子位",
+    "雷峰网",
+    "钛媒体",
+    "爱范儿",
+    "开源中国",
+    "少数派",
+    "小众软件"
+  ],
+  "fetchedCount": 58,
+  "summary": [
+    "DeepSeek完成150亿美元融资，宁德时代与腾讯领投。",
+    "Anthropic推出主动式Agent Claude Duet，可后台继续干活。",
+    "火山引擎Seedance 2.5 4K开放企业试用，瞄准高端影视。",
+    "阿里Accio助双11商家，15分钟完成跨平台调优。",
+    "微软用AI监工管理企业Agent，智能体治理成新焦点。"
+  ],
+  "sections": {
+    "llm": [
+      {
+        "title": "DeepSeek 完成 150 亿美元融资",
+        "summary": "宁德时代与腾讯领投，创中国AI公司融资规模新高。",
+        "url": "https://www.oschina.net/news/503150/deepseek-raises-15-billion-in-challenge-to-leading-us-labs"
+      },
+      {
+        "title": "蚂蚁数科发布决策模型 LingDT-Decision-1.0",
+        "summary": "专攻结构化决策，Token消耗降九成，适合产业AI场景。",
+        "url": "https://www.leiphone.com/category/industrynews/IshbO1ikAgjvB6G9.html"
+      },
+      {
+        "title": "星辰开源意图理解模型 Xing4.0-29B-Intent",
+        "summary": "既能做选择题也能做填空题，面向意图理解专用场景。",
+        "url": "https://www.qbitai.com/2026/10/504832.html"
+      },
+      {
+        "title": "奇瑞发布垂类大模型 CheryMind",
+        "summary": "将支撑汽车研发、智驾、座舱、机器人等多条业务线。",
+        "url": "https://www.tmtpost.com/8177247.html"
+      }
+    ],
+    "agents": [
+      {
+        "title": "Anthropic推出主动式Claude Duet",
+        "summary": "会主动发现待办并在关键操作前请求批准，可后台继续干活。",
+        "url": "https://www.oschina.net/news/503159/claude-duet"
+      },
+      {
+        "title": "微软用AI监工管理企业Agent",
+        "summary": "Project Perception可监控其他智能体，发现异常即收回权限。",
+        "url": "https://www.tmtpost.com/8177643.html"
+      },
+      {
+        "title": "黄仁勋：PC需要被重新发明为个人Agent",
+        "summary": "英伟达判断输入指令范式终结，PC将理解意图主动执行任务。",
+        "url": "https://www.tmtpost.com/8177566.html"
+      },
+      {
+        "title": "千问发布AI眼镜N1 Pro与耳夹耳机",
+        "summary": "44g眼镜可录音、提醒、看菜单支付，Agent贴近日常场景。",
+        "url": "https://www.leiphone.com/category/weiwu/ft2h4iM9MlbukXOj.html"
+      },
+      {
+        "title": "VMPal：为AI Agent打造Mac虚拟机",
+        "summary": "专为Apple Silicon优化，一键部署多系统并支持GPU加速。",
+        "url": "https://www.appinn.com/vmpal/"
+      },
+      {
+        "title": "Strata 0.2.2支持多显卡分工",
+        "summary": "本地大模型运行工具，8GB显存可跑，Gyro推理提速30%。",
+        "url": "https://www.appinn.com/strata-0-2-2/"
+      },
+      {
+        "title": "IROS最佳论文LT-Mem：机器人长出长记忆",
+        "summary": "让机器人记住物体位置变迁史，具身长记忆渐成科学问题。",
+        "url": "https://www.leiphone.com/category/ai/jvyFCFgqJxJtOvjo.html"
+      }
+    ],
+    "creator": [
+      {
+        "title": "火山引擎Seedance 2.5 4K开放企业试用",
+        "summary": "定向供应20家工作室，支持480P样片后再用4K重生成。",
+        "url": "https://www.leiphone.com/category/industrynews/mqvYMpYMxjNyoBAJ.html"
+      },
+      {
+        "title": "AI短剧越做越亏：万播收益低至5元",
+        "summary": "三人团队烧近10万算力仅分账不到800元，商业模式待验证。",
+        "url": "https://www.tmtpost.com/8177437.html"
+      },
+      {
+        "title": "ESP-Mosaico上的Vibe Coding实验",
+        "summary": "少数派记录用AI编程做硬件小物，展示Vibe Coding新玩法。",
+        "url": "https://sspai.com/post/115437"
+      }
+    ],
+    "office": [
+      {
+        "title": "阿里Accio成双11商家AI工作台",
+        "summary": "跨平台诊断、选品与投放分析，15分钟完成原本2小时巡店。",
+        "url": "https://www.leiphone.com/category/industrynews/wZadstkZcVlLudqv.html"
+      },
+      {
+        "title": "百度世界2026将聚焦智能组织",
+        "summary": "10+分论坛聚焦AI驱动组织跃迁，企业转型走向系统重构。",
+        "url": "https://www.leiphone.com/category/industrynews/vv6pTluWIUjUHMbi.html"
+      },
+      {
+        "title": "拾趣Magpie新增7家翻译服务",
+        "summary": "划词即可翻译、解释、总结并存入笔记，新增OpenAI接口。",
+        "url": "https://www.oschina.net/news/503148"
+      }
+    ]
+  },
+  "trending": [
+    {
+      "repo": "cloudflare/security-audit-skill",
+      "url": "https://github.com/cloudflare/security-audit-skill",
+      "stars": "39,578（今日 +2,979）",
+      "summary": "为编码智能体提供多阶段安全审计，产出可机器验证的发现。"
+    },
+    {
+      "repo": "DietrichGebert/ponytail",
+      "url": "https://github.com/DietrichGebert/ponytail",
+      "stars": "173,479（今日 +1,948）",
+      "summary": "让AI智能体像最懒资深程序员，优先少写代码、避免过度设计。"
+    },
+    {
+      "repo": "Graphify-Labs/graphify",
+      "url": "https://github.com/Graphify-Labs/graphify",
+      "stars": "132,953（今日 +1,408）",
+      "summary": "把代码库、文档和SQL转成可查询知识图谱，供多种编程智能体用。"
+    },
+    {
+      "repo": "anthropics/knowledge-work-plugins",
+      "url": "https://github.com/anthropics/knowledge-work-plugins",
+      "stars": "31,604（今日 +303）",
+      "summary": "Claude Cowork知识工作插件集，帮员工处理日常文档与流程。"
+    },
+    {
+      "repo": "luongnv89/claude-howto",
+      "url": "https://github.com/luongnv89/claude-howto",
+      "stars": "43,212（今日 +177）",
+      "summary": "可视化、示例驱动的Claude Code指南，提供可复制模板。"
+    },
+    {
+      "repo": "browser-use/browser-use",
+      "url": "https://github.com/browser-use/browser-use",
+      "stars": "118,890",
+      "summary": "开源浏览器智能体库，让AI自动操作网页完成任务。"
+    },
+    {
+      "repo": "langgenius/dify",
+      "url": "https://github.com/langgenius/dify",
+      "stars": "159,282",
+      "summary": "可自托管的Agentic工作流与RAG平台，快速搭建企业AI应用。"
+    },
+    {
+      "repo": "harry0703/MoneyPrinterTurbo",
+      "url": "https://github.com/harry0703/MoneyPrinterTurbo",
+      "stars": "134,245",
+      "summary": "输入主题或关键词一键生成高清短视频，适合内容创作者试验。"
+    }
+  ],
+  "cards": [
+    {
+      "title": "DeepSeek融资150亿美元",
+      "description": "宁德时代与腾讯领投，创中国AI融资纪录。",
+      "url": "https://www.oschina.net/news/503150/deepseek-raises-15-billion-in-challenge-to-leading-us-labs"
+    },
+    {
+      "title": "Claude Duet主动干活",
+      "description": "无需开口就发现待办，关键操作先请求批准。",
+      "url": "https://www.oschina.net/news/503159/claude-duet"
+    },
+    {
+      "title": "Seedance 2.5 4K开放试用",
+      "description": "高端影视视频模型，480P样片后4K重生成。",
+      "url": "https://www.leiphone.com/category/industrynews/mqvYMpYMxjNyoBAJ.html"
+    },
+    {
+      "title": "千问AI眼镜N1 Pro",
+      "description": "44g眼镜能录音、提醒、看菜单并点头支付。",
+      "url": "https://www.leiphone.com/category/weiwu/ft2h4iM9MlbukXOj.html",
+      "image": "https://static.leiphone.com/uploads/new/images/20261022/6ad9c4a8d037c.jpg?imageView2/2/w/740"
+    },
+    {
+      "title": "阿里Accio助双11",
+      "description": "15分钟完成跨平台店铺诊断与投放调优。",
+      "url": "https://www.leiphone.com/category/industrynews/wZadstkZcVlLudqv.html",
+      "image": "https://static.leiphone.com/uploads/new/images/20261022/6ad9d085428a3.png?imageView2/2/w/740"
+    },
+    {
+      "title": "AI安全审计技能",
+      "description": "让编码智能体自动做多阶段安全审计并验证发现。",
+      "url": "https://github.com/cloudflare/security-audit-skill"
+    },
+    {
+      "title": "代码库变知识图谱",
+      "description": "Graphify把文档、SQL与代码变成智能体可查图谱。",
+      "url": "https://github.com/Graphify-Labs/graphify"
+    },
+    {
+      "title": "一键生成高清短视频",
+      "description": "输入主题即可自动成片，适合短视频创作者试用。",
+      "url": "https://github.com/harry0703/MoneyPrinterTurbo"
+    }
+  ]
+}

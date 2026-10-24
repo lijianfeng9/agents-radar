@@ -1,0 +1,212 @@
+{
+  "date": "2026-10-24",
+  "generated": "2026-10-24 01:01",
+  "sources": [
+    "量子位",
+    "雷峰网",
+    "钛媒体",
+    "爱范儿",
+    "开源中国",
+    "少数派",
+    "小众软件"
+  ],
+  "fetchedCount": 51,
+  "summary": [
+    "Kimi K3.1曝光，3D生成成本仅GPT-6的1/14，15分钟出工业级资产。",
+    "MiniMax M3.1 Flash开源，428B总参数、23B激活，推理效率大提升。",
+    "腾讯QClaw上线188天即停服，大厂个人助理竞争转向千问Go等新品。",
+    "美团免费向全国商家提供AI店长，部分试用商家增长超30%。",
+    "GitHub热榜：安全审计、知识工作插件与Agent运行时项目受关注。"
+  ],
+  "sections": {
+    "llm": [
+      {
+        "title": "Kimi K3.1曝光：3D成本仅为GPT-6的1/14",
+        "summary": "视觉大模型可15分钟生成工业级可交互3D资产，成本远低于竞品。",
+        "url": "https://www.leiphone.com/category/yanxishe/PZo9w14YeFSo4jmf.html"
+      },
+      {
+        "title": "MiniMax M3.1 Flash 正式开源",
+        "summary": "428B总参数、23B激活，72小时处理超100万亿Token，推理效率提升。",
+        "url": "https://www.oschina.net/news/503167"
+      },
+      {
+        "title": "Anthropic 200人团队代码全由Claude写",
+        "summary": "平台工程团队称工程师转向系统设计与验证，AI编程进入全量落地阶段。",
+        "url": "https://www.oschina.net/news/503177"
+      },
+      {
+        "title": "亿铸科技融资10亿+元，加速存算一体",
+        "summary": "通用存算一体AI芯片公司获大额融资，瞄准更低Token成本与数据中心。",
+        "url": "https://www.leiphone.com/category/industrynews/ADXEXKrCVSzoJ36i.html"
+      },
+      {
+        "title": "智元两年投出47笔融资，多投上游",
+        "summary": "具身智能公司密集投资整机上游关键节点，机器人赛道资本打法受关注。",
+        "url": "https://www.tmtpost.com/8178163.html"
+      }
+    ],
+    "agents": [
+      {
+        "title": "腾讯QClaw停服：大厂AI产品加速洗牌",
+        "summary": "上线188天即停运，个人助理赛道转向千问Go等新产品，竞争白热化。",
+        "url": "https://www.tmtpost.com/8179714.html"
+      },
+      {
+        "title": "Strata 0.2.3：本地大模型自动压缩长对话",
+        "summary": "免费开源本地推理工具更新，提升Agent长对话体验与推理速度。",
+        "url": "https://www.appinn.com/strata-0-2-3/"
+      },
+      {
+        "title": "Termexo更新：Windows本地多Agent工作台",
+        "summary": "MIT开源，可组织项目、真实终端和原生会话，新增工作区树与登录方式。",
+        "url": "https://www.oschina.net/news/503172"
+      },
+      {
+        "title": "Linus用Claude辅助清理Linux内核",
+        "summary": "删除历史遗留函数，commit说明直白，展示AI辅助核心代码维护。",
+        "url": "https://www.oschina.net/news/503166"
+      },
+      {
+        "title": "AI智能体安全漏洞密集爆发",
+        "summary": "不到一个月十余起攻击面漏洞，从发现到大规模利用仅数小时。",
+        "url": "https://www.tmtpost.com/8179406.html"
+      },
+      {
+        "title": "智谱ZCode 1024免费送5亿Tokens",
+        "summary": "程序员节福利，新用户可领GLM-5.3与Flash额度，仅限周末使用。",
+        "url": "https://www.appinn.com/zcode-1024-free-500-million-tokens/"
+      }
+    ],
+    "creator": [
+      {
+        "title": "WorldTUI：全靠AI演技的假终端",
+        "summary": "输入命令后由小模型编造结果，无文件系统也能假装运行，趣味玩法。",
+        "url": "https://www.appinn.com/worldtui/"
+      },
+      {
+        "title": "千问Go!上线“我的应用”",
+        "summary": "无需编程，说出需求即可搭建可分享的课件、报名页等长期应用。",
+        "url": "https://www.leiphone.com/category/industrynews/rTNQlAtTr6ROkXI1.html"
+      }
+    ],
+    "office": [
+      {
+        "title": "美团向全国商家免费提供AI店长",
+        "summary": "妙手外卖版覆盖经营诊断、门店巡检与商品运营，部分商家增长超30%。",
+        "url": "https://www.leiphone.com/category/industrynews/tZI7pYBhiFduVfr6.html"
+      },
+      {
+        "title": "qKnow v3.1.5上线Text2SQL插件",
+        "summary": "扩展工作流编排，支持调用Agent与工作流，数据查询应用更易搭建。",
+        "url": "https://www.oschina.net/news/503174"
+      },
+      {
+        "title": "WorkBuddy技能市场上线运维助手",
+        "summary": "BK-Lite运维助手可对接平台数据并加入AI分析，轻量运维更省成本。",
+        "url": "https://www.oschina.net/news/503179"
+      },
+      {
+        "title": "硅基流动：Token生产力助央国企落地大模型",
+        "summary": "分享从算力到Token生产力的推理基础设施与ROI实践，企业落地参考。",
+        "url": "https://www.leiphone.com/category/industrynews/DVoE94j80j6cboxE.html"
+      }
+    ]
+  },
+  "trending": [
+    {
+      "repo": "cloudflare/security-audit-skill",
+      "url": "https://github.com/cloudflare/security-audit-skill",
+      "stars": "42,159（今日 +2,716）",
+      "summary": "面向编码代理的多阶段安全审计技能，产出可机器读取并独立验证的发现。"
+    },
+    {
+      "repo": "anthropics/knowledge-work-plugins",
+      "url": "https://github.com/anthropics/knowledge-work-plugins",
+      "stars": "32,220（今日 +635）",
+      "summary": "面向知识工作者的Claude Cowork插件集合，覆盖日常文档与协作任务。"
+    },
+    {
+      "repo": "NVIDIA/OpenShell",
+      "url": "https://github.com/NVIDIA/OpenShell",
+      "stars": "18,805（今日 +1,119）",
+      "summary": "为自主AI代理提供安全、私有的运行环境，降低企业部署风险。"
+    },
+    {
+      "repo": "OpenBMB/VoxCPM",
+      "url": "https://github.com/OpenBMB/VoxCPM",
+      "stars": "40,260（今日 +150）",
+      "summary": "VoxCPM2多语言TTS，支持创意音色设计与逼真克隆，适合配音创作。"
+    },
+    {
+      "repo": "hugohe3/ppt-master",
+      "url": "https://github.com/hugohe3/ppt-master",
+      "stars": "66,756",
+      "summary": "把文档或主题生成原生PowerPoint，支持图表、动画与演讲备注配音。"
+    },
+    {
+      "repo": "dramaclaw/dramaclaw",
+      "url": "https://github.com/dramaclaw/dramaclaw",
+      "stars": "6,424",
+      "summary": "通用AIGC视频引擎，从剧本到成片一条流水线，覆盖短剧广告等。"
+    },
+    {
+      "repo": "NousResearch/hermes-agent",
+      "url": "https://github.com/NousResearch/hermes-agent",
+      "stars": "256,531",
+      "summary": "可随使用成长的AI代理项目，适合关注个人Agent框架的读者。"
+    },
+    {
+      "repo": "Panniantong/Agent-Reach",
+      "url": "https://github.com/Panniantong/Agent-Reach",
+      "stars": "101,347",
+      "summary": "给AI代理接入互联网读写与搜索社交平台，一条CLI零API费用。"
+    }
+  ],
+  "cards": [
+    {
+      "title": "Kimi K3.1曝光",
+      "description": "3D生成成本仅GPT-6的1/14，15分钟出工业级资产。",
+      "url": "https://www.leiphone.com/category/yanxishe/PZo9w14YeFSo4jmf.html",
+      "image": "https://static.leiphone.com/uploads/new/images/20261023/6adb3c211d3e5.jpg?imageMogr2/quality/90"
+    },
+    {
+      "title": "MiniMax M3.1开源",
+      "description": "428B总参数、23B激活，72小时处理超100万亿Token。",
+      "url": "https://www.oschina.net/news/503167"
+    },
+    {
+      "title": "QClaw停服",
+      "description": "上线188天即退场，个人助理赛道加速洗牌。",
+      "url": "https://www.tmtpost.com/8179714.html",
+      "image": "https://images.tmtpost.com/uploads/images/2026/10/31891bec323b2d174fa0eae3e2dbe2be_1792799025.jpg"
+    },
+    {
+      "title": "免费领5亿Tokens",
+      "description": "ZCode程序员节福利，GLM-5.3额度仅限周末使用。",
+      "url": "https://www.appinn.com/zcode-1024-free-500-million-tokens/",
+      "image": "https://www.appinn.com/wp-content/uploads/2026/10/Copy-of-appinn-homework-2026-10-23T231337.041.jpg"
+    },
+    {
+      "title": "千问Go!我的应用",
+      "description": "说出需求就能搭建可分享、长期可用的专属应用。",
+      "url": "https://www.leiphone.com/category/industrynews/rTNQlAtTr6ROkXI1.html"
+    },
+    {
+      "title": "美团免费AI店长",
+      "description": "覆盖诊断、巡检、商品运营，部分商家增长超30%。",
+      "url": "https://www.leiphone.com/category/industrynews/tZI7pYBhiFduVfr6.html"
+    },
+    {
+      "title": "全靠AI演戏的终端",
+      "description": "敲命令它假装执行，小模型现场编结果，趣味十足。",
+      "url": "https://www.appinn.com/worldtui/",
+      "image": "https://www.appinn.com/wp-content/uploads/2026/10/E58187E79A84-Linux-AI-E7BB88E7ABAFE5B9BBE5A283.jpg"
+    },
+    {
+      "title": "PPT Master",
+      "description": "把文档或主题生成原生PowerPoint，支持图表与配音。",
+      "url": "https://github.com/hugohe3/ppt-master"
+    }
+  ]
+}

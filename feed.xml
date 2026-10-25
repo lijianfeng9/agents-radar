@@ -6,7 +6,105 @@
     <description>AI 开源生态每日简报 · Daily AI ecosystem digest</description>
     <language>zh-CN</language>
     <atom:link href="https://lijianfeng9.github.io/agents-radar/feed.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Sat, 24 Oct 2026 01:03:13 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 25 Oct 2026 00:31:30 +0000</lastBuildDate>
+    <item>
+      <title>AI 每日要闻 2026-10-25</title>
+      <link>https://lijianfeng9.github.io/agents-radar/#2026-10-25/ai-news</link>
+      <guid isPermaLink="true">https://lijianfeng9.github.io/agents-radar/#2026-10-25/ai-news</guid>
+      <pubDate>Sun, 25 Oct 2026 00:00:00 +0000</pubDate>
+      <description>AI 每日要闻 2026-10-25 数据来源: 雷峰网 · 爱范儿 · 少数派 · 小众软件 | 生成时间: 2026-10-25 00:30 UTC | 要闻 16 条 / 抓取 13 条 今日速览 Kimi K3.1 Pro 发布，国产旗舰模型重回性能竞争。 百度健康AI服务MAU超5000万，推出健康相机。 支付宝联合讯飞升级智能座舱，车载生活服务落地。 开发者用 Claude Code 改造电视去广告，AI代理玩法出圈。 开源AIGC视频工具密集更新，短剧与漫剧制作门槛降低。 🔥 大模型动向 Kimi K3.1 Pro 发布，国产旗舰再冲性能 — 新旗舰模型实测效果亮眼，标志国产模型重回性能竞争。 百度健康AI服务MAU超5000万，发布健康相机 — AI+真人医生闭环升级，视频问诊降低健康描述门槛。 支付宝携手讯飞升级智能座舱服务 — 车载助手接入星火座舱，落地无感通行、停车支付等场景。 声网提出对话AGI五级能力框架 — 对话式AI从问答走向深度理解，为实时互动Agent指路。 🤖 智能体 &amp;amp; 开源项目 开发者用 Claude Code 改造电视去广告 — A...</description>
+      <content:encoded><![CDATA[<h1>AI 每日要闻 2026-10-25</h1>
+<blockquote>
+<p>数据来源: 雷峰网 · 爱范儿 · 少数派 · 小众软件 | 生成时间: 2026-10-25 00:30 UTC | 要闻 16 条 / 抓取 13 条</p>
+</blockquote>
+<h2>今日速览</h2>
+<ul>
+<li>Kimi K3.1 Pro 发布，国产旗舰模型重回性能竞争。</li>
+<li>百度健康AI服务MAU超5000万，推出健康相机。</li>
+<li>支付宝联合讯飞升级智能座舱，车载生活服务落地。</li>
+<li>开发者用 Claude Code 改造电视去广告，AI代理玩法出圈。</li>
+<li>开源AIGC视频工具密集更新，短剧与漫剧制作门槛降低。</li>
+</ul>
+<h2>🔥 大模型动向</h2>
+<ul>
+<li><a href="https://www.ifanr.com/1685684">Kimi K3.1 Pro 发布，国产旗舰再冲性能</a> — 新旗舰模型实测效果亮眼，标志国产模型重回性能竞争。</li>
+<li><a href="https://www.leiphone.com/category/industrynews/RRFr9U8GKWjNNxfH.html">百度健康AI服务MAU超5000万，发布健康相机</a> — AI+真人医生闭环升级，视频问诊降低健康描述门槛。</li>
+<li><a href="https://www.leiphone.com/category/industrynews/WOl6u17gkYoV3PVr.html">支付宝携手讯飞升级智能座舱服务</a> — 车载助手接入星火座舱，落地无感通行、停车支付等场景。</li>
+<li><a href="https://www.leiphone.com/category/industrynews/nwy00TZXQdwJcSka.html">声网提出对话AGI五级能力框架</a> — 对话式AI从问答走向深度理解，为实时互动Agent指路。</li>
+</ul>
+<h2>🤖 智能体 &amp; 开源项目</h2>
+<ul>
+<li><a href="https://www.ifanr.com/1685473">开发者用 Claude Code 改造电视去广告</a> — AI代理接入电视系统，帮父母跳过开机与会员广告。</li>
+<li><a href="https://www.appinn.com/nvidia-gpu-ai-compute-unlock/">英伟达显卡AI算力被解锁，性能接近翻倍</a> — 开发者绕过Tensor Core限制，RTX 30/40系算力大幅提升。</li>
+<li><a href="https://www.appinn.com/strata-0-2-4-deepseek-v4-1-flashterminal-0-2-4-1/">Strata 0.2.4 更新：12GB显卡跑DeepSeek</a> — 一张RTX 3060加46GB内存，本地运行大模型并达8-10 token/s。</li>
+<li><a href="https://www.leiphone.com/category/industrynews/ykWM8XAjpHi0biY1.html">支付宝AI支付发起年度黑客松大赛</a> — 邀开发者用应用、Skill或Agent接入支付，争20万元奖池。</li>
+</ul>
+<h2>🎬 创作者 · AIGC 玩法</h2>
+<ul>
+<li><a href="https://github.com/dramaclaw/dramaclaw">dramaclaw：从剧本到成片的AIGC视频引擎</a> — 一条流水线制作漫剧、广告、电商视频，适合内容团队试用。</li>
+<li><a href="https://github.com/HBAI-Ltd/Toonflow-app">Toonflow：开源短剧与漫剧创作平台</a> — 集成剧本、分镜、角色资产和视频生成，支持本地部署。</li>
+<li><a href="https://github.com/krillinai/OpenCreator">OpenCreator：AI视频翻译与创作工作台</a> — 下载、翻译、配音、生成视频与数字人，一站式服务社媒创作。</li>
+<li><a href="https://github.com/YouMind-OpenLab/awesome-nano-banana-pro-prompts">Nano Banana Pro 万条提示词库</a> — 含预览图与16种语言，快速复用高质量图像生成提示词。</li>
+</ul>
+<h2>💼 办公提效</h2>
+<ul>
+<li><a href="https://github.com/google-gemini/gemini-cli">gemini-cli：把 Gemini 智能体装进终端</a> — 在命令行调用AI代理，自动处理脚本、文件与日常任务。</li>
+<li><a href="https://github.com/luongnv89/claude-howto">claude-howto：Claude Code 可视化指南</a> — 从基础到高级代理，含可复制模板，适合团队上手提效。</li>
+<li><a href="https://github.com/makecindy/cindy">cindy：开箱即用的开源 AI Agent</a> — 无需复杂配置即可让AI代理执行任务，适合内部流程自动化。</li>
+<li><a href="https://github.com/aws/agent-toolkit-for-aws">AWS 官方智能体工具包上线</a> — 提供MCP服务器、技能与插件，帮企业在AWS上搭建AI代理。</li>
+</ul>
+<h2>📈 GitHub 趋势</h2>
+<table>
+<thead>
+<tr>
+<th align="left">项目</th>
+<th align="right">Stars</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><a href="https://github.com/cloudflare/security-audit-skill">cloudflare/security-audit-skill</a></td>
+<td align="right">44,544（今日 +2,264）</td>
+<td align="left">面向编码代理的多阶段安全审计技能，发现可机器验证漏洞。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/NVIDIA/OpenShell">NVIDIA/OpenShell</a></td>
+<td align="right">19,471（今日 +896）</td>
+<td align="left">为自主AI代理提供安全、私密的运行时环境。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/Nutlope/hallmark">Nutlope/hallmark</a></td>
+<td align="right">32,133（今日 +455）</td>
+<td align="left">反AI庸俗设计技能，让Claude Code等生成更靠谱界面。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/pbakaus/impeccable">pbakaus/impeccable</a></td>
+<td align="right">86,402（今日 +619）</td>
+<td align="left">让AI编码工具更懂设计的语言与规范，提升产出质感。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/unslothai/unsloth">unslothai/unsloth</a></td>
+<td align="right">78,526</td>
+<td align="left">本地运行和训练LLM/扩散模型的UI，支持多种新模型。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/calesthio/OpenMontage">calesthio/OpenMontage</a></td>
+<td align="right">71,587</td>
+<td align="left">开源智能视频制作系统，12条流水线覆盖完整生产流程。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/mudler/LocalAI">mudler/LocalAI</a></td>
+<td align="right">49,933</td>
+<td align="left">本地运行LLM、视觉、语音与视频模型，无需GPU。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/ZhuLinsen/daily_stock_analysis">ZhuLinsen/daily_stock_analysis</a></td>
+<td align="right">67,003</td>
+<td align="left">LLM驱动的多市场股票分析系统，支持新闻、决策看板与推送。</td>
+</tr>
+</tbody></table>
+]]></content:encoded>
+    </item>
     <item>
       <title>AI 每日要闻 2026-10-24</title>
       <link>https://lijianfeng9.github.io/agents-radar/#2026-10-24/ai-news</link>
@@ -5634,160 +5732,6 @@ Referenced issue: <a href="https://github.com/RVC-Boss/GPT-SoVITS/issues/2788">h
 </ol>
 <hr>
 <p><em>本日报由 <a href="https://github.com/duanyytop/agents-radar">agents-radar</a> 自动生成。</em></p>
-]]></content:encoded>
-    </item>
-    <item>
-      <title>Product Hunt AI Products Digest 2026-10-09</title>
-      <link>https://lijianfeng9.github.io/agents-radar/#2026-10-09/ai-ph-en</link>
-      <guid isPermaLink="true">https://lijianfeng9.github.io/agents-radar/#2026-10-09/ai-ph-en</guid>
-      <pubDate>Fri, 09 Oct 2026 00:00:00 +0000</pubDate>
-      <description>Product Hunt AI Products Digest 2026-10-09 Source: Product Hunt | 15 products | Generated: 2026-10-09 02:31 UTC Today&amp;#39;s Highlights The AI product landscape on Product Hunt today is dominated by intelligent automation and agent-driven workflows, with IrisGo for Solopreneurs leading the pack with 518 votes as a no-code AI workflow engine that runs autonomously after a single setup. Velozity stands out as a multiplayer AI office environment, blending team collaboration with agent-based producti...</description>
-      <content:encoded><![CDATA[<h1>Product Hunt AI Products Digest 2026-10-09</h1>
-<blockquote>
-<p>Source: <a href="https://www.producthunt.com/">Product Hunt</a> | 15 products | Generated: 2026-10-09 02:31 UTC</p>
-</blockquote>
-<hr>
-<hr>
-<h3><strong>Today&#39;s Highlights</strong></h3>
-<p>The AI product landscape on Product Hunt today is dominated by intelligent automation and agent-driven workflows, with <em>IrisGo for Solopreneurs</em> leading the pack with 518 votes as a no-code AI workflow engine that runs autonomously after a single setup. <em>Velozity</em> stands out as a multiplayer AI office environment, blending team collaboration with agent-based productivity—hinting at a shift toward shared, dynamic AI workspaces. Notably, open-source models like <em>Mistral Large 4</em> and collaborative platforms like <em>Databench by Alkera</em> signal growing momentum in community-driven AI development. Meanwhile, niche but high-impact tools such as <em>Pegasus 1.6</em> (robot training from egocentric video) and <em>Ana by Vertice</em> (AI negotiation for SaaS purchases) showcase increasingly specialized AI applications.</p>
-<hr>
-<h3><strong>Top Products</strong></h3>
-<h4>🤖 AI Agents &amp; Assistants</h4>
-<table>
-<thead>
-<tr>
-<th align="left">Product</th>
-<th align="right">Votes</th>
-<th align="right">Comments</th>
-<th align="left">Summary</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left"><a href="https://www.producthunt.com/products/irisgo-public-beta?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+radar+%28ID%3A+279857%29">IrisGo for Solopreneurs</a> · <a href="https://www.producthunt.com/r/I2U7KF4RUGEZSO?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+radar+%28ID%3A+279857%29">site</a></td>
-<td align="right">518</td>
-<td align="right">116</td>
-<td align="left">&quot;Show it once, let it run&quot; — automates solopreneur workflows via AI agents, reducing manual task repetition. Stands out with its simplicity and autonomous execution.</td>
-</tr>
-<tr>
-<td align="left"><a href="https://www.producthunt.com/products/velozity-2?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+radar+%28ID%3A+279857%29">Velozity</a> · <a href="https://www.producthunt.com/r/LVDMUE35VIECA7?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+radar+%28ID%3A+279857%29">site</a></td>
-<td align="right">446</td>
-<td align="right">117</td>
-<td align="left">The Multiplayer AI Office — enables teams and AI agents to collaborate in real time. Its immersive, shared workspace model redefines team productivity.</td>
-</tr>
-<tr>
-<td align="left"><a href="https://www.producthunt.com/products/supademo?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+radar+%28ID%3A+279857%29">Supademo AI Demo Agent</a> · <a href="https://www.producthunt.com/r/DKMPPDCMFJ6WAD?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+radar+%28ID%3A+279857%29">site</a></td>
-<td align="right">170</td>
-<td align="right">15</td>
-<td align="left">Agentic demos that perform like top salespeople — automates B2B demo delivery without human overhead. Unique in combining AI agency with sales enablement.</td>
-</tr>
-</tbody></table>
-<h4>🛠️ Developer Tools</h4>
-<table>
-<thead>
-<tr>
-<th align="left">Product</th>
-<th align="right">Votes</th>
-<th align="right">Comments</th>
-<th align="left">Summary</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left"><a href="https://www.producthunt.com/products/devally?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+radar+%28ID%3A+279857%29">DevAlly AI Agent</a> · <a href="https://www.producthunt.com/r/FIEYWOB6J4URKK?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+radar+%28ID%3A+279857%29">site</a></td>
-<td align="right">94</td>
-<td align="right">19</td>
-<td align="left">Captures user journeys via natural language — streamlines UX feedback collection for developers. Offers an intuitive way to translate real-world behavior into actionable insights.</td>
-</tr>
-<tr>
-<td align="left"><a href="https://www.producthunt.com/products/mistral-7b?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+radar+%28ID%3A+279857%29">Mistral Large 4</a> · <a href="https://www.producthunt.com/r/4HOPTUUNTIQUEV?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+radar+%28ID%3A+279857%29">site</a></td>
-<td align="right">185</td>
-<td align="right">4</td>
-<td align="left">Mistral’s 1T-parameter open-weight frontier model — designed for advanced reasoning and code generation. A major leap in accessible, high-performance open-source LLMs.</td>
-</tr>
-</tbody></table>
-<h4>📊 AI Applications</h4>
-<table>
-<thead>
-<tr>
-<th align="left">Product</th>
-<th align="right">Votes</th>
-<th align="right">Comments</th>
-<th align="left">Summary</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left"><a href="https://www.producthunt.com/products/proofsource?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+radar+%28ID%3A+279857%29">Proofsource</a> · <a href="https://www.producthunt.com/r/F5QQULHBBA7JUG?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+radar+%28ID%3A+279857%29">site</a></td>
-<td align="right">125</td>
-<td align="right">23</td>
-<td align="left">AI search visibility with agents that fix SEO gaps — turns content strategy into self-correcting workflows. Combines analytics with proactive optimization.</td>
-</tr>
-<tr>
-<td align="left"><a href="https://www.producthunt.com/products/ana-by-vertice?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+radar+%28ID%3A+279857%29">Ana by Vertice</a> · <a href="https://www.producthunt.com/r/DCVXSQMGQLWIIT?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+radar+%28ID%3A+279857%29">site</a></td>
-<td align="right">86</td>
-<td align="right">8</td>
-<td align="left">AI negotiation agent for software procurement — automates pricing and contract talks. A novel application of AI in enterprise decision-making.</td>
-</tr>
-</tbody></table>
-<h4>🎨 Creative &amp; Content</h4>
-<table>
-<thead>
-<tr>
-<th align="left">Product</th>
-<th align="right">Votes</th>
-<th align="right">Comments</th>
-<th align="left">Summary</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left"><a href="https://www.producthunt.com/products/figma?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+radar+%28ID%3A+279857%29">Figma Agent</a> · <a href="https://www.producthunt.com/r/2BXP2WL4E54CXJ?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+radar+%28ID%3A+279857%29">site</a></td>
-<td align="right">196</td>
-<td align="right">9</td>
-<td align="left">Prompt, edit, and prototype directly in Figma — brings AI design capabilities into the canvas. Reduces context switching for designers.</td>
-</tr>
-<tr>
-<td align="left"><a href="https://www.producthunt.com/products/google?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+radar+%28ID%3A+279857%29">Nano Banana 2.1</a> · <a href="https://www.producthunt.com/r/YLTJ76CVRN4DCR?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+radar+%28ID%3A+279857%29">site</a></td>
-<td align="right">124</td>
-<td align="right">5</td>
-<td align="left">Google’s image model with sharper design and mask editing — enhances creative precision in generative image workflows. Ideal for UI/UX and photo refinement.</td>
-</tr>
-</tbody></table>
-<h4>🔧 Infrastructure &amp; Models</h4>
-<table>
-<thead>
-<tr>
-<th align="left">Product</th>
-<th align="right">Votes</th>
-<th align="right">Comments</th>
-<th align="left">Summary</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left"><a href="https://www.producthunt.com/products/alkera?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+radar+%28ID%3A+279857%29">Databench by Alkera</a> · <a href="https://www.producthunt.com/r/ZYWPFJPNUVCX7V?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+radar+%28ID%3A+279857%29">site</a></td>
-<td align="right">286</td>
-<td align="right">15</td>
-<td align="left">Open-source collaborative agentic workspace for data teams — enables real-time AI-powered data analysis. Built for transparency and team-scale intelligence.</td>
-</tr>
-<tr>
-<td align="left"><a href="https://www.producthunt.com/products/twelvelabs?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+radar+%28ID%3A+279857%29">Pegasus 1.6 by TwelveLabs</a> · <a href="https://www.producthunt.com/r/DDK7QBEPTPQHWM?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+radar+%28ID%3A+279857%29">site</a></td>
-<td align="right">270</td>
-<td align="right">21</td>
-<td align="left">Transforms egocentric video into robot training data — bridges consumer video and industrial robotics. Enables scalable AI training from everyday footage.</td>
-</tr>
-</tbody></table>
-<hr>
-<h3><strong>Market Signal</strong></h3>
-<p>Today’s Product Hunt AI launches reveal a strong pivot toward <strong>autonomous AI agents</strong> and <strong>collaborative intelligence</strong>, particularly in workflows involving solopreneurs (<em>IrisGo</em>) and remote teams (<em>Velozity</em>). The dominance of agent-centric tools suggests a maturing market where AI is no longer just assistive but truly operational. Notably, <strong>open-source infrastructure</strong> is gaining traction with <em>Databench by Alkera</em> and <em>Mistral Large 4</em>, signaling developer demand for transparent, customizable models. These launches reflect a trend toward <strong>specialized, vertical AI applications</strong>—from robot training (<em>Pegasus 1.6</em>) to procurement negotiation (<em>Ana by Vertice</em>)—indicating that general-purpose AI is giving way to domain-specific intelligence. The low number of comments on some high-vote products (e.g., <em>Mistral Large 4</em> with only 4) may suggest early-stage interest or technical audiences. Overall, the ecosystem is diversifying beyond chatbots and content generators into <strong>workflow orchestration, team collaboration, and AI-driven decision systems</strong>, marking a shift from interface augmentation to systemic automation.</p>
-<hr>
-<h3><strong>Worth Trying</strong></h3>
-<ol>
-<li><p><strong><a href="https://www.producthunt.com/products/irisgo-public-beta?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+radar+%28ID%3A+279857%29">IrisGo for Solopreneurs</a></strong> – If you&#39;re a solo founder drowning in repetitive tasks, IrisGo’s “show once, run forever” automation could be a game-changer. Its ability to handle end-to-end workflows with minimal input makes it ideal for testing AI-driven productivity at scale.</p>
-</li>
-<li><p><strong><a href="https://www.producthunt.com/products/alkera?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+radar+%28ID%3A+279857%29">Databench by Alkera</a></strong> – For data scientists and ML engineers, this open-source agentic workspace offers a rare glimpse into collaborative, real-time AI experimentation. It’s a must-try for anyone building or refining data pipelines with AI.</p>
-</li>
-<li><p><strong><a href="https://www.producthunt.com/products/figma?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+radar+%28ID%3A+279857%29">Figma Agent</a></strong> – Designers should test this immediately. Embedding AI directly into Figma reduces friction between ideation and execution, enabling rapid prototyping without leaving the canvas—perfect for fast-moving design sprints.</p>
-</li>
-</ol>
-<hr>
-<p><em>This digest is auto-generated by <a href="https://github.com/duanyytop/agents-radar">agents-radar</a>.</em></p>
 ]]></content:encoded>
     </item>
   </channel>

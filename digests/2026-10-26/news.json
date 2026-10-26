@@ -1,0 +1,146 @@
+{
+  "date": "2026-10-26",
+  "generated": "2026-10-26 00:42",
+  "sources": [
+    "钛媒体",
+    "爱范儿",
+    "少数派",
+    "小众软件"
+  ],
+  "fetchedCount": 18,
+  "summary": [
+    "Kimi K3.1 Pro 实测提速明显，国产大模型继续卷能力。",
+    "AI 算力需求推高面板与碳化硅成本，硬件供应链承压。",
+    "GitHub 热榜：本地语音克隆、安全审计、反 AI 设计技能走红。",
+    "60 元蓝牙遥控器玩转 vibe coding，开发工具更轻量。",
+    "中国 AI 芯片自主创新话题再受关注，封锁史被重提。"
+  ],
+  "sections": {
+    "llm": [
+      {
+        "title": "Kimi K3.1 Pro 实测：速度与思考能力结合",
+        "summary": "Kimi 新模型思考速度接近 flash，或预示其布局具身智能。",
+        "url": "https://www.tmtpost.com/8180725.html"
+      },
+      {
+        "title": "AI 大模型狂飙，面板行业扛不住了",
+        "summary": "算力需求推高供应链成本，面板厂商集体涨价，终端硬件或受影响。",
+        "url": "https://www.tmtpost.com/8180986.html"
+      },
+      {
+        "title": "英飞凌续约 Wolfspeed：碳化硅的下一关",
+        "summary": "AI 数据中心成碳化硅第二需求曲线，高压直流供电加速渗透。",
+        "url": "https://www.tmtpost.com/8180973.html"
+      },
+      {
+        "title": "从技术封锁到自主创新：中国科技自立自强",
+        "summary": "回顾巴统到瓦森纳的封锁史，理解当前 AI 芯片管制的由来。",
+        "url": "https://www.tmtpost.com/8181250.html"
+      }
+    ],
+    "agents": [
+      {
+        "title": "11 个 GitHub 项目：截图晾衣绳、关广告、黑话词典",
+        "summary": "涵盖远程控制、iOS 模拟器、AI 地理定位等开源工具，可直接上手。",
+        "url": "https://www.appinn.com/11-github-261025/"
+      }
+    ],
+    "creator": [
+      {
+        "title": "60 元打造 vibe coding 神器：小米蓝牙遥控器",
+        "summary": "用廉价蓝牙遥控器做快捷键，远程操控 AI 编程，桌面玩法新奇。",
+        "url": "https://sspai.com/post/114741"
+      }
+    ],
+    "office": []
+  },
+  "trending": [
+    {
+      "repo": "cloudflare/security-audit-skill",
+      "url": "https://github.com/cloudflare/security-audit-skill",
+      "stars": "46,884（今日 +2,878）",
+      "summary": "给编码智能体的多阶段安全审计技能，发现可机器验证，适合团队引入。"
+    },
+    {
+      "repo": "debpalash/VoiceStudio",
+      "url": "https://github.com/debpalash/VoiceStudio",
+      "stars": "86,807（今日 +1,592）",
+      "summary": "完全本地的开源 ElevenLabs 替代，支持语音克隆、配音与 646 种语言。"
+    },
+    {
+      "repo": "Nutlope/hallmark",
+      "url": "https://github.com/Nutlope/hallmark",
+      "stars": "33,756（今日 +1,317）",
+      "summary": "反 AI 味的设计技能，适用于 Claude Code、Cursor 与 Codex，提升审美。"
+    },
+    {
+      "repo": "pbakaus/impeccable",
+      "url": "https://github.com/pbakaus/impeccable",
+      "stars": "87,695（今日 +1,092）",
+      "summary": "一套设计语言，让 AI 编码助手产出更专业的设计，Rust 实现。"
+    },
+    {
+      "repo": "makecindy/cindy",
+      "url": "https://github.com/makecindy/cindy",
+      "stars": "4,862（今日 +675）",
+      "summary": "开箱即用的开源 AI Agent，TypeScript 编写，快速接入日常工作流。"
+    },
+    {
+      "repo": "TauricResearch/TradingAgents",
+      "url": "https://github.com/TauricResearch/TradingAgents",
+      "stars": "114,601（今日 +381）",
+      "summary": "多智能体 LLM 金融交易框架，展示代理协作在垂直领域的落地。"
+    },
+    {
+      "repo": "AgriciDaniel/claude-seo",
+      "url": "https://github.com/AgriciDaniel/claude-seo",
+      "stars": "20,860（今日 +197）",
+      "summary": "Claude Code 的通用 SEO 技能，含 26 个子技能，适合运营与内容团队。"
+    }
+  ],
+  "cards": [
+    {
+      "title": "Kimi K3.1 Pro 实测",
+      "description": "思考速度大幅提升，国产模型竞争进入新阶段。",
+      "url": "https://www.tmtpost.com/8180725.html",
+      "image": "https://images.tmtpost.com/uploads/images/2026/10/17e7862727ef47823e2fae113dce9b4c_1792925451.png"
+    },
+    {
+      "title": "面板涨价波及 AI 硬件",
+      "description": "大模型算力需求推高供应链成本，涨价潮蔓延。",
+      "url": "https://www.tmtpost.com/8180986.html",
+      "image": "https://images.tmtpost.com/uploads/images/2023/tkrss/3r2egf3.png"
+    },
+    {
+      "title": "11 个开源神器合集",
+      "description": "截图晾衣绳、关广告、黑话词典，个个能上手。",
+      "url": "https://www.appinn.com/11-github-261025/",
+      "image": "https://www.appinn.com/wp-content/uploads/2026/10/ChatGPT-E59BBEE5838F-2026E5B9B410E69C8825E697A5-17_42_24.jpg"
+    },
+    {
+      "title": "60 元 vibe coding 遥控器",
+      "description": "用小米蓝牙遥控器远程操控 AI 编程，玩法新奇。",
+      "url": "https://sspai.com/post/114741"
+    },
+    {
+      "title": "VoiceStudio 本地语音克隆",
+      "description": "开源 ElevenLabs 替代，646 种语言配音全本地跑。",
+      "url": "https://github.com/debpalash/VoiceStudio"
+    },
+    {
+      "title": "Cloudflare 安全审计技能",
+      "description": "给编码智能体的多阶段审计，发现可机器验证。",
+      "url": "https://github.com/cloudflare/security-audit-skill"
+    },
+    {
+      "title": "hallmark：反 AI 味设计",
+      "description": "让 Claude Code、Cursor 产出更有审美的界面。",
+      "url": "https://github.com/Nutlope/hallmark"
+    },
+    {
+      "title": "Cindy 开箱即用 Agent",
+      "description": "开源 AI Agent，想到就能做到，快速接入工作流。",
+      "url": "https://github.com/makecindy/cindy"
+    }
+  ]
+}
